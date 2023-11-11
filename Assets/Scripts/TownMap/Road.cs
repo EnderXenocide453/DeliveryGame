@@ -57,4 +57,16 @@ public class Road : MonoBehaviour
         _line.SetPositions(new Vector3[] { PointA.transform.position, PointB.transform.position });
         Debug.Log("Draw");
     }
+
+    public void DrawAsPathPart()
+    {
+        _line.startColor = Color.green;
+        _line.endColor = Color.green;
+    }
+
+    public void ResetVisualization()
+    {
+        _line.startColor = Color.white;
+        _line.endColor = Color.white;
+    }
 }

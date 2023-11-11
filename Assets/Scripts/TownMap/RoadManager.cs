@@ -10,8 +10,8 @@ public class RoadManager : MonoBehaviour
     [SerializeField] private GameObject wayPointPrefab;
     [SerializeField] private GameObject roadPrefab;
 
-    private Dictionary<int, WayPoint> _wayPoints;
-    private Dictionary<int, Road> _roads;
+    public Dictionary<int, WayPoint> WayPoints;
+    public Dictionary<int, Road> Roads;
 
     private void Awake()
     {
@@ -55,14 +55,14 @@ public class RoadManager : MonoBehaviour
     #region Инициализация карты
     public static void AddPoint(WayPoint wayPoint)
     {
-        instance._wayPoints.TryAdd(wayPoint.gameObject.GetInstanceID(), wayPoint);
+        instance.WayPoints.TryAdd(wayPoint.gameObject.GetInstanceID(), wayPoint);
 
         wayPoint.onDestroyed += instance.DeletePoint;
     }
 
     public static void AddRoad(Road road)
     {
-        instance._roads.TryAdd(road.gameObject.GetInstanceID(), road);
+        instance.Roads.TryAdd(road.gameObject.GetInstanceID(), road);
 
         road.onDestroyed += instance.DeleteRoad;
     }
@@ -74,99 +74,30 @@ public class RoadManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        _wayPoints = new Dictionary<int, WayPoint>();
-        _roads = new Dictionary<int, Road>();
+        WayPoints = new Dictionary<int, WayPoint>();
+        Roads = new Dictionary<int, Road>();
 
         Debug.Log("RoadManager initialized!");
     }
 
     private void CalculateConnections()
     {
-        foreach (var road in _roads.Values) {
+        foreach (var road in Roads.Values) {
             WayPoint a = road.PointA, b = road.PointB;
 
-            a.ConnectPoint(b);
-            b.ConnectPoint(a);
+            a.ConnectPoint(b, road);
+            b.ConnectPoint(a, road);
         }
     }
 
     private void DeletePoint(int id)
     {
-        _wayPoints.Remove(id);
+        WayPoints.Remove(id);
     }
 
     private void DeleteRoad(int id)
     {
-        _roads.Remove(id);
+        Roads.Remove(id);
     }
     #endregion
-}
-
-public class Path
-{
-    public float PathLength { get; private set; }
-
-    private List<WayPoint> _wayPoints;
-    private int _currentPoint = 0;
-
-    public WayPoint CurrentPoint { get => _wayPoints[_currentPoint]; }
-    public WayPoint NextPoint
-    {
-        get
-        {
-            if (_currentPoint + 1 == _wayPoints.Count)
-                return null;
-
-            return _wayPoints[_currentPoint + 1];
-        }
-    }
-
-    public bool TryAddPoint(WayPoint point)
-    {
-        if (_wayPoints == null) {
-            _wayPoints = new List<WayPoint>();
-            _wayPoints.Add(point);
-
-            return true;
-        } 
-        else if (_wayPoints[_wayPoints.Count - 1].Connections.ContainsKey(point.gameObject.GetInstanceID())) {
-            PathLength += Vector3.Distance(_wayPoints[_wayPoints.Count - 1].transform.position, point.transform.position);
-
-            _wayPoints.Add(point);
-
-            return true;
-        }
-
-        return false;
-    }
-
-    public void ClearPath()
-    {
-        _wayPoints = null;
-        _currentPoint = 0;
-        PathLength = 0;
-    }
-
-    public Path GetReversedPath()
-    {
-        Path reversed = new Path();
-        reversed.PathLength = PathLength;
-        reversed._currentPoint = _wayPoints.Count - _currentPoint - 1;
-
-        reversed._wayPoints = new List<WayPoint>();
-        foreach (var point in _wayPoints)
-            reversed._wayPoints.Insert(0, point);
-
-        return reversed;
-    }
-
-    public bool MoveToNext()
-    {
-        if (!NextPoint)
-            return false;
-
-        _currentPoint++;
-
-        return true;
-    }
 }
