@@ -2,10 +2,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float acceleration = 10;
-    [SerializeField] private float deceleration = 5;
-
-    [SerializeField] private float speed = 5;
+    [SerializeField] private float speed = 15;
     private float _dirX, _dirZ;
 
     [SerializeField] private Joystick joystick;
@@ -19,15 +16,18 @@ public class Movement : MonoBehaviour
     {
         _dirX = joystick.Horizontal * speed;
         _dirZ = joystick.Vertical * speed;
+
+        // Определение направления вращения вокруг вертикальной оси (ось Y)
+        Vector3 joystickDirection = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
+        if (joystickDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(joystickDirection, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * 500f);
+        }
     }
     private void FixedUpdate()
     {
         Vector3 move = new Vector3(_dirX, _rb.velocity.y, _dirZ);
         _rb.velocity = move * speed * Time.fixedDeltaTime;
     }
-    //private void Move()
-    //{
-    //    Vector3 velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.y);
-    //    velocity = Vector3.MoveTowards(velocity, )
-    //}
 }
