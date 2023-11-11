@@ -101,3 +101,72 @@ public class RoadManager : MonoBehaviour
     }
     #endregion
 }
+
+public class Path
+{
+    public float PathLength { get; private set; }
+
+    private List<WayPoint> _wayPoints;
+    private int _currentPoint = 0;
+
+    public WayPoint CurrentPoint { get => _wayPoints[_currentPoint]; }
+    public WayPoint NextPoint
+    {
+        get
+        {
+            if (_currentPoint + 1 == _wayPoints.Count)
+                return null;
+
+            return _wayPoints[_currentPoint + 1];
+        }
+    }
+
+    public bool TryAddPoint(WayPoint point)
+    {
+        if (_wayPoints == null) {
+            _wayPoints = new List<WayPoint>();
+            _wayPoints.Add(point);
+
+            return true;
+        } 
+        else if (_wayPoints[_wayPoints.Count - 1].Connections.ContainsKey(point.gameObject.GetInstanceID())) {
+            PathLength += Vector3.Distance(_wayPoints[_wayPoints.Count - 1].transform.position, point.transform.position);
+
+            _wayPoints.Add(point);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public void ClearPath()
+    {
+        _wayPoints = null;
+        _currentPoint = 0;
+        PathLength = 0;
+    }
+
+    public Path GetReversedPath()
+    {
+        Path reversed = new Path();
+        reversed.PathLength = PathLength;
+        reversed._currentPoint = _wayPoints.Count - _currentPoint - 1;
+
+        reversed._wayPoints = new List<WayPoint>();
+        foreach (var point in _wayPoints)
+            reversed._wayPoints.Insert(0, point);
+
+        return reversed;
+    }
+
+    public bool MoveToNext()
+    {
+        if (!NextPoint)
+            return false;
+
+        _currentPoint++;
+
+        return true;
+    }
+}

@@ -30,7 +30,7 @@ public class WayPoint : MonoBehaviour
 
     public void ConnectPoint(WayPoint connectPoint)
     {
-        if (Connections.TryAdd(connectPoint.GetInstanceID(), connectPoint))
+        if (Connections.TryAdd(connectPoint.gameObject.GetInstanceID(), connectPoint))
             connectPoint.onDestroyed += DisconnectPoint;
 
         Debug.Log("Connected!");
