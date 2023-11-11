@@ -5,22 +5,29 @@ using UnityEngine;
 
 public class RoadManager : MonoBehaviour
 {
+    public static RoadManager instance;
+
     [SerializeField] private GameObject wayPointPrefab;
     [SerializeField] private GameObject roadPrefab;
 
     private Dictionary<int, WayPoint> _wayPoints;
+    private Dictionary<int, Road> _roads;
 
     private void Awake()
     {
         Init();
     }
 
+    private void Start()
+    {
+        CalculateConnections();
+    }
+
+    #region Редактирование карты
     public WayPoint BuildPoint(Vector3 position)
     {
         WayPoint wayPoint = Instantiate(wayPointPrefab, position, Quaternion.identity, transform).GetComponent<WayPoint>();
         wayPoint.Manager = this;
-
-        wayPoint.onDestroyed += DeletePoint;
 
         return wayPoint;
     }
@@ -43,17 +50,54 @@ public class RoadManager : MonoBehaviour
 
         BuildRoad(a, b);
     }
+    #endregion
+
+    #region Инициализация карты
+    public static void AddPoint(WayPoint wayPoint)
+    {
+        instance._wayPoints.TryAdd(wayPoint.gameObject.GetInstanceID(), wayPoint);
+
+        wayPoint.onDestroyed += instance.DeletePoint;
+    }
+
+    public static void AddRoad(Road road)
+    {
+        instance._roads.TryAdd(road.gameObject.GetInstanceID(), road);
+
+        road.onDestroyed += instance.DeleteRoad;
+    }
 
     private void Init()
     {
-        if (_wayPoints == null)
-            _wayPoints = new Dictionary<int, WayPoint>();
+        if (!instance)
+            instance = this;
+        else
+            Destroy(gameObject);
+
+        _wayPoints = new Dictionary<int, WayPoint>();
+        _roads = new Dictionary<int, Road>();
 
         Debug.Log("RoadManager initialized!");
+    }
+
+    private void CalculateConnections()
+    {
+        foreach (var road in _roads.Values) {
+            WayPoint a = road.PointA, b = road.PointB;
+
+            a.ConnectPoint(b);
+            b.ConnectPoint(a);
+        }
     }
 
     private void DeletePoint(int id)
     {
         _wayPoints.Remove(id);
     }
+
+    private void DeleteRoad(int id)
+    {
+        _roads.Remove(id);
+    }
+    #endregion
 }

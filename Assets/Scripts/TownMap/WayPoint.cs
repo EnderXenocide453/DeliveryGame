@@ -12,11 +12,12 @@ public class WayPoint : MonoBehaviour
     private void Awake()
     {
         Connections = new Dictionary<int, WayPoint>();
+        RoadManager.AddPoint(this);
     }
 
     private void OnDestroy()
     {
-        onDestroyed?.Invoke(GetInstanceID());
+        onDestroyed?.Invoke(gameObject.GetInstanceID());
     }
 
     public WayPoint ExtrudePoint()
@@ -31,30 +32,14 @@ public class WayPoint : MonoBehaviour
     {
         if (Connections.TryAdd(connectPoint.GetInstanceID(), connectPoint))
             connectPoint.onDestroyed += DisconnectPoint;
+
+        Debug.Log("Connected!");
     }
 
     public void DisconnectPoint(int id)
     {
-        Debug.Log("Disconnected");
         Connections.Remove(id);
+
+        Debug.Log("Disconnected!");
     }
-
-    public PointSaveInfo GetSaveInfo()
-    {
-        PointSaveInfo info = new PointSaveInfo();
-        info.position = transform.position;
-
-        info.connections = new List<Vector3>();
-        foreach (var connection in Connections.Values)
-            info.connections.Add(connection.transform.position);
-
-        return info;
-    }
-}
-
-[System.Serializable]
-public class PointSaveInfo
-{
-    public Vector3 position;
-    public List<Vector3> connections;
 }
