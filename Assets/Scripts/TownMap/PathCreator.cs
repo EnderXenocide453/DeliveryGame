@@ -14,6 +14,8 @@ public class PathCreator : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
+
+        Input.multiTouchEnabled = false;
     }
 
     public static void ProcessWayPoint(WayPoint point)
@@ -23,23 +25,11 @@ public class PathCreator : MonoBehaviour
         }
 
         instance.ActiveCourier.CourierPath.TryAddPoint(point);
-        DrawActivePath();
     }
 
-    public static void DrawActivePath()
+    public static void SetActiveCourier(MapCourier courier)
     {
-        if (!instance.ActiveCourier)
-            return;
-
-        instance.ActiveCourier.CourierPath.EnableVisualization();
-    }
-
-    public static void ClearPathVisualization()
-    {
-        if (!instance.ActiveCourier)
-            return;
-
-        instance.ActiveCourier.CourierPath.DisableVisualization();
+        instance.ActiveCourier = courier;
     }
 }
 
@@ -109,33 +99,5 @@ public class MapPath
         _currentPoint++;
 
         return true;
-    }
-
-    public void EnableVisualization()
-    {
-        WayPoint a = _wayPoints[0];
-        a.DrawAsPathPart();
-
-        for (int i = 1; i < _wayPoints.Count; i++) {
-            WayPoint b = _wayPoints[i];
-            b.DrawAsPathPart();
-            b.Connections[a.gameObject.GetInstanceID()].road.DrawAsPathPart();
-
-            a = b;
-        }
-    }
-
-    public void DisableVisualization()
-    {
-        WayPoint a = _wayPoints[0];
-        a.ResetVisualization();
-
-        for (int i = 1; i < _wayPoints.Count; i++) {
-            WayPoint b = _wayPoints[i];
-            b.ResetVisualization();
-            b.Connections[a.gameObject.GetInstanceID()].road.ResetVisualization();
-
-            a = b;
-        }
     }
 }

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7fd194a265f25354fb7ecc5e82c29c3f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - StartPoint: {instanceID: 0}
+  - MapCourierPrefab: {fileID: 3345267287339550131, guid: e789c383204eb8a4496900ee18f8bbea,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
