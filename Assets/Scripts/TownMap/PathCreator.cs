@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(LineRenderer))]
 public class PathCreator : MonoBehaviour
 {
     public static PathCreator instance;
 
     [SerializeField] private MapCourier ActiveCourier;
+
+    private LineRenderer _pathLine;
 
     private void Awake()
     {
@@ -16,6 +19,7 @@ public class PathCreator : MonoBehaviour
             Destroy(gameObject);
 
         Input.multiTouchEnabled = false;
+        _pathLine = GetComponent<LineRenderer>();
     }
 
     public static void ProcessWayPoint(WayPoint point)
@@ -25,11 +29,38 @@ public class PathCreator : MonoBehaviour
         }
 
         instance.ActiveCourier.CourierPath.TryAddPoint(point);
+        
+        DisplayActivePath();
     }
 
     public static void SetActiveCourier(MapCourier courier)
     {
         instance.ActiveCourier = courier;
+
+        if (instance)
+            DisplayActivePath();
+        else
+            HideActivePath();
+    }
+
+    public static void DisplayActivePath()
+    {
+        if (!instance.ActiveCourier) {
+            HideActivePath();
+            return;
+        }
+
+        instance._pathLine.positionCount = instance.ActiveCourier.CourierPath.pointsCount;
+        for (int i = 0; i < instance._pathLine.positionCount; i++) {
+            instance._pathLine.SetPosition(i, instance.ActiveCourier.CourierPath.GetWayPointAtIndex(i).transform.position);
+        }
+
+        instance._pathLine.enabled = true;
+    }
+
+    public static void HideActivePath()
+    {
+        instance._pathLine.enabled = false;
     }
 }
 
@@ -52,6 +83,8 @@ public class MapPath
         }
     }
     public WayPoint LastPoint { get => _wayPoints[_wayPoints.Count - 1]; }
+
+    public int pointsCount { get => _wayPoints.Count; }
 
     public bool TryAddPoint(WayPoint point)
     {
@@ -100,4 +133,19 @@ public class MapPath
 
         return true;
     }
+
+    public WayPoint GetWayPointAtIndex(int id)
+    {
+        if (id >= _wayPoints.Count) {
+            Debug.LogWarning($"Путь не содержит точки с индексом {id}");
+            return null;
+        }
+
+        return _wayPoints[id];
+    }
+}
+
+public class MapPathVisualizer
+{
+
 }
