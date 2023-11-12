@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(LineRenderer))]
 public class MapCourier : MonoBehaviour
@@ -14,13 +15,16 @@ public class MapCourier : MonoBehaviour
     private Transform _courierHandler;
 
     private RectTransform _rectTransform;
-    private WayPoint _startPoint;
+    private Image _image;
     private LineRenderer _lastPointConnectionLine;
+    
+    private WayPoint _startPoint;
 
     private void Start()
     {
         _rectTransform = GetComponent<RectTransform>();
 
+        _image = GetComponent<Image>();
         _lastPointConnectionLine = GetComponent<LineRenderer>();
         _lastPointConnectionLine.enabled = false;
 
@@ -45,8 +49,12 @@ public class MapCourier : MonoBehaviour
     public void StartDrag()
     {
         _isDrag = true;
+
         _lastPointConnectionLine.enabled = true;
         transform.SetParent(_courierHandler.parent);
+        _image.raycastTarget = false;
+
+        PathCreator.SetActiveCourier(this);
     }
 
     public void StopDrag()
@@ -55,6 +63,9 @@ public class MapCourier : MonoBehaviour
 
         _lastPointConnectionLine.enabled = false;
         transform.SetParent(_courierHandler);
+        _image.raycastTarget = true;
+
+        PathCreator.SetActiveCourier(null);
     }
 
     private void FollowCoursor()
