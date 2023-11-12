@@ -21,6 +21,10 @@ public class MapCourierManager : MonoBehaviour
             Debug.LogWarning("Не назначена начальная точка!");
             return;
         }
+
+        AddCourier();
+        AddCourier();
+        AddCourier();
     }
 
     public static void AddCourier()
