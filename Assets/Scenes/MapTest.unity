@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd194a265f25354fb7ecc5e82c29c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPoint: {fileID: 904823021}
+  StartPoint: {fileID: 1113884177}
   MapCourierPrefab: {fileID: 3345267287339550131, guid: e789c383204eb8a4496900ee18f8bbea,
     type: 3}
   Couriers: []
@@ -2463,7 +2463,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1107725997
   m_SortingLayer: -2
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
@@ -2515,7 +2515,7 @@ LineRenderer:
       m_NumAlphaKeys: 2
     numCornerVertices: 3
     numCapVertices: 3
-    alignment: 0
+    alignment: 1
     textureMode: 0
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5

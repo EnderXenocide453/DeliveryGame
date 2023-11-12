@@ -24,7 +24,7 @@ public class PathCreator : MonoBehaviour
 
     public static void ProcessWayPoint(WayPoint point)
     {
-        if (!instance.ActiveCourier.CourierPath.LastPoint.IsConnected(point)) {
+        if (!instance.ActiveCourier.IsAwaits || !instance.ActiveCourier.CourierPath.LastPoint.IsConnected(point)) {
             return;
         }
 
@@ -69,7 +69,9 @@ public class MapPath
     public float PathLength { get; private set; }
 
     private List<WayPoint> _wayPoints;
+    private List<float> _distances;
     private int _currentPoint = 0;
+    private float _currentDistance = 0;
 
     public WayPoint CurrentPoint { get => _wayPoints[_currentPoint]; }
     public WayPoint NextPoint
@@ -86,17 +88,28 @@ public class MapPath
 
     public int pointsCount { get => _wayPoints.Count; }
 
+    public delegate void PathPointEventHandler(WayPoint point);
+    public event PathPointEventHandler onReachedPoint;
+
+    public delegate void PathEventHandler();
+    public event PathEventHandler onPathEnds;
+
     public bool TryAddPoint(WayPoint point)
     {
         if (_wayPoints == null) {
             _wayPoints = new List<WayPoint>();
             _wayPoints.Add(point);
 
+            _distances = new List<float>();
+            _distances.Add(0);
+
             return true;
         } else if (_wayPoints[_wayPoints.Count - 1].IsConnected(point)) {
-            PathLength += Vector3.Distance(_wayPoints[_wayPoints.Count - 1].transform.position, point.transform.position);
+            float delta = Vector3.Distance(_wayPoints[_wayPoints.Count - 1].transform.position, point.transform.position);
+            PathLength += delta;
 
             _wayPoints.Add(point);
+            _distances.Add(PathLength);
 
             return true;
         }
@@ -107,6 +120,8 @@ public class MapPath
     public void ClearPath()
     {
         _wayPoints = new List<WayPoint>() { CurrentPoint };
+        _distances = new List<float>();
+
         _currentPoint = 0;
         PathLength = 0;
     }
@@ -116,22 +131,16 @@ public class MapPath
         MapPath reversed = new MapPath();
         reversed.PathLength = PathLength;
         reversed._currentPoint = _wayPoints.Count - _currentPoint - 1;
+        reversed._currentDistance = PathLength - _currentDistance;
 
         reversed._wayPoints = new List<WayPoint>();
-        foreach (var point in _wayPoints)
+        reversed._distances = _distances;
+
+        foreach (var point in _wayPoints) {
             reversed._wayPoints.Insert(0, point);
+        }
 
         return reversed;
-    }
-
-    public bool MoveToNext()
-    {
-        if (!NextPoint)
-            return false;
-
-        _currentPoint++;
-
-        return true;
     }
 
     public WayPoint GetWayPointAtIndex(int id)
@@ -143,9 +152,30 @@ public class MapPath
 
         return _wayPoints[id];
     }
-}
 
-public class MapPathVisualizer
-{
+    public Vector3 MoveTowards(float distance)
+    {
+        float newDistance = Mathf.Clamp(_currentDistance + distance, 0, PathLength);
 
+        for (int i = _currentPoint; i < _wayPoints.Count; i++) {
+            if (_distances[i] < _currentDistance)
+                continue;
+
+            if (_distances[i] > newDistance)
+                break;
+
+            _currentPoint = i;
+            onReachedPoint?.Invoke(CurrentPoint);
+        }
+
+        _currentDistance = newDistance;
+        if (_currentDistance == PathLength) {
+            onPathEnds?.Invoke();
+            return LastPoint.transform.position;
+        }
+
+        float delta = (_currentDistance - _distances[_currentPoint]) / (_distances[_currentPoint + 1] - _distances[_currentPoint]);
+
+        return Vector3.Lerp(CurrentPoint.transform.position, NextPoint.transform.position, delta);
+    }
 }

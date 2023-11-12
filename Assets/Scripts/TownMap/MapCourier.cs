@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MapCourier : MonoBehaviour
 {
     [SerializeField] private float Speed = 0.2f;
+    [SerializeField, Range(0, 1)] private float PathProgress = 0;
 
     public MapPath CourierPath;
     public bool IsAwaits { get; private set; } = true;
@@ -38,6 +39,13 @@ public class MapCourier : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (!IsAwaits) {
+            Move(Time.fixedDeltaTime);
+        }
+    }
+
     public void SetStartPoint(WayPoint point)
     {
         _startPoint = point;
@@ -48,6 +56,9 @@ public class MapCourier : MonoBehaviour
 
     public void StartDrag()
     {
+        if (!IsAwaits)
+            return;
+
         _isDrag = true;
 
         _lastPointConnectionLine.enabled = true;
@@ -59,13 +70,44 @@ public class MapCourier : MonoBehaviour
 
     public void StopDrag()
     {
+        if (!IsAwaits)
+            return;
+
         _isDrag = false;
 
         _lastPointConnectionLine.enabled = false;
-        transform.SetParent(_courierHandler);
+        //transform.SetParent(_courierHandler);
         _image.raycastTarget = true;
 
-        PathCreator.SetActiveCourier(null);
+        //PathCreator.SetActiveCourier(null);
+        StartDelivery();
+    }
+
+    public void StartDelivery()
+    {
+        IsAwaits = false;
+        CourierPath.onPathEnds += ComeBack;
+    }
+
+    public void ComeBack()
+    {
+        CourierPath = CourierPath.GetReversedPath();
+
+        CourierPath.onPathEnds -= ComeBack;
+        CourierPath.onPathEnds += EndDelivery;
+    }
+
+    private void EndDelivery()
+    {
+        IsAwaits = true;
+        transform.parent = _courierHandler;
+
+        CourierPath.onPathEnds -= EndDelivery;
+    }
+
+    private void Move(float deltaTime)
+    {
+        transform.position = CourierPath.MoveTowards(deltaTime * Speed) - Vector3.forward * 0.01f;
     }
 
     private void FollowCoursor()
