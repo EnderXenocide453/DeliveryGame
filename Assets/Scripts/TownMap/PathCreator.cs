@@ -120,9 +120,10 @@ public class MapPath
     public void ClearPath()
     {
         _wayPoints = new List<WayPoint>() { CurrentPoint };
-        _distances = new List<float>();
+        _distances = new List<float>() { 0 };
 
         _currentPoint = 0;
+        _currentDistance = 0;
         PathLength = 0;
     }
 

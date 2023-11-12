@@ -103,6 +103,7 @@ public class MapCourier : MonoBehaviour
         transform.parent = _courierHandler;
 
         CourierPath.onPathEnds -= EndDelivery;
+        CourierPath.ClearPath();
     }
 
     private void Move(float deltaTime)
