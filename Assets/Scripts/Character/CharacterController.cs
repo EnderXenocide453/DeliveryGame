@@ -8,6 +8,8 @@ public class CharacterController : MonoBehaviour
     [Header("Put to the fridge")]
      public Stash stash;
     [SerializeField] private Product product;
+    [Header("Give an order")]
+    [SerializeField] private Stall orderRequet;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("CollectFood"))
@@ -19,7 +21,6 @@ public class CharacterController : MonoBehaviour
             Debug.Log("Stash set");
             stash.OnPutProductButtonClick();
         }
-
     }
     private void OnTriggerExit(Collider other)
     {
@@ -28,6 +29,7 @@ public class CharacterController : MonoBehaviour
             collectFoodButton.SetActive(false);
         }
     }
+
     public void TakeFood(GameObject foodTypePrefab)
     {
         product.productType = foodTypePrefab.name;
