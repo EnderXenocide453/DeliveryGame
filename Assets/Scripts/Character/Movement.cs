@@ -17,7 +17,6 @@ public class Movement : MonoBehaviour
         _dirX = joystick.Horizontal * speed;
         _dirZ = joystick.Vertical * speed;
 
-        // Определение направления вращения вокруг вертикальной оси (ось Y)
         Vector3 joystickDirection = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
         if (joystickDirection != Vector3.zero)
         {
