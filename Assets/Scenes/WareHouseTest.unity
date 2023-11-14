@@ -2831,31 +2831,31 @@ MonoBehaviour:
     Name: "\u0411\u0443\u0440\u0433\u0435\u0440"
     Count: 0
     Cost: 0
-    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Prefab: {fileID: 767117592969082530, guid: 3b7ebb5156f026d4d90f3cd5663dc590, type: 3}
     Icon: {fileID: 0}
   - Type: 1
     Name: "\u041F\u0438\u0446\u0446\u0430"
     Count: 0
     Cost: 0
-    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Prefab: {fileID: 767117592969082530, guid: ed6daba385c73a04db9e43f2293e7d18, type: 3}
     Icon: {fileID: 0}
   - Type: 2
     Name: "\u0421\u0443\u0448\u0438"
     Count: 0
     Cost: 0
-    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Prefab: {fileID: 767117592969082530, guid: a11e497496a1e29468224dac2173befb, type: 3}
     Icon: {fileID: 0}
   - Type: 3
     Name: "\u041D\u0430\u043F\u0438\u0442\u043E\u043A"
     Count: 0
     Cost: 0
-    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Prefab: {fileID: 767117592969082530, guid: af3d52de2b5e48e45b6d6a66fcfcc832, type: 3}
     Icon: {fileID: 0}
   - Type: 4
     Name: "\u0426\u0432\u0435\u0442\u044B"
     Count: 0
     Cost: 0
-    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Prefab: {fileID: 767117592969082530, guid: 5a00f6015d5293441820a17ec1a279df, type: 3}
     Icon: {fileID: 0}
   ProductDelay: 1
 --- !u!4 &877215930

@@ -33,7 +33,9 @@ public class GoodsStackItem : MonoBehaviour
             Debug.Log("parent is null");
             ID = 0;
             transform.localPosition = Vector3.zero;
-            
+
+            _connectedItem?.UpdatePosition();
+
             return;
         }
 
@@ -41,8 +43,7 @@ public class GoodsStackItem : MonoBehaviour
         parent._connectedItem = this;
 
         ID = parent.ID + 1;
-
-        transform.position = parent.Connector.position;
+        UpdatePosition();
     }
 
     public void Disconnect()
@@ -53,5 +54,11 @@ public class GoodsStackItem : MonoBehaviour
         _connectedItem = null;
         _parent = null;
         //transform.parent = null;
+    }
+
+    public void UpdatePosition()
+    {
+        transform.position = _parent.Connector.position;
+        _connectedItem?.UpdatePosition();
     }
 }

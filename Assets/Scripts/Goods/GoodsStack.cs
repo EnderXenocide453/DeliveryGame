@@ -43,9 +43,9 @@ public class GoodsStack : GoodsVisualizer
             if (list.Count == 0)
                 return null;
 
-            var item = list[0];
+            var item = list[list.Count - 1];
             
-            list.RemoveAt(0);
+            list.RemoveAt(list.Count - 1);
             Debug.Log(item.ID);
             _itemList.RemoveAt(item.ID);
 
