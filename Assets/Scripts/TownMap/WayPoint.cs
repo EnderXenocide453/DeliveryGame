@@ -50,8 +50,6 @@ public class WayPoint : MonoBehaviour
     {
         if (Connections.TryAdd(point.gameObject.GetInstanceID(), (point, road)))
             point.onDestroyed += DisconnectPoint;
-
-        Debug.Log("Connected!");
     }
 
     public void DisconnectPoint(int id)

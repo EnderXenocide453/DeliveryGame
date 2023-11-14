@@ -397,12 +397,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 46
       objectReference: {fileID: 0}
+    - target: {fileID: 6534786952062608166, guid: 59df1f8143774f240a27947f6103cc08,
+        type: 3}
+      propertyPath: m_Name
+      value: CourierContainer
+      objectReference: {fileID: 0}
     - target: {fileID: 8343425874196410352, guid: 59df1f8143774f240a27947f6103cc08,
         type: 3}
       propertyPath: m_Name
       value: MapCanvas
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2300847591978325497, guid: 59df1f8143774f240a27947f6103cc08, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2107795331305276689, guid: 59df1f8143774f240a27947f6103cc08,
@@ -445,7 +451,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2068523908}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8343425874196410352, guid: 59df1f8143774f240a27947f6103cc08,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1136228429}
   m_SourcePrefab: {fileID: 100100000, guid: 59df1f8143774f240a27947f6103cc08, type: 3}
 --- !u!1 &460363220
 GameObject:
@@ -539,6 +549,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &652624856 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8012854089947149053, guid: 59df1f8143774f240a27947f6103cc08,
+    type: 3}
+  m_PrefabInstance: {fileID: 455607690}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &720854059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,6 +1157,30 @@ RectTransform:
   m_AnchoredPosition: {x: -22, y: 368}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1136228423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8343425874196410352, guid: 59df1f8143774f240a27947f6103cc08,
+    type: 3}
+  m_PrefabInstance: {fileID: 455607690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1136228429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136228423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd194a265f25354fb7ecc5e82c29c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveDelay: 0.1
+  StartPoint: {fileID: 2051267205}
+  MapCourierPrefab: {fileID: 3345267287339550131, guid: e789c383204eb8a4496900ee18f8bbea,
+    type: 3}
+  Couriers: []
+  CourierContainer: {fileID: 652624856}
 --- !u!1 &1209481181
 GameObject:
   m_ObjectHideFlags: 0

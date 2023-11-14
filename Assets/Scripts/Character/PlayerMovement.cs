@@ -1,6 +1,6 @@
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
-public class Movement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 15;
     private float _dirX, _dirZ;

@@ -76,8 +76,6 @@ public class RoadManager : MonoBehaviour
 
         WayPoints = new Dictionary<int, WayPoint>();
         Roads = new Dictionary<int, Road>();
-
-        Debug.Log("RoadManager initialized!");
     }
 
     private void CalculateConnections()

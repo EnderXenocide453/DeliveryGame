@@ -55,7 +55,6 @@ public class Road : MonoBehaviour
     private void Draw()
     {
         _line.SetPositions(new Vector3[] { PointA.transform.position, PointB.transform.position });
-        Debug.Log("Draw");
     }
 
     public void DrawAsPathPart()

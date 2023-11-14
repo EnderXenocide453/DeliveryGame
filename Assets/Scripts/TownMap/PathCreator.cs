@@ -93,6 +93,7 @@ public class MapPath
 
     public delegate void PathEventHandler();
     public event PathEventHandler onPathEnds;
+    public event PathEventHandler onDistanceChanged;
 
     public bool TryAddPoint(WayPoint point)
     {
@@ -125,6 +126,8 @@ public class MapPath
         _currentPoint = 0;
         _currentDistance = 0;
         PathLength = 0;
+
+        onPathEnds = null;
     }
 
     public MapPath GetReversedPath()
@@ -141,6 +144,9 @@ public class MapPath
             reversed._wayPoints.Insert(0, point);
         }
 
+        reversed.onDistanceChanged = onDistanceChanged;
+        reversed.onReachedPoint = onReachedPoint;
+
         return reversed;
     }
 
@@ -152,6 +158,15 @@ public class MapPath
         }
 
         return _wayPoints[id];
+    }
+
+    public Vector3 GetCurrentPosition()
+    {
+        if (_currentDistance == PathLength)
+            return LastPoint.transform.position;
+
+        float delta = (_currentDistance - _distances[_currentPoint]) / (_distances[_currentPoint + 1] - _distances[_currentPoint]);
+        return Vector3.Lerp(CurrentPoint.transform.position, NextPoint.transform.position, delta);
     }
 
     public Vector3 MoveTowards(float distance)
@@ -170,6 +185,8 @@ public class MapPath
         }
 
         _currentDistance = newDistance;
+        onDistanceChanged?.Invoke();
+
         if (_currentDistance == PathLength) {
             onPathEnds?.Invoke();
             return LastPoint.transform.position;

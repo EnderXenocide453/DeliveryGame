@@ -6,12 +6,12 @@ using UnityEngine.UI;
 [RequireComponent(typeof(LineRenderer))]
 public class MapCourier : MonoBehaviour
 {
-    [SerializeField] private float Speed = 0.2f;
-    [SerializeField, Range(0, 1)] private float PathProgress = 0;
+    public float Speed = 0.2f;
+    public bool IsAwaits = true;
 
     public MapPath CourierPath;
-    public bool IsAwaits { get; private set; } = true;
-    
+    public Coroutine MoveCoroutine;
+
     private bool _isDrag;
     private Transform _courierHandler;
 
@@ -30,6 +30,8 @@ public class MapCourier : MonoBehaviour
         _lastPointConnectionLine.enabled = false;
 
         _courierHandler = transform.parent;
+
+        CourierPath.onDistanceChanged += UpdatePosition;
     }
 
     private void Update()
@@ -39,11 +41,9 @@ public class MapCourier : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void OnEnable()
     {
-        if (!IsAwaits) {
-            Move(Time.fixedDeltaTime);
-        }
+        UpdatePosition();
     }
 
     public void SetStartPoint(WayPoint point)
@@ -76,39 +76,28 @@ public class MapCourier : MonoBehaviour
         _isDrag = false;
 
         _lastPointConnectionLine.enabled = false;
-        //transform.SetParent(_courierHandler);
+        
         _image.raycastTarget = true;
 
-        //PathCreator.SetActiveCourier(null);
-        StartDelivery();
+        if (CourierPath.PathLength == 0) {
+            transform.SetParent(_courierHandler);
+            PathCreator.SetActiveCourier(null);
+        }
+        else {
+            StartDelivery();
+        }
     }
 
     public void StartDelivery()
     {
-        IsAwaits = false;
-        CourierPath.onPathEnds += ComeBack;
+        MapCourierManager.StartDelivery(this);
     }
 
-    public void ComeBack()
+    public void UpdatePosition()
     {
-        CourierPath = CourierPath.GetReversedPath();
-
-        CourierPath.onPathEnds -= ComeBack;
-        CourierPath.onPathEnds += EndDelivery;
-    }
-
-    private void EndDelivery()
-    {
-        IsAwaits = true;
-        transform.parent = _courierHandler;
-
-        CourierPath.onPathEnds -= EndDelivery;
-        CourierPath.ClearPath();
-    }
-
-    private void Move(float deltaTime)
-    {
-        transform.position = CourierPath.MoveTowards(deltaTime * Speed) - Vector3.forward * 0.01f;
+        Debug.Log("a");
+        if (!IsAwaits)
+            transform.position = CourierPath.GetCurrentPosition() - Vector3.forward * 0.01f;
     }
 
     private void FollowCoursor()
