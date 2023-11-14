@@ -45,10 +45,9 @@ public class GoodsManager : MonoBehaviour
         return instance.StartCoroutine(instance.SpawnGoods(target, type, instance.ProductDelay));
     }
 
-    public static Product GetProduct(ProductType type)
+    public static Product GetProductInfo(ProductType type)
     {
         instance._generatedProducts.TryGetValue(type, out var product);
-        product = product.Clone;
 
         return product;
     }
@@ -66,7 +65,7 @@ public class GoodsManager : MonoBehaviour
             return;
 
         foreach (var product in productsInfo) {
-            if (_generatedProducts.TryAdd(product.Type, new Product(product.Type, product.Name, 0, product.Cost)))
+            if (_generatedProducts.TryAdd(product.Type, product))
                 UsedProductTypes.Add(product.Type);
         }
     }

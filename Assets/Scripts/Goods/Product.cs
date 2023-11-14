@@ -1,3 +1,5 @@
+using UnityEngine;
+
 [System.Serializable]
 public class Product
 {
@@ -6,15 +8,8 @@ public class Product
     public int Count;
     public float Cost;
 
-    public Product Clone { get => new Product(Type, Name, Count, Cost); }
-
-    public Product(ProductType type, string name, int count, float cost)
-    {
-        Type = type;
-        Name = name;
-        Count = count;
-        Cost = cost;
-    }
+    public GameObject Prefab;
+    public Sprite Icon;
 }
 
 public enum ProductType

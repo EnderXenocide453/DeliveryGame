@@ -6,6 +6,7 @@ public class Storage : MonoBehaviour
 {
     [SerializeField] private int MaxCount = 5;
     [SerializeField] private bool AllowAllTypes;
+    [SerializeField] private GoodsVisualizer GoodsVisualizer;
 
     /// <summary>
     /// Допустимые к хранению типы товара
@@ -44,13 +45,16 @@ public class Storage : MonoBehaviour
 
     public int AddProduct(ProductType type, int count)
     {
-        Debug.Log($"Количество {GoodsManager.GetProduct(type).Name} увеличивается на {count}");
+        GoodsVisualizer?.AddItem(type);
+
         return SetProductCount(type, GetProductCount(type) + count);
     }
 
     public int RemoveProduct(ProductType type, int count)
     {
-        Debug.Log($"Количество {GoodsManager.GetProduct(type).Name} уменьшается на {count}");
+        //Пока что удаляем объект со сцены
+        Destroy(GoodsVisualizer?.RemoveItem(type).gameObject);
+
         return SetProductCount(type, GetProductCount(type) - count);
     }
 
@@ -69,8 +73,6 @@ public class Storage : MonoBehaviour
 
         _storedProducts[type] = allowedCount;
         CurrentCount += delta;
-
-        Debug.Log($"Количество {GoodsManager.GetProduct(type).Name} теперь {allowedCount}");
 
         return count - allowedCount;
     }

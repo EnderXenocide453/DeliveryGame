@@ -1740,6 +1740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxCount: 5
   AllowAllTypes: 0
+  GoodsVisualizer: {fileID: 0}
   AllowedTypes: 02000000
 --- !u!65 &599649396
 BoxCollider:
@@ -2830,22 +2831,32 @@ MonoBehaviour:
     Name: "\u0411\u0443\u0440\u0433\u0435\u0440"
     Count: 0
     Cost: 0
+    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Icon: {fileID: 0}
   - Type: 1
     Name: "\u041F\u0438\u0446\u0446\u0430"
     Count: 0
     Cost: 0
+    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Icon: {fileID: 0}
   - Type: 2
     Name: "\u0421\u0443\u0448\u0438"
     Count: 0
     Cost: 0
+    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Icon: {fileID: 0}
   - Type: 3
     Name: "\u041D\u0430\u043F\u0438\u0442\u043E\u043A"
     Count: 0
     Cost: 0
+    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Icon: {fileID: 0}
   - Type: 4
     Name: "\u0426\u0432\u0435\u0442\u044B"
     Count: 0
     Cost: 0
+    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Icon: {fileID: 0}
   ProductDelay: 1
 --- !u!4 &877215930
 Transform:
@@ -3547,6 +3558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxCount: 5
   AllowAllTypes: 0
+  GoodsVisualizer: {fileID: 0}
   AllowedTypes: 03000000
 --- !u!65 &1138078303
 BoxCollider:
@@ -4561,6 +4573,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 435334914}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1481624009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1481624010}
+  - component: {fileID: 1481624011}
+  m_Layer: 3
+  m_Name: StackHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1481624010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481624009}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.99}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1727266726}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1481624011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481624009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec92bd08ffa8ed4e9a6b338a2ef14c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1523499030
 GameObject:
   m_ObjectHideFlags: 0
@@ -4595,6 +4651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxCount: 5
   AllowAllTypes: 0
+  GoodsVisualizer: {fileID: 0}
   AllowedTypes: 01000000
 --- !u!65 &1523499032
 BoxCollider:
@@ -5172,6 +5229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxCount: 5
   AllowAllTypes: 0
+  GoodsVisualizer: {fileID: 0}
   AllowedTypes: 00000000
 --- !u!65 &1718826500
 BoxCollider:
@@ -5404,11 +5462,12 @@ Transform:
   m_GameObject: {fileID: 1727266720}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.32, y: 1.229, z: 5.48}
+  m_LocalPosition: {x: -2.57, y: 1.229, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 621085026}
+  - {fileID: 1481624010}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1727266727
@@ -5425,6 +5484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxCount: 5
   AllowAllTypes: 1
+  GoodsVisualizer: {fileID: 1481624011}
   AllowedTypes: 
 --- !u!1 &1776607021
 GameObject:
@@ -6071,6 +6131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxCount: 5
   AllowAllTypes: 0
+  GoodsVisualizer: {fileID: 0}
   AllowedTypes: 04000000
 --- !u!65 &2023711675
 BoxCollider:
