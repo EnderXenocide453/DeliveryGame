@@ -32,6 +32,7 @@ public class MapCourier : MonoBehaviour
         _courierHandler = transform.parent;
 
         CourierPath.onDistanceChanged += UpdatePosition;
+        CourierPath.onReachedPoint += (WayPoint point) => Debug.Log("Достигнута точка");
     }
 
     private void Update()

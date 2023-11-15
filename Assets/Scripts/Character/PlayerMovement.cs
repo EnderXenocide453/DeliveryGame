@@ -3,7 +3,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 15;
-    private float _dirX, _dirZ;
+    [SerializeField] private float RotationSpeed = 360;
+    private Vector3 _moveDir;
 
     [SerializeField] private Joystick joystick;
 
@@ -14,19 +15,16 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        _dirX = joystick.Horizontal * speed;
-        _dirZ = joystick.Vertical * speed;
+        _moveDir = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
 
-        Vector3 joystickDirection = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
-        if (joystickDirection != Vector3.zero)
+        if (_moveDir != Vector3.zero)
         {
-            Quaternion toRotation = Quaternion.LookRotation(joystickDirection, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * 500f);
+            Quaternion toRotation = Quaternion.LookRotation(_moveDir, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * RotationSpeed);
         }
     }
     private void FixedUpdate()
     {
-        Vector3 move = new Vector3(_dirX, _rb.velocity.y, _dirZ);
-        _rb.velocity = move * speed * Time.fixedDeltaTime;
+        _rb.velocity = _moveDir * speed * Time.fixedDeltaTime;
     }
 }
