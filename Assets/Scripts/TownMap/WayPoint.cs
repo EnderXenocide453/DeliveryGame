@@ -2,12 +2,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(GoodsIconsVisualizer))]
 public class WayPoint : MonoBehaviour
 {
-    public Dictionary<int, (WayPoint point, Road road)> Connections;
+    public bool isStartPoint;
+
+    public Dictionary<int, (WayPoint point, Road road)> connections;
     public RoadManager Manager;
 
+    public Order pointOrder { get; private set; } = null;
+
     private Image _image;
+    private GoodsIconsVisualizer _iconsVisualizer;
 
     public delegate void WayPointHandler(int id);
     public event WayPointHandler onDestroyed;
@@ -15,15 +21,30 @@ public class WayPoint : MonoBehaviour
 
     private void Awake()
     {
-        Connections = new Dictionary<int, (WayPoint point, Road road)>();
+        connections = new Dictionary<int, (WayPoint point, Road road)>();
         RoadManager.AddPoint(this);
 
         _image = GetComponent<Image>();
+        _iconsVisualizer = GetComponent<GoodsIconsVisualizer>();
+
+        if (isStartPoint)
+            MapCourierManager.SetStartPoint(this);
     }
 
     private void OnDestroy()
     {
         onDestroyed?.Invoke(gameObject.GetInstanceID());
+        onDestroyed = null;
+        onPointerEnter = null;
+    }
+
+    public void SetOrder(Order order)
+    {
+        pointOrder = order;
+        order.onFinished += RemoveOrder;
+
+        //Вызов метода отрисовки
+        _iconsVisualizer.VisualizeGoods(order.OrderInfo);
     }
 
     public void PointerEnter()
@@ -35,7 +56,7 @@ public class WayPoint : MonoBehaviour
 
     public bool IsConnected(WayPoint other)
     {
-        return Connections.ContainsKey(other.gameObject.GetInstanceID());
+        return connections.ContainsKey(other.gameObject.GetInstanceID());
     }
 
     public WayPoint ExtrudePoint()
@@ -48,24 +69,23 @@ public class WayPoint : MonoBehaviour
 
     public void ConnectPoint(WayPoint point, Road road)
     {
-        if (Connections.TryAdd(point.gameObject.GetInstanceID(), (point, road)))
+        if (connections.TryAdd(point.gameObject.GetInstanceID(), (point, road)))
             point.onDestroyed += DisconnectPoint;
     }
 
     public void DisconnectPoint(int id)
     {
-        Connections.Remove(id);
+        connections.Remove(id);
 
         Debug.Log("Disconnected!");
     }
 
-    public void DrawAsPathPart()
+    private void RemoveOrder()
     {
-        _image.color = Color.green;
-    }
+        pointOrder = null;
+        //Убираем иконки заказа
+        _iconsVisualizer.Clear();
 
-    public void ResetVisualization()
-    {
-        _image.color = Color.white;
+        OrdersManager.AddFreePoint(this);
     }
 }

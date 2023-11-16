@@ -12,6 +12,8 @@ public class MapCourier : MonoBehaviour
     public MapPath CourierPath;
     public Coroutine MoveCoroutine;
 
+    private int _cash;
+
     private bool _isDrag;
     private Transform _courierHandler;
 
@@ -20,6 +22,19 @@ public class MapCourier : MonoBehaviour
     private LineRenderer _lastPointConnectionLine;
     
     private WayPoint _startPoint;
+
+    private Courier _worldCourier;
+
+    public int Cash
+    {
+        get => _cash;
+
+        set
+        {
+            _cash = value;
+            //Вывод на экран
+        }
+    }
 
     private void Start()
     {
@@ -32,7 +47,7 @@ public class MapCourier : MonoBehaviour
         _courierHandler = transform.parent;
 
         CourierPath.onDistanceChanged += UpdatePosition;
-        CourierPath.onReachedPoint += (WayPoint point) => Debug.Log("Достигнута точка");
+        CourierPath.onReachedPoint += CheckWayPoint;
     }
 
     private void Update()
@@ -108,4 +123,13 @@ public class MapCourier : MonoBehaviour
         _rectTransform.position = _rectTransform.TransformPoint(position);
         _lastPointConnectionLine.SetPositions(new Vector3[] { transform.position, CourierPath.LastPoint.transform.position });
     }
+
+    private void CheckWayPoint(WayPoint point)
+    {
+        if (point.pointOrder != null) {
+            Cash += point.pointOrder.TakeOrderFromCourier(_worldCourier);
+        }
+    }
+
+    //Вывод на экран иконок ресурсов
 }

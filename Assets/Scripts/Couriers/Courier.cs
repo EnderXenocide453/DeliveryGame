@@ -64,8 +64,6 @@ public class Courier : MonoBehaviour
             return;
         }
 
-        Debug.Log(_moveDir.magnitude);
-
         _isMove = true;
 
         Quaternion toRotation = Quaternion.LookRotation(_moveDir, Vector3.up);

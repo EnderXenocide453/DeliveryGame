@@ -6,7 +6,7 @@ public class Product
     public ProductType Type;
     public string Name;
     public int Count;
-    public float Cost;
+    public int Cost;
 
     public GameObject Prefab;
     public Sprite Icon;

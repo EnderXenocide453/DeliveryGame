@@ -6,12 +6,13 @@ public class MapCourierManager : MonoBehaviour
 {
     public static MapCourierManager instance;
 
-    [SerializeField] float MoveDelay = 0.1f;
-    [SerializeField] private WayPoint StartPoint;
+    [SerializeField] float moveDelay = 0.1f;
     [SerializeField] private GameObject MapCourierPrefab;
     [SerializeField] private List<MapCourier> Couriers;
 
     public Transform CourierContainer;
+    
+    private WayPoint _startPoint;
 
     private void Awake()
     {
@@ -20,11 +21,14 @@ public class MapCourierManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        if (!StartPoint) {
+        if (!_startPoint) {
             Debug.LogWarning("Не назначена начальная точка!");
             return;
         }
+    }
 
+    private void Start()
+    {
         AddCourier();
         AddCourier();
         AddCourier();
@@ -37,7 +41,7 @@ public class MapCourierManager : MonoBehaviour
         }
 
         MapCourier courier = Instantiate(instance.MapCourierPrefab, instance.CourierContainer).GetComponent<MapCourier>();
-        courier.SetStartPoint(instance.StartPoint);
+        courier.SetStartPoint(instance._startPoint);
         instance.Couriers.Add(courier);
     }
 
@@ -65,11 +69,16 @@ public class MapCourierManager : MonoBehaviour
         courier.transform.SetParent(instance.CourierContainer);
     }
 
+    public static void SetStartPoint(WayPoint point)
+    {
+        instance._startPoint = point;
+    }
+
     private static IEnumerator MoveCourier(MapCourier courier)
     {
         while (true) {
-            yield return new WaitForSeconds(instance.MoveDelay);
-            courier.CourierPath.MoveTowards(instance.MoveDelay * courier.Speed);
+            yield return new WaitForSeconds(instance.moveDelay);
+            courier.CourierPath.MoveTowards(instance.moveDelay * courier.Speed);
         }
     }
 }
