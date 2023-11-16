@@ -29,6 +29,7 @@ public class OrdersManager : MonoBehaviour
             _freePoints.Add(point);
         }
 
+        ActiveOrders = new List<Order>();
         StartCoroutine(OrderGenerator());
     }
 
@@ -56,6 +57,7 @@ public class OrdersManager : MonoBehaviour
         }
 
         point.SetOrder(new Order(info));
+        instance.ActiveOrders.Add(point.pointOrder);
         instance._freePoints.RemoveAt(id);
     }
 

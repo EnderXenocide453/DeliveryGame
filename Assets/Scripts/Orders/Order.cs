@@ -3,6 +3,7 @@ using System.Collections.Generic;
 public class Order
 {
     public Dictionary<ProductType, int> OrderInfo { get; private set; }
+    public int GoodsCount { get; private set; }
 
     public delegate void OrderEventHandler();
     public event OrderEventHandler onFinished;
@@ -10,6 +11,9 @@ public class Order
     public Order(Dictionary<ProductType, int> info)
     {
         OrderInfo = info;
+
+        foreach (var count in OrderInfo.Values)
+            GoodsCount += count;
     }
 
     public bool CheckStorage(Storage storage)

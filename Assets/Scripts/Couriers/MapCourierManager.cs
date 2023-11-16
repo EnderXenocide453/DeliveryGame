@@ -8,7 +8,7 @@ public class MapCourierManager : MonoBehaviour
 
     [SerializeField] float moveDelay = 0.1f;
     [SerializeField] private GameObject MapCourierPrefab;
-    [SerializeField] private List<MapCourier> Couriers;
+    [SerializeField] private Dictionary<int, MapCourier> Couriers;
 
     public Transform CourierContainer;
     
@@ -27,22 +27,30 @@ public class MapCourierManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        AddCourier();
-        AddCourier();
-        AddCourier();
-    }
-
-    public static void AddCourier()
+    public static void AddCourier(Courier courier)
     {
         if (instance.Couriers == null) {
-            instance.Couriers = new List<MapCourier>();
+            instance.Couriers = new Dictionary<int, MapCourier>();
         }
 
-        MapCourier courier = Instantiate(instance.MapCourierPrefab, instance.CourierContainer).GetComponent<MapCourier>();
-        courier.SetStartPoint(instance._startPoint);
-        instance.Couriers.Add(courier);
+        if (instance.Couriers.ContainsKey(courier.GetInstanceID()))
+            return;
+
+        MapCourier mapCourier = Instantiate(instance.MapCourierPrefab, instance.CourierContainer).GetComponent<MapCourier>();
+        mapCourier.SetStartPoint(instance._startPoint);
+        mapCourier.SetWorldCourier(courier);
+        instance.Couriers.TryAdd(courier.GetInstanceID(), mapCourier);
+    }
+
+    public static void RemoveCourier(Courier courier)
+    {
+        if (instance.Couriers == null)
+            return;
+
+        int id = courier.GetInstanceID();
+
+        Destroy(instance.Couriers[id].gameObject);
+        instance.Couriers.Remove(id);
     }
 
     public static void StartDelivery(MapCourier courier)
@@ -67,6 +75,8 @@ public class MapCourierManager : MonoBehaviour
 
         courier.CourierPath.ClearPath();
         courier.transform.SetParent(instance.CourierContainer);
+
+        courier.OnEndDelivery();
     }
 
     public static void SetStartPoint(WayPoint point)

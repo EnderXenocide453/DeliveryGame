@@ -116,6 +116,16 @@ public class MapCourier : MonoBehaviour
             transform.position = CourierPath.GetCurrentPosition() - Vector3.forward * 0.01f;
     }
 
+    public void SetWorldCourier(Courier courier)
+    {
+        _worldCourier = courier;
+    }
+
+    public void OnEndDelivery()
+    {
+        _worldCourier.OnReturn();
+    }
+
     private void FollowCoursor()
     {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(_rectTransform, Input.mousePosition, Camera.main, out var position);

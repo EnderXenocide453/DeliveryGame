@@ -50,6 +50,51 @@ public class Courier : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public bool ReceiveOrderFromStorage(Storage storage)
+    {
+        if (SearchForCorrectOrder(storage)) {
+            CourierStorage.GetAllGoodsFrom(storage);
+            ApplyOrder();
+            return true;
+        }
+
+        DenyOrder();
+        return false;
+    }
+
+    public void OnReturn()
+    {
+        onReturned?.Invoke();
+    }
+
+    private bool SearchForCorrectOrder(Storage storage)
+    {
+        foreach (var order in OrdersManager.instance.ActiveOrders) {
+            if (order.GoodsCount != storage.CurrentCount || order.GoodsCount > CourierStorage.MaxCount)
+                continue;
+
+            if (order.CheckStorage(storage))
+                return true;
+        }
+
+        return false;
+    }
+
+    private void ApplyOrder()
+    {
+        Debug.Log("Apply");
+        MapCourierManager.AddCourier(this);
+
+        //Сообщаем о соответствии
+        onOrderReceived?.Invoke();
+    }
+
+    private void DenyOrder()
+    {
+        Debug.Log("Deny");
+        //Сообщаем о несоответствии
+    }
+
     private void Move()
     {
         _moveDir = _target.position - transform.position;
@@ -58,7 +103,7 @@ public class Courier : MonoBehaviour
 
         if (_moveDir.magnitude <= 0.1f) {
             if (_isMove) {
-                onReachedTarget.Invoke();
+                onReachedTarget?.Invoke();
                 _isMove = false;
             }
             return;

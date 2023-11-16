@@ -7,6 +7,8 @@ public class CourierManager : MonoBehaviour
     public static CourierManager instance;
     public List<Courier> Couriers;
 
+    private Courier _awaitingCourier;
+
     [SerializeField] Transform Entrance;
     [SerializeField] Transform Exit;
 
@@ -26,13 +28,34 @@ public class CourierManager : MonoBehaviour
         Couriers = new List<Courier>();
     }
 
+    public static void SetAwaitingCourier(Courier courier)
+    {
+        instance._awaitingCourier = courier;
+    }
+
+    public static void SendGoodsToAwaiting(Storage storage)
+    {
+        instance._awaitingCourier?.ReceiveOrderFromStorage(storage);
+    }
+
     public void AddNewCourier()
     {
         Courier courier = Instantiate(instance.CourierPrefab, instance.Entrance.position, Quaternion.identity).GetComponent<Courier>();
         AddCourierToQueue(courier);
 
-        courier.onReturned += () => { ShowCourier(courier); };
-        courier.onOrderReceived += RemoveCourierFromQueue;
+        courier.onReturned += () => 
+        { 
+            if (courier.CourierStorage.Empty) {
+                ShowCourier(courier);
+                MapCourierManager.RemoveCourier(courier);
+            }
+        };
+        courier.onOrderReceived += () =>
+        {
+            _awaitingCourier = null;
+            RemoveCourierFromQueue();
+            MapCourierManager.AddCourier(courier);
+        };
     }
 
     public void ShowCourier(Courier courier)

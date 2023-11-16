@@ -17,11 +17,11 @@ public class GoodsIconsVisualizer : MonoBehaviour
         foreach (var type in goods.Keys) {
             var product = GoodsManager.GetProductInfo(type);
 
-            var icon = Instantiate(IconPrefab, GoodsPanel).GetComponent<Image>();
-            icon.sprite = product.Icon;
-            icon.transform.SetParent(GoodsPanel);
-
-            Debug.Log(GoodsPanel);
+            for (int i = 0; i < goods[type]; i++) {
+                var icon = Instantiate(IconPrefab, GoodsPanel).GetComponent<Image>();
+                icon.sprite = product.Icon;
+                icon.transform.SetParent(GoodsPanel);
+            }
         }
     }
 

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Storage : MonoBehaviour
 {
-    [SerializeField] private int MaxCount = 5;
     [SerializeField] private bool AllowAllTypes;
     [SerializeField] private GoodsVisualizer GoodsVisualizer;
 
@@ -12,6 +11,7 @@ public class Storage : MonoBehaviour
     /// Допустимые к хранению типы товара
     /// </summary>
     public List<ProductType> AllowedTypes;
+    public int MaxCount = 5;
 
     public bool Filled { get; private set; }
     public bool Empty { get; private set; } = true;
@@ -75,6 +75,12 @@ public class Storage : MonoBehaviour
         CurrentCount += delta;
 
         return count - allowedCount;
+    }
+
+    public void GetAllGoodsFrom(Storage other)
+    {
+        foreach (var type in AllowedTypes)
+            other.SetProductCount(type, AddProduct(type, other._storedProducts[type]));
     }
 
     #endregion public methods

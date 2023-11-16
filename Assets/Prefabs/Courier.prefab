@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 456886687091404178}
   - component: {fileID: 809242878003151886}
   - component: {fileID: 1660788259661233617}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2294397598527331943}
   - component: {fileID: 407544091115400885}
   - component: {fileID: 2918250753791811287}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 266091376081494717}
   - component: {fileID: 54677810270751899}
   - component: {fileID: 5455381594826301289}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Courier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,10 +238,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05c98f1ea757b942b59c3d89b23294c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxCount: 5
   AllowAllTypes: 1
   GoodsVisualizer: {fileID: 0}
   AllowedTypes: 
+  MaxCount: 5
 --- !u!54 &54677810270751899
 Rigidbody:
   m_ObjectHideFlags: 0
