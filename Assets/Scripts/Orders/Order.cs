@@ -45,8 +45,6 @@ public class Order
         onFinished?.Invoke();
         onFinished = null;
 
-        OrderInfo = null;
-
         return income;
     }
 }
