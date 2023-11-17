@@ -23,6 +23,7 @@ public class RoadManager : MonoBehaviour
         CalculateConnections();
     }
 
+#if UNITY_EDITOR
     #region Редактирование карты
     public WayPoint BuildPoint(Vector3 position)
     {
@@ -51,6 +52,7 @@ public class RoadManager : MonoBehaviour
         BuildRoad(a, b);
     }
     #endregion
+#endif
 
     #region Инициализация карты
     public static void AddPoint(WayPoint wayPoint)

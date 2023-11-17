@@ -59,6 +59,7 @@ public class WayPoint : MonoBehaviour
         return connections.ContainsKey(other.gameObject.GetInstanceID());
     }
 
+#if UNITY_EDITOR
     public WayPoint ExtrudePoint()
     {
         WayPoint point = Manager.BuildPoint(transform.position);
@@ -66,6 +67,7 @@ public class WayPoint : MonoBehaviour
 
         return point;
     }
+#endif
 
     public void ConnectPoint(WayPoint point, Road road)
     {

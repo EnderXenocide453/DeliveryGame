@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 
@@ -15,3 +16,4 @@ public class RoadManagerEditor : Editor
         }
     }
 }
+#endif

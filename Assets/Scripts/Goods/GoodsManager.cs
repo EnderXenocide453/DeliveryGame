@@ -77,10 +77,10 @@ public class GoodsManager : MonoBehaviour
         foreach (var type in types) {
 
             while (from.GetProductCount(type) > 0 && !to.Filled) {
+                yield return new WaitForSeconds(delay);
+
                 from.RemoveProduct(type, 1);
                 to.AddProduct(type, 1);
-
-                yield return new WaitForSeconds(delay);
             }
         }
     }
@@ -88,9 +88,9 @@ public class GoodsManager : MonoBehaviour
     private IEnumerator SpawnGoods(Storage target, ProductType type, float delay)
     {
         while (!target.Filled) {
-            target.AddProduct(type, 1);
-
             yield return new WaitForSeconds(delay);
+
+            target.AddProduct(type, 1);
         }
     }
 }
