@@ -24,7 +24,7 @@ public class PathCreator : MonoBehaviour
 
     public static void ProcessWayPoint(WayPoint point)
     {
-        if (!instance.ActiveCourier.IsAwaits || !instance.ActiveCourier.CourierPath.LastPoint.IsConnected(point)) {
+        if (!instance.ActiveCourier || !instance.ActiveCourier.IsAwaits || !instance.ActiveCourier.CourierPath.LastPoint.IsConnected(point)) {
             return;
         }
 

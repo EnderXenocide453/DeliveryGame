@@ -50,8 +50,10 @@ public class OrdersManager : MonoBehaviour
         WayPoint point = instance._freePoints[id];
 
         Dictionary<ProductType, int> info = new Dictionary<ProductType, int>();
-        for (int i = 0; i < instance.goodsMaxCount; i++) {
-            ProductType type = instance.goodsTypes[Random.Range(0, instance.goodsTypes.Count - 1)];
+        int count = Random.Range(1, instance.goodsMaxCount + 1);
+
+        for (int i = 0; i < count; i++) {
+            ProductType type = instance.goodsTypes[Random.Range(0, instance.goodsTypes.Count)];
 
             if (!info.TryAdd(type, 1)) info[type]++;
         }

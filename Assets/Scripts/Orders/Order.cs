@@ -18,6 +18,9 @@ public class Order
 
     public bool CheckStorage(Storage storage)
     {
+        if (storage.CurrentCount != GoodsCount)
+            return false;
+
         foreach (var type in OrderInfo.Keys) {
             if (!storage.AllowedTypes.Contains(type) || storage.GetProductCount(type) != OrderInfo[type])
                 return false;

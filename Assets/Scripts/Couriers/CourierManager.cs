@@ -66,6 +66,8 @@ public class CourierManager : MonoBehaviour
 
     public void AddCourierToQueue(Courier courier)
     {
+        courier.onReachedTarget = null;
+
         Couriers.Add(courier);
 
         if (Couriers.Count <= instance.CourierQueue.QueuePoints.Length)
@@ -77,12 +79,7 @@ public class CourierManager : MonoBehaviour
         Courier courier = Couriers[0];
 
         courier.SetTarget(instance.Exit);
-        courier.onReachedTarget = () =>
-        {
-            Debug.Log("aboba");
-            courier.Disappear();
-            courier.onReachedTarget = null;
-        };
+        courier.onReachedTarget = courier.Disappear;
 
         Couriers.RemoveAt(0);
 

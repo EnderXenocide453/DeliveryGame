@@ -9,11 +9,7 @@ public class GoodsStack : GoodsVisualizer
 
     private void Start()
     {
-        _sortedStackItems = new Dictionary<ProductType, List<GoodsStackItem>>();
-        _itemList = new List<GoodsStackItem>();
-
-        foreach(var type in GoodsManager.UsedProductTypes)
-            _sortedStackItems.Add(type, new List<GoodsStackItem>());
+        Init();
     }
 
     public override void AddItem(ProductType type)
@@ -55,5 +51,33 @@ public class GoodsStack : GoodsVisualizer
         }
 
         return null;
+    }
+
+    public override void Clear()
+    {
+        foreach (var item in _itemList) {
+            Destroy(item.gameObject);
+        }
+
+        Init();
+    }
+
+    public override void VisualizeGoods(Dictionary<ProductType, int> goods)
+    {
+        Clear();
+
+        foreach (var item in goods) {
+            for (int i = 0; i < item.Value; i++)
+                AddItem(item.Key);
+        }
+    }
+
+    private void Init()
+    {
+        _sortedStackItems = new Dictionary<ProductType, List<GoodsStackItem>>();
+        _itemList = new List<GoodsStackItem>();
+
+        foreach (var type in GoodsManager.UsedProductTypes)
+            _sortedStackItems.Add(type, new List<GoodsStackItem>());
     }
 }

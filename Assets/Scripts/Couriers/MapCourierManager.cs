@@ -79,9 +79,13 @@ public class MapCourierManager : MonoBehaviour
         courier.OnEndDelivery();
     }
 
-    public static void SetStartPoint(WayPoint point)
+    public static bool SetStartPoint(WayPoint point)
     {
+        if (instance._startPoint)
+            return false;
+
         instance._startPoint = point;
+        return true;
     }
 
     private static IEnumerator MoveCourier(MapCourier courier)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(LineRenderer))]
+[RequireComponent(typeof(LineRenderer)), RequireComponent(typeof(GoodsVisualizer))]
 public class MapCourier : MonoBehaviour
 {
     public float Speed = 0.2f;
@@ -24,6 +24,7 @@ public class MapCourier : MonoBehaviour
     private WayPoint _startPoint;
 
     private Courier _worldCourier;
+    private GoodsIconsVisualizer _iconsVisualizer;
 
     public int Cash
     {
@@ -48,6 +49,9 @@ public class MapCourier : MonoBehaviour
 
         CourierPath.onDistanceChanged += UpdatePosition;
         CourierPath.onReachedPoint += CheckWayPoint;
+
+        _iconsVisualizer = GetComponent<GoodsIconsVisualizer>();
+        _iconsVisualizer.VisualizeGoods(_worldCourier.CourierStorage.StoredProducts);
     }
 
     private void Update()
@@ -111,7 +115,6 @@ public class MapCourier : MonoBehaviour
 
     public void UpdatePosition()
     {
-        Debug.Log("a");
         if (!IsAwaits)
             transform.position = CourierPath.GetCurrentPosition() - Vector3.forward * 0.01f;
     }
@@ -123,6 +126,8 @@ public class MapCourier : MonoBehaviour
 
     public void OnEndDelivery()
     {
+        Debug.Log($"Earned: {Cash} cash");
+        GlobalValueHandler.Cash += Cash;
         _worldCourier.OnReturn();
     }
 
@@ -136,8 +141,9 @@ public class MapCourier : MonoBehaviour
 
     private void CheckWayPoint(WayPoint point)
     {
-        if (point.pointOrder != null) {
+        if (point.pointOrder != null && point.pointOrder.CheckStorage(_worldCourier.CourierStorage)) {
             Cash += point.pointOrder.TakeOrderFromCourier(_worldCourier);
+            _iconsVisualizer.Clear();
         }
     }
 

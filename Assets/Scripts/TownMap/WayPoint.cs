@@ -27,8 +27,8 @@ public class WayPoint : MonoBehaviour
         _image = GetComponent<Image>();
         _iconsVisualizer = GetComponent<GoodsIconsVisualizer>();
 
-        if (isStartPoint)
-            MapCourierManager.SetStartPoint(this);
+        if (isStartPoint && MapCourierManager.SetStartPoint(this)) 
+            _image.color = Color.green;
     }
 
     private void OnDestroy()
@@ -76,8 +76,6 @@ public class WayPoint : MonoBehaviour
     public void DisconnectPoint(int id)
     {
         connections.Remove(id);
-
-        Debug.Log("Disconnected!");
     }
 
     private void RemoveOrder()

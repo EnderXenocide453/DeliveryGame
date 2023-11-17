@@ -19,6 +19,11 @@ public class Storage : MonoBehaviour
     private int _currentCount;
     private Dictionary<ProductType, int> _storedProducts;
 
+    public Dictionary<ProductType, int> StoredProducts
+    {
+        get => new Dictionary<ProductType, int>(_storedProducts);
+    }
+
     public int CurrentCount
     {
         get => _currentCount;
@@ -81,6 +86,8 @@ public class Storage : MonoBehaviour
     {
         foreach (var type in AllowedTypes)
             other.SetProductCount(type, AddProduct(type, other._storedProducts[type]));
+
+        other.GoodsVisualizer?.VisualizeGoods(other._storedProducts);
     }
 
     #endregion public methods
@@ -92,7 +99,7 @@ public class Storage : MonoBehaviour
         _storedProducts = new Dictionary<ProductType, int>();
 
         if (AllowAllTypes)
-            AllowedTypes = GoodsManager.UsedProductTypes;
+            AllowedTypes = new List<ProductType>(GoodsManager.UsedProductTypes);
         
         foreach (var type in AllowedTypes)
             _storedProducts.TryAdd(type, 0);
