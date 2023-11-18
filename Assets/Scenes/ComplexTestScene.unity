@@ -11815,13 +11815,13 @@ MonoBehaviour:
     Name: "\u0411\u0443\u0440\u0433\u0435\u0440"
     Count: 0
     Cost: 10
-    Prefab: {fileID: 767117592969082530, guid: 3b7ebb5156f026d4d90f3cd5663dc590, type: 3}
+    Prefab: {fileID: 767117592969082530, guid: 172f847f95c01ed4d90875d91d0105a8, type: 3}
     Icon: {fileID: 21300000, guid: 99154266576b25a48a433a4e571a3487, type: 3}
   - Type: 1
     Name: "\u041F\u0438\u0446\u0446\u0430"
     Count: 0
     Cost: 20
-    Prefab: {fileID: 767117592969082530, guid: ed6daba385c73a04db9e43f2293e7d18, type: 3}
+    Prefab: {fileID: 767117592969082530, guid: 8a07ae8c7788afb4997fc904db566787, type: 3}
     Icon: {fileID: 21300000, guid: 79a8e2d2be3160f4dbe3c22577112ffe, type: 3}
   - Type: 2
     Name: "\u0421\u0443\u0448\u0438"
@@ -11833,13 +11833,13 @@ MonoBehaviour:
     Name: "\u041D\u0430\u043F\u0438\u0442\u043E\u043A"
     Count: 0
     Cost: 10
-    Prefab: {fileID: 767117592969082530, guid: af3d52de2b5e48e45b6d6a66fcfcc832, type: 3}
+    Prefab: {fileID: 767117592969082530, guid: 7dff423709678d940894059722bde19e, type: 3}
     Icon: {fileID: 21300000, guid: 0ceb8c93efb43f04aafc71cbe198c82e, type: 3}
   - Type: 4
     Name: "\u0426\u0432\u0435\u0442\u044B"
     Count: 0
     Cost: 50
-    Prefab: {fileID: 767117592969082530, guid: 5a00f6015d5293441820a17ec1a279df, type: 3}
+    Prefab: {fileID: 767117592969082530, guid: 0e24508a5cb2c9745a972d3fe9223011, type: 3}
     Icon: {fileID: 21300000, guid: f8a5783be468c314c86bb8c40b04c700, type: 3}
   ProductDelay: 1
 --- !u!4 &1915910366

@@ -50,16 +50,11 @@ public class Storage : MonoBehaviour
 
     public int AddProduct(ProductType type, int count)
     {
-        GoodsVisualizer?.AddItem(type);
-
         return SetProductCount(type, GetProductCount(type) + count);
     }
 
     public int RemoveProduct(ProductType type, int count)
     {
-        //Пока что удаляем объект со сцены
-        Destroy(GoodsVisualizer?.RemoveItem(type).gameObject);
-
         return SetProductCount(type, GetProductCount(type) - count);
     }
 
@@ -79,6 +74,8 @@ public class Storage : MonoBehaviour
         _storedProducts[type] = allowedCount;
         CurrentCount += delta;
 
+        GoodsVisualizer?.VisualizeGoods(_storedProducts);
+
         return count - allowedCount;
     }
 
@@ -86,8 +83,6 @@ public class Storage : MonoBehaviour
     {
         foreach (var type in AllowedTypes)
             other.SetProductCount(type, AddProduct(type, other._storedProducts[type]));
-
-        other.GoodsVisualizer?.VisualizeGoods(other._storedProducts);
     }
 
     #endregion public methods
