@@ -3,28 +3,18 @@ using UnityEngine.EventSystems;
 
 public class SwitchButton : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] Transform[] firstGroup;
-    [SerializeField] Transform[] secondGroup;
-
-    private bool isSwitched;
+    [SerializeField] Transform first;
+    [SerializeField] Transform second;
 
     private void Start()
     {
-        foreach (var obj in firstGroup)
-            obj.gameObject.SetActive(true);
-
-        foreach (var obj in secondGroup)
-            obj.gameObject.SetActive(false);
+        first.gameObject.SetActive(true);
+        second.gameObject.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        foreach (var obj in firstGroup)
-            obj.gameObject.SetActive(isSwitched);
-
-        isSwitched = !isSwitched;
-
-        foreach (var obj in secondGroup)
-            obj.gameObject.SetActive(isSwitched);
+        first.gameObject.SetActive(second.gameObject.activeSelf);
+        second.gameObject.SetActive(!second.gameObject.activeSelf);
     }
 }

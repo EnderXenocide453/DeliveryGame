@@ -26,8 +26,6 @@ public class CourierManager : MonoBehaviour
         }
 
         Couriers = new List<Courier>();
-
-        AddNewCourier();
     }
 
     public static void SetAwaitingCourier(Courier courier)
