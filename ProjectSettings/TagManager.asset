@@ -5,17 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - CollectFood
-  - BurgerStashSet
-  - BurgerStashGet
-  - DrinksStashSet
-  - DrinksStashGet
-  - FlowerStashSet
-  - FlowerStashGet
-  - PizzaStashSet
-  - PizzaStashGet
-  - SushiStashSet
-  - SushiStashGet
   - StashSet
+  - Stall
   layers:
   - Default
   - TransparentFX
