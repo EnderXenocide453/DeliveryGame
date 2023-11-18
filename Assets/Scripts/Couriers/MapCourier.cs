@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(LineRenderer)), RequireComponent(typeof(GoodsVisualizer))]
+[RequireComponent(typeof(LineRenderer))]
 public class MapCourier : MonoBehaviour
 {
     public float Speed = 0.2f;

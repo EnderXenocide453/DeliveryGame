@@ -16,7 +16,7 @@ public class Road : MonoBehaviour
         Init();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         Draw();
     }
