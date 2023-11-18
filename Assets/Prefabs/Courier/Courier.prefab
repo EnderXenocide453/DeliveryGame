@@ -83,6 +83,50 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2280476700337532089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7232901809303385065}
+  - component: {fileID: 1031433579030159287}
+  m_Layer: 3
+  m_Name: StackHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7232901809303385065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2280476700337532089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.99}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2319793860134452332}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1031433579030159287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2280476700337532089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec92bd08ffa8ed4e9a6b338a2ef14c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2536849223712066025
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,6 +160,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 456886687091404178}
+  - {fileID: 7232901809303385065}
   m_Father: {fileID: 3738653639364123911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2294397598527331943
@@ -203,6 +248,7 @@ GameObject:
   - component: {fileID: 266091376081494717}
   - component: {fileID: 54677810270751899}
   - component: {fileID: 5455381594826301289}
+  - component: {fileID: 1900921029166309379}
   m_Layer: 6
   m_Name: Courier
   m_TagString: Untagged
@@ -239,9 +285,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowAllTypes: 1
-  GoodsVisualizer: {fileID: 0}
+  GoodsVisualizer: {fileID: 1031433579030159287}
+  maxCount: 1
   AllowedTypes: 
-  MaxCount: 5
 --- !u!54 &54677810270751899
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -284,3 +330,29 @@ MonoBehaviour:
   worldSpeed: 100
   rotationSpeed: 360
   mapSpeed: 1
+  speedModifier: 1
+--- !u!114 &1900921029166309379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2841703568934649412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705781b948070e241b8ef3c884d3c6df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrades:
+  - cost: 100
+    storageCapacity: 2
+    speedModifier: 1
+  - cost: 200
+    storageCapacity: 3
+    speedModifier: 2
+  - cost: 400
+    storageCapacity: 4
+    speedModifier: 3
+  - cost: 800
+    storageCapacity: 5
+    speedModifier: 5

@@ -9,6 +9,8 @@ public class Courier : MonoBehaviour
     public float rotationSpeed = 360;
     public float mapSpeed = 1;
 
+    public float speedModifier = 1;
+
     public Storage CourierStorage { get; private set; }
 
     private bool _isMove;
@@ -73,7 +75,7 @@ public class Courier : MonoBehaviour
             if (order.GoodsCount != storage.CurrentCount || order.GoodsCount > CourierStorage.MaxCount)
                 continue;
 
-            if (order.CheckStorage(storage))
+            if (order.CheckAllowedTypes(CourierStorage) && order.CheckStorage(storage))
                 return true;
         }
 

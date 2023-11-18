@@ -16,6 +16,16 @@ public class Order
             GoodsCount += count;
     }
 
+    public bool CheckAllowedTypes(Storage storage)
+    {
+        foreach (var type in OrderInfo.Keys) {
+            if (!storage.AllowedTypes.Contains(type))
+                return false;
+        }
+
+        return true;
+    }
+
     public bool CheckStorage(Storage storage)
     {
         if (storage.CurrentCount != GoodsCount)

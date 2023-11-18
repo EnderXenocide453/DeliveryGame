@@ -6,12 +6,21 @@ public class Storage : MonoBehaviour
 {
     [SerializeField] private bool AllowAllTypes;
     [SerializeField] private GoodsVisualizer GoodsVisualizer;
+    [SerializeField] private int maxCount = 1;
 
     /// <summary>
     /// Допустимые к хранению типы товара
     /// </summary>
     public List<ProductType> AllowedTypes;
-    public int MaxCount = 5;
+    public int MaxCount
+    {
+        get => maxCount;
+        set
+        {
+            maxCount = value;
+            Filled = _currentCount >= maxCount;
+        }
+    }
 
     public bool Filled { get; private set; }
     public bool Empty { get; private set; } = true;
@@ -65,6 +74,8 @@ public class Storage : MonoBehaviour
 
     public int SetProductCount(ProductType type, int count)
     {
+
+        Debug.Log("Ресурс");
         if (!AllowedTypes.Contains(type))
             return count;
 

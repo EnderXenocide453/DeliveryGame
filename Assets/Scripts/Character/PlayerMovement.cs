@@ -4,11 +4,13 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 15;
     [SerializeField] private float RotationSpeed = 360;
-    private Vector3 _moveDir;
-
     [SerializeField] private Joystick joystick;
 
+    public float speedModifier = 1;
+
+    private Vector3 _moveDir;
     private Rigidbody _rb;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -25,6 +27,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        _rb.velocity = _moveDir * speed * Time.fixedDeltaTime;
+        _rb.velocity = _moveDir * speed * speedModifier * Time.fixedDeltaTime;
     }
 }
