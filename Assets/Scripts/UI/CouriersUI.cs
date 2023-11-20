@@ -6,12 +6,12 @@ public class CouriersUI : MonoBehaviour
     [SerializeField] private GameObject contentField;
     [SerializeField] private GameObject upgradeRowPrefab;
     [Space]
-    [SerializeField] private float startCost;
-    [SerializeField] private float costIncrement = 100;
+    [SerializeField] private int startCost;
+    [SerializeField] private int costIncrement = 100;
     [SerializeField] private TMPro.TMP_Text counter;
     [SerializeField] private UnityEngine.UI.Button hireButton;
 
-    private float _currentCost;
+    private int _currentCost;
 
     private void Awake()
     {
@@ -38,6 +38,8 @@ public class CouriersUI : MonoBehaviour
 
     private void AddCourierUpgradePanel()
     {
+        GlobalValueHandler.Cash -= _currentCost;
+
         UpgradePanel panel = Addpanel();
         panel.AttachUpgrade(CourierManager.instance.AddNewCourier().GetComponent<CourierUpgradeQueue>().CurrentUpgrade);
 
