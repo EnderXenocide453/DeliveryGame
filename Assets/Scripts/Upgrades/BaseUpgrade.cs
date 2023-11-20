@@ -5,8 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public abstract class BaseUpgrade
 {
-    [SerializeField] protected int cost;
-    
+    public string name;
+    [TextArea] public string description;
+    public int cost;
+
     public BaseUpgrade nextUpgrade;
 
     protected int currentLevel;

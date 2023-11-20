@@ -1,11 +1,15 @@
-using TMPro;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
+
 public class CouriersUI : MonoBehaviour
 {
     [SerializeField] private GameObject contentField;
     [SerializeField] private GameObject upgradeRowPrefab;
+
+    private void Awake()
+    {
+        AddPlayerUpgradePanel();
+    }
 
     public void ToggleUI()
     {
@@ -14,14 +18,20 @@ public class CouriersUI : MonoBehaviour
     
     public void OnHireButtonClick()
     {
-        Instantiate(upgradeRowPrefab, contentField.transform);
-
-        CourierManager.instance.AddNewCourier();
+        AddCourierUpgradePanel();
     }
-    //private void PlaceButtonUnderSububstrate(Vector3 substratePosition)
-    //{
-    //    Vector3 newPosition = substratePosition;
-    //    newPosition.y -= _distanceBetweenButtons;
-    //    hireNewCourierButton.transform.position = newPosition;
-    //}
+
+    private void AddPlayerUpgradePanel()
+    {
+        UpgradePanel playerPanel = Addpanel();
+        playerPanel.AttachUpgrade(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerUpgradeQueue>().CurrentUpgrade);
+    }
+
+    private void AddCourierUpgradePanel()
+    {
+        UpgradePanel panel = Addpanel();
+        panel.AttachUpgrade(CourierManager.instance.AddNewCourier().GetComponent<CourierUpgradeQueue>().CurrentUpgrade);
+    }
+
+    private UpgradePanel Addpanel() => Instantiate(upgradeRowPrefab, contentField.transform).GetComponent<UpgradePanel>();
 }

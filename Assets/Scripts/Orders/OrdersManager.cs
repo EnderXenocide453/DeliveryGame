@@ -38,6 +38,12 @@ public class OrdersManager : MonoBehaviour
         instance._freePoints.Add(point);
     }
 
+    public static void ChangeMaxCount(int count)
+    {
+        if (count > instance.goodsMaxCount)
+            instance.goodsMaxCount = count;
+    }
+
     private static void GenerateNewOrder()
     {
         if (instance._freePoints.Count == 0)

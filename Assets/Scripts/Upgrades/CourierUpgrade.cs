@@ -22,6 +22,8 @@ public class CourierUpgrade : BaseUpgrade
     {
         _target.speedModifier = speedModifier;
         _target.CourierStorage.MaxCount = storageCapacity;
+
+        OrdersManager.ChangeMaxCount(storageCapacity);
     }
 
     protected override void PreUpgrade() { }

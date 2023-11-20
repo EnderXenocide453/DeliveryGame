@@ -38,7 +38,7 @@ public class CourierManager : MonoBehaviour
         instance._awaitingCourier?.ReceiveOrderFromStorage(storage);
     }
 
-    public void AddNewCourier()
+    public Courier AddNewCourier()
     {
         Courier courier = Instantiate(instance.CourierPrefab, instance.Entrance.position, Quaternion.identity).GetComponent<Courier>();
         AddCourierToQueue(courier);
@@ -56,6 +56,8 @@ public class CourierManager : MonoBehaviour
             RemoveCourierFromQueue();
             MapCourierManager.AddCourier(courier);
         };
+
+        return courier;
     }
 
     public void ShowCourier(Courier courier)

@@ -25,7 +25,7 @@ public class Storage : MonoBehaviour
     public bool Filled { get; private set; }
     public bool Empty { get; private set; } = true;
 
-    private int _currentCount;
+    [SerializeField] private int _currentCount;
     private Dictionary<ProductType, int> _storedProducts;
 
     public Dictionary<ProductType, int> StoredProducts
@@ -40,13 +40,8 @@ public class Storage : MonoBehaviour
         {
             _currentCount = value;
 
-            if (value >= MaxCount)
-                Filled = true;
-            else if (value <= 0)
-                Empty = true;
-            else {
-                Filled = Empty = false;
-            }
+            Filled = _currentCount >= MaxCount;
+            Empty = _currentCount <= 0;
         }
     }
 
@@ -84,6 +79,7 @@ public class Storage : MonoBehaviour
 
         _storedProducts[type] = allowedCount;
         CurrentCount += delta;
+        Debug.Log(CurrentCount);
 
         GoodsVisualizer?.VisualizeGoods(_storedProducts);
 

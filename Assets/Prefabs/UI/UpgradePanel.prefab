@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1747929036315486911}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2654317099844641871}
+        m_TargetAssemblyTypeName: UpgradePanel, Assembly-CSharp
+        m_MethodName: DoUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3962838764689467822
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +145,7 @@ GameObject:
   - component: {fileID: 961280901371577407}
   - component: {fileID: 4206853838823274738}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,7 +279,7 @@ GameObject:
   - component: {fileID: 5887230477106137070}
   - component: {fileID: 440829555491343549}
   m_Layer: 5
-  m_Name: 'ProposalToIncreaseText '
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -534,6 +546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7457582382488075594}
   - component: {fileID: 6353379779288581123}
+  - component: {fileID: 2654317099844641871}
   m_Layer: 5
   m_Name: UpgradePanel
   m_TagString: Untagged
@@ -572,6 +585,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7687842146611541886}
   m_CullTransparentMesh: 1
+--- !u!114 &2654317099844641871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7687842146611541886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c82b537223aef0459d893ba376ce055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameField: {fileID: 440829555491343549}
+  descField: {fileID: 357351766277787847}
+  costField: {fileID: 4206853838823274738}
+  upgradeBtn: {fileID: 2889517509693265067}
 --- !u!1 &8211465278107524275
 GameObject:
   m_ObjectHideFlags: 0

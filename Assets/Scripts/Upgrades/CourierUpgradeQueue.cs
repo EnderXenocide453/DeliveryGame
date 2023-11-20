@@ -36,6 +36,6 @@ public class CourierUpgradeQueue : MonoBehaviour
         upgrade.SetTarget(_target);
         _currentID++;
 
-        onUpgraded.Invoke();
+        onUpgraded?.Invoke();
     }
 }
