@@ -44,6 +44,14 @@ public class OrdersManager : MonoBehaviour
             instance.goodsMaxCount = count;
     }
 
+    public static void AddProductType(ProductType type)
+    {
+        if (instance.goodsTypes.Contains(type))
+            return;
+
+        instance.goodsTypes.Add(type);
+    }
+
     private static void GenerateNewOrder()
     {
         if (instance._freePoints.Count == 0)

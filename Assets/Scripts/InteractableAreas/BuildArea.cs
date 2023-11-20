@@ -10,7 +10,7 @@ public class BuildArea : InteractableArea
     [SerializeField] float cashSpendDelay;
     [SerializeField] TMPro.TMP_Text cashCounter;
     [Space]
-    [SerializeField] UnityEvent onBuildEvent;
+    [SerializeField] ProductType allowedType;
     [SerializeField] bool buildAtStart;
 
     private int _storedCash;
@@ -55,7 +55,7 @@ public class BuildArea : InteractableArea
         foreach (var obj in buildParts)
             obj.gameObject.SetActive(true);
 
-        onBuildEvent?.Invoke();
+        OrdersManager.AddProductType(allowedType);
 
         Destroy(transform.parent.gameObject);
     }
