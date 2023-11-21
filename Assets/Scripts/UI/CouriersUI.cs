@@ -18,6 +18,7 @@ public class CouriersUI : MonoBehaviour
         AddPlayerUpgradePanel();
 
         _currentCost = startCost;
+        GlobalValueHandler.onCashChanged += UpdateBtn;
     }
 
     public void ToggleUI()
