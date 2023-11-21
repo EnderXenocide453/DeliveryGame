@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
 public class CheckOrder : MonoBehaviour
 {

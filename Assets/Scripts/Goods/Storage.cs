@@ -11,7 +11,7 @@ public class Storage : MonoBehaviour
     /// Допустимые к хранению типы товара
     /// </summary>
     public List<ProductType> AllowedTypes;
-    public int MaxCount = 5;
+    public int MaxCount = 5;        
 
     public bool Filled { get; private set; }
     public bool Empty { get; private set; } = true;
@@ -21,7 +21,7 @@ public class Storage : MonoBehaviour
 
     public Dictionary<ProductType, int> StoredProducts
     {
-        get => new Dictionary<ProductType, int>(_storedProducts);
+        get => new Dictionary<ProductType, int>(_storedProducts);   
     }
 
     public int CurrentCount
@@ -100,7 +100,7 @@ public class Storage : MonoBehaviour
 
         if (AllowAllTypes)
             AllowedTypes = new List<ProductType>(GoodsManager.UsedProductTypes);
-        
+
         foreach (var type in AllowedTypes)
             _storedProducts.TryAdd(type, 0);
     }
