@@ -1,33 +1,53 @@
+using System;
+using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class CheckOrder : MonoBehaviour
 {
-    [SerializeField] private Image suitableOrNot;
+    [SerializeField] private float timeToTurnOff;
     [Space]
-    [SerializeField] private Sprite newSuitable;
-    [SerializeField] private Sprite newNotSuitable;
+    [SerializeField] private Image image;
     [Space]
-    [SerializeField] private bool isSuitable;
-    private Transform _characterTransform;
+    [SerializeField] private Sprite newSprite;
+
+
+    private Transform _lookAtTransform;
+    private void Awake()
+    {
+        _lookAtTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
+    }
     private void Start()
     {
-        _characterTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        image.gameObject.SetActive(false);
     }
-    private void Update()
+
+    public void TimeOfAnnotation()
     {
-        suitableOrNot.transform.LookAt(_characterTransform);
-        CheckIsSuitable(isSuitable);
+        image.gameObject.SetActive(true);
+        image.overrideSprite = newSprite;
+        StartCoroutine(Timer());
     }
-    public void CheckIsSuitable(bool indicator)
+    private IEnumerator Timer()
     {
-        if (indicator)
+        yield return new WaitForSeconds(timeToTurnOff);
+        image.gameObject.SetActive(false);
+    } 
+}
+
+[CustomEditor(typeof(CheckOrder))]
+public class MyScriptEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        if (GUILayout.Button("Change image"))
         {
-            suitableOrNot.overrideSprite = newSuitable;
-        }
-        else
-        {
-            suitableOrNot.overrideSprite = newNotSuitable;
+            CheckOrder checkScript = (CheckOrder)target;
+            checkScript.TimeOfAnnotation();
         }
     }
 }

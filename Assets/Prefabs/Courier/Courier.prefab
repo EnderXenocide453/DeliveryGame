@@ -198,10 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19f8045bb3c7e64a9d2b751d2520307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  suitableOrNot: {fileID: 7835763164832360910}
-  newSuitable: {fileID: 21300000, guid: f42e931421770b8458ef38ba06e3d15e, type: 3}
-  newNotSuitable: {fileID: 21300000, guid: f18c22412aa6fc746a25dcc308ce5717, type: 3}
-  isSuitable: 0
+  timeToTurnOff: 1
+  image: {fileID: 7835763164832360910}
+  newSprite: {fileID: 21300000, guid: f42e931421770b8458ef38ba06e3d15e, type: 3}
 --- !u!1 &2536849223712066025
 GameObject:
   m_ObjectHideFlags: 0

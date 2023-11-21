@@ -9,10 +9,12 @@ public class OrdersManager : MonoBehaviour
     [SerializeField] float appearenceDelay = 30;
     [SerializeField] int goodsMaxCount = 1;
     [SerializeField] List<ProductType> goodsTypes;
+    [SerializeField] bool isDeliveryed;
 
     public List<Order> ActiveOrders;
 
     private List<WayPoint> _freePoints;
+
 
     private void Start()
     {
@@ -61,6 +63,7 @@ public class OrdersManager : MonoBehaviour
         point.SetOrder(new Order(info));
         instance.ActiveOrders.Add(point.pointOrder);
         instance._freePoints.RemoveAt(id);
+        instance.StartCoroutine(instance.TimeToOrderCheck(id));
     }
 
     private IEnumerator OrderGenerator()
@@ -69,6 +72,20 @@ public class OrdersManager : MonoBehaviour
             yield return new WaitForSeconds(appearenceDelay);
 
             GenerateNewOrder();
+        }
+    }
+
+    public IEnumerator TimeToOrderCheck(int id)
+    {
+        yield return new WaitForSeconds(ActiveOrders[id].duration);
+
+        if (isDeliveryed)
+        {
+            Debug.Log("Вы доставили!");
+        }
+        else
+        {
+            ActiveOrders[id].Fail();
         }
     }
 }
