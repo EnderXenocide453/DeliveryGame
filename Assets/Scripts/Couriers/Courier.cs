@@ -71,7 +71,7 @@ public class Courier : MonoBehaviour
 
     private bool SearchForCorrectOrder(Storage storage)
     {
-        foreach (var order in OrdersManager.instance.ActiveOrders) {
+        foreach (var order in OrdersManager.instance.ActiveOrders.Values) {
             if (order.GoodsCount != storage.CurrentCount || order.GoodsCount > CourierStorage.MaxCount)
                 continue;
 

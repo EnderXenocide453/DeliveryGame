@@ -15,7 +15,6 @@ public class GoodsStackItem : MonoBehaviour
         get => _id;
         set
         {
-            Debug.Log("ID changed");
             _id = value;
             if (_connectedItem)
                 _connectedItem.ID = value + 1;
@@ -30,7 +29,6 @@ public class GoodsStackItem : MonoBehaviour
     public void ConnectTo(GoodsStackItem parent)
     {
         if (!parent) {
-            Debug.Log("parent is null");
             ID = 0;
             UpdatePosition();
 

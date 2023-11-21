@@ -24,7 +24,6 @@ public class GoodsSpawner : InteractableArea
 
     protected override void Deactivate(Transform obj)
     {
-        Debug.Log("сцуко");
         int id = obj.GetInstanceID();
 
         if (_activeCoroutines.TryGetValue(id, out var coroutine)) {

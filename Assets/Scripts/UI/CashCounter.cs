@@ -15,7 +15,6 @@ public class CashCounter : MonoBehaviour
 
     private void UpdateCounter()
     {
-        Debug.Log("û");
         _text.text = GlobalValueHandler.Cash.ToString();
     }
 }

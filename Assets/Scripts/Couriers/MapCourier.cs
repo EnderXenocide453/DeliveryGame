@@ -115,7 +115,7 @@ public class MapCourier : MonoBehaviour
 
     public void UpdatePosition()
     {
-        if (!IsAwaits)
+        if (gameObject.activeInHierarchy && !IsAwaits)
             transform.position = CourierPath.GetCurrentPosition() - Vector3.forward * 0.01f;
     }
 
@@ -126,7 +126,6 @@ public class MapCourier : MonoBehaviour
 
     public void OnEndDelivery()
     {
-        Debug.Log($"Earned: {Cash} cash");
         GlobalValueHandler.Cash += Cash;
         _worldCourier.OnReturn();
     }

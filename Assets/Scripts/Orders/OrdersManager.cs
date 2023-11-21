@@ -10,7 +10,7 @@ public class OrdersManager : MonoBehaviour
     [SerializeField] int goodsMaxCount = 1;
     [SerializeField] List<ProductType> goodsTypes;
 
-    public List<Order> ActiveOrders;
+    public Dictionary<int, Order> ActiveOrders;
 
     private List<WayPoint> _freePoints;
 
@@ -29,13 +29,14 @@ public class OrdersManager : MonoBehaviour
             _freePoints.Add(point);
         }
 
-        ActiveOrders = new List<Order>();
+        ActiveOrders = new Dictionary<int, Order>();
         StartCoroutine(OrderGenerator());
     }
 
     public static void AddFreePoint(WayPoint point)
     {
         instance._freePoints.Add(point);
+        instance.ActiveOrders.Remove(point.GetInstanceID());
     }
 
     public static void ChangeMaxCount(int count)
@@ -59,8 +60,6 @@ public class OrdersManager : MonoBehaviour
 
         int id = Random.Range(0, instance._freePoints.Count);
 
-        Debug.Log($"id:{id} count:{instance._freePoints.Count}");
-
         WayPoint point = instance._freePoints[id];
 
         Dictionary<ProductType, int> info = new Dictionary<ProductType, int>();
@@ -73,7 +72,7 @@ public class OrdersManager : MonoBehaviour
         }
 
         point.SetOrder(new Order(info));
-        instance.ActiveOrders.Add(point.pointOrder);
+        instance.ActiveOrders.Add(point.GetInstanceID(), point.pointOrder);
         instance._freePoints.RemoveAt(id);
     }
 

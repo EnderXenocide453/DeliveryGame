@@ -89,7 +89,6 @@ public class GoodsManager : MonoBehaviour
     {
         while (!target.Filled) {
             yield return new WaitForSeconds(delay);
-            Debug.Log("coroutine");
             target.AddProduct(type, 1);
         }
     }

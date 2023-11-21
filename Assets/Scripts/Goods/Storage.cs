@@ -69,8 +69,6 @@ public class Storage : MonoBehaviour
 
     public int SetProductCount(ProductType type, int count)
     {
-
-        Debug.Log("Ресурс");
         if (!AllowedTypes.Contains(type))
             return count;
 
@@ -79,7 +77,6 @@ public class Storage : MonoBehaviour
 
         _storedProducts[type] = allowedCount;
         CurrentCount += delta;
-        Debug.Log(CurrentCount);
 
         GoodsVisualizer?.VisualizeGoods(_storedProducts);
 
