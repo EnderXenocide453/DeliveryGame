@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +11,9 @@ public class GirlWants : MonoBehaviour
     [Space]
     [SerializeField] private Image image;
     [Space]
-    [SerializeField] private List<Sprite> newSprite;
-    [Space]
     [SerializeField] private Storage characterInventory;
+
+    [SerializeField] private List<ProductType> wantedTypes;
 
     private ProductType _wantedType;
     private void Start()
@@ -23,27 +24,22 @@ public class GirlWants : MonoBehaviour
     {
         while (true)
         {
-            int randomTypeOfFood = UnityEngine.Random.Range(0, 5);
+            int randomTypeOfFood = UnityEngine.Random.Range(0, wantedTypes.Count);
 
-            image.gameObject.SetActive(true);
-            image.overrideSprite = newSprite[randomTypeOfFood];
-            _wantedType = (ProductType)randomTypeOfFood;
+            image.overrideSprite = GoodsManager.GetProductInfo(wantedTypes[randomTypeOfFood]).Icon;
+            _wantedType = wantedTypes[randomTypeOfFood];
             yield return new WaitForSeconds(displayInterval);
-            image.gameObject.SetActive(false);
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            foreach (var productType in characterInventory.StoredProducts)
+            Vibration.SingleVibration();
+            if (characterInventory.GetProductCount(_wantedType) >= 1)
             {
-                if (_wantedType == productType.Key && productType.Value >= 1)
-                {
-                    characterInventory.gameObject.GetComponentInChildren<GoodsStackItem>().gameObject.SetActive(false);
-                }
+                characterInventory.RemoveProduct(_wantedType, 1);
             }
-
         }
     }
 }

@@ -455,8 +455,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -24.58805, y: -71.947845, z: 67.98175}
-  - {x: -25.869513, y: -84.577034, z: 55.352554}
+  - {x: -24.504816, y: -71.91781, z: 68.01178}
+  - {x: -25.781939, y: -84.50424, z: 55.42534}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -606,8 +606,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -10.011421, y: -76.87492, z: 63.05466}
-  - {x: -24.58805, y: -71.947845, z: 67.98175}
+  - {x: -9.9775305, y: -76.82821, z: 63.101376}
+  - {x: -24.504816, y: -71.91781, z: 68.01178}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -1705,8 +1705,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 20.183025, y: -51.390007, z: 88.53958}
-  - {x: 6.247127, y: -60.96101, z: 78.96858}
+  - {x: 20.114702, y: -51.429565, z: 88.50002}
+  - {x: 6.2259793, y: -60.96817, z: 78.96142}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -1856,8 +1856,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -11.292884, y: -96.52663, z: 43.402954}
-  - {x: 5.606396, y: -82.02854, z: 57.901047}
+  - {x: -11.254655, y: -96.41339, z: 43.516197}
+  - {x: 5.587417, y: -81.964386, z: 57.965206}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -2274,8 +2274,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 5.606396, y: -82.02854, z: 57.901047}
-  - {x: -0.72082233, y: -96.300095, z: 43.62949}
+  - {x: 5.587417, y: -81.964386, z: 57.965206}
+  - {x: -0.71838224, y: -96.18762, z: 43.741962}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -2799,8 +2799,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 6.247127, y: -60.96101, z: 78.96858}
-  - {x: 5.606396, y: -82.02854, z: 57.901047}
+  - {x: 6.2259793, y: -60.96817, z: 78.96142}
+  - {x: 5.587417, y: -81.964386, z: 57.965206}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -2950,8 +2950,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 0, y: -39.89348, z: 100.03612}
-  - {x: -9.210507, y: -55.127796, z: 84.801796}
+  - {x: 0, y: -39.971954, z: 99.95764}
+  - {x: -9.179328, y: -55.1547, z: 84.77489}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -3605,8 +3605,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -9.210507, y: -55.127796, z: 84.801796}
-  - {x: -11.052609, y: -65.378395, z: 74.55119}
+  - {x: -9.179328, y: -55.1547, z: 84.77489}
+  - {x: -11.015194, y: -65.3706, z: 74.55899}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -3857,8 +3857,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 6.247127, y: -60.96101, z: 78.96858}
-  - {x: -9.210507, y: -55.127796, z: 84.801796}
+  - {x: 6.2259793, y: -60.96817, z: 78.96142}
+  - {x: -9.179328, y: -55.1547, z: 84.77489}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -4396,8 +4396,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 20.823757, y: -67.53046, z: 72.39913}
-  - {x: 20.183025, y: -51.390007, z: 88.53958}
+  - {x: 20.753263, y: -67.51537, z: 72.414215}
+  - {x: 20.114702, y: -51.429565, z: 88.50002}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -4581,8 +4581,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 0, y: -39.89348, z: 100.03612}
-  - {x: 16.899279, y: -44.594032, z: 95.335556}
+  - {x: 0, y: -39.971954, z: 99.95764}
+  - {x: 16.842072, y: -44.656593, z: 95.272995}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -5350,8 +5350,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 16.899279, y: -44.594032, z: 95.335556}
-  - {x: 20.183025, y: -51.390007, z: 88.53958}
+  - {x: 16.842072, y: -44.656593, z: 95.272995}
+  - {x: 20.114702, y: -51.429565, z: 88.50002}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -5624,8 +5624,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -11.292884, y: -96.52663, z: 43.402954}
-  - {x: -25.869513, y: -84.577034, z: 55.352554}
+  - {x: -11.254655, y: -96.41339, z: 43.516197}
+  - {x: -25.781939, y: -84.50424, z: 55.42534}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -7366,8 +7366,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -11.052609, y: -65.378395, z: 74.55119}
-  - {x: 6.247127, y: -60.96101, z: 78.96858}
+  - {x: -11.015194, y: -65.3706, z: 74.55899}
+  - {x: 6.2259793, y: -60.96817, z: 78.96142}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -8081,8 +8081,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 20.823757, y: -67.53046, z: 72.39913}
-  - {x: 5.606396, y: -82.02854, z: 57.901047}
+  - {x: 20.753263, y: -67.51537, z: 72.414215}
+  - {x: 5.587417, y: -81.964386, z: 57.965206}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -8460,8 +8460,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -10.011421, y: -76.87492, z: 63.05466}
-  - {x: -11.052609, y: -65.378395, z: 74.55119}
+  - {x: -9.9775305, y: -76.82821, z: 63.101376}
+  - {x: -11.015194, y: -65.3706, z: 74.55899}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -8962,8 +8962,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -10.011421, y: -76.87492, z: 63.05466}
-  - {x: 5.606396, y: -82.02854, z: 57.901047}
+  - {x: -9.9775305, y: -76.82821, z: 63.101376}
+  - {x: 5.587417, y: -81.964386, z: 57.965206}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -9583,8 +9583,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -24.58805, y: -71.947845, z: 67.98175}
-  - {x: -11.052609, y: -65.378395, z: 74.55119}
+  - {x: -24.504816, y: -71.91781, z: 68.01178}
+  - {x: -11.015194, y: -65.3706, z: 74.55899}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -10639,8 +10639,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -25.869513, y: -84.577034, z: 55.352554}
-  - {x: -10.011421, y: -76.87492, z: 63.05466}
+  - {x: -25.781939, y: -84.50424, z: 55.42534}
+  - {x: -9.9775305, y: -76.82821, z: 63.101376}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -11228,8 +11228,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 6.247127, y: -60.96101, z: 78.96858}
-  - {x: 20.823757, y: -67.53046, z: 72.39913}
+  - {x: 6.2259793, y: -60.96817, z: 78.96142}
+  - {x: 20.753263, y: -67.51537, z: 72.414215}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -12630,15 +12630,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c201011b6d618d545bbe316f2b6db634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInterval: 10
+  displayInterval: 2
   image: {fileID: 167049756}
-  newSprite:
-  - {fileID: 21300000, guid: ca5147711d149db46ba33051f3138f55, type: 3}
-  - {fileID: 21300000, guid: 0fc944a2ccdefc44cb4012c076b4682d, type: 3}
-  - {fileID: 21300000, guid: 7f5dce7db4b303346867edd6252d3c5c, type: 3}
-  - {fileID: 21300000, guid: 935d8c55d023b564386e078b73e309ef, type: 3}
-  - {fileID: 21300000, guid: 882ed4468709cd841bb92d02941c4c41, type: 3}
   characterInventory: {fileID: 1817794831}
+  wantedTypes: 0000000001000000020000000300000004000000
 --- !u!1 &1997912496
 GameObject:
   m_ObjectHideFlags: 0
@@ -12729,8 +12724,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -0.72082233, y: -96.300095, z: 43.62949}
-  - {x: -11.292884, y: -96.52663, z: 43.402954}
+  - {x: -0.71838224, y: -96.18762, z: 43.741962}
+  - {x: -11.254655, y: -96.41339, z: 43.516197}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -13739,6 +13734,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2006857280}
     m_Modifications:
+    - target: {fileID: 75875998316931391, guid: e3bc4648805d313439ad47fda2796e4d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 523733037319192870, guid: e3bc4648805d313439ad47fda2796e4d,
         type: 3}
       propertyPath: m_Name
