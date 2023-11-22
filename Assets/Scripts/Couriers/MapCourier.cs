@@ -12,6 +12,8 @@ public class MapCourier : MonoBehaviour
     public MapPath CourierPath;
     public Coroutine MoveCoroutine;
 
+    [HideInInspector] public Courier WorldCourier;
+
     private int _cash;
 
     private bool _isDrag;
@@ -23,7 +25,6 @@ public class MapCourier : MonoBehaviour
     
     private WayPoint _startPoint;
 
-    private Courier _worldCourier;
     private GoodsIconsVisualizer _iconsVisualizer;
 
     public int Cash
@@ -51,7 +52,7 @@ public class MapCourier : MonoBehaviour
         CourierPath.onReachedPoint += CheckWayPoint;
 
         _iconsVisualizer = GetComponent<GoodsIconsVisualizer>();
-        _iconsVisualizer.VisualizeGoods(_worldCourier.CourierStorage.StoredProducts);
+        _iconsVisualizer.VisualizeGoods(WorldCourier.CourierStorage.StoredProducts);
     }
 
     private void Update()
@@ -99,9 +100,10 @@ public class MapCourier : MonoBehaviour
         
         _image.raycastTarget = true;
 
-        if (CourierPath.PathLength == 0) {
+        if (!PathCreator.isCorrectPointExists) {
             transform.SetParent(_courierHandler);
             PathCreator.SetActiveCourier(null);
+            CourierPath.ClearPath();
         }
         else {
             StartDelivery();
@@ -119,15 +121,10 @@ public class MapCourier : MonoBehaviour
             transform.position = CourierPath.GetCurrentPosition() - Vector3.forward * 0.01f;
     }
 
-    public void SetWorldCourier(Courier courier)
-    {
-        _worldCourier = courier;
-    }
-
     public void OnEndDelivery()
     {
         GlobalValueHandler.Cash += Cash;
-        _worldCourier.OnReturn();
+        WorldCourier.OnReturn();
     }
 
     private void FollowCoursor()
@@ -140,9 +137,10 @@ public class MapCourier : MonoBehaviour
 
     private void CheckWayPoint(WayPoint point)
     {
-        if (point.pointOrder != null && point.pointOrder.CheckStorage(_worldCourier.CourierStorage)) {
-            Cash += point.pointOrder.TakeOrderFromCourier(_worldCourier);
-            _iconsVisualizer.Clear();
+        if (WorldCourier.CurrentOrderPoint != null && point.GetInstanceID() == WorldCourier.CurrentOrderPoint.GetInstanceID()) {
+            Cash += point.pointOrder.TakeOrderFromCourier(WorldCourier);
+            WorldCourier.CurrentOrderPoint = null;
+            _iconsVisualizer.VisualizeGoods(WorldCourier.CourierStorage.StoredProducts);
         }
     }
 

@@ -10,6 +10,8 @@ public class GoodsManager : MonoBehaviour
     [SerializeField] private Product[] productsInfo;
     [SerializeField] private float ProductDelay = 0.5f;
 
+    public int StartCash;
+
     private Dictionary<ProductType, Product> _generatedProducts;
 
     private void Awake()
@@ -20,6 +22,8 @@ public class GoodsManager : MonoBehaviour
         instance = this;
 
         Init();
+
+        GlobalValueHandler.Cash = StartCash;
     }
 
     #region public methods

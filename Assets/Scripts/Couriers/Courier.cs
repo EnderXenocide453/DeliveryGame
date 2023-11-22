@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Storage)), RequireComponent(typeof(Rigidbody))] 
+[RequireComponent(typeof(Storage)), RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(GoodsIconsVisualizer))] 
 public class Courier : MonoBehaviour
 {
     public float worldSpeed = 10;
@@ -20,6 +20,24 @@ public class Courier : MonoBehaviour
 
     private Rigidbody _body;
 
+    private GoodsIconsVisualizer _iconsVisualizer;
+    private WayPoint _orderPoint;
+
+    public WayPoint CurrentOrderPoint
+    {
+        get => _orderPoint;
+        set
+        {
+            _orderPoint = value;
+
+            if (value != null) {
+                _iconsVisualizer.VisualizeGoods(CurrentOrderPoint.pointOrder.OrderInfo);
+            } else {
+                _iconsVisualizer.Clear();
+            }
+        }
+    }
+
     public delegate void CourierEventHandler();
     public event CourierEventHandler onReturned;
     public event CourierEventHandler onOrderReceived;
@@ -29,6 +47,7 @@ public class Courier : MonoBehaviour
     {
         CourierStorage = GetComponent<Storage>();
         _body = GetComponent<Rigidbody>();
+        _iconsVisualizer = GetComponent<GoodsIconsVisualizer>();
     }
 
     private void FixedUpdate()
@@ -54,7 +73,7 @@ public class Courier : MonoBehaviour
 
     public bool ReceiveOrderFromStorage(Storage storage)
     {
-        if (SearchForCorrectOrder(storage)) {
+        if (CurrentOrderPoint.pointOrder.CheckStorage(storage)) {
             CourierStorage.GetAllGoodsFrom(storage);
             ApplyOrder();
             return true;
@@ -67,19 +86,6 @@ public class Courier : MonoBehaviour
     public void OnReturn()
     {
         onReturned?.Invoke();
-    }
-
-    private bool SearchForCorrectOrder(Storage storage)
-    {
-        foreach (var order in OrdersManager.instance.ActiveOrders.Values) {
-            if (order.GoodsCount != storage.CurrentCount || order.GoodsCount > CourierStorage.MaxCount)
-                continue;
-
-            if (order.CheckAllowedTypes(CourierStorage) && order.CheckStorage(storage))
-                return true;
-        }
-
-        return false;
     }
 
     private void ApplyOrder()

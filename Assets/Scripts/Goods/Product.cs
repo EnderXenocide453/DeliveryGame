@@ -3,8 +3,8 @@ using UnityEngine;
 [System.Serializable]
 public class Product
 {
-    public ProductType Type;
     public string Name;
+    public ProductType Type;
     public int Count;
     public int Cost;
 

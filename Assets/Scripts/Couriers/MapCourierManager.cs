@@ -12,7 +12,7 @@ public class MapCourierManager : MonoBehaviour
 
     public Transform CourierContainer;
     
-    private WayPoint _startPoint;
+    public WayPoint StartPoint { get; private set; }
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class MapCourierManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        if (!_startPoint) {
+        if (!StartPoint) {
             Debug.LogWarning("Не назначена начальная точка!");
             return;
         }
@@ -37,8 +37,8 @@ public class MapCourierManager : MonoBehaviour
             return;
 
         MapCourier mapCourier = Instantiate(instance.MapCourierPrefab, instance.CourierContainer).GetComponent<MapCourier>();
-        mapCourier.SetStartPoint(instance._startPoint);
-        mapCourier.SetWorldCourier(courier);
+        mapCourier.SetStartPoint(instance.StartPoint);
+        mapCourier.WorldCourier = courier;
         instance.Couriers.TryAdd(courier.GetInstanceID(), mapCourier);
     }
 
@@ -81,10 +81,10 @@ public class MapCourierManager : MonoBehaviour
 
     public static bool SetStartPoint(WayPoint point)
     {
-        if (instance._startPoint)
+        if (instance.StartPoint)
             return false;
 
-        instance._startPoint = point;
+        instance.StartPoint = point;
         return true;
     }
 

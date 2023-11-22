@@ -5,12 +5,11 @@ using UnityEngine;
 public class OrdersManager : MonoBehaviour
 {
     public static OrdersManager instance;
+    public static Dictionary<int, Order> ActiveOrders;
 
     [SerializeField] float appearenceDelay = 30;
     [SerializeField] int goodsMaxCount = 1;
     [SerializeField] List<ProductType> goodsTypes;
-
-    public Dictionary<int, Order> ActiveOrders;
 
     private List<WayPoint> _freePoints;
 
@@ -30,13 +29,12 @@ public class OrdersManager : MonoBehaviour
         }
 
         ActiveOrders = new Dictionary<int, Order>();
-        StartCoroutine(OrderGenerator());
     }
 
     public static void AddFreePoint(WayPoint point)
     {
         instance._freePoints.Add(point);
-        instance.ActiveOrders.Remove(point.GetInstanceID());
+        ActiveOrders.Remove(point.GetInstanceID());
     }
 
     public static void ChangeMaxCount(int count)
@@ -53,17 +51,32 @@ public class OrdersManager : MonoBehaviour
         instance.goodsTypes.Add(type);
     }
 
-    private static void GenerateNewOrder()
+    public static void GenerateOrderForCourier(Courier courier)
     {
-        if (instance._freePoints.Count == 0)
+        if (courier.CurrentOrderPoint) {
+            Debug.LogWarning("Курьер уже имеет заказ");
             return;
+        }
+
+        if (instance._freePoints.Count == 0) {
+            Debug.LogWarning("Не хватает свободных точек!");
+            return;
+        }
 
         int id = Random.Range(0, instance._freePoints.Count);
 
         WayPoint point = instance._freePoints[id];
 
+        point.SetOrder(GenerateRandomOrder(courier.CourierStorage.MaxCount));
+        ActiveOrders.Add(point.GetInstanceID(), point.pointOrder);
+        instance._freePoints.RemoveAt(id);
+
+        courier.CurrentOrderPoint = point;
+    }
+
+    private static Order GenerateRandomOrder(int count)
+    {
         Dictionary<ProductType, int> info = new Dictionary<ProductType, int>();
-        int count = Random.Range(1, instance.goodsMaxCount + 1);
 
         for (int i = 0; i < count; i++) {
             ProductType type = instance.goodsTypes[Random.Range(0, instance.goodsTypes.Count)];
@@ -71,17 +84,6 @@ public class OrdersManager : MonoBehaviour
             if (!info.TryAdd(type, 1)) info[type]++;
         }
 
-        point.SetOrder(new Order(info));
-        instance.ActiveOrders.Add(point.GetInstanceID(), point.pointOrder);
-        instance._freePoints.RemoveAt(id);
-    }
-
-    private IEnumerator OrderGenerator()
-    {
-        while (true) {
-            yield return new WaitForSeconds(appearenceDelay);
-
-            GenerateNewOrder();
-        }
+        return new Order(info);
     }
 }

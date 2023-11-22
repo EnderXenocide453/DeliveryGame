@@ -6,6 +6,7 @@ using UnityEngine;
 public class PathCreator : MonoBehaviour
 {
     public static PathCreator instance;
+    public static bool isCorrectPointExists { get; private set; }
 
     [SerializeField] private MapCourier ActiveCourier;
 
@@ -24,21 +25,29 @@ public class PathCreator : MonoBehaviour
 
     public static void ProcessWayPoint(WayPoint point)
     {
-        if (!instance.ActiveCourier || !instance.ActiveCourier.IsAwaits || !instance.ActiveCourier.CourierPath.LastPoint.IsConnected(point)) {
+        if (isCorrectPointExists || !instance.ActiveCourier || !instance.ActiveCourier.IsAwaits || !instance.ActiveCourier.CourierPath.LastPoint.IsConnected(point)) {
             return;
         }
 
         instance.ActiveCourier.CourierPath.TryAddPoint(point);
-        
+        if (point.GetInstanceID() == instance.ActiveCourier.WorldCourier.CurrentOrderPoint.GetInstanceID())
+            isCorrectPointExists = true;
+
         DisplayActivePath();
     }
 
     public static void SetActiveCourier(MapCourier courier)
     {
-        instance.ActiveCourier = courier;
+        if (instance.ActiveCourier)
+            instance.ActiveCourier.WorldCourier.onReturned -= HideActivePath;
 
-        if (instance)
+        instance.ActiveCourier = courier;
+        isCorrectPointExists = false;
+
+        if (courier) {
             DisplayActivePath();
+            courier.WorldCourier.onReturned += HideActivePath;
+        }
         else
             HideActivePath();
     }
@@ -60,6 +69,7 @@ public class PathCreator : MonoBehaviour
 
     public static void HideActivePath()
     {
+        instance._pathLine.positionCount = 0;
         instance._pathLine.enabled = false;
     }
 }
