@@ -62,6 +62,8 @@ public class CourierManager : MonoBehaviour
 
     public void ShowCourier(Courier courier)
     {
+        courier.transform.position = Entrance.position;
+
         courier.Appear();
         AddCourierToQueue(courier);
     }
