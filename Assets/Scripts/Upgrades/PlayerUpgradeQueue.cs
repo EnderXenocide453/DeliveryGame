@@ -23,20 +23,21 @@ public class PlayerUpgradeQueue : MonoBehaviour
         if (upgrades.Length == 0)
             return;
 
+        _target = GetComponent<PlayerMovement>();
+        _targetStorage = GetComponent<Storage>();
+
         for (int i = 1; i < upgrades.Length; i++) {
             upgrades[i - 1].nextUpgrade = upgrades[i];
+            upgrades[i].onUpgraded += OnUpgraded;
+            upgrades[i].SetTarget(_target, _targetStorage);
         }
 
         upgrades[0].onUpgraded += OnUpgraded;
-
-        _target = GetComponent<PlayerMovement>();
-        _targetStorage = GetComponent<Storage>();
+        upgrades[0].SetTarget(_target, _targetStorage);
     }
 
     private void OnUpgraded()
     {
-        var upgrade = (PlayerUpgrade)CurrentUpgrade;
-        upgrade.SetTarget(_target, _targetStorage);
         _currentID++;
 
         onUpgraded?.Invoke();

@@ -37,6 +37,7 @@ public class UpgradePanel : MonoBehaviour
 
     public void DoUpgrade()
     {
+        GlobalValueHandler.Cash -= _attachedUpgrade.cost;
         _attachedUpgrade?.DoUpgrade();
     }
 

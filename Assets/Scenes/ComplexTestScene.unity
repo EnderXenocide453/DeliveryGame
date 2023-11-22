@@ -12036,37 +12036,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   productsInfo:
-  - Type: 0
-    Name: "\u0411\u0443\u0440\u0433\u0435\u0440"
+  - Name: "\u0411\u0443\u0440\u0433\u0435\u0440"
+    Type: 0
     Count: 0
     Cost: 10
     Prefab: {fileID: 767117592969082530, guid: 172f847f95c01ed4d90875d91d0105a8, type: 3}
     Icon: {fileID: 21300000, guid: 99154266576b25a48a433a4e571a3487, type: 3}
-  - Type: 1
-    Name: "\u041F\u0438\u0446\u0446\u0430"
+  - Name: "\u041F\u0438\u0446\u0446\u0430"
+    Type: 1
     Count: 0
     Cost: 20
     Prefab: {fileID: 767117592969082530, guid: 8a07ae8c7788afb4997fc904db566787, type: 3}
     Icon: {fileID: 21300000, guid: 79a8e2d2be3160f4dbe3c22577112ffe, type: 3}
-  - Type: 2
-    Name: "\u0421\u0443\u0448\u0438"
+  - Name: "\u0421\u0443\u0448\u0438"
+    Type: 2
     Count: 0
     Cost: 30
     Prefab: {fileID: 767117592969082530, guid: a11e497496a1e29468224dac2173befb, type: 3}
     Icon: {fileID: 21300000, guid: 83fc3a14c52b0b14699554d269a97f2f, type: 3}
-  - Type: 3
-    Name: "\u041D\u0430\u043F\u0438\u0442\u043E\u043A"
+  - Name: "\u041D\u0430\u043F\u0438\u0442\u043E\u043A"
+    Type: 3
     Count: 0
     Cost: 10
     Prefab: {fileID: 767117592969082530, guid: 7dff423709678d940894059722bde19e, type: 3}
     Icon: {fileID: 21300000, guid: 0ceb8c93efb43f04aafc71cbe198c82e, type: 3}
-  - Type: 4
-    Name: "\u0426\u0432\u0435\u0442\u044B"
+  - Name: "\u0426\u0432\u0435\u0442\u044B"
+    Type: 4
     Count: 0
     Cost: 50
     Prefab: {fileID: 767117592969082530, guid: 0e24508a5cb2c9745a972d3fe9223011, type: 3}
     Icon: {fileID: 21300000, guid: f8a5783be468c314c86bb8c40b04c700, type: 3}
   ProductDelay: 1
+  StartCash: 1000000000
 --- !u!4 &1915910366
 Transform:
   m_ObjectHideFlags: 0

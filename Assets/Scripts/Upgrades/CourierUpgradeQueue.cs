@@ -21,19 +21,20 @@ public class CourierUpgradeQueue : MonoBehaviour
         if (upgrades.Length == 0)
             return;
 
+        _target = GetComponent<Courier>();
+
         for (int i = 1; i < upgrades.Length; i++) {
             upgrades[i - 1].nextUpgrade = upgrades[i];
+            upgrades[i].onUpgraded += OnUpgraded;
+            upgrades[i].SetTarget(_target);
         }
 
         upgrades[0].onUpgraded += OnUpgraded;
-
-        _target = GetComponent<Courier>();
+        upgrades[0].SetTarget(_target);
     }
 
     private void OnUpgraded()
     {
-        var upgrade = (CourierUpgrade)CurrentUpgrade;
-        upgrade.SetTarget(_target);
         _currentID++;
 
         onUpgraded?.Invoke();
