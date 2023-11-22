@@ -143,15 +143,9 @@ public class MapPath
     public MapPath GetReversedPath()
     {
         MapPath reversed = new MapPath();
-        reversed.PathLength = PathLength;
-        reversed._currentPoint = _wayPoints.Count - _currentPoint - 1;
-        reversed._currentDistance = PathLength - _currentDistance;
 
-        reversed._wayPoints = new List<WayPoint>();
-        reversed._distances = _distances;
-
-        foreach (var point in _wayPoints) {
-            reversed._wayPoints.Insert(0, point);
+        for (int i = pointsCount - 1; i >= 0; i--) {
+            reversed.TryAddPoint(_wayPoints[i]);
         }
 
         reversed.onDistanceChanged = onDistanceChanged;
