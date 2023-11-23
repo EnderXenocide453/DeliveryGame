@@ -1012,7 +1012,7 @@ MonoBehaviour:
   InteractionMask:
     serializedVersion: 2
     m_Bits: 8
-  SpawnType: 4
+  SpawnType: 9
 --- !u!65 &116894143
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1230,7 +1230,7 @@ MonoBehaviour:
   AllowAllTypes: 0
   GoodsVisualizer: {fileID: 0}
   maxCount: 10
-  AllowedTypes: 04000000
+  AllowedTypes: 0400000009000000
   _currentCount: 0
 --- !u!65 &185283308
 BoxCollider:
@@ -1544,7 +1544,7 @@ MonoBehaviour:
   AllowAllTypes: 0
   GoodsVisualizer: {fileID: 0}
   maxCount: 10
-  AllowedTypes: 03000000
+  AllowedTypes: 0300000008000000
   _currentCount: 0
 --- !u!65 &215736115
 BoxCollider:
@@ -3145,7 +3145,7 @@ MonoBehaviour:
   AllowAllTypes: 0
   GoodsVisualizer: {fileID: 0}
   maxCount: 10
-  AllowedTypes: 01000000
+  AllowedTypes: 0100000006000000
   _currentCount: 0
 --- !u!65 &411685559
 BoxCollider:
@@ -5002,7 +5002,7 @@ MonoBehaviour:
   AllowAllTypes: 0
   GoodsVisualizer: {fileID: 0}
   maxCount: 10
-  AllowedTypes: 00000000
+  AllowedTypes: 0000000005000000
   _currentCount: 0
 --- !u!65 &646926390
 BoxCollider:
@@ -5912,7 +5912,7 @@ MonoBehaviour:
   QueuePointPrefab: {fileID: 165135949981079702, guid: 62d09ce2604365b49af75f4c8da0a570,
     type: 3}
   QueueLength: 10
-  QueueInterval: 1.5
+  QueueInterval: 2
 --- !u!1 &804865510
 GameObject:
   m_ObjectHideFlags: 0
@@ -6613,7 +6613,7 @@ MonoBehaviour:
   AllowAllTypes: 0
   GoodsVisualizer: {fileID: 0}
   maxCount: 10
-  AllowedTypes: 02000000
+  AllowedTypes: 0200000007000000
   _currentCount: 0
 --- !u!65 &982397977
 BoxCollider:
@@ -9150,7 +9150,7 @@ MonoBehaviour:
   InteractionMask:
     serializedVersion: 2
     m_Bits: 8
-  SpawnType: 1
+  SpawnType: 6
 --- !u!65 &1437838642
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9495,7 +9495,7 @@ MonoBehaviour:
   InteractionMask:
     serializedVersion: 2
     m_Bits: 8
-  SpawnType: 3
+  SpawnType: 8
 --- !u!65 &1512396713
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11710,7 +11710,7 @@ MonoBehaviour:
   InteractionMask:
     serializedVersion: 2
     m_Bits: 8
-  SpawnType: 2
+  SpawnType: 7
 --- !u!65 &1856261156
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11832,7 +11832,7 @@ MonoBehaviour:
   InteractionMask:
     serializedVersion: 2
     m_Bits: 8
-  SpawnType: 0
+  SpawnType: 5
 --- !u!65 &1857176687
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12310,7 +12310,7 @@ MonoBehaviour:
   Couriers: []
   Entrance: {fileID: 192791232}
   Exit: {fileID: 2051819880}
-  CourierQueue: {fileID: 0}
+  CourierQueue: {fileID: 795505148}
   CourierPrefab: {fileID: 2841703568934649412, guid: 161f70de5e8f2ed4c85f4a295e209133,
     type: 3}
 --- !u!114 &1915910365
@@ -12328,35 +12328,76 @@ MonoBehaviour:
   productsInfo:
   - Name: "\u0411\u0443\u0440\u0433\u0435\u0440"
     Type: 0
-    Count: 0
     Cost: 10
+    IsContainer: 0
+    ContainedType: 0
     Prefab: {fileID: 767117592969082530, guid: 172f847f95c01ed4d90875d91d0105a8, type: 3}
     Icon: {fileID: 21300000, guid: 99154266576b25a48a433a4e571a3487, type: 3}
   - Name: "\u041F\u0438\u0446\u0446\u0430"
     Type: 1
-    Count: 0
     Cost: 20
+    IsContainer: 0
+    ContainedType: 0
     Prefab: {fileID: 767117592969082530, guid: 8a07ae8c7788afb4997fc904db566787, type: 3}
     Icon: {fileID: 21300000, guid: 79a8e2d2be3160f4dbe3c22577112ffe, type: 3}
   - Name: "\u0421\u0443\u0448\u0438"
     Type: 2
-    Count: 0
     Cost: 30
+    IsContainer: 0
+    ContainedType: 0
     Prefab: {fileID: 767117592969082530, guid: a11e497496a1e29468224dac2173befb, type: 3}
     Icon: {fileID: 21300000, guid: 83fc3a14c52b0b14699554d269a97f2f, type: 3}
   - Name: "\u041D\u0430\u043F\u0438\u0442\u043E\u043A"
     Type: 3
-    Count: 0
     Cost: 10
+    IsContainer: 0
+    ContainedType: 0
     Prefab: {fileID: 767117592969082530, guid: 7dff423709678d940894059722bde19e, type: 3}
     Icon: {fileID: 21300000, guid: 0ceb8c93efb43f04aafc71cbe198c82e, type: 3}
   - Name: "\u0426\u0432\u0435\u0442\u044B"
     Type: 4
-    Count: 0
     Cost: 50
+    IsContainer: 0
+    ContainedType: 0
     Prefab: {fileID: 767117592969082530, guid: 0e24508a5cb2c9745a972d3fe9223011, type: 3}
     Icon: {fileID: 21300000, guid: f8a5783be468c314c86bb8c40b04c700, type: 3}
+  - Name: "\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u0431\u0443\u0440\u0433\u0435\u0440\u043E\u0432"
+    Type: 5
+    Cost: 10
+    IsContainer: 1
+    ContainedType: 0
+    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Icon: {fileID: 0}
+  - Name: "\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u043F\u0438\u0446\u0446\u044B"
+    Type: 6
+    Cost: 20
+    IsContainer: 1
+    ContainedType: 1
+    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Icon: {fileID: 0}
+  - Name: "\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u0441\u0443\u0448\u0438"
+    Type: 7
+    Cost: 30
+    IsContainer: 1
+    ContainedType: 2
+    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Icon: {fileID: 0}
+  - Name: "\u0423\u043F\u0430\u043A\u043E\u0432\u043A\u0430 \u043D\u0430\u043F\u0438\u0442\u043A\u043E\u0432"
+    Type: 8
+    Cost: 10
+    IsContainer: 1
+    ContainedType: 3
+    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Icon: {fileID: 0}
+  - Name: "\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u0441 \u0446\u0432\u0435\u0442\u0430\u043C\u0438"
+    Type: 9
+    Cost: 50
+    IsContainer: 1
+    ContainedType: 4
+    Prefab: {fileID: 767117592969082530, guid: 947c410ee4cb77e4a94a97a6bc3c134b, type: 3}
+    Icon: {fileID: 0}
   ProductDelay: 1
+  boxCount: 5
   StartCash: 1000000000
 --- !u!4 &1915910366
 Transform:

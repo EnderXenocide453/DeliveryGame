@@ -7,8 +7,14 @@ public class GoodsManager : MonoBehaviour
     public static GoodsManager instance = null;
     public static List<ProductType> UsedProductTypes;
 
+    public static int BoxCount
+    {
+        get => instance.boxCount;
+    }
+
     [SerializeField] private Product[] productsInfo;
     [SerializeField] private float ProductDelay = 0.5f;
+    [SerializeField] private int boxCount = 1;
 
     public int StartCash;
 
@@ -84,7 +90,8 @@ public class GoodsManager : MonoBehaviour
                 yield return new WaitForSeconds(delay);
 
                 from.RemoveProduct(type, 1);
-                to.AddProduct(type, 1);
+                var info = _generatedProducts[type].GetContainedGoods();
+                to.AddProduct(info.type, info.count);
             }
         }
     }

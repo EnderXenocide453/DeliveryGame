@@ -5,11 +5,19 @@ public class Product
 {
     public string Name;
     public ProductType Type;
-    public int Count;
     public int Cost;
+
+    public bool IsContainer;
+    //public int ContainedCount;
+    public ProductType ContainedType;
 
     public GameObject Prefab;
     public Sprite Icon;
+
+    public (ProductType type, int count) GetContainedGoods()
+    {
+        return IsContainer ? (ContainedType, GoodsManager.BoxCount) : (Type, 1);
+    }
 }
 
 public enum ProductType
@@ -18,5 +26,10 @@ public enum ProductType
     Pizza,
     Sushi,
     Drink,
-    Flower
+    Flower,
+    BurgerBox,
+    PizzaBox,
+    SushiBox,
+    DrinkBox,
+    FlowerBox
 }
