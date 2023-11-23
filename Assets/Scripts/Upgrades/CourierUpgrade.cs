@@ -20,7 +20,7 @@ public class CourierUpgrade : BaseUpgrade
 
     protected override void PostUpgrade()
     {
-        _target.speedModifier = speedModifier;
+        _target.mapSpeedModifier = speedModifier;
         _target.CourierStorage.MaxCount = storageCapacity;
     }
 

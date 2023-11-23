@@ -7,7 +7,7 @@ public class Courier : MonoBehaviour
 {
     public float worldSpeed = 10;
     public float rotationSpeed = 360;
-    public float mapSpeed = 1;
+    public float mapSpeedModifier = 1;
 
     public float speedModifier = 1;
 

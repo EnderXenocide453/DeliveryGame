@@ -92,7 +92,8 @@ public class MapCourierManager : MonoBehaviour
     {
         while (true) {
             yield return new WaitForSeconds(instance.moveDelay);
-            courier.CourierPath.MoveTowards(instance.moveDelay * courier.Speed);
+            courier.CourierPath.MoveTowards(instance.moveDelay * courier.Speed * courier.WorldCourier.mapSpeedModifier);
+            Debug.Log(instance.moveDelay * courier.Speed * courier.WorldCourier.mapSpeedModifier);
         }
     }
 }
