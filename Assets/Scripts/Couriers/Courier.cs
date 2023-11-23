@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Storage)), RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(GoodsIconsVisualizer))] 
+[RequireComponent(typeof(Storage)), RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(GoodsIconsVisualizer)), RequireComponent(typeof(EmojiCloud))] 
 public class Courier : MonoBehaviour
 {
     public float worldSpeed = 10;
@@ -22,6 +22,7 @@ public class Courier : MonoBehaviour
 
     private GoodsIconsVisualizer _iconsVisualizer;
     private WayPoint _orderPoint;
+    private EmojiCloud _cloud;
 
     public WayPoint CurrentOrderPoint
     {
@@ -48,6 +49,7 @@ public class Courier : MonoBehaviour
         CourierStorage = GetComponent<Storage>();
         _body = GetComponent<Rigidbody>();
         _iconsVisualizer = GetComponent<GoodsIconsVisualizer>();
+        _cloud = GetComponent<EmojiCloud>();
     }
 
     private void FixedUpdate()
@@ -93,14 +95,16 @@ public class Courier : MonoBehaviour
         Debug.Log("Apply");
         MapCourierManager.AddCourier(this);
 
-        //Сообщаем о соответствии
+        _cloud.DrawImage(GlobalValueHandler.ApplyIcon, 2f);
+
         onOrderReceived?.Invoke();
     }
 
     private void DenyOrder()
     {
         Debug.Log("Deny");
-        //Сообщаем о несоответствии
+
+        _cloud.DrawImage(GlobalValueHandler.DenyIcon, 2f);
     }
 
     private void Move()
