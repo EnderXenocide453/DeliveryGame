@@ -50,7 +50,7 @@ public class UpgradePanel : MonoBehaviour
 
     private void UpdateButton()
     {
-        upgradeBtn.interactable = GlobalValueHandler.Cash >= _attachedUpgrade.cost;
+        upgradeBtn.interactable = GlobalValueHandler.Cash >= _attachedUpgrade?.cost;
     }
 
     private void OnUpgrade()
