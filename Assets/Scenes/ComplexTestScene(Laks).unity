@@ -490,8 +490,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -26.174377, y: -72.52026, z: 67.409325}
-  - {x: -27.538515, y: -85.96425, z: 53.965343}
+  - {x: -28.674377, y: -68.32005, z: 52.909107}
+  - {x: -30.038515, y: -81.76403, z: 39.465126}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -641,8 +641,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -10.65732, y: -77.76523, z: 62.164364}
-  - {x: -26.174377, y: -72.52026, z: 67.409325}
+  - {x: -13.15732, y: -73.56501, z: 47.664146}
+  - {x: -28.674377, y: -68.32005, z: 52.909107}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -1443,7 +1443,7 @@ Transform:
   m_GameObject: {fileID: 214271054}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 9.06, z: 0}
+  m_LocalPosition: {x: 0, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1491,7 +1491,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 75
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1790,8 +1790,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 21.485157, y: -50.636116, z: 89.29347}
-  - {x: 6.6501675, y: -60.824604, z: 79.10499}
+  - {x: 18.985157, y: -46.435905, z: 74.79326}
+  - {x: 4.1501675, y: -56.62439, z: 64.60477}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -1941,8 +1941,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -12.021457, y: -98.684784, z: 41.24481}
-  - {x: 5.968099, y: -83.25133, z: 56.678253}
+  - {x: -14.521457, y: -94.484566, z: 26.74459}
+  - {x: 3.468099, y: -79.05112, z: 42.17804}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -2380,8 +2380,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 5.968099, y: -83.25133, z: 56.678253}
-  - {x: -0.767327, y: -98.443634, z: 41.485954}
+  - {x: 3.468099, y: -79.05112, z: 42.17804}
+  - {x: -3.267327, y: -94.243416, z: 26.985737}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -2863,8 +2863,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 6.6501675, y: -60.824604, z: 79.10499}
-  - {x: 5.968099, y: -83.25133, z: 56.678253}
+  - {x: 4.1501675, y: -56.62439, z: 64.60477}
+  - {x: 3.468099, y: -79.05112, z: 42.17804}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -3014,8 +3014,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 0, y: -38.397877, z: 101.531715}
-  - {x: -9.804734, y: -54.615055, z: 85.31454}
+  - {x: -2.5, y: -34.197662, z: 87.031494}
+  - {x: -12.304734, y: -50.41484, z: 70.814316}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -3596,8 +3596,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -9.804734, y: -54.615055, z: 85.31454}
-  - {x: -11.765681, y: -65.526985, z: 74.4026}
+  - {x: -12.304734, y: -50.41484, z: 70.814316}
+  - {x: -14.265681, y: -61.326767, z: 59.90239}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -3954,8 +3954,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 6.6501675, y: -60.824604, z: 79.10499}
-  - {x: -9.804734, y: -54.615055, z: 85.31454}
+  - {x: 4.1501675, y: -56.62439, z: 64.60477}
+  - {x: -12.304734, y: -50.41484, z: 70.814316}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -4493,8 +4493,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 22.167225, y: -67.81789, z: 72.1117}
-  - {x: 21.485157, y: -50.636116, z: 89.29347}
+  - {x: 19.667225, y: -63.617672, z: 57.61149}
+  - {x: 18.985157, y: -46.435905, z: 74.79326}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -4678,8 +4678,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 0, y: -38.397877, z: 101.531715}
-  - {x: 17.989555, y: -43.40169, z: 96.5279}
+  - {x: -2.5, y: -34.197662, z: 87.031494}
+  - {x: 15.489555, y: -39.201477, z: 82.02768}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -5242,6 +5242,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
+      propertyPath: cashSpendCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
+        type: 3}
       propertyPath: buildParts.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -5409,8 +5414,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 17.989555, y: -43.40169, z: 96.5279}
-  - {x: 21.485157, y: -50.636116, z: 89.29347}
+  - {x: 15.489555, y: -39.201477, z: 82.02768}
+  - {x: 18.985157, y: -46.435905, z: 74.79326}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -5683,8 +5688,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -12.021457, y: -98.684784, z: 41.24481}
-  - {x: -27.538515, y: -85.96425, z: 53.965343}
+  - {x: -14.521457, y: -94.484566, z: 26.74459}
+  - {x: -30.038515, y: -81.76403, z: 39.465126}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -6352,7 +6357,7 @@ Transform:
   m_GameObject: {fileID: 892898444}
   serializedVersion: 2
   m_LocalRotation: {x: -0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 1.229, z: 12.55}
+  m_LocalPosition: {x: -2.5, y: 1.229, z: 2.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7548,8 +7553,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -11.765681, y: -65.526985, z: 74.4026}
-  - {x: 6.6501675, y: -60.824604, z: 79.10499}
+  - {x: -14.265681, y: -61.326767, z: 59.90239}
+  - {x: 4.1501675, y: -56.62439, z: 64.60477}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -8158,8 +8163,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 22.167225, y: -67.81789, z: 72.1117}
-  - {x: 5.968099, y: -83.25133, z: 56.678253}
+  - {x: 19.667225, y: -63.617672, z: 57.61149}
+  - {x: 3.468099, y: -79.05112, z: 42.17804}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -8537,8 +8542,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -10.65732, y: -77.76523, z: 62.164364}
-  - {x: -11.765681, y: -65.526985, z: 74.4026}
+  - {x: -13.15732, y: -73.56501, z: 47.664146}
+  - {x: -14.265681, y: -61.326767, z: 59.90239}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -9039,8 +9044,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -10.65732, y: -77.76523, z: 62.164364}
-  - {x: 5.968099, y: -83.25133, z: 56.678253}
+  - {x: -13.15732, y: -73.56501, z: 47.664146}
+  - {x: 3.468099, y: -79.05112, z: 42.17804}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -9394,6 +9399,11 @@ PrefabInstance:
         type: 3}
       propertyPath: allowedType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
+        type: 3}
+      propertyPath: cashSpendCount
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
@@ -9784,8 +9794,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -26.174377, y: -72.52026, z: 67.409325}
-  - {x: -11.765681, y: -65.526985, z: 74.4026}
+  - {x: -28.674377, y: -68.32005, z: 52.909107}
+  - {x: -14.265681, y: -61.326767, z: 59.90239}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -10691,8 +10701,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -27.538515, y: -85.96425, z: 53.965343}
-  - {x: -10.65732, y: -77.76523, z: 62.164364}
+  - {x: -30.038515, y: -81.76403, z: 39.465126}
+  - {x: -13.15732, y: -73.56501, z: 47.664146}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -11296,6 +11306,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
+      propertyPath: cashSpendCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
+        type: 3}
       propertyPath: buildParts.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -11434,8 +11449,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: 6.6501675, y: -60.824604, z: 79.10499}
-  - {x: 22.167225, y: -67.81789, z: 72.1117}
+  - {x: 4.1501675, y: -56.62439, z: 64.60477}
+  - {x: 19.667225, y: -63.617672, z: 57.61149}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -12678,8 +12693,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: -2
   m_Positions:
-  - {x: -0.767327, y: -98.443634, z: 41.485954}
-  - {x: -12.021457, y: -98.684784, z: 41.24481}
+  - {x: -3.267327, y: -94.243416, z: 26.985737}
+  - {x: -14.521457, y: -94.484566, z: 26.74459}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -13586,7 +13601,7 @@ PrefabInstance:
     - target: {fileID: 1500122360460088713, guid: 0f478c634c21c594aa0df7a1ed03bc94,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.57
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1500122360460088713, guid: 0f478c634c21c594aa0df7a1ed03bc94,
         type: 3}
@@ -13596,7 +13611,7 @@ PrefabInstance:
     - target: {fileID: 1500122360460088713, guid: 0f478c634c21c594aa0df7a1ed03bc94,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1500122360460088713, guid: 0f478c634c21c594aa0df7a1ed03bc94,
         type: 3}
@@ -13870,6 +13885,11 @@ PrefabInstance:
         type: 3}
       propertyPath: allowedType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
+        type: 3}
+      propertyPath: cashSpendCount
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}

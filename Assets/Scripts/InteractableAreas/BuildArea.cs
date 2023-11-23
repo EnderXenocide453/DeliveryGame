@@ -7,7 +7,8 @@ public class BuildArea : InteractableArea
 {
     [SerializeField] int cost;
     [SerializeField] Transform[] buildParts;
-    [SerializeField] float cashSpendDelay;
+    [SerializeField] float cashSpendDelay = 0.05f;
+    [SerializeField] int cashSpendCount = 1;
     [SerializeField] TMPro.TMP_Text cashCounter;
     [Space]
     [SerializeField] ProductType allowedType;
@@ -38,8 +39,10 @@ public class BuildArea : InteractableArea
     {
         while (_storedCash < cost) {
             if (GlobalValueHandler.Cash > 0) {
-                GlobalValueHandler.Cash--;
-                _storedCash++;
+                int cashSpend = Mathf.Min(new int[] { cashSpendCount, cost - _storedCash, GlobalValueHandler.Cash });
+
+                GlobalValueHandler.Cash -= cashSpend;
+                _storedCash += cashSpend;
 
                 cashCounter.text = (cost - _storedCash).ToString();
             }
