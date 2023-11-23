@@ -25,8 +25,15 @@ public class UpgradePanel : MonoBehaviour
 
     public void DrawUpgrade()
     {
-        if (_attachedUpgrade == null)
+        if (_attachedUpgrade == null) {
+            descField.text = "";
+            costField.text = "Max";
+            upgradeBtn.interactable = false;
+
+            GlobalValueHandler.onCashChanged -= UpdateButton;
+
             return;
+        }
 
         nameField.text = _attachedUpgrade.name;
         descField.text = _attachedUpgrade.description;
@@ -49,11 +56,18 @@ public class UpgradePanel : MonoBehaviour
     private void OnUpgrade()
     {
         if (_attachedUpgrade.nextUpgrade == null) {
-            Destroy(gameObject);
+            OnMaxUpgrade();
 
             return;
         }
 
         AttachUpgrade(_attachedUpgrade.nextUpgrade);
+    }
+
+    private void OnMaxUpgrade()
+    {
+        _attachedUpgrade = null;
+
+        DrawUpgrade();
     }
 }
