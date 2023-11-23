@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public class Order
 {
@@ -7,6 +8,8 @@ public class Order
 
     public delegate void OrderEventHandler();
     public event OrderEventHandler onFinished;
+
+    public float duration = 5;
 
     public Order(Dictionary<ProductType, int> info)
     {
@@ -56,5 +59,15 @@ public class Order
         onFinished = null;
 
         return income;
+    }
+
+    public void Fail()
+    {
+        UnityEngine.Debug.Log("Время вышло");
+    }
+
+    public void Success()
+    {
+        UnityEngine.Debug.Log("Заказ доставлен!");
     }
 }
