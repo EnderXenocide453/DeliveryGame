@@ -44,6 +44,14 @@ public class UpgradeUI : MonoBehaviour
         UpgradePanel panel = Addpanel();
         panel.AttachUpgrade(CourierManager.instance.AddNewCourier().GetComponent<CourierUpgradeQueue>().CurrentUpgrade);
 
+        if (CourierManager.isMaxCouriers) {
+            GlobalValueHandler.onCashChanged -= UpdateBtn;
+            hireButton.interactable = false;
+            counter.text = "Max";
+            
+            return;
+        }
+
         _currentCost += costIncrement;
         counter.text = $"Нанять: {_currentCost}";
         UpdateBtn();

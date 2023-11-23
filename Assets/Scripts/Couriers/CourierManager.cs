@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class CourierManager : MonoBehaviour
 {
+    public static bool isMaxCouriers;
     public static CourierManager instance;
     public List<Courier> Couriers;
 
     private Courier _awaitingCourier;
+
+    [SerializeField] int couriersMaxCount = 20;
 
     [SerializeField] Transform Entrance;
     [SerializeField] Transform Exit;
@@ -56,6 +59,9 @@ public class CourierManager : MonoBehaviour
             RemoveCourierFromQueue();
             MapCourierManager.AddCourier(courier);
         };
+
+        isMaxCouriers = Couriers.Count >= couriersMaxCount;
+        Debug.Log(isMaxCouriers);
 
         return courier;
     }
