@@ -80,6 +80,11 @@ public class WayPoint : MonoBehaviour
         connections.Remove(id);
     }
 
+    public void SetActivity(bool activity)
+    {
+        _image.color = activity ? Color.green : Color.white;
+    }
+
     private void RemoveOrder()
     {
         pointOrder = null;

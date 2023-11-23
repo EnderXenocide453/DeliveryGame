@@ -23,6 +23,11 @@ public class PathCreator : MonoBehaviour
         _pathLine = GetComponent<LineRenderer>();
     }
 
+    private void OnDisable()
+    {
+        HideActivePath();
+    }
+
     public static void ProcessWayPoint(WayPoint point)
     {
         if (isCorrectPointExists || !instance.ActiveCourier || !instance.ActiveCourier.IsAwaits || !instance.ActiveCourier.CourierPath.LastPoint.IsConnected(point)) {
@@ -41,13 +46,17 @@ public class PathCreator : MonoBehaviour
         if (instance.ActiveCourier)
             instance.ActiveCourier.WorldCourier.onReturned -= HideActivePath;
 
+        if (instance.ActiveCourier)
+            instance.ActiveCourier.WorldCourier.CurrentOrderPoint.SetActivity(false);
+
         instance.ActiveCourier = courier;
         isCorrectPointExists = false;
 
         if (courier) {
             DisplayActivePath();
             courier.WorldCourier.onReturned += HideActivePath;
-        }
+            courier.WorldCourier.CurrentOrderPoint.SetActivity(true);
+        } 
         else
             HideActivePath();
     }
@@ -69,6 +78,8 @@ public class PathCreator : MonoBehaviour
 
     public static void HideActivePath()
     {
+        instance.ActiveCourier?.WorldCourier.CurrentOrderPoint?.SetActivity(false);
+
         instance._pathLine.positionCount = 0;
         instance._pathLine.enabled = false;
     }

@@ -139,7 +139,10 @@ public class MapCourier : MonoBehaviour
     {
         if (WorldCourier.CurrentOrderPoint != null && point.GetInstanceID() == WorldCourier.CurrentOrderPoint.GetInstanceID()) {
             Cash += point.pointOrder.TakeOrderFromCourier(WorldCourier);
+
+            WorldCourier.CurrentOrderPoint?.SetActivity(false);
             WorldCourier.CurrentOrderPoint = null;
+
             _iconsVisualizer.VisualizeGoods(WorldCourier.CourierStorage.StoredProducts);
         }
     }
