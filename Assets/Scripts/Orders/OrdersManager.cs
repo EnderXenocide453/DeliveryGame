@@ -39,8 +39,7 @@ public class OrdersManager : MonoBehaviour
 
     public static void ChangeMaxCount(int count)
     {
-        if (count > instance.goodsMaxCount)
-            instance.goodsMaxCount = count;
+        instance.goodsMaxCount = count;
     }
 
     public static void AddProductType(ProductType type)
@@ -67,7 +66,7 @@ public class OrdersManager : MonoBehaviour
 
         WayPoint point = instance._freePoints[id];
 
-        point.SetOrder(GenerateRandomOrder(courier.CourierStorage.MaxCount));
+        point.SetOrder(GenerateRandomOrder(Mathf.Min(instance.goodsMaxCount, courier.CourierStorage.MaxCount)));
         ActiveOrders.Add(point.GetInstanceID(), point.pointOrder);
         instance._freePoints.RemoveAt(id);
 

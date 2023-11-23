@@ -62,6 +62,8 @@ public class PlayerUpgradeQueue : MonoBehaviour
         {
             _target.speedModifier = speedModifier;
             _targetStorage.MaxCount = storageCapacity;
+
+            OrdersManager.ChangeMaxCount(storageCapacity);
         }
 
         protected override void PreUpgrade() { }
