@@ -5,13 +5,16 @@ using UnityEngine;
 [System.Serializable]
 public abstract class BaseUpgrade
 {
-    public string name;
-    [TextArea] public string description;
-    public int cost;
+    [SerializeField] protected string name;
+    [SerializeField, TextArea] protected string description;
 
+    public int cost;
     public BaseUpgrade nextUpgrade;
 
     protected int currentLevel;
+
+    public abstract string Name { get; }
+    public abstract string Description { get; }
 
     public delegate void UpgradeEventHandler();
     public event UpgradeEventHandler onUpgraded;

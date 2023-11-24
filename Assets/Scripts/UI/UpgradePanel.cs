@@ -35,8 +35,8 @@ public class UpgradePanel : MonoBehaviour
             return;
         }
 
-        nameField.text = _attachedUpgrade.name;
-        descField.text = _attachedUpgrade.description;
+        nameField.text = _attachedUpgrade.Name;
+        descField.text = _attachedUpgrade.Description;
         costField.text = _attachedUpgrade.cost.ToString();
 
         UpdateButton();
@@ -62,6 +62,16 @@ public class UpgradePanel : MonoBehaviour
         }
 
         AttachUpgrade(_attachedUpgrade.nextUpgrade);
+    }
+
+    private void LockUpgrade()
+    {
+
+    }
+
+    private void UnlockUpgrade()
+    {
+
     }
 
     private void OnMaxUpgrade()

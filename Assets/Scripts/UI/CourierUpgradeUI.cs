@@ -1,10 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CourierUpgradeUI : MonoBehaviour
+public class CourierUpgradeUI : BaseUpgradeUI
 {
-    [SerializeField] private GameObject contentField;
-    [SerializeField] private GameObject upgradeRowPrefab;
     [Space]
     [SerializeField] private int startCost;
     [SerializeField] private int costIncrement = 100;
@@ -15,40 +12,21 @@ public class CourierUpgradeUI : MonoBehaviour
 
     private void Awake()
     {
-        AddPlayerUpgradePanel();
-
         _currentCost = startCost;
         GlobalValueHandler.onCashChanged += UpdateBtn;
-    }
-
-    public void ToggleUI()
-    {
-        gameObject.SetActive(!gameObject.activeSelf);
     }
     
     public void OnHireButtonClick()
     {
-        AddCourierUpgradePanel();
-    }
-
-    private void AddPlayerUpgradePanel()
-    {
-        UpgradePanel playerPanel = Addpanel();
-        playerPanel.AttachUpgrade(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerUpgradeQueue>().CurrentUpgrade);
-    }
-
-    private void AddCourierUpgradePanel()
-    {
         GlobalValueHandler.Cash -= _currentCost;
-
-        UpgradePanel panel = Addpanel();
-        panel.AttachUpgrade(CourierManager.instance.AddNewCourier().GetComponent<CourierUpgradeQueue>().CurrentUpgrade);
+        var queue = CourierManager.instance.AddNewCourier().GetComponent<CourierUpgradeQueue>();
+        AddUpgradePanel(queue.UpgradeQueue);
 
         if (CourierManager.isMaxCouriers) {
             GlobalValueHandler.onCashChanged -= UpdateBtn;
             hireButton.interactable = false;
             counter.text = "Max";
-            
+
             return;
         }
 
@@ -56,8 +34,6 @@ public class CourierUpgradeUI : MonoBehaviour
         counter.text = $"Нанять: {_currentCost}";
         UpdateBtn();
     }
-
-    private UpgradePanel Addpanel() => Instantiate(upgradeRowPrefab, contentField.transform).GetComponent<UpgradePanel>();
 
     private void UpdateBtn()
     {

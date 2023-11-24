@@ -13,6 +13,10 @@ public class CourierUpgrade : BaseUpgrade
 
     private Courier _target;
 
+    public override string Name => name;
+
+    public override string Description => $"Скорость: {speedModifier}\nВместимость: {storageCapacity}";
+
     public override void SetTarget(Transform target)
     {
         _target = target.GetComponent<Courier>();

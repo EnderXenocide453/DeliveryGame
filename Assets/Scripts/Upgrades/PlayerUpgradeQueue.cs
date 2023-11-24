@@ -4,13 +4,12 @@ using UnityEngine;
 public class PlayerUpgradeQueue : MonoBehaviour
 {
     [SerializeField] private PlayerUpgrade[] upgrades;
+    public UpgradeQueue UpgradeQueue { get; private set; }
 
-    private UpgradeQueue _upgradeQueue;
-
-    public BaseUpgrade CurrentUpgrade { get => _upgradeQueue.CurrentUpgrade; }
+    public BaseUpgrade CurrentUpgrade { get => UpgradeQueue.CurrentUpgrade; }
 
     private void Awake()
     {
-        _upgradeQueue = new UpgradeQueue(upgrades, transform);
+        UpgradeQueue = new UpgradeQueue(upgrades, transform);
     }
 }

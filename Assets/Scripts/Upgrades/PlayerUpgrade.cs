@@ -9,6 +9,10 @@ public class PlayerUpgrade : BaseUpgrade
     private PlayerMovement _target;
     private Storage _targetStorage;
 
+    public override string Name => name;
+
+    public override string Description => $"Скорость: {speedModifier}\nВместимость: {storageCapacity}";
+
     public override void SetTarget(Transform target)
     {
         _target = target.GetComponent<PlayerMovement>();

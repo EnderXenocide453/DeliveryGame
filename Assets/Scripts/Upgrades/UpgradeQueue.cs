@@ -3,12 +3,16 @@ using UnityEngine;
 
 public class UpgradeQueue
 {
+    private bool _isLocked;
+
     private BaseUpgrade[] _upgrades;
     private int _currentID;
 
     public BaseUpgrade CurrentUpgrade { get => _currentID >= _upgrades.Length ? null : _upgrades[_currentID]; }
 
     public event BaseUpgrade.UpgradeEventHandler onUpgraded;
+    public event BaseUpgrade.UpgradeEventHandler onLocked;
+    public event BaseUpgrade.UpgradeEventHandler onUnlocked;
 
     public UpgradeQueue(BaseUpgrade[] upgrades, Transform parent)
     {
@@ -24,6 +28,18 @@ public class UpgradeQueue
 
         _upgrades[0].onUpgraded += OnUpgraded;
         _upgrades[0].SetTarget(parent);
+    }
+
+    public void SetLock(bool locked)
+    {
+        if (_isLocked != locked) {
+            if (_isLocked)
+                onLocked?.Invoke();
+            else
+                onUnlocked?.Invoke();
+        }
+
+        _isLocked = locked;
     }
 
     private void OnUpgraded()

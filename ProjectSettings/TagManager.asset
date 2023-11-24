@@ -8,6 +8,7 @@ TagManager:
   - StashSet
   - Stall
   - CallCenterGirl
+  - Storage
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,7 @@ public class GoodsManager : MonoBehaviour
     public static int BoxCount
     {
         get => instance.boxCount;
+        set => instance.boxCount = value;
     }
 
     [SerializeField] private Product[] productsInfo;

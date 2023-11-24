@@ -1,9 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Courier))]
-public class CourierUpgradeQueue : MonoBehaviour
+public class TruckUpgradeQueue : MonoBehaviour
 {
-    [SerializeField] private CourierUpgrade[] upgrades;
+    [SerializeField] private TruckUpgrade[] upgrades;
     public UpgradeQueue UpgradeQueue { get; private set; }
 
     public BaseUpgrade CurrentUpgrade { get => UpgradeQueue.CurrentUpgrade; }
