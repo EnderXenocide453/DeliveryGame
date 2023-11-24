@@ -37,12 +37,13 @@ public class UpgradePanel : MonoBehaviour
             return;
         }
 
+        nameField.text = _attachedUpgradeQueue.CurrentUpgrade.Name;
+
         if (_attachedUpgradeQueue.isLocked) {
             LockUpgrade();
             return;
         }
 
-        nameField.text = _attachedUpgradeQueue.CurrentUpgrade.Name;
         descField.text = _attachedUpgradeQueue.CurrentUpgrade.Description;
         buttonTextField.text = _attachedUpgradeQueue.CurrentUpgrade.cost.ToString();
 

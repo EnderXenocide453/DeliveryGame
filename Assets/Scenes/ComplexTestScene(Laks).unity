@@ -2938,6 +2938,18 @@ Transform:
   - {fileID: 1260250099}
   m_Father: {fileID: 1958981578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &412960483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7169781449520159794, guid: eaab511aac4d9dd43b048884ad522a21,
+    type: 3}
+  m_PrefabInstance: {fileID: 1169035642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79a0eea247b4c9498087a8244849445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &425839008
 GameObject:
   m_ObjectHideFlags: 0
@@ -5072,7 +5084,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildParts.Array.data[0]
       value: 
-      objectReference: {fileID: 1862541748}
+      objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
       propertyPath: buildParts.Array.data[1]
@@ -5092,7 +5104,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnBuilded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 185283312}
+      objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
       propertyPath: onBuildEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8850,7 +8862,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildParts.Array.data[1]
       value: 
-      objectReference: {fileID: 1231766189}
+      objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
       propertyPath: buildParts.Array.data[2]
@@ -8870,7 +8882,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnBuilded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 982397981}
+      objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
       propertyPath: onBuildEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10673,7 +10685,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildParts.Array.data[0]
       value: 
-      objectReference: {fileID: 525298591}
+      objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
       propertyPath: buildParts.Array.data[1]
@@ -10698,7 +10710,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnBuilded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 215736119}
+      objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
       propertyPath: onBuildEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10915,7 +10927,7 @@ Transform:
   m_GameObject: {fileID: 1804253132}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 13.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12849,6 +12861,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BurgerStorage
       objectReference: {fileID: 0}
+    - target: {fileID: 8194542654177842813, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8222835422578588672, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
       propertyPath: m_TagString
@@ -12907,7 +12924,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4065719757582312153, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: eaab511aac4d9dd43b048884ad522a21, type: 3}
 --- !u!1001 &1132271000915326320
 PrefabInstance:
@@ -13229,7 +13250,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildParts.Array.data[0]
       value: 
-      objectReference: {fileID: 1078684764}
+      objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
       propertyPath: buildParts.Array.data[1]
@@ -13254,7 +13275,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnBuilded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 646926394}
+      objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
       propertyPath: onBuildEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -13429,6 +13450,36 @@ PrefabInstance:
       propertyPath: truckUpgrade
       value: 
       objectReference: {fileID: 1915910369}
+    - target: {fileID: 1101332667784958166, guid: 5b6b417ecd0d1e743b439641684e3032,
+        type: 3}
+      propertyPath: storageUpgrades.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101332667784958166, guid: 5b6b417ecd0d1e743b439641684e3032,
+        type: 3}
+      propertyPath: storageUpgrades.Array.data[0]
+      value: 
+      objectReference: {fileID: 646926394}
+    - target: {fileID: 1101332667784958166, guid: 5b6b417ecd0d1e743b439641684e3032,
+        type: 3}
+      propertyPath: storageUpgrades.Array.data[1]
+      value: 
+      objectReference: {fileID: 412960483}
+    - target: {fileID: 1101332667784958166, guid: 5b6b417ecd0d1e743b439641684e3032,
+        type: 3}
+      propertyPath: storageUpgrades.Array.data[2]
+      value: 
+      objectReference: {fileID: 982397981}
+    - target: {fileID: 1101332667784958166, guid: 5b6b417ecd0d1e743b439641684e3032,
+        type: 3}
+      propertyPath: storageUpgrades.Array.data[3]
+      value: 
+      objectReference: {fileID: 215736119}
+    - target: {fileID: 1101332667784958166, guid: 5b6b417ecd0d1e743b439641684e3032,
+        type: 3}
+      propertyPath: storageUpgrades.Array.data[4]
+      value: 
+      objectReference: {fileID: 185283312}
     - target: {fileID: 1320117153959498290, guid: 5b6b417ecd0d1e743b439641684e3032,
         type: 3}
       propertyPath: m_Name

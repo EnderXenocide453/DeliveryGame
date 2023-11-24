@@ -4,6 +4,7 @@ public class StoreUpgradeUI : BaseUpgradeUI
 {
     [Space]
     [SerializeField] private TruckUpgradeQueue truckUpgrade;
+    [SerializeField] StorageUpgradeQueue[] storageUpgrades;
 
     private void Awake()
     {
@@ -26,10 +27,10 @@ public class StoreUpgradeUI : BaseUpgradeUI
 
     private void AddAllStoragesUpgrades()
     {
-        var upgrades = FindObjectsOfType<StorageUpgradeQueue>(true);
+        //var upgrades = FindObjectsOfType<StorageUpgradeQueue>(true);
 
-        for (int i = upgrades.Length - 1; i >= 0; i--)
-            AddStorageUpgrade(upgrades[i]);
+        for (int i = 0; i < storageUpgrades.Length; i++)
+            AddStorageUpgrade(storageUpgrades[i]);
     }
 
     private void AddStorageUpgrade(StorageUpgradeQueue queue)
