@@ -7,7 +7,7 @@ MonoImporter:
   - StartPoint: {instanceID: 0}
   - MapCourierPrefab: {fileID: 3345267287339550131, guid: e789c383204eb8a4496900ee18f8bbea,
       type: 3}
-  executionOrder: 0
+  executionOrder: -5
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

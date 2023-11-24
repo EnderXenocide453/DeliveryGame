@@ -4,10 +4,10 @@ using UnityEngine;
 public class StrorageCountVisualizer : MonoBehaviour
 {
     [SerializeField] private Storage storage;
-    [SerializeField] private TextMeshPro weHave;
+    [SerializeField] private TMP_Text counter;
     
     private void Update()
     {
-        weHave.text = $"{storage.CurrentCount.ToString()}/{storage.MaxCount.ToString()}";
+        counter.text = $"{storage.CurrentCount}/{storage.MaxCount}";
     }
 }
