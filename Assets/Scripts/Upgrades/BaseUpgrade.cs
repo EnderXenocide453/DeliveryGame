@@ -24,6 +24,7 @@ public abstract class BaseUpgrade
         PostUpgrade();
     }
 
+    public abstract void SetTarget(Transform parent);
     protected abstract void PreUpgrade();
     protected abstract void PostUpgrade();
 }

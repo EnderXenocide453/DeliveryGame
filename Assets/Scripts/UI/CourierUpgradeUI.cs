@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeUI : MonoBehaviour
+public class CourierUpgradeUI : MonoBehaviour
 {
     [SerializeField] private GameObject contentField;
     [SerializeField] private GameObject upgradeRowPrefab;

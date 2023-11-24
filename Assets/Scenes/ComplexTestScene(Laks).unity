@@ -12323,6 +12323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Couriers: []
+  couriersMaxCount: 5
   Entrance: {fileID: 192791232}
   Exit: {fileID: 2051819880}
   CourierQueue: {fileID: 795505148}
@@ -14490,8 +14491,8 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1132271000915326320}
   - {fileID: 1915910366}
+  - {fileID: 1132271000915326320}
   - {fileID: 866651733}
   - {fileID: 892898445}
   - {fileID: 199354492}

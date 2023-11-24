@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable, RequireComponent(typeof(Courier))]
+[System.Serializable]
 public class CourierUpgrade : BaseUpgrade
 {
     [SerializeField] int storageCapacity;
@@ -13,9 +13,9 @@ public class CourierUpgrade : BaseUpgrade
 
     private Courier _target;
 
-    public void SetTarget(Courier target)
+    public override void SetTarget(Transform target)
     {
-        _target = target;
+        _target = target.GetComponent<Courier>();
     }
 
     protected override void PostUpgrade()
