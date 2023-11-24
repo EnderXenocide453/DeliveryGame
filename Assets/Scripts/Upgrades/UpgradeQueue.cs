@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UpgradeQueue
 {
-    private bool _isLocked;
+    public bool isLocked { get; private set; }
 
     private BaseUpgrade[] _upgrades;
     private int _currentID;
@@ -32,14 +32,14 @@ public class UpgradeQueue
 
     public void SetLock(bool locked)
     {
-        if (_isLocked != locked) {
-            if (_isLocked)
+        if (isLocked != locked) {
+            if (isLocked)
                 onLocked?.Invoke();
             else
                 onUnlocked?.Invoke();
         }
 
-        _isLocked = locked;
+        isLocked = locked;
     }
 
     private void OnUpgraded()

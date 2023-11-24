@@ -8,15 +8,18 @@ public class UpgradePanel : MonoBehaviour
 {
     [SerializeField] TMP_Text nameField;
     [SerializeField] TMP_Text descField;
-    [SerializeField] TMP_Text costField;
-    [SerializeField] Button upgradeBtn;
+    [SerializeField] TMP_Text buttonTextField;
+    [SerializeField] Button upgradeButton;
 
-    private BaseUpgrade _attachedUpgrade;
+    private UpgradeQueue _attachedUpgradeQueue;
 
-    public void AttachUpgrade(BaseUpgrade upgrade)
+    public void AttachUpgrade(UpgradeQueue upgrade)
     {
-        _attachedUpgrade = upgrade;
-        _attachedUpgrade.onUpgraded += OnUpgrade;
+        _attachedUpgradeQueue = upgrade;
+        _attachedUpgradeQueue.onUpgraded += OnUpgrade;
+
+        _attachedUpgradeQueue.onLocked += LockUpgrade;
+        _attachedUpgradeQueue.onUnlocked += UnlockUpgrade;
 
         GlobalValueHandler.onCashChanged += UpdateButton;
 
@@ -25,58 +28,65 @@ public class UpgradePanel : MonoBehaviour
 
     public void DrawUpgrade()
     {
-        if (_attachedUpgrade == null) {
-            descField.text = "";
-            costField.text = "Max";
-            upgradeBtn.interactable = false;
+        if (_attachedUpgradeQueue == null) {
+            buttonTextField.text = "Max";
+            upgradeButton.interactable = false;
 
             GlobalValueHandler.onCashChanged -= UpdateButton;
 
             return;
         }
 
-        nameField.text = _attachedUpgrade.Name;
-        descField.text = _attachedUpgrade.Description;
-        costField.text = _attachedUpgrade.cost.ToString();
+        if (_attachedUpgradeQueue.isLocked) {
+            LockUpgrade();
+            return;
+        }
+
+        nameField.text = _attachedUpgradeQueue.CurrentUpgrade.Name;
+        descField.text = _attachedUpgradeQueue.CurrentUpgrade.Description;
+        buttonTextField.text = _attachedUpgradeQueue.CurrentUpgrade.cost.ToString();
 
         UpdateButton();
     }
 
     public void DoUpgrade()
     {
-        GlobalValueHandler.Cash -= _attachedUpgrade.cost;
-        _attachedUpgrade?.DoUpgrade();
+        GlobalValueHandler.Cash -= _attachedUpgradeQueue.CurrentUpgrade.cost;
+        _attachedUpgradeQueue?.CurrentUpgrade?.DoUpgrade();
     }
 
     private void UpdateButton()
     {
-        upgradeBtn.interactable = GlobalValueHandler.Cash >= _attachedUpgrade?.cost;
+        if (!_attachedUpgradeQueue.isLocked)
+            upgradeButton.interactable = GlobalValueHandler.Cash >= _attachedUpgradeQueue?.CurrentUpgrade?.cost;
     }
 
     private void OnUpgrade()
     {
-        if (_attachedUpgrade.nextUpgrade == null) {
+        if (_attachedUpgradeQueue.CurrentUpgrade == null) {
             OnMaxUpgrade();
 
             return;
         }
 
-        AttachUpgrade(_attachedUpgrade.nextUpgrade);
+        DrawUpgrade();
     }
 
     private void LockUpgrade()
     {
-
+        descField.text = "Пока недоступно";
+        upgradeButton.gameObject.SetActive(false);
     }
 
     private void UnlockUpgrade()
     {
-
+        upgradeButton.gameObject.SetActive(true);
+        DrawUpgrade();
     }
 
     private void OnMaxUpgrade()
     {
-        _attachedUpgrade = null;
+        _attachedUpgradeQueue = null;
 
         DrawUpgrade();
     }

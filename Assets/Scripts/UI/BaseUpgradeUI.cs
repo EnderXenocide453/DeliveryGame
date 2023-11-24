@@ -13,7 +13,7 @@ public abstract class BaseUpgradeUI : MonoBehaviour
     protected void AddUpgradePanel(UpgradeQueue queue)
     {
         UpgradePanel panel = Addpanel();
-        panel.AttachUpgrade(queue.CurrentUpgrade);
+        panel.AttachUpgrade(queue);
     }
 
     protected UpgradePanel Addpanel() => Instantiate(upgradeRowPrefab, contentField.transform).GetComponent<UpgradePanel>();

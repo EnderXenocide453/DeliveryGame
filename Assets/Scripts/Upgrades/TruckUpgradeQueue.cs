@@ -5,12 +5,23 @@ using UnityEngine;
 public class TruckUpgradeQueue : MonoBehaviour
 {
     [SerializeField] private TruckUpgrade[] upgrades;
-    public UpgradeQueue UpgradeQueue { get; private set; }
+    private UpgradeQueue _upgradeQueue;
 
-    public BaseUpgrade CurrentUpgrade { get => UpgradeQueue.CurrentUpgrade; }
+    public UpgradeQueue UpgradeQueue
+    {
+        get
+        {
+            if (_upgradeQueue == null)
+                _upgradeQueue = new UpgradeQueue(upgrades, transform);
+
+            return _upgradeQueue;
+        }
+    }
+    public BaseUpgrade CurrentUpgrade => UpgradeQueue.CurrentUpgrade;
 
     private void Awake()
     {
-        UpgradeQueue = new UpgradeQueue(upgrades, transform);
+        if (_upgradeQueue == null)
+            _upgradeQueue = new UpgradeQueue(upgrades, transform);
     }
 }

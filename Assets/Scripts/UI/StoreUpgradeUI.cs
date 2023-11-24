@@ -15,13 +15,13 @@ public class StoreUpgradeUI : BaseUpgradeUI
     private void AddPlayerUpgrade()
     {
         UpgradePanel playerPanel = Addpanel();
-        playerPanel.AttachUpgrade(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerUpgradeQueue>().CurrentUpgrade);
+        playerPanel.AttachUpgrade(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerUpgradeQueue>().UpgradeQueue);
     }
 
     private void AddTruckUpgrade()
     {
         UpgradePanel panel = Addpanel();
-        panel.AttachUpgrade(truckUpgrade.CurrentUpgrade);
+        panel.AttachUpgrade(truckUpgrade.UpgradeQueue);
     }
 
     private void AddAllStoragesUpgrades()
@@ -35,6 +35,6 @@ public class StoreUpgradeUI : BaseUpgradeUI
     private void AddStorageUpgrade(StorageUpgradeQueue queue)
     {
         UpgradePanel panel = Addpanel();
-        panel.AttachUpgrade(queue.CurrentUpgrade);
+        panel.AttachUpgrade(queue.UpgradeQueue);
     }
 }

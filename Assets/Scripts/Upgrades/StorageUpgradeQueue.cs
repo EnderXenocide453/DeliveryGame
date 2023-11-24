@@ -5,25 +5,24 @@ using UnityEngine;
 public class StorageUpgradeQueue : MonoBehaviour
 {
     [SerializeField] private StorageUpgrade[] upgrades;
-    public UpgradeQueue UpgradeQueue { get; private set; }
+    [SerializeField] private bool lockAtStart;
+    private UpgradeQueue _upgradeQueue;
 
-    public BaseUpgrade CurrentUpgrade 
-    {
+    public UpgradeQueue UpgradeQueue 
+    { 
         get
         {
-            if (UpgradeQueue == null)
-                UpgradeQueue = new UpgradeQueue(upgrades, transform);
+            if (_upgradeQueue == null)
+                InitQueue();
 
-            return UpgradeQueue.CurrentUpgrade;
-        }
+            return _upgradeQueue;
+        } 
     }
+    public BaseUpgrade CurrentUpgrade => UpgradeQueue.CurrentUpgrade;
 
-    private void Awake()
+    private void OnEnable()
     {
-        if (UpgradeQueue == null)
-            UpgradeQueue = new UpgradeQueue(upgrades, transform);
-
-        Debug.Log("storage");
+        UpgradeQueue.SetLock(false);
     }
 
     public void LockUpgrades()
@@ -34,6 +33,13 @@ public class StorageUpgradeQueue : MonoBehaviour
     public void UnlockUpgrades()
     {
         UpgradeQueue.SetLock(false);
+    }
+
+    private void InitQueue()
+    {
+        _upgradeQueue = new UpgradeQueue(upgrades, transform);
+
+        _upgradeQueue.SetLock(lockAtStart);
     }
 }
 

@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 961280901371577407}
   - component: {fileID: 4206853838823274738}
   m_Layer: 5
-  m_Name: Cost
+  m_Name: ButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -599,8 +599,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameField: {fileID: 440829555491343549}
   descField: {fileID: 357351766277787847}
-  costField: {fileID: 4206853838823274738}
-  upgradeBtn: {fileID: 2889517509693265067}
+  buttonTextField: {fileID: 4206853838823274738}
+  upgradeButton: {fileID: 2889517509693265067}
 --- !u!1 &8211465278107524275
 GameObject:
   m_ObjectHideFlags: 0
