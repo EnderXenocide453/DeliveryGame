@@ -50,9 +50,20 @@ public class GameLoader : MonoBehaviour
 #endif
 
         _playerUpgrades = FindObjectOfType<PlayerUpgradeQueue>();
-        _storageUpgrades = FindObjectsOfType<StorageUpgradeQueue>(true);
+
+        var storageUpgrades = FindObjectsOfType<StorageUpgradeQueue>(true);
+        _storageUpgrades = new StorageUpgradeQueue[storageUpgrades.Length];
+        foreach (var upgrade in storageUpgrades) {
+            _storageUpgrades[upgrade.ID] = upgrade;
+        }
+
         _truckUpgrades = FindObjectOfType<TruckUpgradeQueue>();
-        _buildAreas = FindObjectsOfType<BuildArea>(true);
+
+        var buildAreas = FindObjectsOfType<BuildArea>(true);
+        _buildAreas = new BuildArea[buildAreas.Length];
+        foreach (var area in buildAreas) {
+            _buildAreas[area.ID] = area;
+        }
     }
 
     [ContextMenu("Load")]

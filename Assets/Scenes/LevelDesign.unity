@@ -1551,6 +1551,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
+      propertyPath: ID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
+        type: 3}
       propertyPath: cost
       value: 1500
       objectReference: {fileID: 0}
@@ -5122,6 +5127,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
+      propertyPath: ID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
       propertyPath: lockAtStart
       value: 1
       objectReference: {fileID: 0}
@@ -7133,6 +7143,11 @@ PrefabInstance:
         type: 3}
       propertyPath: upgrades.Array.data[3].cost
       value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: ID
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
@@ -9513,6 +9528,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
+      propertyPath: ID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
       propertyPath: lockAtStart
       value: 1
       objectReference: {fileID: 0}
@@ -10726,6 +10746,11 @@ PrefabInstance:
         type: 3}
       propertyPath: upgrades.Array.data[3].cost
       value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: ID
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
@@ -15183,6 +15208,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
+      propertyPath: ID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
+        type: 3}
       propertyPath: cost
       value: 1000
       objectReference: {fileID: 0}
@@ -15969,6 +15999,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
+        type: 3}
+      propertyPath: ID
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}

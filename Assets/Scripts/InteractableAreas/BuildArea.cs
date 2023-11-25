@@ -13,6 +13,7 @@ public class BuildArea : InteractableArea
     [Space]
     [SerializeField] ProductType allowedType;
 
+    public int ID;
     public bool alreadyBuilded { get; private set; }
 
     private int _storedCash;

@@ -6,6 +6,9 @@ public class StorageUpgradeQueue : MonoBehaviour
 {
     [SerializeField] private StorageUpgrade[] upgrades;
     [SerializeField] private bool lockAtStart;
+
+    public int ID;
+
     private UpgradeQueue _upgradeQueue;
 
     public UpgradeQueue UpgradeQueue 

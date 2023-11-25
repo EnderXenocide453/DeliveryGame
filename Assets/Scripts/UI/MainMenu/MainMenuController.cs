@@ -16,6 +16,7 @@ public class MainMenuController : MonoBehaviour
 
     public void ResumeGame()
     {
+        GameLoader.startNewGame = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
