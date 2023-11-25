@@ -19,6 +19,9 @@ public class CourierManager : MonoBehaviour
 
     [SerializeField] GameObject CourierPrefab;
 
+    public delegate void CourierManagerEventsHandler(Courier target);
+    public static event CourierManagerEventsHandler onCourierAdded;
+
     private void Awake()
     {
         if (!instance)
@@ -61,7 +64,8 @@ public class CourierManager : MonoBehaviour
         };
 
         isMaxCouriers = Couriers.Count >= couriersMaxCount;
-        Debug.Log(isMaxCouriers);
+
+        onCourierAdded?.Invoke(courier);
 
         return courier;
     }

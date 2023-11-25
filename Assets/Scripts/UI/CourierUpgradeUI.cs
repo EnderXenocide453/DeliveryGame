@@ -10,16 +10,25 @@ public class CourierUpgradeUI : BaseUpgradeUI
 
     private int _currentCost;
 
-    private void Awake()
+    protected override void Awake()
     {
         _currentCost = startCost;
         GlobalValueHandler.onCashChanged += UpdateBtn;
+
+        CourierManager.onCourierAdded += AddCourier;
+
+        base.Awake();
     }
     
     public void OnHireButtonClick()
     {
         GlobalValueHandler.Cash -= _currentCost;
-        var queue = CourierManager.instance.AddNewCourier().GetComponent<CourierUpgradeQueue>();
+        CourierManager.instance.AddNewCourier();
+    }
+
+    private void AddCourier(Courier courier)
+    {
+        var queue = courier.UpgradeQueue;
         AddUpgradePanel(queue.UpgradeQueue);
 
         if (CourierManager.isMaxCouriers) {

@@ -13,7 +13,7 @@ public class GameLoader : MonoBehaviour
     private StorageUpgradeQueue[] _storageUpgrades;
     private TruckUpgradeQueue _truckUpgrades;
 
-    private void Awake()
+    private void Start()
     {
         Init();
 
@@ -36,9 +36,32 @@ public class GameLoader : MonoBehaviour
         _truckUpgrades = FindObjectOfType<TruckUpgradeQueue>();
     }
 
+    [ContextMenu("Load")]
     private void LoadGame()
     {
+        if (!File.Exists(savePath))
+            return;
 
+        try {
+            string json = File.ReadAllText(savePath);
+            var save = JsonUtility.FromJson<SaveStruct>(json);
+
+            _playerUpgrades.UpgradeQueue.UpgradeTo(save.playerLevel);
+            _truckUpgrades.UpgradeQueue.UpgradeTo(save.truckLevel);
+
+            for (int i = 0; i < save.storagesLevels.Length; i++) {
+                _storageUpgrades[i].UpgradeQueue.UpgradeTo(save.storagesLevels[i]);
+            }
+
+            for (int i = 0; i < save.couriersLevels.Length; i++) {
+                CourierManager.instance.AddNewCourier().UpgradeQueue.UpgradeQueue.UpgradeTo(save.couriersLevels[i]);
+            }
+
+            GlobalValueHandler.Cash = save.cash;
+        }
+        catch (Exception e) {
+            Debug.LogWarning($"Ошибка загрузки!\n{e}");
+        }
     }
 
     [ContextMenu("Save game")]

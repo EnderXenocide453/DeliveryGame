@@ -33,14 +33,33 @@ public class UpgradeQueue
 
     public void SetLock(bool locked)
     {
+        (isLocked, locked) = (locked, isLocked);
+
         if (isLocked != locked) {
             if (isLocked)
                 onLocked?.Invoke();
             else
                 onUnlocked?.Invoke();
         }
+    }
 
-        isLocked = locked;
+    public void UpgradeTo(int level)
+    {
+        if (level < 0) {
+            SetLock(true);
+            return;
+        }
+
+        if (level == 0)
+            return;
+
+        level = Mathf.Clamp(level, 0, _upgrades.Length - 1);
+        currentID = 0;
+
+        for (int i = 0; i < level; i++)
+            CurrentUpgrade.DoUpgrade();
+
+        onUpgraded?.Invoke();
     }
 
     private void OnUpgraded()

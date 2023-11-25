@@ -6,11 +6,13 @@ public class StoreUpgradeUI : BaseUpgradeUI
     [SerializeField] private TruckUpgradeQueue truckUpgrade;
     [SerializeField] StorageUpgradeQueue[] storageUpgrades;
 
-    private void Awake()
+    protected override void Awake()
     {
         AddPlayerUpgrade();
         AddTruckUpgrade();
         AddAllStoragesUpgrades();
+
+        base.Awake();
     }
 
     private void AddPlayerUpgrade()

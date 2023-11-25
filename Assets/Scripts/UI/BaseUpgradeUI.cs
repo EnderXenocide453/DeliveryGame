@@ -5,6 +5,11 @@ public abstract class BaseUpgradeUI : MonoBehaviour
     [SerializeField] private GameObject contentField;
     [SerializeField] private GameObject upgradeRowPrefab;
 
+    protected virtual void Awake()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void ToggleUI()
     {
         gameObject.SetActive(!gameObject.activeSelf);
