@@ -1,19 +1,19 @@
 {
-    "playerLevel": 1,
-    "truckLevel": 1,
+    "playerLevel": 0,
+    "truckLevel": 0,
     "storagesLevels": [
-        -1,
-        1,
+        0,
+        0,
         -1,
         -1,
         -1
     ],
-    "couriersLevels": [
-        0,
-        3,
-        2,
-        1,
-        4
+    "buildedBuildings": [
+        true,
+        false,
+        false,
+        false
     ],
-    "cash": 999996400
+    "couriersLevels": [],
+    "cash": 99500
 }

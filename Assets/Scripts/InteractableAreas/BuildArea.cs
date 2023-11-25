@@ -12,17 +12,29 @@ public class BuildArea : InteractableArea
     [SerializeField] TMPro.TMP_Text cashCounter;
     [Space]
     [SerializeField] ProductType allowedType;
-    [SerializeField] bool buildAtStart;
+
+    public bool alreadyBuilded { get; private set; }
 
     private int _storedCash;
     private Coroutine _coroutine;
 
     private void Start()
     {
-        if (buildAtStart)
+        if (alreadyBuilded)
             Build();
 
         cashCounter.text = (cost - _storedCash).ToString();
+    }
+
+    public void Build()
+    {
+        foreach (var obj in buildParts)
+            obj.gameObject.SetActive(true);
+
+        OrdersManager.AddProductType(allowedType);
+        alreadyBuilded = true;
+
+        transform.parent.gameObject.SetActive(false);
     }
 
     protected override void Activate(Transform obj)
@@ -54,15 +66,5 @@ public class BuildArea : InteractableArea
         }
 
         Build();
-    }
-
-    private void Build()
-    {
-        foreach (var obj in buildParts)
-            obj.gameObject.SetActive(true);
-
-        OrdersManager.AddProductType(allowedType);
-
-        Destroy(transform.parent.gameObject);
     }
 }

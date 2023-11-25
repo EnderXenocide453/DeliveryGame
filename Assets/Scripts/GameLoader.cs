@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameLoader : MonoBehaviour
 {
@@ -11,16 +12,33 @@ public class GameLoader : MonoBehaviour
 
     private PlayerUpgradeQueue _playerUpgrades;
     private StorageUpgradeQueue[] _storageUpgrades;
+    private BuildArea[] _buildAreas;
     private TruckUpgradeQueue _truckUpgrades;
 
     private void Start()
     {
         Init();
 
-        if (startNewGame)
-            return;
+        if (!startNewGame)
+            LoadGame();
+    }
 
-        LoadGame();
+    public void QuitToMenu()
+    {
+        SaveGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+    private void OnApplicationPause(bool pause)
+    {
+        SaveGame();
+    }
+#endif
+
+    private void OnApplicationQuit()
+    {
+        SaveGame();
     }
 
     private void Init()
@@ -34,6 +52,7 @@ public class GameLoader : MonoBehaviour
         _playerUpgrades = FindObjectOfType<PlayerUpgradeQueue>();
         _storageUpgrades = FindObjectsOfType<StorageUpgradeQueue>(true);
         _truckUpgrades = FindObjectOfType<TruckUpgradeQueue>();
+        _buildAreas = FindObjectsOfType<BuildArea>(true);
     }
 
     [ContextMenu("Load")]
@@ -51,6 +70,11 @@ public class GameLoader : MonoBehaviour
 
             for (int i = 0; i < save.storagesLevels.Length; i++) {
                 _storageUpgrades[i].UpgradeQueue.UpgradeTo(save.storagesLevels[i]);
+            }
+
+            for (int i = 0; i < save.buildedBuildings.Length; i++) {
+                if (save.buildedBuildings[i])
+                    _buildAreas[i].Build();
             }
 
             for (int i = 0; i < save.couriersLevels.Length; i++) {
@@ -83,6 +107,11 @@ public class GameLoader : MonoBehaviour
             save.storagesLevels[i] = _storageUpgrades[i].UpgradeQueue.currentID;
         }
 
+        save.buildedBuildings = new bool[_buildAreas.Length];
+        for (int i = 0; i < _buildAreas.Length; i++) {
+            save.buildedBuildings[i] = _buildAreas[i].alreadyBuilded;
+        }
+
         save.couriersLevels = new int[CourierManager.Couriers.Count];
         for (int i = 0; i < CourierManager.Couriers.Count; i++) {
             save.couriersLevels[i] = CourierManager.Couriers[i].UpgradeQueue.UpgradeQueue.currentID;
@@ -105,6 +134,7 @@ public class GameLoader : MonoBehaviour
         public int playerLevel;
         public int truckLevel;
         public int[] storagesLevels;
+        public bool[] buildedBuildings;
         public int[] couriersLevels;
         public int cash;
     }
