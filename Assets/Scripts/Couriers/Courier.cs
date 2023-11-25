@@ -44,7 +44,7 @@ public class Courier : MonoBehaviour
     public event CourierEventHandler onOrderReceived;
     public CourierEventHandler onReachedTarget;
 
-    private void Start()
+    private void Awake()
     {
         CourierStorage = GetComponent<Storage>();
         _body = GetComponent<Rigidbody>();
