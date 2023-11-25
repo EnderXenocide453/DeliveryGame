@@ -15,7 +15,7 @@ public class CourierUpgrade : BaseUpgrade
 
     public override string Name => name;
 
-    public override string Description => $"Скорость: {speedModifier}\nВместимость: {storageCapacity}";
+    public override string Description => $"Скорость: {_target.mapSpeedModifier}\nВместимость: {_target.CourierStorage.MaxCount}";
 
     public override void SetTarget(Transform target)
     {

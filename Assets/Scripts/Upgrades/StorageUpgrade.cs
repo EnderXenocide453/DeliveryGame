@@ -9,7 +9,7 @@ public class StorageUpgrade : BaseUpgrade
 
     public override string Name => name;
 
-    public override string Description => $"Вместимость: {storageCapacity}";
+    public override string Description => $"Вместимость: {_target.MaxCount}";
 
     public override void SetTarget(Transform target)
     {

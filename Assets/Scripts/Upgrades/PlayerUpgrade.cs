@@ -11,7 +11,7 @@ public class PlayerUpgrade : BaseUpgrade
 
     public override string Name => name;
 
-    public override string Description => $"Скорость: {speedModifier}\nВместимость: {storageCapacity}";
+    public override string Description => $"Скорость: {_target.speedModifier}\nВместимость: {_targetStorage.MaxCount}";
 
     public override void SetTarget(Transform target)
     {

@@ -7,7 +7,7 @@ public class TruckUpgrade : BaseUpgrade
 
     public override string Name => "Улучшить грузовик";
 
-    public override string Description => $"Увеличивает вместительность коробки до {inBoxCount}";
+    public override string Description => $"Вместимость коробки: {GoodsManager.BoxCount}";
 
     public override void SetTarget(Transform parent) { }
 
