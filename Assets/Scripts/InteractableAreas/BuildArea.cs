@@ -37,7 +37,7 @@ public class BuildArea : InteractableArea
 
     private IEnumerator GetCash()
     {
-        while (_storedCash < cost) {
+        while (true) {
             if (GlobalValueHandler.Cash > 0) {
                 int cashSpend = Mathf.Min(new int[] { cashSpendCount, cost - _storedCash, GlobalValueHandler.Cash });
 
@@ -46,6 +46,9 @@ public class BuildArea : InteractableArea
 
                 cashCounter.text = (cost - _storedCash).ToString();
             }
+
+            if (_storedCash >= cost)
+                break;
 
             yield return new WaitForSeconds(cashSpendDelay);
         }

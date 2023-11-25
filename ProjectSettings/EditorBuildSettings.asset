@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7bdf811ada5793a4398919c2750a7146
   - enabled: 1
-    path: Assets/Scenes/r3laty.unity
-    guid: 0b922cb555fdf9a4db47ad2f5254b4c8
+    path: Assets/Scenes/LevelDesign.unity
+    guid: 91633d8cd1652634b93fce2c27d54065
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
       guid: 760c6fc93d3a90a4db51ae214820d230, type: 2}

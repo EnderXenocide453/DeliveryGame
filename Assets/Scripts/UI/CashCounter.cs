@@ -11,6 +11,7 @@ public class CashCounter : MonoBehaviour
         _text = GetComponent<Text>();
 
         GlobalValueHandler.onCashChanged += UpdateCounter;
+        UpdateCounter();
     }
 
     private void UpdateCounter()
