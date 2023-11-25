@@ -18,10 +18,13 @@ public class StorageUpgrade : BaseUpgrade
 
     protected override void PostUpgrade()
     {
+        
+    }
+
+    protected override void PreUpgrade()
+    {
         _target.MaxCount = storageCapacity;
 
         OrdersManager.ChangeMaxCount(storageCapacity);
     }
-
-    protected override void PreUpgrade() { }
 }

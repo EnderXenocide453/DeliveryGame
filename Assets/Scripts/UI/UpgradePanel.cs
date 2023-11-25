@@ -12,11 +12,13 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField] Button upgradeButton;
 
     private UpgradeQueue _attachedUpgradeQueue;
+    private bool _isMax;
 
     public void AttachUpgrade(UpgradeQueue upgrade)
     {
         _attachedUpgradeQueue = upgrade;
         _attachedUpgradeQueue.onUpgraded += OnUpgrade;
+        _attachedUpgradeQueue.onMaxLevelReached += OnMaxUpgrade;
 
         _attachedUpgradeQueue.onLocked += LockUpgrade;
         _attachedUpgradeQueue.onUnlocked += UnlockUpgrade;
@@ -29,11 +31,7 @@ public class UpgradePanel : MonoBehaviour
     public void DrawUpgrade()
     {
         if (_attachedUpgradeQueue == null) {
-            buttonTextField.text = "Max";
-            upgradeButton.interactable = false;
-
-            GlobalValueHandler.onCashChanged -= UpdateButton;
-
+            Destroy(gameObject);
             return;
         }
 
@@ -45,6 +43,15 @@ public class UpgradePanel : MonoBehaviour
         }
 
         descField.text = _attachedUpgradeQueue.CurrentUpgrade.Description;
+
+        if (_isMax) { 
+            buttonTextField.text = "Max";
+            upgradeButton.interactable = false;
+
+            GlobalValueHandler.onCashChanged -= UpdateButton;
+            return;
+        }
+
         buttonTextField.text = _attachedUpgradeQueue.CurrentUpgrade.cost.ToString();
 
         UpdateButton();
@@ -64,12 +71,6 @@ public class UpgradePanel : MonoBehaviour
 
     private void OnUpgrade()
     {
-        if (_attachedUpgradeQueue.CurrentUpgrade == null) {
-            OnMaxUpgrade();
-
-            return;
-        }
-
         DrawUpgrade();
     }
 
@@ -87,7 +88,7 @@ public class UpgradePanel : MonoBehaviour
 
     private void OnMaxUpgrade()
     {
-        _attachedUpgradeQueue = null;
+        _isMax = true; ;
 
         DrawUpgrade();
     }

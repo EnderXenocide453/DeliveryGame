@@ -8,11 +8,12 @@ public class UpgradeQueue
     private BaseUpgrade[] _upgrades;
     private int _currentID;
 
-    public BaseUpgrade CurrentUpgrade { get => _currentID >= _upgrades.Length ? null : _upgrades[_currentID]; }
+    public BaseUpgrade CurrentUpgrade { get => _currentID >= _upgrades.Length ? _upgrades[_upgrades.Length - 1] : _upgrades[_currentID]; }
 
     public event BaseUpgrade.UpgradeEventHandler onUpgraded;
     public event BaseUpgrade.UpgradeEventHandler onLocked;
     public event BaseUpgrade.UpgradeEventHandler onUnlocked;
+    public event BaseUpgrade.UpgradeEventHandler onMaxLevelReached;
 
     public UpgradeQueue(BaseUpgrade[] upgrades, Transform parent)
     {
@@ -45,6 +46,9 @@ public class UpgradeQueue
     private void OnUpgraded()
     {
         _currentID++;
+
+        if (_currentID >= _upgrades.Length)
+            onMaxLevelReached?.Invoke();
 
         onUpgraded?.Invoke();
     }

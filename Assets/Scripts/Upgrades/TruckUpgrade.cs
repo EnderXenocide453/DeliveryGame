@@ -13,8 +13,11 @@ public class TruckUpgrade : BaseUpgrade
 
     protected override void PostUpgrade()
     {
-        GoodsManager.BoxCount = inBoxCount;
+        
     }
 
-    protected override void PreUpgrade() { }
+    protected override void PreUpgrade()
+    {
+        GoodsManager.BoxCount = inBoxCount;
+    }
 }

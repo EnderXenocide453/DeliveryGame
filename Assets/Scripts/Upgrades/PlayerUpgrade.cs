@@ -21,11 +21,14 @@ public class PlayerUpgrade : BaseUpgrade
 
     protected override void PostUpgrade()
     {
+        
+    }
+
+    protected override void PreUpgrade()
+    {
         _target.speedModifier = speedModifier;
         _targetStorage.MaxCount = storageCapacity;
 
         OrdersManager.ChangeMaxCount(storageCapacity);
     }
-
-    protected override void PreUpgrade() { }
 }
