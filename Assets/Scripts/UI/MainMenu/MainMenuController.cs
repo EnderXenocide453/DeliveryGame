@@ -8,8 +8,10 @@ public class MainMenuController : MonoBehaviour
 
     public void StartNewGame()
     {
-        GameLoader.startNewGame = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        foreach (var item in startNewGameAnimator)
+        {
+            item.SetBool("StartAnimation", true);
+        }
     }
 
     public void ResumeGame()
