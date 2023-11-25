@@ -6,7 +6,7 @@ public class CourierManager : MonoBehaviour
 {
     public static bool isMaxCouriers;
     public static CourierManager instance;
-    public List<Courier> Couriers;
+    public static List<Courier> Couriers;
 
     private Courier _awaitingCourier;
 

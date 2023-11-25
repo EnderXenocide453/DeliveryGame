@@ -4,11 +4,11 @@ using UnityEngine;
 public class UpgradeQueue
 {
     public bool isLocked { get; private set; }
+    public int currentID { get; private set; }
 
     private BaseUpgrade[] _upgrades;
-    private int _currentID;
 
-    public BaseUpgrade CurrentUpgrade { get => _currentID >= _upgrades.Length ? _upgrades[_upgrades.Length - 1] : _upgrades[_currentID]; }
+    public BaseUpgrade CurrentUpgrade { get => currentID >= _upgrades.Length ? _upgrades[_upgrades.Length - 1] : _upgrades[currentID]; }
 
     public event BaseUpgrade.UpgradeEventHandler onUpgraded;
     public event BaseUpgrade.UpgradeEventHandler onLocked;
@@ -45,9 +45,9 @@ public class UpgradeQueue
 
     private void OnUpgraded()
     {
-        _currentID++;
+        currentID++;
 
-        if (_currentID >= _upgrades.Length)
+        if (currentID >= _upgrades.Length)
             onMaxLevelReached?.Invoke();
 
         onUpgraded?.Invoke();

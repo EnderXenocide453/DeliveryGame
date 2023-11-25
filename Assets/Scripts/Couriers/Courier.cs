@@ -12,6 +12,7 @@ public class Courier : MonoBehaviour
     public float speedModifier = 1;
 
     public Storage CourierStorage { get; private set; }
+    public CourierUpgradeQueue UpgradeQueue { get; private set; }
 
     private bool _isMove;
 
@@ -47,6 +48,8 @@ public class Courier : MonoBehaviour
     private void Awake()
     {
         CourierStorage = GetComponent<Storage>();
+        UpgradeQueue = GetComponent<CourierUpgradeQueue>();
+
         _body = GetComponent<Rigidbody>();
         _iconsVisualizer = GetComponent<GoodsIconsVisualizer>();
         _cloud = GetComponent<EmojiCloud>();

@@ -1,0 +1,13 @@
+{
+    "playerLevel": 0,
+    "truckLevel": 0,
+    "storagesLevels": [
+        -1,
+        0,
+        -1,
+        -1,
+        -1
+    ],
+    "couriersLevels": [],
+    "cash": 1000000000
+}

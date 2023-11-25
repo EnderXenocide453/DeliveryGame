@@ -14375,6 +14375,7 @@ GameObject:
   - component: {fileID: 1794853405}
   - component: {fileID: 1794853404}
   - component: {fileID: 1794853410}
+  - component: {fileID: 1794853411}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -14454,7 +14455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a62875796fdd64abed4c09dfa0c35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Couriers: []
   couriersMaxCount: 20
   Entrance: {fileID: 1504440560}
   Exit: {fileID: 910831199}
@@ -14574,6 +14574,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e30a36b15e3a17f449f6a27a42d699c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1794853411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794853403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7f947e922a7444492a638cb1a00be0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: save
+  savePath: Saves
 --- !u!1 &1795448640
 GameObject:
   m_ObjectHideFlags: 0
