@@ -15,8 +15,8 @@ public class BuildArea : InteractableArea
 
     public int ID;
     public bool alreadyBuilded { get; private set; }
+    public int storedCash { get; private set; }
 
-    private int _storedCash;
     private Coroutine _coroutine;
 
     private void Start()
@@ -24,7 +24,7 @@ public class BuildArea : InteractableArea
         if (alreadyBuilded)
             Build();
 
-        cashCounter.text = (cost - _storedCash).ToString();
+        cashCounter.text = (cost - storedCash).ToString();
     }
 
     public void Build()
@@ -37,6 +37,12 @@ public class BuildArea : InteractableArea
         SoundsManager.PlaySound(SoundsManager.instance.buildEndSound);
 
         transform.parent.gameObject.SetActive(false);
+    }
+
+    public void SetCash(int cash)
+    {
+        storedCash = cash;
+        cashCounter.text = (cost - storedCash).ToString();
     }
 
     protected override void Activate(Transform obj)
@@ -55,15 +61,15 @@ public class BuildArea : InteractableArea
             if (GlobalValueHandler.Cash > 0) {
                 SoundsManager.PlaySound(SoundsManager.instance.buildProgressSound);
 
-                int cashSpend = Mathf.Min(new int[] { cashSpendCount, cost - _storedCash, GlobalValueHandler.Cash });
+                int cashSpend = Mathf.Min(new int[] { cashSpendCount, cost - storedCash, GlobalValueHandler.Cash });
 
                 GlobalValueHandler.Cash -= cashSpend;
-                _storedCash += cashSpend;
+                storedCash += cashSpend;
 
-                cashCounter.text = (cost - _storedCash).ToString();
+                cashCounter.text = (cost - storedCash).ToString();
             }
 
-            if (_storedCash >= cost)
+            if (storedCash >= cost)
                 break;
 
             yield return new WaitForSeconds(cashSpendDelay);

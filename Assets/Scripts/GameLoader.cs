@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,7 @@ public class GameLoader : MonoBehaviour
 
     private PlayerUpgradeQueue _playerUpgrades;
     private StorageUpgradeQueue[] _storageUpgrades;
+    private Storage[] _storages;
     private BuildArea[] _buildAreas;
     private TruckUpgradeQueue _truckUpgrades;
 
@@ -53,8 +55,10 @@ public class GameLoader : MonoBehaviour
 
         var storageUpgrades = FindObjectsOfType<StorageUpgradeQueue>(true);
         _storageUpgrades = new StorageUpgradeQueue[storageUpgrades.Length];
+        _storages = new Storage[storageUpgrades.Length];
         foreach (var upgrade in storageUpgrades) {
             _storageUpgrades[upgrade.ID] = upgrade;
+            _storages[upgrade.ID] = upgrade.GetComponent<Storage>();
         }
 
         _truckUpgrades = FindObjectOfType<TruckUpgradeQueue>();
@@ -79,13 +83,17 @@ public class GameLoader : MonoBehaviour
             _playerUpgrades.UpgradeQueue.UpgradeTo(save.playerLevel);
             _truckUpgrades.UpgradeQueue.UpgradeTo(save.truckLevel);
 
-            for (int i = 0; i < save.storagesLevels.Length; i++) {
-                _storageUpgrades[i].UpgradeQueue.UpgradeTo(save.storagesLevels[i]);
+            for (int i = 0; i < save.storages.Length; i++) {
+                _storageUpgrades[i].UpgradeQueue.UpgradeTo(save.storages[i].level);
+
+                _storages[i].SetGoods(save.storages[i].GetGoods());
             }
 
-            for (int i = 0; i < save.buildedBuildings.Length; i++) {
-                if (save.buildedBuildings[i])
+            for (int i = 0; i < save.buildings.Length; i++) {
+                if (save.buildings[i].isBuilded)
                     _buildAreas[i].Build();
+
+                _buildAreas[i].SetCash(save.buildings[i].cash);
             }
 
             for (int i = 0; i < save.couriersLevels.Length; i++) {
@@ -108,19 +116,24 @@ public class GameLoader : MonoBehaviour
         save.playerLevel = _playerUpgrades.UpgradeQueue.currentID;
         save.truckLevel = _truckUpgrades.UpgradeQueue.currentID;
 
-        save.storagesLevels = new int[_storageUpgrades.Length];
+        save.storages = new SaveStorageStruct[_storageUpgrades.Length];
         for (int i = 0; i < _storageUpgrades.Length; i++) {
+            save.storages[i] = new SaveStorageStruct();
+
             if (_storageUpgrades[i].UpgradeQueue.isLocked) {
-                save.storagesLevels[i] = -1;
+                save.storages[i].level = -1;
                 continue;
             }
 
-            save.storagesLevels[i] = _storageUpgrades[i].UpgradeQueue.currentID;
+            save.storages[i].level = _storageUpgrades[i].UpgradeQueue.currentID;
+            save.storages[i].SetGoods(_storages[i].StoredProducts);
         }
 
-        save.buildedBuildings = new bool[_buildAreas.Length];
+        save.buildings = new SaveBuildingStruct[_buildAreas.Length];
         for (int i = 0; i < _buildAreas.Length; i++) {
-            save.buildedBuildings[i] = _buildAreas[i].alreadyBuilded;
+            save.buildings[i] = new SaveBuildingStruct();
+            save.buildings[i].isBuilded = _buildAreas[i].alreadyBuilded;
+            save.buildings[i].cash = _buildAreas[i].storedCash;
         }
 
         save.couriersLevels = new int[CourierManager.Couriers.Count];
@@ -140,13 +153,60 @@ public class GameLoader : MonoBehaviour
         }
     }
 
+    [Serializable]
     private struct SaveStruct
     {
         public int playerLevel;
         public int truckLevel;
-        public int[] storagesLevels;
-        public bool[] buildedBuildings;
+        public SaveStorageStruct[] storages;
+        public SaveBuildingStruct[] buildings;
         public int[] couriersLevels;
+        public int cash;
+    }
+
+    [Serializable]
+    private struct SaveStorageStruct
+    {
+        public int level;
+        public GoodsSaveStruct[] goods;
+
+        public void SetGoods(Dictionary<ProductType, int> goodsDict)
+        {
+            goods = new GoodsSaveStruct[goodsDict.Count];
+            int id = 0;
+
+            foreach (var pair in goodsDict) {
+                goods[id] = new GoodsSaveStruct();
+                goods[id].type = (int)pair.Key;
+                goods[id].count = pair.Value;
+
+                id++;
+            }
+        }
+
+        public Dictionary<ProductType, int> GetGoods()
+        {
+            var goodsDict = new Dictionary<ProductType, int>();
+
+            foreach (var product in goods) {
+                goodsDict.TryAdd((ProductType)product.type, product.count);
+            }
+
+            return goodsDict;
+        }
+
+        [Serializable]
+        public struct GoodsSaveStruct
+        {
+            public int type;
+            public int count;
+        }
+    }
+
+    [Serializable]
+    private struct SaveBuildingStruct
+    {
+        public bool isBuilded;
         public int cash;
     }
 }

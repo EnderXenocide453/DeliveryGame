@@ -83,6 +83,13 @@ public class Storage : MonoBehaviour
         return count - allowedCount;
     }
 
+    public void SetGoods(Dictionary<ProductType, int> products)
+    {
+        foreach (var pair in products) {
+            SetProductCount(pair.Key, pair.Value);
+        }
+    }
+
     public void GetAllGoodsFrom(Storage other)
     {
         foreach (var type in AllowedTypes)

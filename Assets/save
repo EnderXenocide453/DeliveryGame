@@ -1,21 +1,55 @@
 {
-    "playerLevel": 0,
-    "truckLevel": 0,
-    "storagesLevels": [
-        0,
-        -1,
-        -1,
-        -1,
-        -1
+    "playerLevel": 4,
+    "truckLevel": 4,
+    "storages": [
+        {
+            "level": 4,
+            "goods": [
+                {
+                    "type": 0,
+                    "count": 14
+                },
+                {
+                    "type": 5,
+                    "count": 0
+                }
+            ]
+        },
+        {
+            "level": -1,
+            "goods": []
+        },
+        {
+            "level": -1,
+            "goods": []
+        },
+        {
+            "level": -1,
+            "goods": []
+        },
+        {
+            "level": -1,
+            "goods": []
+        }
     ],
-    "buildedBuildings": [
-        false,
-        false,
-        false,
-        false
+    "buildings": [
+        {
+            "isBuilded": false,
+            "cash": 450
+        },
+        {
+            "isBuilded": false,
+            "cash": 0
+        },
+        {
+            "isBuilded": false,
+            "cash": 0
+        },
+        {
+            "isBuilded": false,
+            "cash": 0
+        }
     ],
-    "couriersLevels": [
-        0
-    ],
-    "cash": 100000
+    "couriersLevels": [],
+    "cash": 91900
 }
