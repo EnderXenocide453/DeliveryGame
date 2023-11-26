@@ -17,24 +17,25 @@ public class SoundsManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance)
-        {
+        if (instance) {
             Destroy(gameObject);
+            return;
+        } if (instance == this) {
+            return;
         }
 
         instance = this;
         _source = GetComponent<AudioSource>();
-
-        DontDestroyOnLoad(this);
     }
 
     public static void PlayButtonSound()
     {
-        _source.PlayOneShot(instance.buttonSound);
+        PlaySound(instance.buttonSound);
     }
 
     public static void PlaySound(AudioClip soundEffect)
     {
-        _source.PlayOneShot(soundEffect);
+        if (_source.enabled)
+            _source.PlayOneShot(soundEffect);
     }
 }

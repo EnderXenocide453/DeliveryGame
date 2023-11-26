@@ -53,6 +53,12 @@ public class GameLoader : MonoBehaviour
 
         _playerUpgrades = FindObjectOfType<PlayerUpgradeQueue>();
 
+        var buildAreas = FindObjectsOfType<BuildArea>(true);
+        _buildAreas = new BuildArea[buildAreas.Length];
+        foreach (var area in buildAreas) {
+            _buildAreas[area.ID] = area;
+        }
+
         var storageUpgrades = FindObjectsOfType<StorageUpgradeQueue>(true);
         _storageUpgrades = new StorageUpgradeQueue[storageUpgrades.Length];
         _storages = new Storage[storageUpgrades.Length];
@@ -62,12 +68,6 @@ public class GameLoader : MonoBehaviour
         }
 
         _truckUpgrades = FindObjectOfType<TruckUpgradeQueue>();
-
-        var buildAreas = FindObjectsOfType<BuildArea>(true);
-        _buildAreas = new BuildArea[buildAreas.Length];
-        foreach (var area in buildAreas) {
-            _buildAreas[area.ID] = area;
-        }
     }
 
     [ContextMenu("Load")]
@@ -76,18 +76,12 @@ public class GameLoader : MonoBehaviour
         if (!File.Exists(savePath))
             return;
 
-        try {
+        //try {
             string json = File.ReadAllText(savePath);
             var save = JsonUtility.FromJson<SaveStruct>(json);
 
             _playerUpgrades.UpgradeQueue.UpgradeTo(save.playerLevel);
             _truckUpgrades.UpgradeQueue.UpgradeTo(save.truckLevel);
-
-            for (int i = 0; i < save.storages.Length; i++) {
-                _storageUpgrades[i].UpgradeQueue.UpgradeTo(save.storages[i].level);
-
-                _storages[i].SetGoods(save.storages[i].GetGoods());
-            }
 
             for (int i = 0; i < save.buildings.Length; i++) {
                 if (save.buildings[i].isBuilded)
@@ -96,15 +90,21 @@ public class GameLoader : MonoBehaviour
                 _buildAreas[i].SetCash(save.buildings[i].cash);
             }
 
+            for (int i = 0; i < save.storages.Length; i++) {
+                _storageUpgrades[i].UpgradeQueue.UpgradeTo(save.storages[i].level);
+
+                _storages[i].SetGoods(save.storages[i].GetGoods());
+            }
+
             for (int i = 0; i < save.couriersLevels.Length; i++) {
                 CourierManager.instance.AddNewCourier().UpgradeQueue.UpgradeQueue.UpgradeTo(save.couriersLevels[i]);
             }
 
             GlobalValueHandler.Cash = save.cash;
-        }
-        catch (Exception e) {
-            Debug.LogWarning($"Ошибка загрузки!\n{e}");
-        }
+        //}
+        //catch (Exception e) {
+        //    Debug.LogWarning($"Ошибка загрузки!\n{e}");
+        //}
     }
 
     [ContextMenu("Save game")]

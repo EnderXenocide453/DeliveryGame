@@ -7,7 +7,7 @@ public class Vibration : MonoBehaviour
     [SerializeField] private float timeOfVibration = 1.5f;
 
     private bool _isVibration;
-    private void Start()
+    private void Awake()
     {
         if (instance)
         {

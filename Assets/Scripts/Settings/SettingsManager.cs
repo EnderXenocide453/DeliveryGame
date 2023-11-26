@@ -9,16 +9,21 @@ public class SettingsManager : MonoBehaviour
 
     public static Dictionary<SettingType, bool> Settings { get => _settings == null ? (_settings = new Dictionary<SettingType, bool>()) : _settings; }
 
+    public delegate void SettingsEventHandler(SettingType type);
+    public static event SettingsEventHandler onSettingChanged;
+
     private void Awake()
     {
         LoadSettings();
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
     public static void SetSettings(SettingType type, bool state)
     {
         if (!Settings.TryAdd(type, state))
             Settings[type] = state;
+
+        onSettingChanged?.Invoke(type);
 
         SaveSettings();
     }

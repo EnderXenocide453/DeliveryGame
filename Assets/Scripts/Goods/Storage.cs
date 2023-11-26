@@ -45,7 +45,7 @@ public class Storage : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         Init();
     }
