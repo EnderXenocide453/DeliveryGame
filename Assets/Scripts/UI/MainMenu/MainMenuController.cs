@@ -5,6 +5,8 @@ public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private Animator[] startNewGameAnimator;
     [SerializeField] private GameObject warning;
+    [SerializeField] private AudioClip buttonSound;
+    [SerializeField] private AudioSource audioSource;
 
     public void StartNewGame()
     {
@@ -14,7 +16,7 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
-    public void ResumeGame()
+    public void ContinueGame()
     {
         GameLoader.startNewGame = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
