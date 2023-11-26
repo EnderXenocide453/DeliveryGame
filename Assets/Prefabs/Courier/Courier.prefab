@@ -450,7 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldSpeed: 100
   rotationSpeed: 360
-  mapSpeed: 1
+  mapSpeedModifier: 1
   speedModifier: 1
 --- !u!114 &1900921029166309379
 MonoBehaviour:
@@ -656,8 +656,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1107725997
+  m_SortingOrder: -3
   m_TargetDisplay: 0
 --- !u!114 &4421380195498708712
 MonoBehaviour:

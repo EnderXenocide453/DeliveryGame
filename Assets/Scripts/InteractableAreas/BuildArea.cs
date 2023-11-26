@@ -34,6 +34,7 @@ public class BuildArea : InteractableArea
 
         OrdersManager.AddProductType(allowedType);
         alreadyBuilded = true;
+        SoundsManager.PlaySound(SoundsManager.instance.buildEndSound);
 
         transform.parent.gameObject.SetActive(false);
     }
@@ -52,6 +53,8 @@ public class BuildArea : InteractableArea
     {
         while (true) {
             if (GlobalValueHandler.Cash > 0) {
+                SoundsManager.PlaySound(SoundsManager.instance.buildProgressSound);
+
                 int cashSpend = Mathf.Min(new int[] { cashSpendCount, cost - _storedCash, GlobalValueHandler.Cash });
 
                 GlobalValueHandler.Cash -= cashSpend;

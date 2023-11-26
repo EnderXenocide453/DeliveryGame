@@ -71,6 +71,7 @@ public class OrdersManager : MonoBehaviour
         instance._freePoints.RemoveAt(id);
 
         courier.CurrentOrderPoint = point;
+        SoundsManager.PlaySound(SoundsManager.instance.newOrderSound);
     }
 
     private static Order GenerateRandomOrder(int count)

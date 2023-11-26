@@ -13,6 +13,7 @@ public class Product
 
     public GameObject Prefab;
     public Sprite Icon;
+    public AudioClip InteractSound;
 
     public (ProductType type, int count) GetContainedGoods()
     {

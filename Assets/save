@@ -3,17 +3,19 @@
     "truckLevel": 0,
     "storagesLevels": [
         0,
-        0,
+        -1,
         -1,
         -1,
         -1
     ],
     "buildedBuildings": [
-        true,
+        false,
         false,
         false,
         false
     ],
-    "couriersLevels": [],
-    "cash": 99500
+    "couriersLevels": [
+        0
+    ],
+    "cash": 100000
 }

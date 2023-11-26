@@ -95,18 +95,16 @@ public class Courier : MonoBehaviour
 
     private void ApplyOrder()
     {
-        Debug.Log("Apply");
         MapCourierManager.AddCourier(this);
 
         _cloud.DrawImage(GlobalValueHandler.ApplyIcon, 2f);
+        SoundsManager.PlaySound(SoundsManager.instance.orderGoodsSound);
 
         onOrderReceived?.Invoke();
     }
 
     private void DenyOrder()
     {
-        Debug.Log("Deny");
-
         _cloud.DrawImage(GlobalValueHandler.DenyIcon, 2f);
     }
 

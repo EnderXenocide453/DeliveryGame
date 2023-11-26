@@ -93,6 +93,8 @@ public class GoodsManager : MonoBehaviour
                 from.RemoveProduct(type, 1);
                 var info = _generatedProducts[type].GetContainedGoods();
                 to.AddProduct(info.type, info.count);
+
+                SoundsManager.PlaySound(_generatedProducts[type].InteractSound);
             }
         }
     }
@@ -102,6 +104,8 @@ public class GoodsManager : MonoBehaviour
         while (!target.Filled) {
             yield return new WaitForSeconds(delay);
             target.AddProduct(type, 1);
+
+            SoundsManager.PlaySound(_generatedProducts[type].InteractSound);
         }
     }
 }
