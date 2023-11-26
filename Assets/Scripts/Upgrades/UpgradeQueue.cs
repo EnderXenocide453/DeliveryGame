@@ -53,11 +53,12 @@ public class UpgradeQueue
         if (level == 0)
             return;
 
-        level = Mathf.Clamp(level, 0, _upgrades.Length - 1);
+        level = Mathf.Clamp(level, 0, _upgrades.Length);
         currentID = 0;
 
-        for (int i = 0; i < level; i++)
+        while (currentID < level) {
             CurrentUpgrade.DoUpgrade();
+        }
 
         onUpgraded?.Invoke();
     }

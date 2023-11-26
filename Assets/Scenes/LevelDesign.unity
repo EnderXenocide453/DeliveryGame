@@ -4945,7 +4945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &556923088
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4978,7 +4978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6451,7 +6451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf6534f78e245a44fa940b1534f4a3d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStartPoint: 0
+  isStartPoint: 1
   Manager: {fileID: 1000344487}
 --- !u!114 &781615793
 MonoBehaviour:
@@ -14696,6 +14696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDelay: 0.1
+  maxCount: 5
   MapCourierPrefab: {fileID: 3345267287339550131, guid: e789c383204eb8a4496900ee18f8bbea,
     type: 3}
   CourierContainer: {fileID: 493282497}
@@ -17053,7 +17054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf6534f78e245a44fa940b1534f4a3d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStartPoint: 1
+  isStartPoint: 0
   Manager: {fileID: 1000344487}
 --- !u!114 &2140982873
 MonoBehaviour:

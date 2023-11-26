@@ -7,6 +7,7 @@ public class CourierManager : MonoBehaviour
     public static bool isMaxCouriers;
     public static CourierManager instance;
     public static List<Courier> Couriers;
+    public static List<Courier> CouriersInQueue;
 
     private Courier _awaitingCourier;
 
@@ -32,6 +33,7 @@ public class CourierManager : MonoBehaviour
         }
 
         Couriers = new List<Courier>();
+        CouriersInQueue = new List<Courier>();
     }
 
     public static void SetAwaitingCourier(Courier courier)
@@ -47,6 +49,7 @@ public class CourierManager : MonoBehaviour
     public Courier AddNewCourier()
     {
         Courier courier = Instantiate(instance.CourierPrefab, instance.Entrance.position, Quaternion.identity).GetComponent<Courier>();
+        Couriers.Add(courier);
         AddCourierToQueue(courier);
 
         courier.onReturned += () => 
@@ -82,20 +85,20 @@ public class CourierManager : MonoBehaviour
     {
         courier.onReachedTarget = null;
 
-        Couriers.Add(courier);
+        CouriersInQueue.Add(courier);
 
-        if (Couriers.Count <= instance.CourierQueue.QueuePoints.Length)
-            courier.SetTarget(instance.CourierQueue.QueuePoints[Couriers.Count - 1]);
+        if (CouriersInQueue.Count <= instance.CourierQueue.QueuePoints.Length)
+            courier.SetTarget(instance.CourierQueue.QueuePoints[CouriersInQueue.Count - 1]);
     }
 
     public void RemoveCourierFromQueue()
     {
-        Courier courier = Couriers[0];
+        Courier courier = CouriersInQueue[0];
 
         courier.SetTarget(instance.Exit);
         courier.onReachedTarget = courier.Disappear;
 
-        Couriers.RemoveAt(0);
+        CouriersInQueue.RemoveAt(0);
 
         MoveQueue();
     }
@@ -107,8 +110,8 @@ public class CourierManager : MonoBehaviour
 
     private void MoveQueue()
     {
-        for (int i = 0; i < Couriers.Count && i < instance.CourierQueue.QueuePoints.Length; i++) {
-            Couriers[i].SetTarget(instance.CourierQueue.QueuePoints[i]);
+        for (int i = 0; i < CouriersInQueue.Count && i < instance.CourierQueue.QueuePoints.Length; i++) {
+            CouriersInQueue[i].SetTarget(instance.CourierQueue.QueuePoints[i]);
         }
     }
 }
