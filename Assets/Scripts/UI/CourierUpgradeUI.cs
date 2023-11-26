@@ -19,7 +19,14 @@ public class CourierUpgradeUI : BaseUpgradeUI
 
         base.Awake();
     }
-    
+
+    private void OnDestroy()
+    {
+        GlobalValueHandler.onCashChanged -= UpdateBtn;
+
+        CourierManager.onCourierAdded -= AddCourier;
+    }
+
     public void OnHireButtonClick()
     {
         GlobalValueHandler.Cash -= _currentCost;

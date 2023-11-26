@@ -48,7 +48,7 @@
         },
         {
             "isBuilded": false,
-            "cash": 600
+            "cash": 450
         },
         {
             "isBuilded": false,
@@ -59,6 +59,9 @@
             "cash": 0
         }
     ],
-    "couriersLevels": [],
-    "cash": 100000
+    "couriersLevels": [
+        0,
+        0
+    ],
+    "cash": 99450
 }

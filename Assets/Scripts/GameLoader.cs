@@ -76,7 +76,7 @@ public class GameLoader : MonoBehaviour
         if (!File.Exists(savePath))
             return;
 
-        //try {
+        try {
             string json = File.ReadAllText(savePath);
             var save = JsonUtility.FromJson<SaveStruct>(json);
 
@@ -97,14 +97,15 @@ public class GameLoader : MonoBehaviour
             }
 
             for (int i = 0; i < save.couriersLevels.Length; i++) {
-                CourierManager.instance.AddNewCourier().UpgradeQueue.UpgradeQueue.UpgradeTo(save.couriersLevels[i]);
+                var courier = CourierManager.instance.AddNewCourier();
+                courier.UpgradeQueue.UpgradeQueue.UpgradeTo(save.couriersLevels[i]);
             }
 
             GlobalValueHandler.Cash = save.cash;
-        //}
-        //catch (Exception e) {
-        //    Debug.LogWarning($"Ошибка загрузки!\n{e}");
-        //}
+        }
+        catch (Exception e) {
+            Debug.LogWarning($"Ошибка загрузки!\n{e}");
+        }
     }
 
     [ContextMenu("Save game")]
