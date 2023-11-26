@@ -24,6 +24,8 @@ public class SoundsManager : MonoBehaviour
 
         instance = this;
         _source = GetComponent<AudioSource>();
+
+        DontDestroyOnLoad(this);
     }
 
     public static void PlayButtonSound()

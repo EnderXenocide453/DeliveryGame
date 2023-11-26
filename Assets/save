@@ -7,7 +7,7 @@
             "goods": [
                 {
                     "type": 0,
-                    "count": 14
+                    "count": 5
                 },
                 {
                     "type": 5,
@@ -35,7 +35,7 @@
     "buildings": [
         {
             "isBuilded": false,
-            "cash": 450
+            "cash": 0
         },
         {
             "isBuilded": false,
@@ -50,6 +50,15 @@
             "cash": 0
         }
     ],
-    "couriersLevels": [],
-    "cash": 91900
+    "couriersLevels": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "cash": 95700
 }
