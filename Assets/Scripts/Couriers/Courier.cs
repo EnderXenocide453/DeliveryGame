@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Storage)), RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(GoodsIconsVisualizer)), RequireComponent(typeof(EmojiCloud))] 
@@ -11,10 +9,9 @@ public class Courier : MonoBehaviour
 
     public float speedModifier = 1;
 
+    public bool isMove;
     public Storage CourierStorage { get; private set; }
     public CourierUpgradeQueue UpgradeQueue { get; private set; }
-
-    private bool _isMove;
 
     private Vector3 _moveDir;
     private Transform _target;
@@ -117,14 +114,14 @@ public class Courier : MonoBehaviour
         _moveDir = Vector3.ClampMagnitude(new Vector3(_moveDir.x, 0, _moveDir.z), 1);
 
         if (_moveDir.magnitude <= 0.1f) {
-            if (_isMove) {
+            if (isMove) {
                 onReachedTarget?.Invoke();
-                _isMove = false;
+                isMove = false;
             }
             return;
         }
 
-        _isMove = true;
+        isMove = true;
 
         Quaternion toRotation = Quaternion.LookRotation(_moveDir, Vector3.up);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * rotationSpeed);
