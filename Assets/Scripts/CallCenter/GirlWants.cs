@@ -16,6 +16,7 @@ public class GirlWants : MonoBehaviour
     [SerializeField] private GameObject bonusObject;
 
     private ProductType _wantedType;
+    private bool _wannaSomething;
 
     private void Start()
     {
@@ -26,17 +27,19 @@ public class GirlWants : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(displayInterval);
+
             int randomTypeOfFood = UnityEngine.Random.Range(0, OrdersManager.goodsTypes.Count);
             _wantedType = OrdersManager.goodsTypes[randomTypeOfFood];
 
             cloud.DrawImage(GoodsManager.GetProductInfo(_wantedType).Icon, displayInterval);
-            yield return new WaitForSeconds(displayInterval);
+            _wannaSomething = true;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (((1 << other.gameObject.layer) & playerMask.value) > 0 && other.attachedRigidbody && other.attachedRigidbody.TryGetComponent<Storage>(out var storage))
+        if (_wannaSomething && ((1 << other.gameObject.layer) & playerMask.value) > 0 && other.attachedRigidbody && other.attachedRigidbody.TryGetComponent<Storage>(out var storage))
         {
             if (storage.CurrentCount > 1 || storage.GetProductCount(_wantedType) != 1) {
                 Deny();
@@ -50,6 +53,8 @@ public class GirlWants : MonoBehaviour
 
     private void Apply()
     {
+        _wannaSomething = false;
+
         Instantiate(bonusObject, bonusAreas.GetRandomPoint(), Quaternion.identity);
         cloud.Clear();
     }

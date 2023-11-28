@@ -23,4 +23,10 @@ public class DeliveryCounter : MonoBehaviour
             CourierManager.SendGoodsToAwaiting(storage);
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (((1 << other.gameObject.layer) & StorekeeperMask) > 0 && other.attachedRigidbody.TryGetComponent<Storage>(out var storage))
+            _storekeeperStorage = null;
+    }
 }

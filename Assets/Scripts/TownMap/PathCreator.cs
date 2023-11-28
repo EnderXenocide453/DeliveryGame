@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(LineRenderer))]
 public class PathCreator : MonoBehaviour
 {
     public static PathCreator instance;
     public static bool isCorrectPointExists { get; private set; }
 
     [SerializeField] private MapCourier ActiveCourier;
-
-    private LineRenderer _pathLine;
+    [SerializeField] private LineRenderer pathLine;
 
     private void Awake()
     {
@@ -20,7 +18,9 @@ public class PathCreator : MonoBehaviour
             Destroy(gameObject);
 
         Input.multiTouchEnabled = false;
-        _pathLine = GetComponent<LineRenderer>();
+
+        if (!pathLine)
+            pathLine = GetComponent<LineRenderer>();
     }
 
     private void OnDisable()
@@ -68,20 +68,20 @@ public class PathCreator : MonoBehaviour
             return;
         }
 
-        instance._pathLine.positionCount = instance.ActiveCourier.CourierPath.pointsCount;
-        for (int i = 0; i < instance._pathLine.positionCount; i++) {
-            instance._pathLine.SetPosition(i, instance.ActiveCourier.CourierPath.GetWayPointAtIndex(i).transform.position);
+        instance.pathLine.positionCount = instance.ActiveCourier.CourierPath.pointsCount;
+        for (int i = 0; i < instance.pathLine.positionCount; i++) {
+            instance.pathLine.SetPosition(i, instance.ActiveCourier.CourierPath.GetWayPointAtIndex(i).transform.position);
         }
 
-        instance._pathLine.enabled = true;
+        instance.pathLine.enabled = true;
     }
 
     public static void HideActivePath()
     {
         instance.ActiveCourier?.WorldCourier.CurrentOrderPoint?.SetActivity(false);
 
-        instance._pathLine.positionCount = 0;
-        instance._pathLine.enabled = false;
+        instance.pathLine.positionCount = 0;
+        instance.pathLine.enabled = false;
     }
 }
 
