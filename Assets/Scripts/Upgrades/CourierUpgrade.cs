@@ -13,7 +13,7 @@ public class CourierUpgrade : BaseUpgrade
 
     private Courier _target;
 
-    public override string Name => name;
+    public override string Name => $"Курьер {_target.ID + 1}";
 
     public override string Description => $"Скорость: {_target.mapSpeedModifier}\nВместимость: {_target.CourierStorage.MaxCount}";
 

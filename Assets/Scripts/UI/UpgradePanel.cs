@@ -10,6 +10,7 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField] TMP_Text descField;
     [SerializeField] TMP_Text buttonTextField;
     [SerializeField] Button upgradeButton;
+    [SerializeField] Image icon;
 
     private UpgradeQueue _attachedUpgradeQueue;
     private bool _isMax;
@@ -34,6 +35,8 @@ public class UpgradePanel : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        icon.sprite = _attachedUpgradeQueue.CurrentIcon;
 
         if (_attachedUpgradeQueue.isLocked) {
             LockUpgrade();

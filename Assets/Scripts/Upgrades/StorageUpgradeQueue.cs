@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StorageUpgradeQueue : MonoBehaviour
 {
+    [SerializeField] private Sprite icon;
     [SerializeField] private StorageUpgrade[] upgrades;
     [SerializeField] private bool lockAtStart;
 
@@ -40,7 +41,7 @@ public class StorageUpgradeQueue : MonoBehaviour
 
     private void InitQueue()
     {
-        _upgradeQueue = new UpgradeQueue(upgrades, transform);
+        _upgradeQueue = new UpgradeQueue(upgrades, transform, icon);
 
         _upgradeQueue.SetLock(lockAtStart);
     }

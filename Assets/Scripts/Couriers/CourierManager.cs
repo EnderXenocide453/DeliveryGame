@@ -49,6 +49,7 @@ public class CourierManager : MonoBehaviour
     public Courier AddNewCourier()
     {
         Courier courier = Instantiate(instance.CourierPrefab, instance.Entrance.position, Quaternion.identity).GetComponent<Courier>();
+        courier.ID = Couriers.Count;
         Couriers.Add(courier);
         AddCourierToQueue(courier);
 

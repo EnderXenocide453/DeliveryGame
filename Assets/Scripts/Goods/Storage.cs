@@ -8,6 +8,8 @@ public class Storage : MonoBehaviour
     [SerializeField] private GoodsVisualizer GoodsVisualizer;
     [SerializeField] private int maxCount = 1;
 
+    public string Name;
+
     /// <summary>
     /// Допустимые к хранению типы товара
     /// </summary>

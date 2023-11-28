@@ -614,6 +614,7 @@ MonoBehaviour:
   descField: {fileID: 357351766277787847}
   buttonTextField: {fileID: 4206853838823274738}
   upgradeButton: {fileID: 2889517509693265067}
+  icon: {fileID: 2885636367728862817}
 --- !u!114 &2201340670955888450
 MonoBehaviour:
   m_ObjectHideFlags: 0

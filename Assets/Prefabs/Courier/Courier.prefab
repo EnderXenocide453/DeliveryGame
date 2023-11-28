@@ -448,6 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c863de1ef29018f48b5c9ff79151265d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   worldSpeed: 100
   rotationSpeed: 360
   mapSpeedModifier: 1
@@ -464,31 +465,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705781b948070e241b8ef3c884d3c6df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icons:
+  - {fileID: 21300000, guid: a53bcb8a0305a1b4b8df6f3054401bd4, type: 3}
+  - {fileID: 21300000, guid: 6dfd03e6040b4b04ab22568867b16c6c, type: 3}
+  - {fileID: 21300000, guid: ad4fff1120704c045b42ee28f7b3e585, type: 3}
+  - {fileID: 21300000, guid: 90fe3ec3a2197b7458d93fae936f43ce, type: 3}
+  - {fileID: 21300000, guid: 0dd0d4f5841f53b4b84f0a585dc6a9e9, type: 3}
   upgrades:
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u0443\u0440\u044C\u0435\u0440\u0430"
-    description: "\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
-      x2\n\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u0442\u0435\u0440\u043C\u043E\u0441\u0443\u043C\u043A\u0443"
+  - name: 
+    description: 
     cost: 100
     storageCapacity: 2
     speedModifier: 1
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u0443\u0440\u044C\u0435\u0440\u0430"
-    description: "\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
-      x3\n\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C x2\n\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442
-      \u0441\u0430\u043C\u043E\u043A\u0430\u0442"
+  - name: 
+    description: 
     cost: 200
     storageCapacity: 3
     speedModifier: 2
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u0443\u0440\u044C\u0435\u0440\u0430"
-    description: "\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
-      x4\n\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C x3\n\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442
-      \u0432\u0435\u043B\u043E\u0441\u0438\u043F\u0435\u0434"
+  - name: 
+    description: 
     cost: 400
     storageCapacity: 4
     speedModifier: 3
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u0443\u0440\u044C\u0435\u0440\u0430"
-    description: "\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
-      x5\n\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C x5\n\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442
-      \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u044C"
+  - name: 
+    description: 
     cost: 800
     storageCapacity: 5
     speedModifier: 5

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TruckUpgradeQueue : MonoBehaviour
 {
+    [SerializeField] private Sprite icon;
     [SerializeField] private TruckUpgrade[] upgrades;
     private UpgradeQueue _upgradeQueue;
 
@@ -12,7 +13,7 @@ public class TruckUpgradeQueue : MonoBehaviour
         get
         {
             if (_upgradeQueue == null)
-                _upgradeQueue = new UpgradeQueue(upgrades, transform);
+                _upgradeQueue = new UpgradeQueue(upgrades, transform, icon);
 
             return _upgradeQueue;
         }
@@ -22,6 +23,6 @@ public class TruckUpgradeQueue : MonoBehaviour
     private void Awake()
     {
         if (_upgradeQueue == null)
-            _upgradeQueue = new UpgradeQueue(upgrades, transform);
+            _upgradeQueue = new UpgradeQueue(upgrades, transform, icon);
     }
 }

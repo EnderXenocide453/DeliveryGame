@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Storage)), RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(GoodsIconsVisualizer)), RequireComponent(typeof(EmojiCloud))] 
 public class Courier : MonoBehaviour
 {
+    public int ID;
+
     public float worldSpeed = 10;
     public float rotationSpeed = 360;
     public float mapSpeedModifier = 1;
