@@ -10,6 +10,7 @@ public class RoadManager : MonoBehaviour
     [SerializeField] private GameObject wayPointPrefab;
     [SerializeField] private GameObject roadPrefab;
 
+    public Transform container;
     public Dictionary<int, WayPoint> WayPoints;
     public Dictionary<int, Road> Roads;
 
@@ -27,7 +28,7 @@ public class RoadManager : MonoBehaviour
     #region Редактирование карты
     public WayPoint BuildPoint(Vector3 position)
     {
-        WayPoint wayPoint = Instantiate(wayPointPrefab, position, Quaternion.identity, transform).GetComponent<WayPoint>();
+        WayPoint wayPoint = Instantiate(wayPointPrefab, position, transform.rotation, container).GetComponent<WayPoint>();
         wayPoint.Manager = this;
 
         return wayPoint;
@@ -35,7 +36,7 @@ public class RoadManager : MonoBehaviour
 
     public void BuildRoad(WayPoint a, WayPoint b)
     {
-        Road road = Instantiate(roadPrefab, transform).GetComponent<Road>();
+        Road road = Instantiate(roadPrefab, container).GetComponent<Road>();
         road.SetWayPoints(a, b);
     }
 
@@ -78,6 +79,16 @@ public class RoadManager : MonoBehaviour
 
         WayPoints = new Dictionary<int, WayPoint>();
         Roads = new Dictionary<int, Road>();
+
+        var points = FindObjectsOfType<WayPoint>(true);
+        foreach (var point in points) {
+            AddPoint(point);
+        }
+
+        var roads = FindObjectsOfType<Road>(true);
+        foreach (var road in roads) {
+            AddRoad(road);
+        }
     }
 
     private void CalculateConnections()
