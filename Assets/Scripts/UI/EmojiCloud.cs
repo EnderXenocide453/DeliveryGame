@@ -17,6 +17,13 @@ public class EmojiCloud : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(ShowCloud(delay));
     }
+
+    public void Clear()
+    {
+        StopAllCoroutines();
+        image.gameObject.SetActive(false);
+    }
+
     private IEnumerator ShowCloud(float delay)
     {
         image.gameObject.SetActive(true);

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float speedModifier = 1;
 
+    private float _bonusSpeedModifier;
     private Vector3 _moveDir;
     private Rigidbody _rb;
 
@@ -27,6 +29,18 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        _rb.velocity = _moveDir * speed * speedModifier * Time.fixedDeltaTime;
+        _rb.velocity = _moveDir * speed * (speedModifier + _bonusSpeedModifier) * Time.fixedDeltaTime;
+    }
+
+    public void AddBonus(float amount, float activeTime)
+    {
+        StartCoroutine(ActivateBonus(amount, activeTime));
+    }
+
+    private IEnumerator ActivateBonus(float amount, float activeTime)
+    {
+        _bonusSpeedModifier += amount;
+        yield return new WaitForSeconds(activeTime);
+        _bonusSpeedModifier -= amount;
     }
 }

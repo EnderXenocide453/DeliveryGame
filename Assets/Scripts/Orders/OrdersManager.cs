@@ -6,14 +6,13 @@ public class OrdersManager : MonoBehaviour
 {
     public static OrdersManager instance;
     public static Dictionary<int, Order> ActiveOrders;
+    public static List<ProductType> goodsTypes { get; private set; }
 
-    [SerializeField] float appearenceDelay = 30;
     [SerializeField] int goodsMaxCount = 1;
-    [SerializeField] List<ProductType> goodsTypes;
 
     private List<WayPoint> _freePoints;
 
-    private void Start()
+    private void Awake()
     {
         if (!instance)
             instance = this;
@@ -28,6 +27,7 @@ public class OrdersManager : MonoBehaviour
             _freePoints.Add(point);
         }
 
+        goodsTypes = new List<ProductType>() { ProductType.Burger };
         ActiveOrders = new Dictionary<int, Order>();
     }
 
@@ -44,10 +44,10 @@ public class OrdersManager : MonoBehaviour
 
     public static void AddProductType(ProductType type)
     {
-        if (instance.goodsTypes.Contains(type))
+        if (goodsTypes.Contains(type))
             return;
 
-        instance.goodsTypes.Add(type);
+        goodsTypes.Add(type);
     }
 
     public static void GenerateOrderForCourier(Courier courier)
@@ -79,7 +79,7 @@ public class OrdersManager : MonoBehaviour
         Dictionary<ProductType, int> info = new Dictionary<ProductType, int>();
 
         for (int i = 0; i < count; i++) {
-            ProductType type = instance.goodsTypes[Random.Range(0, instance.goodsTypes.Count)];
+            ProductType type = goodsTypes[Random.Range(0, goodsTypes.Count)];
 
             if (!info.TryAdd(type, 1)) info[type]++;
         }
