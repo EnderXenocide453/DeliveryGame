@@ -6,13 +6,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(LineRenderer))]
 public class MapCourier : MonoBehaviour
 {
+    [SerializeField] private Image image;
+
     public float Speed = 0.2f;
     public bool IsAwaits = true;
 
     public MapPath CourierPath;
     public Coroutine MoveCoroutine;
-
-    [HideInInspector] public Courier WorldCourier;
 
     private int _cash;
 
@@ -20,10 +20,10 @@ public class MapCourier : MonoBehaviour
     private Transform _courierHandler;
 
     private RectTransform _rectTransform;
-    private Image _image;
     private LineRenderer _lastPointConnectionLine;
     
     private WayPoint _startPoint;
+    private Courier _courier;
 
     private GoodsIconsVisualizer _iconsVisualizer;
 
@@ -38,11 +38,20 @@ public class MapCourier : MonoBehaviour
         }
     }
 
-    private void Start()
+    public Courier WorldCourier 
+    { 
+        get => _courier; 
+        set
+        {
+            _courier = value;
+            RedrawIcon();
+        }
+    }
+
+    private void Awake()
     {
         _rectTransform = GetComponent<RectTransform>();
 
-        _image = GetComponent<Image>();
         _lastPointConnectionLine = GetComponent<LineRenderer>();
         _lastPointConnectionLine.enabled = false;
 
@@ -65,6 +74,8 @@ public class MapCourier : MonoBehaviour
     private void OnEnable()
     {
         UpdatePosition();
+
+        RedrawIcon();
     }
 
     public void SetStartPoint(WayPoint point)
@@ -84,7 +95,7 @@ public class MapCourier : MonoBehaviour
 
         _lastPointConnectionLine.enabled = true;
         transform.SetParent(_courierHandler.parent);
-        _image.raycastTarget = false;
+        image.raycastTarget = false;
 
         PathCreator.SetActiveCourier(this);
     }
@@ -98,7 +109,7 @@ public class MapCourier : MonoBehaviour
 
         _lastPointConnectionLine.enabled = false;
         
-        _image.raycastTarget = true;
+        image.raycastTarget = true;
 
         if (!PathCreator.isCorrectPointExists) {
             transform.SetParent(_courierHandler);
@@ -146,6 +157,14 @@ public class MapCourier : MonoBehaviour
 
             _iconsVisualizer.VisualizeGoods(WorldCourier.CourierStorage.StoredProducts);
         }
+    }
+
+    private void RedrawIcon()
+    {
+        if (!image)
+            image = GetComponent<Image>();
+
+        image.sprite = WorldCourier.UpgradeQueue.UpgradeQueue.CurrentIcon;
     }
 
     //Вывод на экран иконок ресурсов
