@@ -7,20 +7,24 @@ public class UpgradeQueue
     public int currentID { get; private set; }
 
     private BaseUpgrade[] _upgrades;
-    private Sprite[] _icons;
+    private Sprite[] _uiIcons;
+    private Sprite[] _worldIcons;
 
     public BaseUpgrade CurrentUpgrade { get => currentID >= _upgrades.Length ? _upgrades[_upgrades.Length - 1] : _upgrades[currentID]; }
-    public Sprite CurrentIcon { get => currentID >= _icons.Length ? _icons[_icons.Length - 1] : _icons[currentID]; }
+    public Sprite CurrentUIIcon { get => currentID >= _uiIcons.Length ? _uiIcons[_uiIcons.Length - 1] : _uiIcons[currentID]; }
+    public Sprite CurrentWorldIcon { get => currentID >= _worldIcons.Length ? _worldIcons[_worldIcons.Length - 1] : _worldIcons[currentID]; }
 
     public event BaseUpgrade.UpgradeEventHandler onUpgraded;
     public event BaseUpgrade.UpgradeEventHandler onLocked;
     public event BaseUpgrade.UpgradeEventHandler onUnlocked;
     public event BaseUpgrade.UpgradeEventHandler onMaxLevelReached;
 
-    public UpgradeQueue(BaseUpgrade[] upgrades, Transform parent, Sprite[] icons)
+    public UpgradeQueue(BaseUpgrade[] upgrades, Transform parent, Sprite[] uiIcons, Sprite[] worldIcons = null)
     {
         _upgrades = new BaseUpgrade[upgrades.Length];
-        _icons = new Sprite[upgrades.Length + 1];
+        _uiIcons = new Sprite[upgrades.Length + 1];
+        _worldIcons = new Sprite[upgrades.Length + 1];
+
         upgrades.CopyTo(_upgrades, 0);
 
         for (int i = 1; i < _upgrades.Length; i++) {
@@ -33,15 +37,22 @@ public class UpgradeQueue
         _upgrades[0].onUpgraded += OnUpgraded;
         _upgrades[0].SetTarget(parent);
 
-        for (int i = 0; i < _icons.Length; i++) {
-            _icons[i] = i >= icons.Length ? icons[icons.Length - 1] : icons[i];
+        for (int i = 0; i < _uiIcons.Length; i++) {
+            _uiIcons[i] = i >= uiIcons.Length ? uiIcons[uiIcons.Length - 1] : uiIcons[i];
+
+            if (worldIcons == null)
+                _worldIcons[i] = _uiIcons[i];
+            else
+                _worldIcons[i] = i >= worldIcons.Length ? worldIcons[worldIcons.Length - 1] : worldIcons[i];
         }
     }
 
-    public UpgradeQueue(BaseUpgrade[] upgrades, Transform parent, Sprite icon)
+    public UpgradeQueue(BaseUpgrade[] upgrades, Transform parent, Sprite uiIcon, Sprite worldIcon = null)
     {
         _upgrades = new BaseUpgrade[upgrades.Length];
-        _icons = new Sprite[upgrades.Length + 1];
+        _uiIcons = new Sprite[upgrades.Length + 1];
+        _worldIcons = new Sprite[upgrades.Length + 1];
+
         upgrades.CopyTo(_upgrades, 0);
 
         for (int i = 1; i < _upgrades.Length; i++) {
@@ -54,8 +65,9 @@ public class UpgradeQueue
         _upgrades[0].onUpgraded += OnUpgraded;
         _upgrades[0].SetTarget(parent);
 
-        for (int i = 0; i < _icons.Length; i++) {
-            _icons[i] = icon;
+        for (int i = 0; i < _uiIcons.Length; i++) {
+            _uiIcons[i] = uiIcon;
+            _worldIcons[i] = worldIcon ? worldIcon : uiIcon;
         }
     }
 

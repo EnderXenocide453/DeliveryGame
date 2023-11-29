@@ -407,6 +407,7 @@ MonoBehaviour:
   AllowAllTypes: 1
   GoodsVisualizer: {fileID: 1031433579030159287}
   maxCount: 1
+  Name: 
   AllowedTypes: 
   _currentCount: 0
 --- !u!54 &54677810270751899
@@ -465,12 +466,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705781b948070e241b8ef3c884d3c6df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icons:
+  uiIcons:
   - {fileID: 21300000, guid: a53bcb8a0305a1b4b8df6f3054401bd4, type: 3}
   - {fileID: 21300000, guid: 6dfd03e6040b4b04ab22568867b16c6c, type: 3}
   - {fileID: 21300000, guid: ad4fff1120704c045b42ee28f7b3e585, type: 3}
   - {fileID: 21300000, guid: 90fe3ec3a2197b7458d93fae936f43ce, type: 3}
   - {fileID: 21300000, guid: 0dd0d4f5841f53b4b84f0a585dc6a9e9, type: 3}
+  worldIcons:
+  - {fileID: 21300000, guid: a9f59e58d09d5d442a6c5b3212814300, type: 3}
+  - {fileID: 21300000, guid: 97788c2d3581f6d47b6a28da9e3890ef, type: 3}
+  - {fileID: 21300000, guid: 10fba018b7d567f449d001ccf1e97140, type: 3}
+  - {fileID: 21300000, guid: a9b7d0341a5218c43b8d44618eabf32f, type: 3}
+  - {fileID: 21300000, guid: 27e446bfa4359b34eb2e9768362b7ea2, type: 3}
   upgrades:
   - name: 
     description: 

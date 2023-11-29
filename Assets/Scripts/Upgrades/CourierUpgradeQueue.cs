@@ -3,7 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Courier))]
 public class CourierUpgradeQueue : MonoBehaviour
 {
-    [SerializeField] Sprite[] icons;
+    [SerializeField] Sprite[] uiIcons;
+    [SerializeField] Sprite[] worldIcons;
     [SerializeField] private CourierUpgrade[] upgrades;
     private UpgradeQueue _upgradeQueue;
 
@@ -12,7 +13,7 @@ public class CourierUpgradeQueue : MonoBehaviour
         get
         {
             if (_upgradeQueue == null)
-                _upgradeQueue = new UpgradeQueue(upgrades, transform, icons);
+                _upgradeQueue = new UpgradeQueue(upgrades, transform, uiIcons, worldIcons);
 
             return _upgradeQueue;
         }
@@ -22,6 +23,6 @@ public class CourierUpgradeQueue : MonoBehaviour
     private void Awake()
     {
         if (_upgradeQueue == null)
-            _upgradeQueue = new UpgradeQueue(upgrades, transform, icons);
+            _upgradeQueue = new UpgradeQueue(upgrades, transform, uiIcons, worldIcons);
     }
 }

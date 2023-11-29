@@ -36,7 +36,7 @@ public class UpgradePanel : MonoBehaviour
             return;
         }
 
-        icon.sprite = _attachedUpgradeQueue.CurrentIcon;
+        icon.sprite = _attachedUpgradeQueue.CurrentUIIcon;
 
         if (_attachedUpgradeQueue.isLocked) {
             LockUpgrade();
