@@ -117,6 +117,7 @@ public class Courier : MonoBehaviour
             if (isMove) {
                 onReachedTarget?.Invoke();
                 isMove = false;
+                _body.velocity = Vector3.zero;
             }
             return;
         }

@@ -8,9 +8,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Joystick joystick;
 
     public float speedModifier = 1;
+    public Vector3 moveDir { get; private set; }
 
     private float _bonusSpeedModifier;
-    private Vector3 _moveDir;
     private Rigidbody _rb;
 
     private void Awake()
@@ -19,17 +19,17 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        _moveDir = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
+        moveDir = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
 
-        if (_moveDir != Vector3.zero)
+        if (moveDir != Vector3.zero)
         {
-            Quaternion toRotation = Quaternion.LookRotation(_moveDir, Vector3.up);
+            Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * RotationSpeed);
         }
     }
     private void FixedUpdate()
     {
-        _rb.velocity = _moveDir * speed * (speedModifier + _bonusSpeedModifier) * Time.fixedDeltaTime;
+        _rb.velocity = moveDir * speed * (speedModifier + _bonusSpeedModifier) * Time.fixedDeltaTime;
     }
 
     public void AddBonus(float amount, float activeTime)

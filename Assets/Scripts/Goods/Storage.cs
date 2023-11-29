@@ -44,8 +44,13 @@ public class Storage : MonoBehaviour
 
             Filled = _currentCount >= MaxCount;
             Empty = _currentCount <= 0;
+
+            onCountChanged?.Invoke();
         }
     }
+
+    public delegate void StorageEventHandler();
+    public event StorageEventHandler onCountChanged;
 
     private void Awake()
     {
