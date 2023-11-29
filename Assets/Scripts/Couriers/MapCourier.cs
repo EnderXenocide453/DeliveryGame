@@ -45,6 +45,7 @@ public class MapCourier : MonoBehaviour
         {
             _courier = value;
             RedrawIcon();
+            _iconsVisualizer.VisualizeGoods(_courier.CourierStorage.StoredProducts);
         }
     }
 
@@ -57,11 +58,7 @@ public class MapCourier : MonoBehaviour
 
         _courierHandler = transform.parent;
 
-        CourierPath.onDistanceChanged += UpdatePosition;
-        CourierPath.onReachedPoint += CheckWayPoint;
-
         _iconsVisualizer = GetComponent<GoodsIconsVisualizer>();
-        _iconsVisualizer.VisualizeGoods(WorldCourier.CourierStorage.StoredProducts);
     }
 
     private void Update()
@@ -84,6 +81,9 @@ public class MapCourier : MonoBehaviour
 
         CourierPath = new MapPath();
         CourierPath.TryAddPoint(_startPoint);
+
+        CourierPath.onDistanceChanged += UpdatePosition;
+        CourierPath.onReachedPoint += CheckWayPoint;
     }
 
     public void StartDrag()
@@ -164,7 +164,8 @@ public class MapCourier : MonoBehaviour
         if (!image)
             image = GetComponent<Image>();
 
-        image.sprite = WorldCourier.UpgradeQueue.UpgradeQueue.CurrentIcon;
+        if (_courier)
+            image.sprite = WorldCourier.UpgradeQueue.UpgradeQueue.CurrentIcon;
     }
 
     //Вывод на экран иконок ресурсов
