@@ -87,7 +87,8 @@ public class GoodsManager : MonoBehaviour
     {
         foreach (var type in types) {
 
-            while (from.GetProductCount(type) > 0 && !to.Filled) {
+            //while (from.GetProductCount(type) > 0 && !to.Filled) {
+            while (from.GetProductCount(type) > 0) {
                 yield return new WaitForSeconds(delay);
 
                 from.RemoveProduct(type, 1);

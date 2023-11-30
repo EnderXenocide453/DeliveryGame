@@ -30,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5000003, y: -0.75, z: -1.5}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.75, y: 0.5, z: 0.75}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8623562220006794498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -153,8 +153,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5000003, y: -0.75, z: -1.5}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.75, y: 0.5, z: 0.75}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8623562220006794498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -562,6 +562,7 @@ MonoBehaviour:
   AllowAllTypes: 0
   GoodsVisualizer: {fileID: 0}
   maxCount: 5
+  Name: 
   AllowedTypes: 0000000005000000
   _currentCount: 0
 --- !u!114 &7520270973440441468
@@ -576,6 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79a0eea247b4c9498087a8244849445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 0}
   upgrades:
   - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0435"
     description: 
@@ -594,6 +596,7 @@ MonoBehaviour:
     cost: 50
     storageCapacity: 20
   lockAtStart: 0
+  ID: 0
 --- !u!1 &8222835422578588672
 GameObject:
   m_ObjectHideFlags: 0

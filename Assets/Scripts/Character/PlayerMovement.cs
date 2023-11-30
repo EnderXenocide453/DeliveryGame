@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float speedModifier = 1;
     public Vector3 moveDir { get; private set; }
 
-    private float _bonusSpeedModifier;
+    private float _bonusSpeedModifier = 1;
     private Rigidbody _rb;
 
     private void Awake()
@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        _rb.velocity = moveDir * speed * (speedModifier + _bonusSpeedModifier) * Time.fixedDeltaTime;
+        _rb.velocity = moveDir * speed * (speedModifier * _bonusSpeedModifier) * Time.fixedDeltaTime;
     }
 
     public void AddBonus(float amount, float activeTime)
@@ -39,8 +39,8 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator ActivateBonus(float amount, float activeTime)
     {
-        _bonusSpeedModifier += amount;
+        _bonusSpeedModifier *= amount;
         yield return new WaitForSeconds(activeTime);
-        _bonusSpeedModifier -= amount;
+        _bonusSpeedModifier /= amount;
     }
 }
