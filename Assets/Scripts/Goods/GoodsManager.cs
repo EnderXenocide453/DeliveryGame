@@ -87,14 +87,15 @@ public class GoodsManager : MonoBehaviour
     {
         foreach (var type in types) {
 
-            //while (from.GetProductCount(type) > 0 && !to.Filled) {
-            while (from.GetProductCount(type) > 0) {
+            while (from.GetProductCount(type) > 0 && !to.Filled) {
+            //while (from.GetProductCount(type) > 0) {
                 yield return new WaitForSeconds(delay);
 
-                from.RemoveProduct(type, 1);
                 var info = _generatedProducts[type].GetContainedGoods();
-                to.AddProduct(info.type, info.count);
+                if (to.AddProduct(info.type, info.count) == 0)
+                    break;
 
+                from.RemoveProduct(type, 1);
                 SoundsManager.PlaySound(_generatedProducts[type].InteractSound);
             }
         }

@@ -86,7 +86,7 @@ public class Storage : MonoBehaviour
         if (Empty && allowedCount > 0)
             _containBoxes = GoodsManager.GetProductInfo(type).IsContainer;
         else if (GoodsManager.GetProductInfo(type).IsContainer != _containBoxes)
-            return count;
+            return 0;
 
 
         _storedProducts[type] = allowedCount;
@@ -94,7 +94,7 @@ public class Storage : MonoBehaviour
 
         GoodsVisualizer?.VisualizeGoods(_storedProducts);
 
-        return count - allowedCount;
+        return delta;
     }
 
     public void SetGoods(Dictionary<ProductType, int> products)
