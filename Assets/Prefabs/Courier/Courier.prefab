@@ -346,22 +346,22 @@ MonoBehaviour:
   upgrades:
   - name: 
     description: 
-    cost: 100
+    cost: 10
     storageCapacity: 2
     speedModifier: 1
   - name: 
     description: 
-    cost: 200
+    cost: 20
     storageCapacity: 3
     speedModifier: 2
   - name: 
     description: 
-    cost: 400
+    cost: 40
     storageCapacity: 4
     speedModifier: 3
   - name: 
     description: 
-    cost: 800
+    cost: 80
     storageCapacity: 5
     speedModifier: 5
 --- !u!114 &1209421324774420683

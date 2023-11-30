@@ -8406,6 +8406,11 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 556576402}
+    - target: {fileID: 1047916500881345811, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
+      propertyPath: RotationSpeed
+      value: 360
+      objectReference: {fileID: 0}
     - target: {fileID: 1500122360460088713, guid: 0f478c634c21c594aa0df7a1ed03bc94,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8464,8 +8469,18 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
         type: 3}
+      propertyPath: upgrades.Array.data[0].cost
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
       propertyPath: upgrades.Array.data[0].name
       value: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
+      propertyPath: upgrades.Array.data[1].cost
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
         type: 3}
@@ -8474,13 +8489,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
         type: 3}
+      propertyPath: upgrades.Array.data[2].cost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
       propertyPath: upgrades.Array.data[2].name
       value: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
       objectReference: {fileID: 0}
     - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
         type: 3}
+      propertyPath: upgrades.Array.data[3].cost
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
       propertyPath: upgrades.Array.data[3].name
       value: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
+      propertyPath: upgrades.Array.data[2].speedModifier
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
+      propertyPath: upgrades.Array.data[3].speedModifier
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7119271280241381145, guid: 0f478c634c21c594aa0df7a1ed03bc94,
         type: 3}
@@ -17545,6 +17580,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7700771162618238226, guid: 82d6ffafb52ed434e8e58defb52336c0,
+        type: 3}
+      propertyPath: costIncrement
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7758326911368287066, guid: 82d6ffafb52ed434e8e58defb52336c0,
         type: 3}
       propertyPath: m_Type
@@ -18713,19 +18753,19 @@ MonoBehaviour:
   upgrades:
   - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0433\u0440\u0443\u0437\u043E\u0432\u0438\u043A"
     description: 
-    cost: 250
+    cost: 150
     inBoxCount: 2
   - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0433\u0440\u0443\u0437\u043E\u0432\u0438\u043A"
     description: 
-    cost: 500
+    cost: 300
     inBoxCount: 3
   - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0433\u0440\u0443\u0437\u043E\u0432\u0438\u043A"
     description: 
-    cost: 1000
+    cost: 600
     inBoxCount: 4
   - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0433\u0440\u0443\u0437\u043E\u0432\u0438\u043A"
     description: 
-    cost: 2000
+    cost: 1200
     inBoxCount: 5
 --- !u!114 &1794853405
 MonoBehaviour:
