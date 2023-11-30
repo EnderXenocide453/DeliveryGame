@@ -25,10 +25,9 @@ public class GoodsArea : InteractableArea
         if (obj.TryGetComponent<Storage>(out var interactStorage)) {
             (Storage from, Storage to) = isImport ? (interactStorage, ConnectedStorage) : (ConnectedStorage, interactStorage);
 
-            Coroutine coroutine = GoodsManager.TransportGoods(from, to);
+            Coroutine coroutine = GoodsManager.TransportGoods(from, to, timer);
             
             if (coroutine != null) {
-                timer?.StartTimer(GoodsManager.instance.ProductDelay);
                 _activeCoroutines.Add(obj.GetInstanceID(), coroutine);
             }
         }

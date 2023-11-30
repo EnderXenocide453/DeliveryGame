@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private float updateDelay = 0.05f;
+    [SerializeField] private float updateDelay = 0.02f;
 
     private Image _progressBar;
 
@@ -26,8 +26,8 @@ public class Timer : MonoBehaviour
 
     public void StopTimer()
     {
-        _progressBar.fillAmount = 0;
         StopAllCoroutines();
+        _progressBar.fillAmount = 0;
     }
 
     private void OnTimeEnds()

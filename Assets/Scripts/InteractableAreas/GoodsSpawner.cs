@@ -16,10 +16,9 @@ public class GoodsSpawner : InteractableArea
     protected override void Activate(Transform obj)
     {
         if (obj.TryGetComponent<Storage>(out var interactStorage)) {
-            Coroutine coroutine = GoodsManager.SpawnGoodsTo(interactStorage, SpawnType);
+            Coroutine coroutine = GoodsManager.SpawnGoodsTo(interactStorage, SpawnType, timer);
 
             if (coroutine != null) {
-                timer?.StartTimer(GoodsManager.instance.ProductDelay);
                 _activeCoroutines.Add(obj.GetInstanceID(), coroutine);
             }
         }

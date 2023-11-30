@@ -34,7 +34,7 @@ public class GoodsManager : MonoBehaviour
     }
 
     #region public methods
-    public static Coroutine TransportGoods(Storage from, Storage to)
+    public static Coroutine TransportGoods(Storage from, Storage to, Timer timer)
     {
         List<ProductType> typeMatch = new List<ProductType>();
         foreach (var type in from.AllowedTypes) {
@@ -45,15 +45,15 @@ public class GoodsManager : MonoBehaviour
         if (typeMatch.Count == 0)
             return null;
 
-        return instance.StartCoroutine(instance.TransportGoods(from, to, typeMatch, instance.ProductDelay));
+        return instance.StartCoroutine(instance.TransportGoods(from, to, typeMatch, instance.ProductDelay, timer));
     }
 
-    public static Coroutine SpawnGoodsTo(Storage target, ProductType type)
+    public static Coroutine SpawnGoodsTo(Storage target, ProductType type, Timer timer)
     {
         if (!target.AllowedTypes.Contains(type))
             return null;
 
-        return instance.StartCoroutine(instance.SpawnGoods(target, type, instance.ProductDelay));
+        return instance.StartCoroutine(instance.SpawnGoods(target, type, instance.ProductDelay, timer));
     }
 
     public static Product GetProductInfo(ProductType type)
@@ -83,12 +83,12 @@ public class GoodsManager : MonoBehaviour
 
     #endregion private methods
 
-    private IEnumerator TransportGoods(Storage from, Storage to, List<ProductType> types, float delay) 
+    private IEnumerator TransportGoods(Storage from, Storage to, List<ProductType> types, float delay, Timer timer) 
     {
         foreach (var type in types) {
 
             while (from.GetProductCount(type) > 0 && !to.Filled) {
-            //while (from.GetProductCount(type) > 0) {
+                timer.StartTimer(delay);
                 yield return new WaitForSeconds(delay);
 
                 var info = _generatedProducts[type].GetContainedGoods();
@@ -101,9 +101,10 @@ public class GoodsManager : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnGoods(Storage target, ProductType type, float delay)
+    private IEnumerator SpawnGoods(Storage target, ProductType type, float delay, Timer timer)
     {
         while (!target.Filled) {
+                timer.StartTimer(delay);
             yield return new WaitForSeconds(delay);
             target.AddProduct(type, 1);
 
