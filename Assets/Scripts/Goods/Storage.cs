@@ -106,8 +106,10 @@ public class Storage : MonoBehaviour
 
     public void GetAllGoodsFrom(Storage other)
     {
-        foreach (var type in AllowedTypes)
-            other.SetProductCount(type, AddProduct(type, other._storedProducts[type]));
+        foreach (var type in AllowedTypes) {
+            AddProduct(type, other._storedProducts[type]);
+            other.SetProductCount(type, 0);
+        }
     }
 
     #endregion public methods

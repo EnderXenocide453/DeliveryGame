@@ -39,7 +39,7 @@ public class GoodsArea : InteractableArea
 
         if (_activeCoroutines.TryGetValue(id, out var coroutine)) {
             StopCoroutine(coroutine);
-            timer.StopTimer();
+            timer?.StopTimer();
             _activeCoroutines.Remove(id);
         }
     }
