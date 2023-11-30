@@ -4,6 +4,7 @@ using UnityEngine;
 public class GoodsArea : InteractableArea
 {
     [SerializeField] bool isImport;
+    [SerializeField] Timer timer;
 
     public Storage ConnectedStorage;
 
@@ -25,9 +26,11 @@ public class GoodsArea : InteractableArea
             (Storage from, Storage to) = isImport ? (interactStorage, ConnectedStorage) : (ConnectedStorage, interactStorage);
 
             Coroutine coroutine = GoodsManager.TransportGoods(from, to);
-
-            if (coroutine != null)
+            
+            if (coroutine != null) {
+                timer?.StartTimer(GoodsManager.instance.ProductDelay);
                 _activeCoroutines.Add(obj.GetInstanceID(), coroutine);
+            }
         }
     }
 
@@ -37,6 +40,7 @@ public class GoodsArea : InteractableArea
 
         if (_activeCoroutines.TryGetValue(id, out var coroutine)) {
             StopCoroutine(coroutine);
+            timer.StopTimer();
             _activeCoroutines.Remove(id);
         }
     }

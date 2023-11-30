@@ -6,6 +6,7 @@ public class GoodsManager : MonoBehaviour
 {
     public static GoodsManager instance = null;
     public static List<ProductType> UsedProductTypes;
+    public float ProductDelay = 1f;
 
     public static int BoxCount
     {
@@ -14,7 +15,6 @@ public class GoodsManager : MonoBehaviour
     }
 
     [SerializeField] private Product[] productsInfo;
-    [SerializeField] private float ProductDelay = 0.5f;
     [SerializeField] private int boxCount = 1;
 
     public int StartCash;
