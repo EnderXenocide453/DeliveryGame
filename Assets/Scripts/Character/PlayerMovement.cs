@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 15;
     [SerializeField] private float RotationSpeed = 360;
     [SerializeField] private Joystick joystick;
+    [SerializeField] private Timer bonusTimer;
 
     public float speedModifier = 1;
     public Vector3 moveDir { get; private set; }
@@ -34,13 +35,21 @@ public class PlayerMovement : MonoBehaviour
 
     public void AddBonus(float amount, float activeTime)
     {
+        DeativateBonus();
         StartCoroutine(ActivateBonus(amount, activeTime));
+        bonusTimer?.StartTimer(activeTime, true);
+    }
+
+    public void DeativateBonus()
+    {
+        StopAllCoroutines();
+        _bonusSpeedModifier = 1;
     }
 
     private IEnumerator ActivateBonus(float amount, float activeTime)
     {
-        _bonusSpeedModifier *= amount;
+        _bonusSpeedModifier = amount;
         yield return new WaitForSeconds(activeTime);
-        _bonusSpeedModifier /= amount;
+        _bonusSpeedModifier = 1;
     }
 }

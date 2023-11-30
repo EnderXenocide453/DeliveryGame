@@ -19,9 +19,9 @@ public class Timer : MonoBehaviour
         _progressBar.fillAmount = 0;
     }
 
-    public void StartTimer(float time)
+    public void StartTimer(float time, bool reverse = false)
     {
-        StartCoroutine(TimerTick(time));
+        StartCoroutine(TimerTick(time, reverse));
     }
 
     public void StopTimer()
@@ -36,10 +36,10 @@ public class Timer : MonoBehaviour
         onTimeEnds?.Invoke();
     }
 
-    private IEnumerator TimerTick(float time)
+    private IEnumerator TimerTick(float time, bool reverse = false)
     {
         for (float currTime = 0; currTime < time; currTime += updateDelay) {
-            _progressBar.fillAmount = currTime;
+            _progressBar.fillAmount = reverse ? 1 - (currTime / time) : currTime / time;
             yield return new WaitForSeconds(updateDelay);
         }
 

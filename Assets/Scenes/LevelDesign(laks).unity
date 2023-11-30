@@ -22266,11 +22266,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3842274713561626780, guid: d06c02d5e93ba624c9080153565ba32b,
         type: 3}
-      propertyPath: displayInterval
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3842274713561626780, guid: d06c02d5e93ba624c9080153565ba32b,
-        type: 3}
       propertyPath: bonusAreas.areas.Array.size
       value: 3
       objectReference: {fileID: 0}
