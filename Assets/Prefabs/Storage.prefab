@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 7691201284338787212}
   - component: {fileID: 8354609993987848673}
   - component: {fileID: 7472601046776617650}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ProductCounterCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 4781199937746161812}
   - component: {fileID: 7606830231505678102}
   - component: {fileID: 7219454696281945513}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +564,6 @@ MonoBehaviour:
   maxCount: 5
   Name: 
   AllowedTypes: 0000000005000000
-  _currentCount: 0
 --- !u!114 &7520270973440441468
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5510938451495651680}
   - component: {fileID: 3160323303711521789}
   - component: {fileID: 8013957992691327834}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 1800767100560859733}
   - component: {fileID: 5778466257020462598}
   - component: {fileID: 9464770157071155}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ MonoBehaviour:
   cashSpendCount: 1
   cashCounter: {fileID: 9464770157071155}
   allowedType: 0
-  buildAtStart: 0
+  ID: 0
 --- !u!33 &1145742736424273553
 MeshFilter:
   m_ObjectHideFlags: 0
