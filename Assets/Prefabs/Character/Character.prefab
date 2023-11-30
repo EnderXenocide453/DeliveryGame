@@ -233,27 +233,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90fc97ebd7e096b43bce2b46bd61d65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 51f006d9298071944946f10a757b6e5e, type: 3}
   upgrades:
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A\u0430"
+  - name: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
     description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C: 1.25x\n\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C:
       2x"
     cost: 250
     storageCapacity: 2
     speedModifier: 1.25
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A\u0430"
+  - name: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
     description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C: 1.5x\n\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C:
       3x"
     cost: 500
     storageCapacity: 3
     speedModifier: 1.5
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A\u0430"
+  - name: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
     description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C: 2x\n\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C:
       4x"
     cost: 1000
     storageCapacity: 4
     speedModifier: 2
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A\u0430"
+  - name: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
     description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C: 3x\n\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C:
       5x"
     cost: 2000
@@ -335,7 +335,6 @@ GameObject:
   - component: {fileID: 8153392401525543230}
   - component: {fileID: 3327372721353785564}
   - component: {fileID: 2856787071115982879}
-  - component: {fileID: 5422203699360753874}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -426,20 +425,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5422203699360753874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772496181544792266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebffdb95624145f4fbf950388624573d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  storage: {fileID: 0}
-  counter: {fileID: 0}
 --- !u!1 &1356295222738335120
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211c5b04288e9a841bc49d59a585698c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateDelay: 0.05
+  updateDelay: 0.02
 --- !u!1 &3247086477459770617
 GameObject:
   m_ObjectHideFlags: 0

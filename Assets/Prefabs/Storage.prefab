@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211c5b04288e9a841bc49d59a585698c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateDelay: 0.05
+  updateDelay: 0.02
 --- !u!1 &4738607799243416696
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211c5b04288e9a841bc49d59a585698c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateDelay: 0.05
+  updateDelay: 0.02
 --- !u!1 &7318261082066683432
 GameObject:
   m_ObjectHideFlags: 0
