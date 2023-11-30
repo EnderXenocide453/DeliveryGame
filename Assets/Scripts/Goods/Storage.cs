@@ -27,8 +27,9 @@ public class Storage : MonoBehaviour
     public bool Filled { get; private set; }
     public bool Empty { get; private set; } = true;
 
-    [SerializeField] private int _currentCount;
+    private int _currentCount;
     private Dictionary<ProductType, int> _storedProducts;
+    private bool _containBoxes;
 
     public Dictionary<ProductType, int> StoredProducts
     {
@@ -81,6 +82,12 @@ public class Storage : MonoBehaviour
 
         int allowedCount = Mathf.Clamp(count, 0, MaxCount);
         int delta = allowedCount - _storedProducts[type];
+
+        if (Empty && allowedCount > 0)
+            _containBoxes = GoodsManager.GetProductInfo(type).IsContainer;
+        else if (GoodsManager.GetProductInfo(type).IsContainer != _containBoxes)
+            return count;
+
 
         _storedProducts[type] = allowedCount;
         CurrentCount += delta;

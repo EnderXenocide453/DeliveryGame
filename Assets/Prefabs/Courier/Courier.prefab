@@ -109,7 +109,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 20
+  m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -274,7 +274,6 @@ MonoBehaviour:
   maxCount: 1
   Name: 
   AllowedTypes: 
-  _currentCount: 0
 --- !u!54 &54677810270751899
 Rigidbody:
   m_ObjectHideFlags: 0
