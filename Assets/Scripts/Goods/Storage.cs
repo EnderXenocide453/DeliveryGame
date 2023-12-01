@@ -7,6 +7,7 @@ public class Storage : MonoBehaviour
     [SerializeField] private bool AllowAllTypes;
     [SerializeField] private GoodsVisualizer GoodsVisualizer;
     [SerializeField] private int maxCount = 1;
+    [SerializeField] private bool isEndless;
 
     public string Name;
 
@@ -26,10 +27,10 @@ public class Storage : MonoBehaviour
 
     public bool Filled { get; private set; }
     public bool Empty { get; private set; } = true;
+    public bool containBoxes { get; private set; }
 
     private int _currentCount;
     private Dictionary<ProductType, int> _storedProducts;
-    private bool _containBoxes;
 
     public Dictionary<ProductType, int> StoredProducts
     {
@@ -45,6 +46,8 @@ public class Storage : MonoBehaviour
 
             Filled = _currentCount >= MaxCount;
             Empty = _currentCount <= 0;
+            if (Empty)
+                containBoxes = false;
 
             onCountChanged?.Invoke();
         }
@@ -78,14 +81,14 @@ public class Storage : MonoBehaviour
     public int SetProductCount(ProductType type, int count)
     {
         if (!AllowedTypes.Contains(type))
-            return count;
+            return 0;
 
         int allowedCount = Mathf.Clamp(count, 0, MaxCount);
         int delta = allowedCount - _storedProducts[type];
 
         if (Empty && allowedCount > 0)
-            _containBoxes = GoodsManager.GetProductInfo(type).IsContainer;
-        else if (GoodsManager.GetProductInfo(type).IsContainer != _containBoxes)
+            containBoxes = GoodsManager.GetProductInfo(type).IsContainer;
+        else if (GoodsManager.GetProductInfo(type).IsContainer != containBoxes)
             return 0;
 
 

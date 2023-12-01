@@ -7,6 +7,11 @@ public class GoodsIconsVisualizer : MonoBehaviour
     [SerializeField] private Transform GoodsPanel;
     [SerializeField] private GameObject IconPrefab;
 
+    private void Awake()
+    {
+        GoodsPanel.gameObject.SetActive(false);
+    }
+
     public void VisualizeGoods(Dictionary<ProductType, int> goods)
     {
         Clear();
@@ -23,6 +28,8 @@ public class GoodsIconsVisualizer : MonoBehaviour
                 icon.transform.SetParent(GoodsPanel);
             }
         }
+
+        GoodsPanel.gameObject.SetActive(true);
     }
 
     public void Clear()
@@ -30,5 +37,7 @@ public class GoodsIconsVisualizer : MonoBehaviour
         while (GoodsPanel.childCount > 0) {
             DestroyImmediate(GoodsPanel.GetChild(0).gameObject);
         }
+
+        GoodsPanel.gameObject.SetActive(false);
     }
 }

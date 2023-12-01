@@ -34,26 +34,31 @@ public class GoodsManager : MonoBehaviour
     }
 
     #region public methods
-    public static Coroutine TransportGoods(Storage from, Storage to, Timer timer)
+    public static void StartTransportGoods(Storage from, Storage to, Timer timer)
     {
+        if (to.Filled || from.Empty)
+            return;
+
         List<ProductType> typeMatch = new List<ProductType>();
         foreach (var type in from.AllowedTypes) {
-            if (to.AllowedTypes.Contains(type))
+            if (!to.containBoxes && to.AllowedTypes.Contains(type))
                 typeMatch.Add(type);
         }
 
         if (typeMatch.Count == 0)
-            return null;
+            return;
 
-        return instance.StartCoroutine(instance.TransportGoods(from, to, typeMatch, instance.ProductDelay, timer));
+        timer.StartTimer(instance.ProductDelay);
+        timer.onTimeEnds += () => instance.TransportGoods(from, to, typeMatch, timer);
     }
 
-    public static Coroutine SpawnGoodsTo(Storage target, ProductType type, Timer timer)
+    public static void StartSpawnGoodsTo(Storage target, ProductType type, Timer timer)
     {
-        if (!target.AllowedTypes.Contains(type))
-            return null;
+        if (!(target.Empty || target.containBoxes) || !target.AllowedTypes.Contains(type))
+            return;
 
-        return instance.StartCoroutine(instance.SpawnGoods(target, type, instance.ProductDelay, timer));
+        timer.StartTimer(instance.ProductDelay);
+        timer.onTimeEnds += () => instance.SpawnGoods(target, type, timer);
     }
 
     public static Product GetProductInfo(ProductType type)
@@ -83,32 +88,43 @@ public class GoodsManager : MonoBehaviour
 
     #endregion private methods
 
-    private IEnumerator TransportGoods(Storage from, Storage to, List<ProductType> types, float delay, Timer timer) 
+    private void TransportGoods(Storage from, Storage to, List<ProductType> types, Timer timer)
     {
-        foreach (var type in types) {
+        for (int i = types.Count - 1; i >= 0; i--) {
+            var type = types[i];
 
-            while (from.GetProductCount(type) > 0 && !to.Filled) {
-                timer?.StartTimer(delay);
-                yield return new WaitForSeconds(delay);
-
-                var info = _generatedProducts[type].GetContainedGoods();
-                if (to.AddProduct(info.type, info.count) == 0)
-                    break;
-
-                from.RemoveProduct(type, 1);
-                SoundsManager.PlaySound(_generatedProducts[type].InteractSound);
+            if (from.GetProductCount(type) <= 0) {
+                types.RemoveAt(i);
+                continue;
             }
+
+            var info = _generatedProducts[type].GetContainedGoods();
+            if (to.AddProduct(info.type, info.count) == 0) {
+                timer.StopTimer();
+                return;
+            }
+
+            from.RemoveProduct(type, 1);
+            SoundsManager.PlaySound(_generatedProducts[type].InteractSound);
+
+            break;
+        }
+
+        if (to.Filled || from.Empty || types.Count == 0) {
+            timer.StopTimer();
+            return;
         }
     }
 
-    private IEnumerator SpawnGoods(Storage target, ProductType type, float delay, Timer timer)
+    private void SpawnGoods(Storage target, ProductType type, Timer timer)
     {
-        while (!target.Filled) {
-            timer?.StartTimer(delay);
-            yield return new WaitForSeconds(delay);
-            target.AddProduct(type, 1);
+        target.AddProduct(type, 1);
 
-            SoundsManager.PlaySound(_generatedProducts[type].InteractSound);
+        SoundsManager.PlaySound(_generatedProducts[type].InteractSound);
+
+        if (target.Filled) {
+            timer.StopTimer();
+            return;
         }
     }
 }

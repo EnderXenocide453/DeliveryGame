@@ -8,7 +8,7 @@ public class GoodsArea : InteractableArea
 
     public Storage ConnectedStorage;
 
-    private Dictionary<int, Coroutine> _activeCoroutines;
+    private Coroutine _activeCoroutine;
 
     private void Start()
     {
@@ -16,8 +16,6 @@ public class GoodsArea : InteractableArea
             Debug.LogWarning("Не подключено хранилище!");
             Destroy(this);
         }
-
-        _activeCoroutines = new Dictionary<int, Coroutine>();
     }
 
     protected override void Activate(Transform obj)
@@ -25,22 +23,12 @@ public class GoodsArea : InteractableArea
         if (obj.TryGetComponent<Storage>(out var interactStorage)) {
             (Storage from, Storage to) = isImport ? (interactStorage, ConnectedStorage) : (ConnectedStorage, interactStorage);
 
-            Coroutine coroutine = GoodsManager.TransportGoods(from, to, timer);
-            
-            if (coroutine != null) {
-                _activeCoroutines.Add(obj.GetInstanceID(), coroutine);
-            }
+            GoodsManager.StartTransportGoods(from, to, timer);
         }
     }
 
     protected override void Deactivate(Transform obj)
     {
-        int id = obj.GetInstanceID();
-
-        if (_activeCoroutines.TryGetValue(id, out var coroutine)) {
-            StopCoroutine(coroutine);
-            timer?.StopTimer();
-            _activeCoroutines.Remove(id);
-        }
+        timer?.StopTimer();
     }
 }

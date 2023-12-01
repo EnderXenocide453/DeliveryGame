@@ -28,21 +28,25 @@ public class Timer : MonoBehaviour
     {
         StopAllCoroutines();
         _progressBar.fillAmount = 0;
+
+        onTimeEnds = null;
     }
 
-    private void OnTimeEnds()
+    private void OnCycleEnds()
     {
         _progressBar.fillAmount = 0;
         onTimeEnds?.Invoke();
     }
 
-    private IEnumerator TimerTick(float time, bool reverse = false)
+    private IEnumerator TimerTick(float time, bool reverse = false, bool repeat = true)
     {
-        for (float currTime = 0; currTime < time; currTime += updateDelay) {
-            _progressBar.fillAmount = reverse ? 1 - (currTime / time) : currTime / time;
-            yield return new WaitForSeconds(updateDelay);
-        }
+        do {
+            for (float currTime = 0; currTime < time; currTime += updateDelay) {
+                _progressBar.fillAmount = reverse ? 1 - (currTime / time) : currTime / time;
+                yield return new WaitForSeconds(updateDelay);
+            }
 
-        OnTimeEnds();
+            OnCycleEnds();
+        } while (repeat) ;
     }
 }
