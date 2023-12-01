@@ -10303,7 +10303,7 @@ MonoBehaviour:
   getCashSound: {fileID: 8300000, guid: e3e2f3eb1e2249641bb32f025843879e, type: 3}
   footstepSound: {fileID: 8300000, guid: 0fb47c4593015b84187f560c50d8317b, type: 3}
   keyboardSound: {fileID: 8300000, guid: 432a0ffcbfa3126499f416f1eaa9bd7e, type: 3}
-  buildProgressSound: {fileID: 8300000, guid: f2175ced138f59d4eabdc2f438cb731a, type: 3}
+  buildProgressSound: {fileID: 8300000, guid: 1a7299b1d23823d49bf3954d25bbcb80, type: 3}
   buildEndSound: {fileID: 8300000, guid: e5566d60924d7cc42b3f1d616334d004, type: 3}
   buttonSound: {fileID: 8300000, guid: 2cab9ba6f7518514e9e80add70392ce4, type: 3}
 --- !u!82 &1051402723
@@ -18950,7 +18950,7 @@ MonoBehaviour:
     Icon: {fileID: 0}
     InteractSound: {fileID: 8300000, guid: f324c91c57c3d3849a18e841eefefc4a, type: 3}
   boxCount: 1
-  StartCash: 0
+  StartCash: 1000
 --- !u!4 &1794853409
 Transform:
   m_ObjectHideFlags: 0
@@ -18973,7 +18973,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794853403}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db7f947e922a7444492a638cb1a00be0, type: 3}
   m_Name: 

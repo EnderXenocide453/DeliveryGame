@@ -27,6 +27,6 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnGoodsChanged()
     {
-        _anim.SetBool("IsFood", !_storage.Empty);
+        _anim.SetBool("WithFood", !_storage.Empty);
     }
 }
