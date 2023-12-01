@@ -18,7 +18,7 @@ public class GoodsArea : InteractableArea
         }
     }
 
-    protected override void Activate(Transform obj)
+    public override void Activate(Transform obj)
     {
         if (obj.TryGetComponent<Storage>(out var interactStorage)) {
             (Storage from, Storage to) = isImport ? (interactStorage, ConnectedStorage) : (ConnectedStorage, interactStorage);
@@ -27,7 +27,7 @@ public class GoodsArea : InteractableArea
         }
     }
 
-    protected override void Deactivate(Transform obj)
+    public override void Deactivate(Transform obj)
     {
         timer?.StopTimer();
     }

@@ -7,14 +7,14 @@ public class GoodsConsumeArea : InteractableArea
     [SerializeField] ProductType[] ConsumeTypes;
     [SerializeField] Timer timer;
 
-    protected override void Activate(Transform obj)
+    public override void Activate(Transform obj)
     {
         if (obj.TryGetComponent<Storage>(out var interactStorage)) {
             GoodsManager.StartConsumeGoods(interactStorage, ConsumeTypes, timer);
         }
     }
 
-    protected override void Deactivate(Transform obj)
+    public override void Deactivate(Transform obj)
     {
         timer?.StopTimer();
     }
