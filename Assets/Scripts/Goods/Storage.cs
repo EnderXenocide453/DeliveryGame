@@ -7,7 +7,6 @@ public class Storage : MonoBehaviour
     [SerializeField] private bool AllowAllTypes;
     [SerializeField] private GoodsVisualizer GoodsVisualizer;
     [SerializeField] private int maxCount = 1;
-    [SerializeField] private bool isEndless;
 
     public string Name;
 
