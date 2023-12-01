@@ -9,7 +9,7 @@ public class PlayerUpgrade : BaseUpgrade
     private PlayerMovement _target;
     private Storage _targetStorage;
 
-    public override string Name => name;
+    public override string Name => "Кладовщик";
 
     public override string Description => $"Скорость: {_target.speedModifier}\nВместимость: {_targetStorage.MaxCount}";
 

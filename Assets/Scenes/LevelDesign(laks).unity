@@ -6275,7 +6275,7 @@ PrefabInstance:
     - target: {fileID: 8194542654177842813, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8222835422578588672, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
@@ -9229,7 +9229,7 @@ PrefabInstance:
     - target: {fileID: 8194542654177842813, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8222835422578588672, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
@@ -12359,7 +12359,7 @@ PrefabInstance:
     - target: {fileID: 8194542654177842813, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8222835422578588672, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
@@ -14225,7 +14225,7 @@ PrefabInstance:
     - target: {fileID: 8194542654177842813, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8222835422578588672, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
@@ -19237,21 +19237,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   upgrades:
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0433\u0440\u0443\u0437\u043E\u0432\u0438\u043A"
-    description: 
-    cost: 150
+  - cost: 150
     inBoxCount: 2
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0433\u0440\u0443\u0437\u043E\u0432\u0438\u043A"
-    description: 
-    cost: 300
+  - cost: 300
     inBoxCount: 3
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0433\u0440\u0443\u0437\u043E\u0432\u0438\u043A"
-    description: 
-    cost: 600
+  - cost: 600
     inBoxCount: 4
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0433\u0440\u0443\u0437\u043E\u0432\u0438\u043A"
-    description: 
-    cost: 1200
+  - cost: 1200
     inBoxCount: 5
 --- !u!114 &1794853405
 MonoBehaviour:
