@@ -9,11 +9,13 @@ public class GoodsConsumeArea : InteractableArea
 
     protected override void Activate(Transform obj)
     {
-        throw new System.NotImplementedException();
+        if (obj.TryGetComponent<Storage>(out var interactStorage)) {
+            GoodsManager.StartConsumeGoods(interactStorage, ConsumeTypes, timer);
+        }
     }
 
     protected override void Deactivate(Transform obj)
     {
-        throw new System.NotImplementedException();
+        timer?.StopTimer();
     }
 }

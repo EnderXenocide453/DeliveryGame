@@ -19,9 +19,9 @@ public class Timer : MonoBehaviour
         _progressBar.fillAmount = 0;
     }
 
-    public void StartTimer(float time, bool reverse = false)
+    public void StartTimer(float time, bool reverse = false, bool repeat = true)
     {
-        StartCoroutine(TimerTick(time, reverse));
+        StartCoroutine(TimerTick(time, reverse, repeat));
     }
 
     public void StopTimer()
