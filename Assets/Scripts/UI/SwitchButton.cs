@@ -8,8 +8,8 @@ public class SwitchButton : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        first.gameObject.SetActive(true);
-        second.gameObject.SetActive(false);
+        //first.gameObject.SetActive(true);
+        //second.gameObject.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)

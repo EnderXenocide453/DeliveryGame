@@ -60,15 +60,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.654902}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 357159f20f9658b469d3a97e66b3deba, type: 3}
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 5
 --- !u!114 &4608549789242468533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalFit: 1
-  m_VerticalFit: 0
+  m_VerticalFit: 1
 --- !u!114 &6976015132127025759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,12 +104,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 33
+    m_Right: 33
+    m_Top: 33
+    m_Bottom: 33
   m_ChildAlignment: 4
-  m_Spacing: 20
+  m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -255,7 +255,6 @@ Transform:
   - {fileID: 2319793860134452332}
   - {fileID: 8925361963491622306}
   - {fileID: 7232901809303385065}
-  - {fileID: 8824664935145649697}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &266091376081494717
@@ -273,8 +272,9 @@ MonoBehaviour:
   AllowAllTypes: 1
   GoodsVisualizer: {fileID: 1031433579030159287}
   maxCount: 1
+  isEndless: 0
+  Name: 
   AllowedTypes: 
-  _currentCount: 0
 --- !u!54 &54677810270751899
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c863de1ef29018f48b5c9ff79151265d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   worldSpeed: 100
   rotationSpeed: 360
   mapSpeedModifier: 1
@@ -331,32 +332,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705781b948070e241b8ef3c884d3c6df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiIcons:
+  - {fileID: 21300000, guid: a53bcb8a0305a1b4b8df6f3054401bd4, type: 3}
+  - {fileID: 21300000, guid: 6dfd03e6040b4b04ab22568867b16c6c, type: 3}
+  - {fileID: 21300000, guid: ad4fff1120704c045b42ee28f7b3e585, type: 3}
+  - {fileID: 21300000, guid: 90fe3ec3a2197b7458d93fae936f43ce, type: 3}
+  - {fileID: 21300000, guid: 0dd0d4f5841f53b4b84f0a585dc6a9e9, type: 3}
+  worldIcons:
+  - {fileID: 21300000, guid: a9f59e58d09d5d442a6c5b3212814300, type: 3}
+  - {fileID: 21300000, guid: 97788c2d3581f6d47b6a28da9e3890ef, type: 3}
+  - {fileID: 21300000, guid: 10fba018b7d567f449d001ccf1e97140, type: 3}
+  - {fileID: 21300000, guid: a9b7d0341a5218c43b8d44618eabf32f, type: 3}
+  - {fileID: 21300000, guid: 27e446bfa4359b34eb2e9768362b7ea2, type: 3}
   upgrades:
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u0443\u0440\u044C\u0435\u0440\u0430"
-    description: "\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
-      x2\n\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u0442\u0435\u0440\u043C\u043E\u0441\u0443\u043C\u043A\u0443"
-    cost: 100
+  - name: 
+    description: 
+    cost: 10
     storageCapacity: 2
     speedModifier: 1
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u0443\u0440\u044C\u0435\u0440\u0430"
-    description: "\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
-      x3\n\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C x2\n\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442
-      \u0441\u0430\u043C\u043E\u043A\u0430\u0442"
-    cost: 200
+  - name: 
+    description: 
+    cost: 20
     storageCapacity: 3
     speedModifier: 2
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u0443\u0440\u044C\u0435\u0440\u0430"
-    description: "\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
-      x4\n\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C x3\n\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442
-      \u0432\u0435\u043B\u043E\u0441\u0438\u043F\u0435\u0434"
-    cost: 400
+  - name: 
+    description: 
+    cost: 40
     storageCapacity: 4
     speedModifier: 3
-  - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u0443\u0440\u044C\u0435\u0440\u0430"
-    description: "\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
-      x5\n\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C x5\n\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442
-      \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u044C"
-    cost: 800
+  - name: 
+    description: 
+    cost: 80
     storageCapacity: 5
     speedModifier: 5
 --- !u!114 &1209421324774420683
@@ -433,7 +439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7126989531231048016
@@ -501,18 +507,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6179236804703032959}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.040756218, y: 0.0073315697, z: 0.0018799817, w: 0.99914044}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.009999999, y: 0.009999999, z: 0.010000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1684293447650865122}
   - {fileID: 6681247056800409940}
-  m_Father: {fileID: 3738653639364123911}
+  m_Father: {fileID: 353704899473402831}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 3}
+  m_AnchoredPosition: {x: 0, y: 0.25}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4347677035112042273
@@ -535,8 +541,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1107725997
+  m_SortingOrder: -3
   m_TargetDisplay: 0
 --- !u!114 &4421380195498708712
 MonoBehaviour:
@@ -660,13 +666,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8700783698680967558, guid: 69e48d2405f0e24459d3e9fc801fa977,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8824664935145649697}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 69e48d2405f0e24459d3e9fc801fa977,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3174885588832836793}
   m_SourcePrefab: {fileID: 100100000, guid: 69e48d2405f0e24459d3e9fc801fa977, type: 3}
+--- !u!4 &353704899473402831 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8700783698680967558, guid: 69e48d2405f0e24459d3e9fc801fa977,
+    type: 3}
+  m_PrefabInstance: {fileID: 8959902764348873289}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8112832059803903768 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 69e48d2405f0e24459d3e9fc801fa977,

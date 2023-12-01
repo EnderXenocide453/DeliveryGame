@@ -48,8 +48,8 @@ public class Road : MonoBehaviour
     {
         _line = GetComponent<LineRenderer>();
 
-        if (RoadManager.instance)
-            RoadManager.AddRoad(this);
+        //if (RoadManager.instance)
+        //    RoadManager.AddRoad(this);
     }
 
     private void Draw()

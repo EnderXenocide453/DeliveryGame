@@ -5,8 +5,10 @@ using UnityEngine;
 public class MapCourierManager : MonoBehaviour
 {
     public static MapCourierManager instance;
+    private static int activeCouriersCount;
 
     [SerializeField] float moveDelay = 0.1f;
+    [SerializeField] int maxCount = 5;
     [SerializeField] private GameObject MapCourierPrefab;
     [SerializeField] private Dictionary<int, MapCourier> Couriers;
 
@@ -40,6 +42,11 @@ public class MapCourierManager : MonoBehaviour
         mapCourier.SetStartPoint(instance.StartPoint);
         mapCourier.WorldCourier = courier;
         instance.Couriers.TryAdd(courier.GetInstanceID(), mapCourier);
+
+        if (instance.CourierContainer.childCount > instance.maxCount) {
+            mapCourier.gameObject.SetActive(false);
+            return;
+        }
     }
 
     public static void RemoveCourier(Courier courier)
@@ -51,6 +58,9 @@ public class MapCourierManager : MonoBehaviour
 
         Destroy(instance.Couriers[id].gameObject);
         instance.Couriers.Remove(id);
+
+        if (instance.CourierContainer.childCount >= instance.maxCount)
+            instance.CourierContainer.GetChild(instance.maxCount).gameObject.SetActive(true);
     }
 
     public static void StartDelivery(MapCourier courier)

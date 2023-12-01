@@ -1,15 +1,19 @@
+using System.Collections;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 15;
     [SerializeField] private float RotationSpeed = 360;
+    [SerializeField] private Joystick joystick;
+    [SerializeField] private Timer bonusTimer;
 
-    public Joystick joystick;
     public float speedModifier = 1;
-    [HideInInspector] public Vector3 moveDir;
+    public Vector3 moveDir { get; private set; }
 
+    private float _bonusSpeedModifier = 1;
     private Rigidbody _rb;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -26,6 +30,26 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        _rb.velocity = moveDir * speed * speedModifier * Time.fixedDeltaTime;
+        _rb.velocity = moveDir * speed * (speedModifier * _bonusSpeedModifier) * Time.fixedDeltaTime;
+    }
+
+    public void AddBonus(float amount, float activeTime)
+    {
+        DeativateBonus();
+        StartCoroutine(ActivateBonus(amount, activeTime));
+        bonusTimer?.StartTimer(activeTime, true);
+    }
+
+    public void DeativateBonus()
+    {
+        StopAllCoroutines();
+        _bonusSpeedModifier = 1;
+    }
+
+    private IEnumerator ActivateBonus(float amount, float activeTime)
+    {
+        _bonusSpeedModifier = amount;
+        yield return new WaitForSeconds(activeTime);
+        _bonusSpeedModifier = 1;
     }
 }

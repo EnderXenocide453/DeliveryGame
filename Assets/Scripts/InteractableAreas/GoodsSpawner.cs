@@ -4,31 +4,18 @@ using UnityEngine;
 public class GoodsSpawner : InteractableArea
 {
     [SerializeField] ProductType SpawnType;
+    [SerializeField] Timer timer;
 
-    private Dictionary<int, Coroutine> _activeCoroutines;
-
-    private void Start()
-    {
-        _activeCoroutines = new Dictionary<int, Coroutine>();
-    }
-
-    protected override void Activate(Transform obj)
+    public override void Activate(Transform obj)
     {
         if (obj.TryGetComponent<Storage>(out var interactStorage)) {
-            Coroutine coroutine = GoodsManager.SpawnGoodsTo(interactStorage, SpawnType);
-
-            if (coroutine != null)
-                _activeCoroutines.Add(obj.GetInstanceID(), coroutine);
+            GoodsManager.StartSpawnGoodsTo(interactStorage, SpawnType, timer);
         }
     }
 
-    protected override void Deactivate(Transform obj)
+    public override void Deactivate(Transform obj)
     {
-        int id = obj.GetInstanceID();
-
-        if (_activeCoroutines.TryGetValue(id, out var coroutine)) {
-            StopCoroutine(coroutine);
-            _activeCoroutines.Remove(id);
-        }
+        
+        timer?.StopTimer();
     }
 }

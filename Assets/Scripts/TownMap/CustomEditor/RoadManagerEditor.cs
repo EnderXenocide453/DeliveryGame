@@ -12,7 +12,7 @@ public class RoadManagerEditor : Editor
         RoadManager manager = (RoadManager)target;
 
         if (GUILayout.Button("Add point")) {
-            Selection.activeObject = manager.BuildPoint(manager.transform.parent.position);
+            Selection.activeObject = manager.BuildPoint(manager.container.position);
         }
     }
 }

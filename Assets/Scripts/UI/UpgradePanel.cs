@@ -10,6 +10,7 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField] TMP_Text descField;
     [SerializeField] TMP_Text buttonTextField;
     [SerializeField] Button upgradeButton;
+    [SerializeField] Image icon;
 
     private UpgradeQueue _attachedUpgradeQueue;
     private bool _isMax;
@@ -35,17 +36,17 @@ public class UpgradePanel : MonoBehaviour
             return;
         }
 
-        nameField.text = _attachedUpgradeQueue.CurrentUpgrade.Name;
+        icon.sprite = _attachedUpgradeQueue.CurrentUIIcon;
 
         if (_attachedUpgradeQueue.isLocked) {
             LockUpgrade();
             return;
         }
 
-        descField.text = _attachedUpgradeQueue.CurrentUpgrade.Description;
+        descField.text = $"{_attachedUpgradeQueue.CurrentUpgrade.Name}\n{_attachedUpgradeQueue.CurrentUpgrade.Description}";
 
         if (_isMax) { 
-            buttonTextField.text = "Max";
+            buttonTextField.text = "Макс.";
             upgradeButton.interactable = false;
 
             GlobalValueHandler.onCashChanged -= UpdateButton;
@@ -76,7 +77,7 @@ public class UpgradePanel : MonoBehaviour
 
     private void LockUpgrade()
     {
-        descField.text = "Пока недоступно";
+        descField.text = $"{_attachedUpgradeQueue.CurrentUpgrade.Name}\nПока недоступно";
         upgradeButton.gameObject.SetActive(false);
     }
 

@@ -12,25 +12,45 @@ public class BuildArea : InteractableArea
     [SerializeField] TMPro.TMP_Text cashCounter;
     [Space]
     [SerializeField] ProductType allowedType;
-    [SerializeField] bool buildAtStart;
 
-    private int _storedCash;
+    public int ID;
+    public bool alreadyBuilded { get; private set; }
+    public int storedCash { get; private set; }
+
     private Coroutine _coroutine;
 
     private void Start()
     {
-        if (buildAtStart)
+        if (alreadyBuilded)
             Build();
 
-        cashCounter.text = (cost - _storedCash).ToString();
+        cashCounter.text = (cost - storedCash).ToString();
     }
 
-    protected override void Activate(Transform obj)
+    public void Build()
+    {
+        foreach (var obj in buildParts)
+            obj.gameObject.SetActive(true);
+
+        OrdersManager.AddProductType(allowedType);
+        alreadyBuilded = true;
+        SoundsManager.PlaySound(SoundsManager.instance.buildEndSound);
+
+        transform.parent.gameObject.SetActive(false);
+    }
+
+    public void SetCash(int cash)
+    {
+        storedCash = cash;
+        cashCounter.text = (cost - storedCash).ToString();
+    }
+
+    public override void Activate(Transform obj)
     {
         StartCoroutine(GetCash());
     }
 
-    protected override void Deactivate(Transform obj)
+    public override void Deactivate(Transform obj)
     {
         StopAllCoroutines();
     }
@@ -39,30 +59,22 @@ public class BuildArea : InteractableArea
     {
         while (true) {
             if (GlobalValueHandler.Cash > 0) {
-                int cashSpend = Mathf.Min(new int[] { cashSpendCount, cost - _storedCash, GlobalValueHandler.Cash });
+                SoundsManager.PlaySound(SoundsManager.instance.buildProgressSound);
+
+                int cashSpend = Mathf.Min(new int[] { cashSpendCount, cost - storedCash, GlobalValueHandler.Cash });
 
                 GlobalValueHandler.Cash -= cashSpend;
-                _storedCash += cashSpend;
+                storedCash += cashSpend;
 
-                cashCounter.text = (cost - _storedCash).ToString();
+                cashCounter.text = (cost - storedCash).ToString();
             }
 
-            if (_storedCash >= cost)
+            if (storedCash >= cost)
                 break;
 
             yield return new WaitForSeconds(cashSpendDelay);
         }
 
         Build();
-    }
-
-    private void Build()
-    {
-        foreach (var obj in buildParts)
-            obj.gameObject.SetActive(true);
-
-        OrdersManager.AddProductType(allowedType);
-
-        Destroy(transform.parent.gameObject);
     }
 }

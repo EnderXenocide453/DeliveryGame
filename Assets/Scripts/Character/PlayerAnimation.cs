@@ -2,33 +2,31 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimation : MonoBehaviour
 {
-    [SerializeField] private bool isFood;
-
-    private Animator _anime;
+    private Animator _anim;
     private PlayerMovement _movement;
+    private Storage _storage;
+
     private void Awake()
     {
-        _movement = GetComponentInParent<PlayerMovement>();
-        _anime = GetComponentInParent<Animator>();
+        _movement = GetComponent<PlayerMovement>();
+        _anim = GetComponent<Animator>();
+        _storage = GetComponent<Storage>();
+
+        _storage.onCountChanged += OnGoodsChanged;
     }
+
     private void Update()
     {
         WalkAnimation();
-        TransportFood();
     }
+
     private void WalkAnimation()
     {
-        _anime.SetBool("IsMoving", _movement.moveDir.magnitude > 0.1f);
+        _anim.SetBool("IsMoving", _movement.moveDir.magnitude > 0.1f);
     }
-    private void TransportFood()
+
+    private void OnGoodsChanged()
     {
-        if (isFood)
-        {
-            _anime.SetBool("IsFood", true);
-        }
-        else
-        {
-            _anime.SetBool("IsFood", false);
-        }
+        _anim.SetBool("WithFood", !_storage.Empty);
     }
 }

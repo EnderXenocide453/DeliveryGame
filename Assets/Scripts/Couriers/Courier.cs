@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Storage)), RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(GoodsIconsVisualizer)), RequireComponent(typeof(EmojiCloud))] 
 public class Courier : MonoBehaviour
 {
+    public int ID;
+
     public float worldSpeed = 10;
     public float rotationSpeed = 360;
     public float mapSpeedModifier = 1;
@@ -92,18 +94,16 @@ public class Courier : MonoBehaviour
 
     private void ApplyOrder()
     {
-        Debug.Log("Apply");
         MapCourierManager.AddCourier(this);
 
         _cloud.DrawImage(GlobalValueHandler.ApplyIcon, 2f);
+        SoundsManager.PlaySound(SoundsManager.instance.orderGoodsSound);
 
         onOrderReceived?.Invoke();
     }
 
     private void DenyOrder()
     {
-        Debug.Log("Deny");
-
         _cloud.DrawImage(GlobalValueHandler.DenyIcon, 2f);
     }
 
@@ -117,6 +117,7 @@ public class Courier : MonoBehaviour
             if (isMove) {
                 onReachedTarget?.Invoke();
                 isMove = false;
+                _body.velocity = Vector3.zero;
             }
             return;
         }

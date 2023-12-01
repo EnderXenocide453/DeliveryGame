@@ -5,7 +5,7 @@ public class TruckUpgrade : BaseUpgrade
 {
     [SerializeField] int inBoxCount;
 
-    public override string Name => "Улучшить грузовик";
+    public override string Name => "Грузовик";
 
     public override string Description => $"Вместимость коробки: {GoodsManager.BoxCount}";
 

@@ -4,10 +4,11 @@ using UnityEngine;
 public class GoodsArea : InteractableArea
 {
     [SerializeField] bool isImport;
+    [SerializeField] Timer timer;
 
     public Storage ConnectedStorage;
 
-    private Dictionary<int, Coroutine> _activeCoroutines;
+    private Coroutine _activeCoroutine;
 
     private void Start()
     {
@@ -15,29 +16,19 @@ public class GoodsArea : InteractableArea
             Debug.LogWarning("Не подключено хранилище!");
             Destroy(this);
         }
-
-        _activeCoroutines = new Dictionary<int, Coroutine>();
     }
 
-    protected override void Activate(Transform obj)
+    public override void Activate(Transform obj)
     {
         if (obj.TryGetComponent<Storage>(out var interactStorage)) {
             (Storage from, Storage to) = isImport ? (interactStorage, ConnectedStorage) : (ConnectedStorage, interactStorage);
 
-            Coroutine coroutine = GoodsManager.TransportGoods(from, to);
-
-            if (coroutine != null)
-                _activeCoroutines.Add(obj.GetInstanceID(), coroutine);
+            GoodsManager.StartTransportGoods(from, to, timer);
         }
     }
 
-    protected override void Deactivate(Transform obj)
+    public override void Deactivate(Transform obj)
     {
-        int id = obj.GetInstanceID();
-
-        if (_activeCoroutines.TryGetValue(id, out var coroutine)) {
-            StopCoroutine(coroutine);
-            _activeCoroutines.Remove(id);
-        }
+        timer?.StopTimer();
     }
 }

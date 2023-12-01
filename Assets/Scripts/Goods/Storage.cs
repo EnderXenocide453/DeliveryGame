@@ -8,6 +8,8 @@ public class Storage : MonoBehaviour
     [SerializeField] private GoodsVisualizer GoodsVisualizer;
     [SerializeField] private int maxCount = 1;
 
+    public string Name;
+
     /// <summary>
     /// Допустимые к хранению типы товара
     /// </summary>
@@ -24,8 +26,9 @@ public class Storage : MonoBehaviour
 
     public bool Filled { get; private set; }
     public bool Empty { get; private set; } = true;
+    public bool containBoxes { get; private set; }
 
-    [SerializeField] private int _currentCount;
+    private int _currentCount;
     private Dictionary<ProductType, int> _storedProducts;
 
     public Dictionary<ProductType, int> StoredProducts
@@ -42,10 +45,17 @@ public class Storage : MonoBehaviour
 
             Filled = _currentCount >= MaxCount;
             Empty = _currentCount <= 0;
+            if (Empty)
+                containBoxes = false;
+
+            onCountChanged?.Invoke();
         }
     }
 
-    private void Start()
+    public delegate void StorageEventHandler();
+    public event StorageEventHandler onCountChanged;
+
+    private void Awake()
     {
         Init();
     }
@@ -70,23 +80,38 @@ public class Storage : MonoBehaviour
     public int SetProductCount(ProductType type, int count)
     {
         if (!AllowedTypes.Contains(type))
-            return count;
+            return 0;
 
         int allowedCount = Mathf.Clamp(count, 0, MaxCount);
         int delta = allowedCount - _storedProducts[type];
+
+        if (Empty && allowedCount > 0)
+            containBoxes = GoodsManager.GetProductInfo(type).IsContainer;
+        else if (GoodsManager.GetProductInfo(type).IsContainer != containBoxes)
+            return 0;
+
 
         _storedProducts[type] = allowedCount;
         CurrentCount += delta;
 
         GoodsVisualizer?.VisualizeGoods(_storedProducts);
 
-        return count - allowedCount;
+        return delta;
+    }
+
+    public void SetGoods(Dictionary<ProductType, int> products)
+    {
+        foreach (var pair in products) {
+            SetProductCount(pair.Key, pair.Value);
+        }
     }
 
     public void GetAllGoodsFrom(Storage other)
     {
-        foreach (var type in AllowedTypes)
-            other.SetProductCount(type, AddProduct(type, other._storedProducts[type]));
+        foreach (var type in AllowedTypes) {
+            AddProduct(type, other._storedProducts[type]);
+            other.SetProductCount(type, 0);
+        }
     }
 
     #endregion public methods
