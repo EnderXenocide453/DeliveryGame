@@ -1348,7 +1348,7 @@ PrefabInstance:
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
       propertyPath: cost
-      value: 1500
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
@@ -6076,6 +6076,26 @@ PrefabInstance:
       propertyPath: lockAtStart
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[0].cost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[1].cost
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[2].cost
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[3].cost
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 7627213569643734721, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
       propertyPath: Name
@@ -8468,6 +8488,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
+      propertyPath: upgrades.Array.data[0].cost
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
+      propertyPath: upgrades.Array.data[1].cost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
+      propertyPath: upgrades.Array.data[2].cost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
+      propertyPath: upgrades.Array.data[3].cost
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
+      propertyPath: upgrades.Array.data[2].speedModifier
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864410096184765379, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
+      propertyPath: upgrades.Array.data[3].speedModifier
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8571,6 +8621,26 @@ PrefabInstance:
         type: 3}
       propertyPath: lockAtStart
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[0].cost
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[1].cost
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[2].cost
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[3].cost
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7627213569643734721, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
@@ -11828,6 +11898,26 @@ PrefabInstance:
       propertyPath: lockAtStart
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[0].cost
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[1].cost
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[2].cost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[3].cost
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7627213569643734721, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
       propertyPath: Name
@@ -12267,7 +12357,7 @@ PrefabInstance:
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
       propertyPath: cost
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
@@ -13656,6 +13746,26 @@ PrefabInstance:
         type: 3}
       propertyPath: lockAtStart
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[0].cost
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[1].cost
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[2].cost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520270973440441468, guid: eaab511aac4d9dd43b048884ad522a21,
+        type: 3}
+      propertyPath: upgrades.Array.data[3].cost
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7627213569643734721, guid: eaab511aac4d9dd43b048884ad522a21,
         type: 3}
@@ -17510,6 +17620,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7700771162618238226, guid: 82d6ffafb52ed434e8e58defb52336c0,
+        type: 3}
+      propertyPath: costIncrement
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7758326911368287066, guid: 82d6ffafb52ed434e8e58defb52336c0,
         type: 3}
       propertyPath: m_Type
@@ -18678,19 +18793,19 @@ MonoBehaviour:
   upgrades:
   - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0433\u0440\u0443\u0437\u043E\u0432\u0438\u043A"
     description: 
-    cost: 250
+    cost: 150
     inBoxCount: 2
   - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0433\u0440\u0443\u0437\u043E\u0432\u0438\u043A"
     description: 
-    cost: 500
+    cost: 300
     inBoxCount: 3
   - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0433\u0440\u0443\u0437\u043E\u0432\u0438\u043A"
     description: 
-    cost: 1000
+    cost: 600
     inBoxCount: 4
   - name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0433\u0440\u0443\u0437\u043E\u0432\u0438\u043A"
     description: 
-    cost: 2000
+    cost: 1200
     inBoxCount: 5
 --- !u!114 &1794853405
 MonoBehaviour:
@@ -18835,7 +18950,7 @@ MonoBehaviour:
     Icon: {fileID: 0}
     InteractSound: {fileID: 8300000, guid: f324c91c57c3d3849a18e841eefefc4a, type: 3}
   boxCount: 1
-  StartCash: 10000
+  StartCash: 0
 --- !u!4 &1794853409
 Transform:
   m_ObjectHideFlags: 0
@@ -18858,7 +18973,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794853403}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db7f947e922a7444492a638cb1a00be0, type: 3}
   m_Name: 
@@ -19702,7 +19817,7 @@ PrefabInstance:
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
       propertyPath: cost
-      value: 1000
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
@@ -21056,7 +21171,7 @@ PrefabInstance:
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}
       propertyPath: cost
-      value: 2000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7840052488970308620, guid: 90c46fea45a99ab40bedaa116c2dcb7d,
         type: 3}

@@ -238,27 +238,27 @@ MonoBehaviour:
   - name: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
     description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C: 1.25x\n\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C:
       2x"
-    cost: 250
+    cost: 20
     storageCapacity: 2
     speedModifier: 1.25
   - name: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
     description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C: 1.5x\n\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C:
       3x"
-    cost: 500
+    cost: 5
     storageCapacity: 3
     speedModifier: 1.5
   - name: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
     description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C: 2x\n\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C:
       4x"
-    cost: 1000
+    cost: 100
     storageCapacity: 4
-    speedModifier: 2
+    speedModifier: 1.75
   - name: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
     description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C: 3x\n\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C:
       5x"
-    cost: 2000
+    cost: 200
     storageCapacity: 5
-    speedModifier: 3
+    speedModifier: 2
 --- !u!114 &2060767459623624649
 MonoBehaviour:
   m_ObjectHideFlags: 0

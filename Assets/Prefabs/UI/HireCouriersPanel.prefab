@@ -581,7 +581,7 @@ MonoBehaviour:
   upgradeRowPrefab: {fileID: 7687842146611541886, guid: 130b9722066f7484a8574cc079ca403c,
     type: 3}
   startCost: 0
-  costIncrement: 100
+  costIncrement: 20
   counter: {fileID: 8036508702250710195}
   hireButton: {fileID: 2498972392054797634}
 --- !u!222 &6201904069817068311
