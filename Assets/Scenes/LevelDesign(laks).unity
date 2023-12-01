@@ -19291,7 +19291,7 @@ MonoBehaviour:
   Entrance: {fileID: 1504440560}
   Exit: {fileID: 910831199}
   CourierQueue: {fileID: 394402969}
-  CourierPrefab: {fileID: 2841703568934649412, guid: 161f70de5e8f2ed4c85f4a295e209133,
+  CourierPrefab: {fileID: 2841703568934649412, guid: eeb6a9d5f994a774787a09d7f916198c,
     type: 3}
 --- !u!114 &1794853408
 MonoBehaviour:

@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     {
         DeativateBonus();
         StartCoroutine(ActivateBonus(amount, activeTime));
-        bonusTimer?.StartTimer(activeTime, true);
+        bonusTimer?.StartTimer(activeTime, true, false);
     }
 
     public void DeativateBonus()
