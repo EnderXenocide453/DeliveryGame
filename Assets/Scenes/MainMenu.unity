@@ -3075,6 +3075,7 @@ MonoBehaviour:
   warning: {fileID: 1623594345}
   buttonSound: {fileID: 8300000, guid: 2cab9ba6f7518514e9e80add70392ce4, type: 3}
   audioSource: {fileID: 1140867524}
+  resumeButton: {fileID: 119063356}
 --- !u!82 &1140867524
 AudioSource:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameLoader : MonoBehaviour
 {
-    [SerializeField] string fileName;
+    public const string FileName = "save";
     [SerializeField] string savePath;
 
     public static bool startNewGame;
@@ -46,9 +46,9 @@ public class GameLoader : MonoBehaviour
     private void Init()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
-        savePath = Path.Combine(Application.persistentDataPath, fileName);
+        savePath = Path.Combine(Application.persistentDataPath, FileName);
 #else
-        savePath = Path.Combine(Application.dataPath, fileName);
+        savePath = Path.Combine(Application.dataPath, FileName);
 #endif
 
         _playerUpgrades = FindObjectOfType<PlayerUpgradeQueue>();

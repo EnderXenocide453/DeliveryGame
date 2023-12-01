@@ -19419,7 +19419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7f947e922a7444492a638cb1a00be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: save
   savePath: Saves
 --- !u!1 &1805826587
 GameObject:
