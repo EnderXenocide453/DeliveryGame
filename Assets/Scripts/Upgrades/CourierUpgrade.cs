@@ -8,8 +8,8 @@ public class CourierUpgrade : BaseUpgrade
     [SerializeField] int storageCapacity;
     [SerializeField] float speedModifier;
 
-    //Доступные виды товара
-    //Новая иконка и изменения скина
+    [SerializeField] Transform[] activeParts;
+    [SerializeField] Transform[] inactiveParts;
 
     private Courier _target;
 
@@ -24,12 +24,18 @@ public class CourierUpgrade : BaseUpgrade
 
     protected override void PostUpgrade()
     {
-        
     }
 
     protected override void PreUpgrade()
     {
         _target.mapSpeedModifier = speedModifier;
         _target.CourierStorage.MaxCount = storageCapacity;
+
+        foreach (var part in activeParts) {
+            part.gameObject.SetActive(true);
+        }
+        foreach (var part in inactiveParts) {
+            part.gameObject.SetActive(false);
+        }
     }
 }

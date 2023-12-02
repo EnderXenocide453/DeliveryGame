@@ -19,6 +19,7 @@ public class Courier : MonoBehaviour
     private Transform _target;
 
     private Rigidbody _body;
+    private Animator _animator;
 
     private GoodsIconsVisualizer _iconsVisualizer;
     private WayPoint _orderPoint;
@@ -48,10 +49,12 @@ public class Courier : MonoBehaviour
     {
         CourierStorage = GetComponent<Storage>();
         UpgradeQueue = GetComponent<CourierUpgradeQueue>();
+        UpgradeQueue.UpgradeQueue.onUpgraded += OnUpgraded;
 
         _body = GetComponent<Rigidbody>();
         _iconsVisualizer = GetComponent<GoodsIconsVisualizer>();
         _cloud = GetComponent<EmojiCloud>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void FixedUpdate()
@@ -117,17 +120,25 @@ public class Courier : MonoBehaviour
             if (isMove) {
                 onReachedTarget?.Invoke();
                 isMove = false;
+
+                _animator.SetBool("IsMove", false);
                 _body.velocity = Vector3.zero;
             }
             return;
         }
 
         isMove = true;
+        _animator.SetBool("IsMove", true);
 
         Quaternion toRotation = Quaternion.LookRotation(_moveDir, Vector3.up);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * rotationSpeed);
 
         Vector3 move = new Vector3(_moveDir.x, 0, _moveDir.z);
         _body.velocity = move * worldSpeed * Time.fixedDeltaTime;
+    }
+
+    private void OnUpgraded()
+    {
+        _animator = GetComponentInChildren<Animator>();
     }
 }

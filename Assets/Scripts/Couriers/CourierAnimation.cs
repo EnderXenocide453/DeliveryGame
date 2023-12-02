@@ -3,14 +3,14 @@ using UnityEngine;
 public class CourierAnimation : MonoBehaviour
 {
     private Courier _courier;
-    private Animator _courierAnime;
+    private Animator _courierAnim;
     private void Awake()
     {
         _courier = GetComponent<Courier>();
-        _courierAnime = GetComponentInChildren<Animator>();
+        _courierAnim = GetComponentInChildren<Animator>();
     }
     private void Update()
     {
-        _courierAnime.SetBool("IsMove", _courier.isMove);
+        _courierAnim.SetBool("IsMove", _courier.isMove);
     }
 }
