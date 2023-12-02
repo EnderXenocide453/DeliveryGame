@@ -63,10 +63,11 @@ public class OrdersManager : MonoBehaviour
         }
 
         int id = Random.Range(0, instance._freePoints.Count);
+        int count = Random.Range(1, Mathf.Min(instance.goodsMaxCount, courier.CourierStorage.MaxCount + 1));
 
         WayPoint point = instance._freePoints[id];
 
-        point.SetOrder(GenerateRandomOrder(Mathf.Min(instance.goodsMaxCount, courier.CourierStorage.MaxCount)));
+        point.SetOrder(GenerateRandomOrder(count));
         ActiveOrders.Add(point.GetInstanceID(), point.pointOrder);
         instance._freePoints.RemoveAt(id);
 

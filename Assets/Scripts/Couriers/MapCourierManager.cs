@@ -58,9 +58,6 @@ public class MapCourierManager : MonoBehaviour
 
         Destroy(instance.Couriers[id].gameObject);
         instance.Couriers.Remove(id);
-
-        if (instance.CourierContainer.childCount >= instance.maxCount)
-            instance.CourierContainer.GetChild(instance.maxCount).gameObject.SetActive(true);
     }
 
     public static void StartDelivery(MapCourier courier)
@@ -69,6 +66,9 @@ public class MapCourierManager : MonoBehaviour
         courier.MoveCoroutine = instance.StartCoroutine(MoveCourier(courier));
 
         courier.CourierPath.onPathEnds += () => ComeBack(courier);
+
+        if (instance.CourierContainer.childCount >= instance.maxCount)
+            instance.CourierContainer.GetChild(instance.maxCount - 1).gameObject.SetActive(true);
     }
 
     public static void ComeBack(MapCourier courier)
@@ -103,7 +103,6 @@ public class MapCourierManager : MonoBehaviour
         while (true) {
             yield return new WaitForSeconds(instance.moveDelay);
             courier.CourierPath.MoveTowards(instance.moveDelay * courier.Speed * courier.WorldCourier.mapSpeedModifier);
-            Debug.Log(instance.moveDelay * courier.Speed * courier.WorldCourier.mapSpeedModifier);
         }
     }
 }

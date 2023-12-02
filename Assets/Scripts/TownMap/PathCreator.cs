@@ -47,7 +47,7 @@ public class PathCreator : MonoBehaviour
             instance.ActiveCourier.WorldCourier.onReturned -= HideActivePath;
 
         if (instance.ActiveCourier)
-            instance.ActiveCourier.WorldCourier.CurrentOrderPoint.SetActivity(false);
+            instance.ActiveCourier.WorldCourier.CurrentOrderPoint?.SetActivity(false);
 
         instance.ActiveCourier = courier;
         isCorrectPointExists = false;
