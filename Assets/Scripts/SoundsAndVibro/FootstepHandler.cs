@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SettingAudio))]
 [RequireComponent(typeof(AudioSource))]
 public class FootstepHandler : MonoBehaviour
 {
