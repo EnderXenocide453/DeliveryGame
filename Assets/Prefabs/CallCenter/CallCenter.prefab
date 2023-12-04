@@ -419,6 +419,8 @@ MonoBehaviour:
     areas: []
   bonusObject: {fileID: 3972954690304698571, guid: 3567d20c090df454aa4871e501faee2a,
     type: 3}
+  bonusSpeed: 4
+  bonusArkHeight: 2
 --- !u!114 &4570312367234001246
 MonoBehaviour:
   m_ObjectHideFlags: 0

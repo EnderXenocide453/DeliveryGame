@@ -14,6 +14,8 @@ public class GirlWants : MonoBehaviour
 
     [SerializeField] private InAreaRandom bonusAreas;
     [SerializeField] private GameObject bonusObject;
+    [SerializeField] private float bonusSpeed = 0.5f;
+    [SerializeField] private float bonusArkHeight = 0.5f;
 
     private ProductType _wantedType;
     private bool _wannaSomething;
@@ -51,11 +53,12 @@ public class GirlWants : MonoBehaviour
         }
     }
 
+    [ContextMenu("Create bonus")]
     private void Apply()
     {
         _wannaSomething = false;
 
-        Instantiate(bonusObject, bonusAreas.GetRandomPoint(), Quaternion.identity);
+        Instantiate(bonusObject, transform.position, Quaternion.identity).GetComponent<Bonus>().FlyTo(bonusAreas.GetRandomPoint(), bonusSpeed, bonusArkHeight);
         cloud.Clear();
     }
 

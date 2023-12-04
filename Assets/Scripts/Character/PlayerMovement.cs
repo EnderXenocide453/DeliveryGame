@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     public void DeativateBonus()
     {
         StopAllCoroutines();
+        bonusTimer?.StopTimer();
         _bonusSpeedModifier = 1;
     }
 
