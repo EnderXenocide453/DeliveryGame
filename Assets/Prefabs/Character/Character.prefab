@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 2060767459623624649}
   - component: {fileID: 1879720366853740652}
   - component: {fileID: 9197543316341529263}
+  - component: {fileID: 7379751826266239000}
   m_Layer: 3
   m_Name: Character
   m_TagString: Player
@@ -236,28 +237,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 51f006d9298071944946f10a757b6e5e, type: 3}
   upgrades:
-  - name: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
-    description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C: 1.25x\n\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C:
-      2x"
-    cost: 20
+  - cost: 20
     storageCapacity: 2
     speedModifier: 1.25
-  - name: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
-    description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C: 1.5x\n\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C:
-      3x"
-    cost: 5
+  - cost: 5
     storageCapacity: 3
     speedModifier: 1.5
-  - name: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
-    description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C: 2x\n\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C:
-      4x"
-    cost: 100
+  - cost: 100
     storageCapacity: 4
     speedModifier: 1.75
-  - name: "\u041A\u043B\u0430\u0434\u043E\u0432\u0449\u0438\u043A"
-    description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C: 3x\n\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C:
-      5x"
-    cost: 200
+  - cost: 200
     storageCapacity: 5
     speedModifier: 2
 --- !u!114 &2060767459623624649
@@ -303,6 +292,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53f5618d51fae3349b648e87462fc721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7379751826266239000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486475495258348444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d06a6c92bac5f3428dbad53c2d54c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &621323488833141177

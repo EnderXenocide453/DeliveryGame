@@ -49,7 +49,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 8
-  bonusAmount: 1.5
+  bonusAmount: 2
   bonusTime: 20
 --- !u!65 &3978547593951058862
 BoxCollider:
