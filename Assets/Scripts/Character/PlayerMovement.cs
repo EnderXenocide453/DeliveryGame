@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     {
         DeativateBonus();
         StartCoroutine(ActivateBonus(amount, activeTime));
+
+        SoundsManager.PlaySound(SoundsManager.instance.bonusSound);
         bonusTimer?.StartTimer(activeTime, true, false);
     }
 

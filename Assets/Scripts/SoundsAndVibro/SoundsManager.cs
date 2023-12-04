@@ -14,6 +14,8 @@ public class SoundsManager : MonoBehaviour
     public AudioClip buildProgressSound;
     public AudioClip buildEndSound;
     public AudioClip buttonSound;
+    public AudioClip bonusSound;
+    public AudioClip kissSound;
 
     private void Awake()
     {

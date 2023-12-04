@@ -3094,7 +3094,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.2
+  MinDistance: 2
   MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
@@ -3130,7 +3130,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10715,6 +10715,8 @@ MonoBehaviour:
   buildProgressSound: {fileID: 8300000, guid: 1a7299b1d23823d49bf3954d25bbcb80, type: 3}
   buildEndSound: {fileID: 8300000, guid: e5566d60924d7cc42b3f1d616334d004, type: 3}
   buttonSound: {fileID: 8300000, guid: 2cab9ba6f7518514e9e80add70392ce4, type: 3}
+  bonusSound: {fileID: 8300000, guid: b8b04b7a9553c3f4088f6d0a3ec1b1aa, type: 3}
+  kissSound: {fileID: 8300000, guid: 66590258ddb04e24fbbba405157ec4fa, type: 3}
 --- !u!82 &1051402723
 AudioSource:
   m_ObjectHideFlags: 0

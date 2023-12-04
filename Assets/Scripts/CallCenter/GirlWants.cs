@@ -60,6 +60,8 @@ public class GirlWants : MonoBehaviour
 
         Instantiate(bonusObject, transform.position, Quaternion.identity).GetComponent<Bonus>().FlyTo(bonusAreas.GetRandomPoint(), bonusSpeed, bonusArkHeight);
         cloud.Clear();
+
+        SoundsManager.PlaySound(SoundsManager.instance.kissSound);
     }
 
     private void Deny()
