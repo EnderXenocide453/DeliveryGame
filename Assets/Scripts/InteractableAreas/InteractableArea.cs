@@ -12,17 +12,20 @@ public abstract class InteractableArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (((1 << other.gameObject.layer) & InteractionMask.value) > 0 && other.attachedRigidbody && other.attachedRigidbody.TryGetComponent<PlayerInteraction>(out var player)) {
+        if (((1 << other.gameObject.layer) & InteractionMask.value) > 0 && other.attachedRigidbody && other.attachedRigidbody.TryGetComponent<PlayerInteraction>(out var player))
+        {
             //onActivated?.Invoke();
             //Activate(other.transform);
             _interaction = player;
             player.AddArea(this);
+
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (((1 << other.gameObject.layer) & InteractionMask.value) > 0 && other.attachedRigidbody && other.attachedRigidbody.TryGetComponent<PlayerInteraction>(out var player)) {
+        if (((1 << other.gameObject.layer) & InteractionMask.value) > 0 && other.attachedRigidbody && other.attachedRigidbody.TryGetComponent<PlayerInteraction>(out var player))
+        {
             //onDeactivated?.Invoke();
             Deactivate(other.transform);
 
