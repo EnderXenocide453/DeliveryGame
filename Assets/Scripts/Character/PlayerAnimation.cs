@@ -22,7 +22,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void WalkAnimation()
     {
-        _anim.SetBool("IsMoving", _movement.moveDir.magnitude > 0.1f);
+        _anim.SetBool("IsMoving",_movement.canMove && _movement.moveDir.magnitude > 0.1f);
     }
 
     private void OnGoodsChanged()

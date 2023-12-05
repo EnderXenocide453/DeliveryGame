@@ -3,9 +3,20 @@ using UnityEngine;
 public class AddMoney : MonoBehaviour
 {
     [SerializeField] private GameObject addMoneyMenu;
+    [SerializeField] private PlayerMovement movement;
     private void Start() => addMoneyMenu.SetActive(false);
-    public void OnClick() => addMoneyMenu.SetActive(true);
-    public void ExitClick() => addMoneyMenu.SetActive(false);
+    public void OnClick()
+    {
+        addMoneyMenu.SetActive(true);
+        movement.ChangeMove(false);
+    }
+
+    public void ExitClick()
+    {
+        addMoneyMenu.SetActive(false);
+        movement.ChangeMove(true);
+    }
+
     public void OneHundredBucksClick()
     {
         GlobalValueHandler.Cash += 100;

@@ -14,9 +14,15 @@ public class PlayerMovement : MonoBehaviour
     private float _bonusSpeedModifier = 1;
     private Rigidbody _rb;
 
+    [HideInInspector] public bool canMove;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+    }
+    private void Start()
+    {
+        canMove = true;
     }
     private void Update()
     {
@@ -30,7 +36,15 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        _rb.velocity = moveDir * speed * (speedModifier * _bonusSpeedModifier) * Time.fixedDeltaTime;
+        if (canMove)
+        {
+            _rb.velocity = moveDir * speed * (speedModifier * _bonusSpeedModifier) * Time.fixedDeltaTime;
+        }
+    }
+
+    public void ChangeMove(bool canMove)
+    {
+        this.canMove = canMove;
     }
 
     public void AddBonus(float amount, float activeTime)
