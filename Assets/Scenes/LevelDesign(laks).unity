@@ -4564,7 +4564,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394402967}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.16943552, z: 0, w: 0.9855413}
+  m_LocalRotation: {x: 0, y: 0.21132481, z: 0, w: 0.9774159}
   m_LocalPosition: {x: 0.00000017881393, y: 0, z: 1.0000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4580,7 +4580,7 @@ Transform:
   - {fileID: 582668404}
   - {fileID: 1926624090}
   m_Father: {fileID: 1990885412}
-  m_LocalEulerAnglesHint: {x: 0, y: 19.51, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 24.4, z: 0}
 --- !u!114 &394402969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9475,7 +9475,7 @@ Transform:
   m_GameObject: {fileID: 910831198}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -2.97, y: 0, z: 6.54}
+  m_LocalPosition: {x: -2.2200003, y: 0, z: 5.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16606,7 +16606,7 @@ Transform:
   m_GameObject: {fileID: 1504440559}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 7.9999995, y: 0, z: 14}
+  m_LocalPosition: {x: 5.75, y: 0, z: 13.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19363,7 +19363,7 @@ MonoBehaviour:
     Icon: {fileID: 0}
     InteractSound: {fileID: 8300000, guid: f324c91c57c3d3849a18e841eefefc4a, type: 3}
   boxCount: 1
-  StartCash: 0
+  StartCash: 1000000
 --- !u!4 &1794853409
 Transform:
   m_ObjectHideFlags: 0
@@ -19386,7 +19386,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794853403}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db7f947e922a7444492a638cb1a00be0, type: 3}
   m_Name: 
@@ -21727,6 +21727,7 @@ GameObject:
   - component: {fileID: 1990885412}
   - component: {fileID: 1990885414}
   - component: {fileID: 1990885413}
+  - component: {fileID: 1990885415}
   m_Layer: 0
   m_Name: DeliveryCounter
   m_TagString: Untagged
@@ -21743,7 +21744,7 @@ Transform:
   m_GameObject: {fileID: 1990885411}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2196702, y: 0, z: 1.0003308}
+  m_LocalPosition: {x: -1.7196702, y: 0, z: 1.0003308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21799,6 +21800,27 @@ MonoBehaviour:
   StorekeeperMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!65 &1990885415
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990885411}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.92, y: 1, z: 0.51}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1998214083
 PrefabInstance:
   m_ObjectHideFlags: 0
