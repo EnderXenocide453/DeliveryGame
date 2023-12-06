@@ -24,6 +24,7 @@ public class SettingAudio : MonoBehaviour
     {
         if (type == settingType) {
             _source.mute = !SettingsManager.GetSettings(type);
+            _source.volume = SettingsManager.Volume;
         }
     }
 }

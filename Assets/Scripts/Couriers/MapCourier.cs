@@ -136,7 +136,6 @@ public class MapCourier : MonoBehaviour
     public void OnEndDelivery()
     {
         GlobalValueHandler.Cash += Cash;
-        SoundsManager.PlaySound(SoundsManager.instance.getCashSound);
         WorldCourier.OnReturn();
     }
 

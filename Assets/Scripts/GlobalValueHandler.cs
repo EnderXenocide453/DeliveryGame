@@ -9,6 +9,9 @@ public static class GlobalValueHandler
         get => _cash;
         set
         {
+            if (value - _cash > 0)
+                SoundsManager.PlaySound(SoundsManager.instance.getCashSound, 1.5f);
+
             _cash = value;
             onCashChanged?.Invoke();
         }

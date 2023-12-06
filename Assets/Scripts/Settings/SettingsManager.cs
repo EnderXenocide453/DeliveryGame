@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SettingsManager : MonoBehaviour
 {
+    public const float Volume = 0.3f;
+    
     private static Dictionary<SettingType, bool> _settings;
 
     public static Dictionary<SettingType, bool> Settings { get => _settings == null ? (_settings = new Dictionary<SettingType, bool>()) : _settings; }

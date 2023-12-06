@@ -35,9 +35,11 @@ public class SoundsManager : MonoBehaviour
         PlaySound(instance.buttonSound);
     }
 
-    public static void PlaySound(AudioClip soundEffect)
+    public static void PlaySound(AudioClip soundEffect, float volume = 1)
     {
-        if (_source.enabled)
+        if (_source.enabled) {
+            _source.volume = volume * SettingsManager.Volume;
             _source.PlayOneShot(soundEffect);
+        }
     }
 }
