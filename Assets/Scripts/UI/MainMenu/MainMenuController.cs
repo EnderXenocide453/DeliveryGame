@@ -10,20 +10,25 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private AudioClip buttonSound;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private Button resumeButton;
+    private string _savePath;
 
     private void Awake()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
-        var savePath = Path.Combine(Application.persistentDataPath, GameLoader.FileName);
+        _savePath = Path.Combine(Application.persistentDataPath, GameLoader.FileName);
 #else
-        var savePath = Path.Combine(Application.dataPath, GameLoader.FileName);
+        _savePath = Path.Combine(Application.dataPath, GameLoader.FileName);
 #endif
 
-        resumeButton.interactable = File.Exists(savePath);
+        resumeButton.interactable = File.Exists(_savePath);
     }
 
     public void StartNewGame()
     {
+        if (!File.Exists(_savePath)) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
         foreach (var item in startNewGameAnimator)
         {
             item.SetBool("StartAnimation", true);

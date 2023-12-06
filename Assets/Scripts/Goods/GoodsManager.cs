@@ -86,6 +86,8 @@ public class GoodsManager : MonoBehaviour
         return product;
     }
 
+    public void AddMoney(int count) => GlobalValueHandler.Cash += count;
+
     #endregion public methods
 
     #region private methods
@@ -103,8 +105,6 @@ public class GoodsManager : MonoBehaviour
                 UsedProductTypes.Add(product.Type);
         }
     }
-
-    #endregion private methods
 
     private static void TransportGoods(Storage from, Storage to, List<ProductType> types, Timer timer)
     {
@@ -154,5 +154,6 @@ public class GoodsManager : MonoBehaviour
 
         timer.StopTimer();
     }
+    #endregion private methods
 }
 
