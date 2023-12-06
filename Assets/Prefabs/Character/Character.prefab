@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 9197543316341529263}
   - component: {fileID: 7379751826266239000}
   - component: {fileID: 2203094351063417281}
+  - component: {fileID: 6348174875547332102}
   m_Layer: 3
   m_Name: Character
   m_TagString: Player
@@ -403,6 +404,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6348174875547332102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486475495258348444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c067e85728b67647a9b24060c6ba6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingType: 0
 --- !u!1 &621323488833141177
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,13 +822,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5b720c493e981fd4cb6b54fa078266cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8e0d9259157e7534da2a5f5c637303f6, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
-  m_FillClockwise: 1
+  m_FillClockwise: 0
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
