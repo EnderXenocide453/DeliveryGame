@@ -7211,7 +7211,7 @@ PrefabInstance:
     - target: {fileID: -6992485226205158233, guid: 151606d56a8711640a0afe732f990163,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -254
+      value: -262
       objectReference: {fileID: 0}
     - target: {fileID: -6992485226205158233, guid: 151606d56a8711640a0afe732f990163,
         type: 3}
@@ -19252,7 +19252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a62875796fdd64abed4c09dfa0c35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  couriersMaxCount: 20
+  couriersMaxCount: 5
   Entrance: {fileID: 1504440560}
   Exit: {fileID: 910831199}
   CourierQueue: {fileID: 394402969}
