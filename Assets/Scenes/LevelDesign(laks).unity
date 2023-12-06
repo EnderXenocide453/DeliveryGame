@@ -20873,7 +20873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a62875796fdd64abed4c09dfa0c35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  couriersMaxCount: 5
+  couriersMaxCount: 10
   Entrance: {fileID: 1504440560}
   Exit: {fileID: 910831199}
   CourierQueue: {fileID: 394402969}
