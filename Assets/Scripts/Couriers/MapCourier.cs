@@ -136,6 +136,7 @@ public class MapCourier : MonoBehaviour
     public void OnEndDelivery()
     {
         GlobalValueHandler.Cash += Cash;
+        TutorialManager.instance.NextStep();
         WorldCourier.OnReturn();
     }
 
