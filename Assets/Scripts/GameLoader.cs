@@ -9,7 +9,7 @@ public class GameLoader : MonoBehaviour
     public const string FileName = "save";
     [SerializeField] string savePath;
 
-    public static bool startNewGame;
+    public static bool startNewGame = true;
 
     private PlayerUpgradeQueue _playerUpgrades;
     private StorageUpgradeQueue[] _storageUpgrades;
