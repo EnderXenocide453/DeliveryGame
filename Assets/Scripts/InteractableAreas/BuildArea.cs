@@ -66,7 +66,7 @@ public class BuildArea : InteractableArea
                 storedCash += cashSpend;
 
                 cashCounter.text = (cost - storedCash).ToString();
-                Vibration.LongVibration(0.3f);
+                Vibration.LongVibration(0.05f);
             }
 
             if (storedCash >= cost)
