@@ -35,23 +35,19 @@ public class PlayerMovement : MonoBehaviour
     public void AddBonus(float amount, float activeTime)
     {
         DeativateBonus();
-        StartCoroutine(ActivateBonus(amount, activeTime));
 
+        _bonusSpeedModifier = amount;
+
+        bonusTimer.StartTimer(activeTime, true, false);
+        bonusTimer.onTimeEnds += DeativateBonus;
+        
         SoundsManager.PlaySound(SoundsManager.instance.bonusSound);
-        bonusTimer?.StartTimer(activeTime, true, false);
     }
 
     public void DeativateBonus()
     {
         StopAllCoroutines();
-        bonusTimer?.StopTimer();
-        _bonusSpeedModifier = 1;
-    }
-
-    private IEnumerator ActivateBonus(float amount, float activeTime)
-    {
-        _bonusSpeedModifier = amount;
-        yield return new WaitForSeconds(activeTime);
+        bonusTimer.StopTimer();
         _bonusSpeedModifier = 1;
     }
 }

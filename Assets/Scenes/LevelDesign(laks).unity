@@ -1418,7 +1418,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db61249a58c98641bbb99442be0a370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOfVibration: 1.5
 --- !u!4 &81057487
 Transform:
   m_ObjectHideFlags: 0
@@ -20850,7 +20849,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 312.61395, y: 266.0322, z: 5.589174}
+  m_Size: {x: 845.61, y: 438.6, z: 5.589174}
   m_Center: {x: -1.017853, y: 133.04073, z: 1.3641213}
 --- !u!1 &1739108129
 GameObject:

@@ -28,10 +28,15 @@ public class TutorialManager : MonoBehaviour
     {
         if (GameLoader.startNewGame)
             ActivateStep(0);
+        else
+            _currentStep = -1;
     }
 
     public void NextStep()
     {
+        if (_currentStep < 0)
+            return;
+
         if (_currentStep >= steps.Length - 1)
             return;
 
