@@ -4,7 +4,7 @@ using UnityEngine;
 public class Vibration : MonoBehaviour 
 {
     public static Vibration instance = null;
-    [SerializeField] private float timeOfVibration = 1.5f;
+    private static float timeOfVibration = 0.35f;
 
     private bool _isVibration;
     private void Awake()
@@ -29,8 +29,11 @@ public class Vibration : MonoBehaviour
         Handheld.Vibrate();
         Debug.Log("Vibrate worked");
     }
-    public static void LongVibration()
+    public static void LongVibration(float time)
     {
+        timeOfVibration = time;
+
+        instance.StopAllCoroutines();
         instance.StartCoroutine(instance.VibrateForTime());
     }
     private IEnumerator VibrateForTime()

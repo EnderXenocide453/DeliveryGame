@@ -18,8 +18,8 @@ public class LoadingSceneController : MonoBehaviour
 
         while (!gameScene.isDone) {
             Debug.Log(gameScene.progress);
-            progressBar.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, gameScene.progress * progressBarBG.rect.width);
             yield return new WaitForEndOfFrame();
+            progressBar.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, gameScene.progress * progressBarBG.rect.width);
         }
     }
 }

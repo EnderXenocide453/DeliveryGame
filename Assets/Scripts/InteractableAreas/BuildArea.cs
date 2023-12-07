@@ -17,8 +17,6 @@ public class BuildArea : InteractableArea
     public bool alreadyBuilded { get; private set; }
     public int storedCash { get; private set; }
 
-    private Coroutine _coroutine;
-
     private void Start()
     {
         if (alreadyBuilded)
@@ -58,6 +56,7 @@ public class BuildArea : InteractableArea
     private IEnumerator GetCash()
     {
         while (true) {
+
             if (GlobalValueHandler.Cash > 0) {
                 SoundsManager.PlaySound(SoundsManager.instance.buildProgressSound);
 
@@ -67,6 +66,7 @@ public class BuildArea : InteractableArea
                 storedCash += cashSpend;
 
                 cashCounter.text = (cost - storedCash).ToString();
+                Vibration.LongVibration(0.3f);
             }
 
             if (storedCash >= cost)

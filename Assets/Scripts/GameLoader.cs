@@ -28,7 +28,7 @@ public class GameLoader : MonoBehaviour
     public void QuitToMenu()
     {
         SaveGame();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(0);
     }
 
 #if UNITY_ANDROID && !UNITY_EDITOR
