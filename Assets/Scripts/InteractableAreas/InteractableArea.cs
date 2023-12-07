@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class InteractableArea : MonoBehaviour
+public abstract class InteractableArea : TutorialObject
 {
     [SerializeField] private LayerMask InteractionMask;
 

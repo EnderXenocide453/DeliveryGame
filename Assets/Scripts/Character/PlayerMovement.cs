@@ -20,13 +20,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (joystick.gameObject.activeInHierarchy) {
-            moveDir = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
+        moveDir = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
 
-            if (moveDir != Vector3.zero) {
-                Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * RotationSpeed);
-            }
+        if (moveDir != Vector3.zero) {
+            Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * RotationSpeed);
         }
     }
     private void FixedUpdate()

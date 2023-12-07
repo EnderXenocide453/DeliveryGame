@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeliveryCounter : MonoBehaviour
+public class DeliveryCounter : TutorialObject
 {
     [SerializeField] LayerMask CourierMask;
     [SerializeField] LayerMask StorekeeperMask;
@@ -15,12 +15,13 @@ public class DeliveryCounter : MonoBehaviour
             CourierManager.SetAwaitingCourier(courier);
             OrdersManager.GenerateOrderForCourier(courier);
 
-            if (_storekeeperStorage)
-                CourierManager.SendGoodsToAwaiting(_storekeeperStorage);
+            if (_storekeeperStorage && CourierManager.SendGoodsToAwaiting(_storekeeperStorage))
+                EndStep();
         }
         else if (((1 << other.gameObject.layer) & StorekeeperMask) > 0 && other.attachedRigidbody.TryGetComponent<Storage>(out var storage)) {
             _storekeeperStorage = storage;
-            CourierManager.SendGoodsToAwaiting(storage);
+            if (CourierManager.SendGoodsToAwaiting(storage))
+                EndStep();
         }
     }
 

@@ -1,8 +1,10 @@
-public abstract class TutorialObject
+using UnityEngine;
+
+public abstract class TutorialObject : MonoBehaviour
 {
     public bool activeTutorial = false;
 
-    public void EndStep()
+    public virtual void EndStep()
     {
         if (activeTutorial)
             TutorialManager.instance.NextStep();

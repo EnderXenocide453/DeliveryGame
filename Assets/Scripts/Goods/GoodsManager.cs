@@ -48,7 +48,7 @@ public class GoodsManager : MonoBehaviour
         if (typeMatch.Count == 0)
             return;
 
-        timer.StartTimer(instance.ProductDelay);
+        timer.StartTimer(instance.ProductDelay, repeat: false);
         timer.onTimeEnds += () => TransportGoods(from, to, typeMatch, timer);
     }
 
@@ -132,6 +132,8 @@ public class GoodsManager : MonoBehaviour
             timer.StopTimer();
             return;
         }
+
+        timer.StartTimer(instance.ProductDelay, repeat: false);
     }
 
     private static void SpawnGoods(Storage target, ProductType type, Timer timer)

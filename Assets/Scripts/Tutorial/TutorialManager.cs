@@ -68,6 +68,10 @@ public class TutorialManager : MonoBehaviour
         foreach (var behaviour in steps[id].enabledBehaviours) {
             behaviour.enabled = true;
         }
+
+        foreach (var obj in steps[id].tutorialObjects) {
+            obj.activeTutorial = true;
+        }
     }
 
     private void DeactivateStep(int id)
@@ -91,6 +95,10 @@ public class TutorialManager : MonoBehaviour
         foreach (var behaviour in steps[id].enabledBehaviours) {
             behaviour.enabled = false;
         }
+
+        foreach (var obj in steps[id].tutorialObjects) {
+            obj.activeTutorial = false;
+        }
     }
 
     [System.Serializable]
@@ -99,6 +107,7 @@ public class TutorialManager : MonoBehaviour
         [TextArea] public string text;
         public Transform navigationTarget;
         public Transform tipTarget;
+        public TutorialObject[] tutorialObjects;
         public Button[] disabledButtons;
         public Transform[] disabledObjects;
         public Transform[] enabledObjects;

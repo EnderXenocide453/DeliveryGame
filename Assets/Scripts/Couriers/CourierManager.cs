@@ -41,9 +41,12 @@ public class CourierManager : MonoBehaviour
         instance._awaitingCourier = courier;
     }
 
-    public static void SendGoodsToAwaiting(Storage storage)
+    public static bool SendGoodsToAwaiting(Storage storage)
     {
-        instance._awaitingCourier?.ReceiveOrderFromStorage(storage);
+        if (!instance._awaitingCourier)
+            return false;
+
+        return instance._awaitingCourier.ReceiveOrderFromStorage(storage);
     }
 
     public Courier AddNewCourier()
