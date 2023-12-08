@@ -1,5 +1,5 @@
 {
-    "music": true,
-    "sound": true,
+    "music": false,
+    "sound": false,
     "vibro": true
 }

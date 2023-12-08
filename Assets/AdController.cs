@@ -64,8 +64,8 @@ public class AdController : MonoBehaviour
         SettingsManager.SetSettings(SettingType.Sound, _soundState);
     }
 
-    public void OnClick()
+    public void OpenLink()
     {
-
+        Application.OpenURL(link);
     }
 }
