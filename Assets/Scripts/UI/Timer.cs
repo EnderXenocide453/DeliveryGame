@@ -8,6 +8,9 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private float updateDelay = 0.02f;
 
+    public bool isPlaying { get; private set; }
+    public float currentTime { get; private set; }
+
     private Image _progressBar;
 
     public delegate void TimerEventHandler();
@@ -22,10 +25,13 @@ public class Timer : MonoBehaviour
     public void StartTimer(float time, bool reverse = false, bool repeat = true)
     {
         StartCoroutine(TimerTick(time, reverse, repeat));
+        isPlaying = true;
     }
 
     public void StopTimer()
     {
+        isPlaying = false;
+        
         StopAllCoroutines();
         _progressBar.fillAmount = 0;
 
@@ -43,10 +49,13 @@ public class Timer : MonoBehaviour
         do {
             for (float currTime = 0; currTime < time; currTime += updateDelay) {
                 _progressBar.fillAmount = reverse ? 1 - (currTime / time) : currTime / time;
+                currentTime = currTime;
                 yield return new WaitForSeconds(updateDelay);
             }
 
             OnCycleEnds();
         } while (repeat) ;
+
+        StopTimer();
     }
 }

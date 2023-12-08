@@ -88,6 +88,12 @@ public class GoodsManager : MonoBehaviour
 
     public void AddMoney(int count) => GlobalValueHandler.Cash += count;
 
+    public void AddMoneyFromAd(int count)
+    {
+        AdController.StartAd();
+        AdController.onAdEnds = () => AddMoney(count);
+    }
+
     #endregion public methods
 
     #region private methods
