@@ -12,7 +12,7 @@ public abstract class InteractableArea : TutorialObject
 
     private void OnTriggerEnter(Collider other)
     {
-        if (((1 << other.gameObject.layer) & InteractionMask.value) > 0 && other.attachedRigidbody && other.attachedRigidbody.TryGetComponent<PlayerInteraction>(out var player)) {
+        if (((1 << other.gameObject.layer) & InteractionMask.value) > 0 && other.TryGetComponent<PlayerInteraction>(out var player)) {
             //onActivated?.Invoke();
             //Activate(other.transform);
             _interaction = player;
@@ -22,7 +22,7 @@ public abstract class InteractableArea : TutorialObject
 
     private void OnTriggerExit(Collider other)
     {
-        if (((1 << other.gameObject.layer) & InteractionMask.value) > 0 && other.attachedRigidbody && other.attachedRigidbody.TryGetComponent<PlayerInteraction>(out var player)) {
+        if (((1 << other.gameObject.layer) & InteractionMask.value) > 0 && other.TryGetComponent<PlayerInteraction>(out var player)) {
             //onDeactivated?.Invoke();
             Deactivate(other.transform);
 
