@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
     public float currentTime { get; private set; }
 
     private Image _progressBar;
+    private Coroutine _coroutine;
 
     public delegate void TimerEventHandler();
     public event TimerEventHandler onTimeEnds;
@@ -24,7 +25,10 @@ public class Timer : MonoBehaviour
 
     public void StartTimer(float time, bool reverse = false, bool repeat = true)
     {
-        StartCoroutine(TimerTick(time, reverse, repeat));
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+
+        _coroutine = StartCoroutine(TimerTick(time, reverse, repeat));
         isPlaying = true;
     }
 
@@ -56,6 +60,7 @@ public class Timer : MonoBehaviour
             OnCycleEnds();
         } while (repeat) ;
 
-        StopTimer();
+        if (isPlaying)
+            StopTimer();
     }
 }
