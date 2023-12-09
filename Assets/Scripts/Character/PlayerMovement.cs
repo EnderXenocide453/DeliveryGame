@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private float _bonusSpeedModifier = 1;
     private Rigidbody _rb;
 
+    public float CurrentSpeedMod => speedModifier * _bonusSpeedModifier;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -29,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        _rb.velocity = moveDir * speed * (speedModifier * _bonusSpeedModifier) * Time.fixedDeltaTime;
+        _rb.velocity = moveDir * speed * CurrentSpeedMod * Time.fixedDeltaTime;
     }
 
     public void AddBonus(float amount, float activeTime)

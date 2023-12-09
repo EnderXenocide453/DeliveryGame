@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScene.unity
     guid: 04307206a2c9a8644a818f05b6f31096
   - enabled: 1
-    path: Assets/Scenes/LevelDesign(laks).unity
+    path: Assets/Scenes/GameScene.unity
     guid: eae5b5631eb69bf4db2753340ce1af41
   - enabled: 0
     path: Assets/Scenes/LevelDesign.unity

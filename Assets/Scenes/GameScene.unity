@@ -11186,7 +11186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1214834892}
-  timer: {fileID: 1812528662}
+  progressBar: {fileID: 1812528663}
   counter: {fileID: 1489026942}
   link: https://nekrokon.itch.io/cyber-james
 --- !u!114 &931705059
@@ -11202,7 +11202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.9647059}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15153,10 +15153,10 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
-  m_WaitForFirstFrame: 1
+  m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
 --- !u!1 &1238755779
@@ -22685,7 +22685,6 @@ GameObject:
   - component: {fileID: 1812528661}
   - component: {fileID: 1812528664}
   - component: {fileID: 1812528663}
-  - component: {fileID: 1812528662}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -22713,19 +22712,6 @@ RectTransform:
   m_AnchoredPosition: {x: 20, y: -20}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1812528662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1812528660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 211c5b04288e9a841bc49d59a585698c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  updateDelay: 0.02
 --- !u!114 &1812528663
 MonoBehaviour:
   m_ObjectHideFlags: 0

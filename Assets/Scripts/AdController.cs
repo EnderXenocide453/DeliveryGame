@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class AdController : MonoBehaviour
@@ -10,8 +11,10 @@ public class AdController : MonoBehaviour
     private static bool _musicState;
     private static bool _soundState;
 
+    private static bool _adStarted;
+
     [SerializeField] VideoPlayer player;
-    [SerializeField] Timer timer;
+    [SerializeField] Image progressBar;
     [SerializeField] TMPro.TMP_Text counter;
     [SerializeField] string link;
 
@@ -27,13 +30,18 @@ public class AdController : MonoBehaviour
 
         instance = this;
         gameObject.SetActive(false);
-
-        timer.onTimeEnds += StopAd;
     }
 
-    void Update()
+    void LateUpdate()
     {
-        counter.text = (player.clip.length - timer.currentTime).ToString("0");
+        if (!_adStarted)
+            return;
+
+        counter.text = (player.clip.length - player.clockTime).ToString("0");
+        progressBar.fillAmount = (float)(1 - player.clockTime / player.clip.length);
+
+        if (!player.isPlaying)
+            StopAd();
     }
 
     public static void StartAd()
@@ -43,13 +51,13 @@ public class AdController : MonoBehaviour
         instance.player.frame = 0;
         instance.player.Play();
 
-        instance.timer.StartTimer((float)instance.player.clip.length, false, false);
-
         _musicState = SettingsManager.Settings[SettingType.Music];
         _soundState = SettingsManager.Settings[SettingType.Sound];
 
         SettingsManager.SetSettings(SettingType.Music, false);
         SettingsManager.SetSettings(SettingType.Sound, false);
+
+        _adStarted = true;
     }
 
     public static void StopAd()
@@ -57,11 +65,11 @@ public class AdController : MonoBehaviour
         instance.gameObject.SetActive(false);
 
         onAdEnds?.Invoke();
-        if (instance.timer.isPlaying)
-            instance.timer.StopTimer();
 
         SettingsManager.SetSettings(SettingType.Music, _musicState);
         SettingsManager.SetSettings(SettingType.Sound, _soundState);
+
+        _adStarted = false;
     }
 
     public void OpenLink()
