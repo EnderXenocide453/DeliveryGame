@@ -1,13 +1,13 @@
 {
-    "playerLevel": 4,
-    "truckLevel": 4,
+    "playerLevel": 0,
+    "truckLevel": 0,
     "storages": [
         {
             "level": 0,
             "goods": [
                 {
                     "type": 0,
-                    "count": 3
+                    "count": 0
                 },
                 {
                     "type": 5,
@@ -16,78 +16,42 @@
             ]
         },
         {
-            "level": 0,
-            "goods": [
-                {
-                    "type": 1,
-                    "count": 5
-                },
-                {
-                    "type": 6,
-                    "count": 0
-                }
-            ]
+            "level": -1,
+            "goods": []
         },
         {
-            "level": 0,
-            "goods": [
-                {
-                    "type": 2,
-                    "count": 5
-                },
-                {
-                    "type": 7,
-                    "count": 0
-                }
-            ]
+            "level": -1,
+            "goods": []
         },
         {
-            "level": 0,
-            "goods": [
-                {
-                    "type": 3,
-                    "count": 5
-                },
-                {
-                    "type": 8,
-                    "count": 0
-                }
-            ]
+            "level": -1,
+            "goods": []
         },
         {
-            "level": 0,
-            "goods": [
-                {
-                    "type": 4,
-                    "count": 5
-                },
-                {
-                    "type": 9,
-                    "count": 0
-                }
-            ]
+            "level": -1,
+            "goods": []
         }
     ],
     "buildings": [
         {
-            "isBuilded": true,
-            "cash": 100
+            "isBuilded": false,
+            "cash": 0
         },
         {
-            "isBuilded": true,
-            "cash": 250
+            "isBuilded": false,
+            "cash": 0
         },
         {
-            "isBuilded": true,
-            "cash": 500
+            "isBuilded": false,
+            "cash": 0
         },
         {
-            "isBuilded": true,
-            "cash": 1000
+            "isBuilded": false,
+            "cash": 0
         }
     ],
     "couriersLevels": [
         0
     ],
-    "cash": 80540
+    "cash": 10
 }

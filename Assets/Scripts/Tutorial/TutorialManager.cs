@@ -111,7 +111,7 @@ public class TutorialManager : MonoBehaviour
     {
         [TextArea] public string text;
         public Transform navigationTarget;
-        public Transform tipTarget;
+        public RectTransform tipTarget;
         public TutorialObject[] tutorialObjects;
         public Button[] disabledButtons;
         public Transform[] disabledObjects;

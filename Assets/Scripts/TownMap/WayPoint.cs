@@ -28,7 +28,7 @@ public class WayPoint : MonoBehaviour
         _iconsVisualizer = GetComponent<GoodsIconsVisualizer>();
 
         if (isStartPoint && MapCourierManager.SetStartPoint(this)) 
-            _image.color = Color.green;
+            _image.color = Color.red;
     }
 
     private void OnDestroy()

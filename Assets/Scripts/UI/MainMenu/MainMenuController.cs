@@ -25,14 +25,11 @@ public class MainMenuController : MonoBehaviour
 
     public void StartNewGame()
     {
-        if (!File.Exists(_savePath)) {
+        if (!File.Exists(_savePath) || warning.gameObject.activeInHierarchy) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        foreach (var item in startNewGameAnimator)
-        {
-            item.SetBool("StartAnimation", true);
-        }
+        warning.gameObject.SetActive(true);
     }
 
     public void ContinueGame()
