@@ -117,18 +117,16 @@ public class GoodsManager : MonoBehaviour
         for (int i = types.Count - 1; i >= 0; i--) {
             var type = types[i];
 
-            if (from.GetProductCount(type) <= 0) {
-                types.RemoveAt(i);
-                continue;
-            }
-
             var info = _generatedProducts[type].GetContainedGoods();
-            if (to.AddProduct(info.type, info.count) == 0) {
+            if (from.GetProductCount(type) <= 0 || to.AddProduct(info.type, info.count) == 0) {
                 types.RemoveAt(i);
                 continue;
             }
 
             from.RemoveProduct(type, 1);
+            if (from.GetProductCount(type) <= 0)
+                types.RemoveAt(i);
+
             SoundsManager.PlaySound(_generatedProducts[type].InteractSound);
             Vibration.LongVibration(0.05f);
 
