@@ -50,6 +50,8 @@
             "cash": 0
         }
     ],
-    "couriersLevels": [],
-    "cash": 0
+    "couriersLevels": [
+        0
+    ],
+    "cash": 35000
 }

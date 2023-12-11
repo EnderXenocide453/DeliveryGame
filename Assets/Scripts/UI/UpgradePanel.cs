@@ -15,6 +15,11 @@ public class UpgradePanel : MonoBehaviour
     private UpgradeQueue _attachedUpgradeQueue;
     private bool _isMax;
 
+    private void OnDestroy()
+    {
+        GlobalValueHandler.onCashChanged -= UpdateButton;
+    }
+
     public void AttachUpgrade(UpgradeQueue upgrade)
     {
         _attachedUpgradeQueue = upgrade;
@@ -89,8 +94,9 @@ public class UpgradePanel : MonoBehaviour
 
     private void OnMaxUpgrade()
     {
-        _isMax = true; ;
+        _isMax = true;
 
         DrawUpgrade();
+        GlobalValueHandler.onCashChanged -= UpdateButton;
     }
 }
