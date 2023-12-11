@@ -9,7 +9,7 @@ public class GoodsIconsVisualizer : MonoBehaviour
 
     private void Awake()
     {
-        GoodsPanel.gameObject.SetActive(false);
+        //GoodsPanel.gameObject.SetActive(false);
     }
 
     public void VisualizeGoods(Dictionary<ProductType, int> goods)

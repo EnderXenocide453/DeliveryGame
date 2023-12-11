@@ -16,6 +16,7 @@ public class SettingsManager : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 30;
         LoadSettings();
         //DontDestroyOnLoad(this);
     }

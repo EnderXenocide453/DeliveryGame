@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5847604465072744389}
   - component: {fileID: 5510938451495651680}
   - component: {fileID: 3160323303711521789}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.01}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5847604465072744389
@@ -59,8 +59,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -1107725997
-  m_SortingOrder: -1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &5510938451495651680
 MonoBehaviour:
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 1800767100560859733}
   - component: {fileID: 5778466257020462598}
   - component: {fileID: 9464770157071155}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3150ed7cd9e8f469507a17ae804d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeTutorial: 0
   InteractionMask:
     serializedVersion: 2
     m_Bits: 8

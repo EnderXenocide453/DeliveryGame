@@ -128,7 +128,7 @@ public class GoodsManager : MonoBehaviour
                 types.RemoveAt(i);
 
             SoundsManager.PlaySound(_generatedProducts[type].InteractSound);
-            Vibration.LongVibration(0.05f);
+            Vibration.LongVibration(0.03f);
 
             break;
         }
@@ -146,7 +146,7 @@ public class GoodsManager : MonoBehaviour
         target.AddProduct(type, 1);
 
         SoundsManager.PlaySound(_generatedProducts[type].InteractSound);
-        Vibration.LongVibration(0.05f);
+        Vibration.LongVibration(0.03f);
 
         if (target.Filled) {
             timer.StopTimer();
@@ -161,7 +161,7 @@ public class GoodsManager : MonoBehaviour
         }
 
         SoundsManager.PlaySound(_generatedProducts[ProductType.BurgerBox].InteractSound);
-        Vibration.LongVibration(0.05f);
+        Vibration.LongVibration(0.03f);
 
         timer.StopTimer();
     }
