@@ -12,10 +12,8 @@ public class GirlWants : MonoBehaviour
 
     [SerializeField] private LayerMask playerMask;
 
-    [SerializeField] private InAreaRandom bonusAreas;
     [SerializeField] private GameObject bonusObject;
     [SerializeField] private float bonusSpeed = 0.5f;
-    [SerializeField] private float bonusArkHeight = 0.5f;
 
     private ProductType _wantedType;
     private bool _wannaSomething;
@@ -49,16 +47,16 @@ public class GirlWants : MonoBehaviour
             }
 
             storage.RemoveProduct(_wantedType, 1);
-            Apply();
+            Apply(other.attachedRigidbody.transform);
         }
     }
 
     [ContextMenu("Create bonus")]
-    private void Apply()
+    private void Apply(Transform target)
     {
         _wannaSomething = false;
 
-        Instantiate(bonusObject, transform.position, Quaternion.identity).GetComponent<Bonus>().FlyTo(bonusAreas.GetRandomPoint(), bonusSpeed, bonusArkHeight);
+        Instantiate(bonusObject, transform.position, Quaternion.identity).GetComponent<Bonus>().FlyTo(target, bonusSpeed);
         cloud.Clear();
 
         SoundsManager.PlaySound(SoundsManager.instance.kissSound);

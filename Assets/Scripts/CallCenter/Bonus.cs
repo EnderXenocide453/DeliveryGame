@@ -9,13 +9,6 @@ public class Bonus : MonoBehaviour
     [SerializeField] float bonusAmount;
     [SerializeField] float bonusTime;
 
-    private Collider _collider;
-
-    private void Awake()
-    {
-        TryGetComponent<Collider>(out _collider);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (((1 << other.gameObject.layer) & playerMask.value) > 0 && other.attachedRigidbody && other.attachedRigidbody.TryGetComponent<PlayerMovement>(out var player)) {
@@ -25,29 +18,17 @@ public class Bonus : MonoBehaviour
         }
     }
 
-    public void FlyTo(Vector3 pos, float speed, float height)
+    public void FlyTo(Transform target, float speed)
     {
-        StartCoroutine(Fly(pos, speed, height));
+        StartCoroutine(Fly(target, speed));
     }
 
-    private IEnumerator Fly(Vector3 pos, float speed, float height, float delay = 0.03f)
+    private IEnumerator Fly(Transform target, float speed)
     {
-        Vector3 direction = pos - transform.position;
-        float distance = direction.magnitude;
-        float curDistance = -1;
-        float stepDistance = speed * delay;
+        while (true) {
+            yield return new WaitForEndOfFrame();
 
-        int stepsCount = (int)(distance / stepDistance);
-
-        for (int i = 0; i < stepsCount; i++) {
-            yield return new WaitForSeconds(delay);
-
-            curDistance += stepDistance / distance * 2;
-            float y = curDistance * curDistance * -height + height;
-            transform.position += direction.normalized * stepDistance;
-            transform.position = new Vector3(transform.position.x, y, transform.position.z);
+            transform.position += (target.position - transform.position).normalized * speed * Time.deltaTime;
         }
-        yield return new WaitForSeconds(delay);
-        _collider.enabled = true;
     }
 }
