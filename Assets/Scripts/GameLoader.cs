@@ -28,6 +28,7 @@ public class GameLoader : MonoBehaviour
     public void QuitToMenu()
     {
         SaveGame();
+        GlobalValueHandler.RemoveAllListeners();
         SceneManager.LoadScene(0);
     }
 

@@ -22,4 +22,9 @@ public static class GlobalValueHandler
 
     public delegate void ValueEventHandler();
     public static event ValueEventHandler onCashChanged;
+
+    public static void RemoveAllListeners()
+    {
+        onCashChanged = null;
+    }
 }

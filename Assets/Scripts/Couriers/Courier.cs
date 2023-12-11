@@ -101,7 +101,7 @@ public class Courier : MonoBehaviour
 
         _cloud.DrawImage(GlobalValueHandler.ApplyIcon, 2f);
         SoundsManager.PlaySound(SoundsManager.instance.orderGoodsSound);
-        Vibration.LongVibration(0.03f);
+        Vibration.SingleVibration();
 
         onOrderReceived?.Invoke();
     }

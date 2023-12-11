@@ -25,6 +25,8 @@ public class MainMenuController : MonoBehaviour
 
     public void StartNewGame()
     {
+        GameLoader.startNewGame = true;
+
         if (!File.Exists(_savePath) || warning.gameObject.activeInHierarchy) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
