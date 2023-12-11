@@ -24,5 +24,7 @@ public class CourierUpgradeQueue : MonoBehaviour
     {
         if (_upgradeQueue == null)
             _upgradeQueue = new UpgradeQueue(upgrades, transform, uiIcons, worldIcons);
+
+        UpgradeQueue.onMaxLevelReached += WinController.OnCourierMaxUpgrade;
     }
 }

@@ -23,5 +23,7 @@ public class PlayerUpgradeQueue : MonoBehaviour
     {
         if (_upgradeQueue == null)
             _upgradeQueue = new UpgradeQueue(upgrades, transform, icon);
+
+        UpgradeQueue.onMaxLevelReached += WinController.OnPlayerMaxUpgrade;
     }
 }

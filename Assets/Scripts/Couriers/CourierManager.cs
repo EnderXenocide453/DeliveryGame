@@ -8,6 +8,7 @@ public class CourierManager : MonoBehaviour
     public static CourierManager instance;
     public static List<Courier> Couriers;
     public static List<Courier> CouriersInQueue;
+    public static int MaxCount => instance.couriersMaxCount;
 
     private Courier _awaitingCourier;
 
@@ -19,6 +20,7 @@ public class CourierManager : MonoBehaviour
     [SerializeField] QueueController CourierQueue;
 
     [SerializeField] GameObject CourierPrefab;
+
 
     public delegate void CourierManagerEventsHandler(Courier target);
     public static event CourierManagerEventsHandler onCourierAdded;

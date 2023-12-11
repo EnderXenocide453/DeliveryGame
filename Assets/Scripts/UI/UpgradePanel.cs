@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UpgradePanel : MonoBehaviour
 {
-    [SerializeField] TMP_Text nameField;
-    [SerializeField] TMP_Text descField;
-    [SerializeField] TMP_Text buttonTextField;
+    [SerializeField] Text nameField;
+    [SerializeField] Text descField;
+    [SerializeField] Text buttonTextField;
     [SerializeField] Button upgradeButton;
     [SerializeField] Image icon;
 

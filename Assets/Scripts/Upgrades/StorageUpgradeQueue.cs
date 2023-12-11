@@ -24,6 +24,11 @@ public class StorageUpgradeQueue : MonoBehaviour
     }
     public BaseUpgrade CurrentUpgrade => UpgradeQueue.CurrentUpgrade;
 
+    private void Awake()
+    {
+        UpgradeQueue.onMaxLevelReached += WinController.OnStorageMaxUpgrade;
+    }
+
     private void OnEnable()
     {
         UpgradeQueue.SetLock(false);

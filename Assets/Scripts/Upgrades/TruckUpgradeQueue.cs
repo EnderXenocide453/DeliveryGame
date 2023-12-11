@@ -24,5 +24,7 @@ public class TruckUpgradeQueue : MonoBehaviour
     {
         if (_upgradeQueue == null)
             _upgradeQueue = new UpgradeQueue(upgrades, transform, icon);
+
+        UpgradeQueue.onMaxLevelReached += WinController.OnTruckMaxUpgrade;
     }
 }
