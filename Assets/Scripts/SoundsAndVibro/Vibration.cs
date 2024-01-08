@@ -18,23 +18,35 @@ public class Vibration : MonoBehaviour
     }
     private void Update()
     {
+#if UNITY_ANDROID
         if (_isVibration)
         {
             Handheld.Vibrate();
             Debug.Log("Long vibration");
         }
+#endif
     }
     public static void SingleVibration()
     {
+#if UNITY_ANDROID
+        if (!SettingsManager.Settings[SettingType.Vibro])
+            return;
+
         Handheld.Vibrate();
         Debug.Log("Vibrate worked");
+#endif
     }
     public static void LongVibration(float time)
     {
+#if UNITY_ANDROID
+        if (!SettingsManager.Settings[SettingType.Vibro])
+            return;
+
         timeOfVibration = time;
 
         instance.StopAllCoroutines();
         instance.StartCoroutine(instance.VibrateForTime());
+#endif
     }
     private IEnumerator VibrateForTime()
     {
