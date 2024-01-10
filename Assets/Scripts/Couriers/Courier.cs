@@ -1,59 +1,59 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Storage)), RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(GoodsIconsVisualizer)), RequireComponent(typeof(EmojiCloud))] 
+[RequireComponent(typeof(Rigidbody))] 
 public class Courier : MonoBehaviour
 {
     public int ID;
 
+    #region World vars
     public float worldSpeed = 10;
     public float rotationSpeed = 360;
-    public float mapSpeedModifier = 1;
-
-    public float speedModifier = 1;
-
     public bool isMove;
-    public Storage CourierStorage { get; private set; }
-    public CourierUpgradeQueue UpgradeQueue { get; private set; }
 
     private Vector3 _moveDir;
     private Transform _target;
 
     private Rigidbody _body;
     private Animator _animator;
+    #endregion
+    #region Map vars
+    public float mapSpeedModifier = 1;
+    public int maxGoodsCount;
 
-    private GoodsIconsVisualizer _iconsVisualizer;
     private WayPoint _orderPoint;
-    private EmojiCloud _cloud;
+    #endregion
+
+    public CourierUpgradeQueue UpgradeQueue { get; private set; }
 
     public WayPoint CurrentOrderPoint
     {
         get => _orderPoint;
         set
         {
-            _orderPoint = value;
+            if (_orderPoint)
+                _orderPoint.orderInteraction.onOrderReady -= ApplyOrder;
 
-            if (value != null) {
-                _iconsVisualizer.VisualizeGoods(CurrentOrderPoint.pointOrder.OrderInfo);
-            } else {
-                _iconsVisualizer.Clear();
-            }
+            _orderPoint = value;
+            _orderPoint.orderInteraction.onOrderReady += ApplyOrder;
+
+            onOrderChanged?.Invoke();
         }
     }
 
+    #region events
     public delegate void CourierEventHandler();
     public event CourierEventHandler onReturned;
     public event CourierEventHandler onOrderReceived;
+    public event CourierEventHandler onOrderChanged;
     public CourierEventHandler onReachedTarget;
+    #endregion
 
     private void Awake()
     {
-        CourierStorage = GetComponent<Storage>();
         UpgradeQueue = GetComponent<CourierUpgradeQueue>();
         UpgradeQueue.UpgradeQueue.onUpgraded += OnUpgraded;
 
         _body = GetComponent<Rigidbody>();
-        _iconsVisualizer = GetComponent<GoodsIconsVisualizer>();
-        _cloud = GetComponent<EmojiCloud>();
         _animator = GetComponentInChildren<Animator>();
     }
 
@@ -78,18 +78,6 @@ public class Courier : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public bool ReceiveOrderFromStorage(Storage storage)
-    {
-        if (CurrentOrderPoint.pointOrder.CheckStorage(storage)) {
-            CourierStorage.GetAllGoodsFrom(storage);
-            ApplyOrder();
-            return true;
-        }
-
-        DenyOrder();
-        return false;
-    }
-
     public void OnReturn()
     {
         onReturned?.Invoke();
@@ -99,16 +87,10 @@ public class Courier : MonoBehaviour
     {
         MapCourierManager.AddCourier(this);
 
-        _cloud.DrawImage(GlobalValueHandler.ApplyIcon, 2f);
         SoundsManager.PlaySound(SoundsManager.instance.orderGoodsSound);
         Vibration.SingleVibration();
 
         onOrderReceived?.Invoke();
-    }
-
-    private void DenyOrder()
-    {
-        _cloud.DrawImage(GlobalValueHandler.DenyIcon, 2f);
     }
 
     private void Move()

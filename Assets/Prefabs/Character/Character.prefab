@@ -221,6 +221,7 @@ MonoBehaviour:
   AllowAllTypes: 1
   GoodsVisualizer: {fileID: 1556050244291820417}
   maxCount: 1
+  setAsDefault: 1
   Name: 
   AllowedTypes: 
 --- !u!114 &5864410096184765379

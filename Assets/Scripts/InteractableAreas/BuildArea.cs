@@ -30,7 +30,7 @@ public class BuildArea : InteractableArea
         foreach (var obj in buildParts)
             obj.gameObject.SetActive(true);
 
-        OrdersManager.AddProductType(allowedType);
+        OrdersManagement.OrdersManager.AddProductType(allowedType);
         alreadyBuilded = true;
         SoundsManager.PlaySound(SoundsManager.instance.buildEndSound);
 

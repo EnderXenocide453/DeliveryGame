@@ -1,19 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using OrdersManagement;
 
 [RequireComponent(typeof(GoodsIconsVisualizer))]
 public class WayPoint : MonoBehaviour
 {
     public bool isStartPoint;
 
+    public OrderInteraction orderInteraction { get; private set; }
     public Dictionary<int, (WayPoint point, Road road)> connections;
     public RoadManager Manager;
 
-    public Order pointOrder { get; private set; } = null;
-
     private Image _image;
-    private GoodsIconsVisualizer _iconsVisualizer;
 
     public delegate void WayPointHandler(int id);
     public event WayPointHandler onDestroyed;
@@ -25,7 +24,6 @@ public class WayPoint : MonoBehaviour
         RoadManager.AddPoint(this);
 
         _image = GetComponent<Image>();
-        _iconsVisualizer = GetComponent<GoodsIconsVisualizer>();
 
         if (isStartPoint && MapCourierManager.SetStartPoint(this)) 
             _image.color = Color.red;
@@ -38,13 +36,11 @@ public class WayPoint : MonoBehaviour
         onPointerEnter = null;
     }
 
-    public void SetOrder(Order order)
+    public void SetOrder(OrderInteraction order)
     {
-        pointOrder = order;
-        order.onFinished += RemoveOrder;
+        orderInteraction = order;
 
-        //Вызов метода отрисовки
-        _iconsVisualizer.VisualizeGoods(order.OrderInfo);
+        orderInteraction.onOrderFinished += RemoveOrder;
     }
 
     public void PointerEnter()
@@ -87,9 +83,7 @@ public class WayPoint : MonoBehaviour
 
     private void RemoveOrder()
     {
-        pointOrder = null;
-        //Убираем иконки заказа
-        _iconsVisualizer.Clear();
+        orderInteraction = null;
 
         OrdersManager.AddFreePoint(this);
     }

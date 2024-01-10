@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,8 +23,6 @@ public class MapCourier : MonoBehaviour
     private WayPoint _startPoint;
     private Courier _courier;
 
-    private GoodsIconsVisualizer _iconsVisualizer;
-
     public int Cash
     {
         get => _cash;
@@ -45,7 +41,6 @@ public class MapCourier : MonoBehaviour
         {
             _courier = value;
             RedrawIcon();
-            _iconsVisualizer?.VisualizeGoods(_courier.CourierStorage.StoredProducts);
         }
     }
 
@@ -57,8 +52,6 @@ public class MapCourier : MonoBehaviour
         _lastPointConnectionLine.enabled = false;
 
         _courierHandler = transform.parent;
-
-        _iconsVisualizer = GetComponent<GoodsIconsVisualizer>();
     }
 
     private void Update()
@@ -73,7 +66,6 @@ public class MapCourier : MonoBehaviour
         UpdatePosition();
 
         RedrawIcon();
-        _iconsVisualizer?.VisualizeGoods(_courier.CourierStorage.StoredProducts);
     }
 
     public void SetStartPoint(WayPoint point)
@@ -151,12 +143,10 @@ public class MapCourier : MonoBehaviour
     private void CheckWayPoint(WayPoint point)
     {
         if (WorldCourier.CurrentOrderPoint != null && point.GetInstanceID() == WorldCourier.CurrentOrderPoint.GetInstanceID()) {
-            Cash += point.pointOrder.TakeOrderFromCourier(WorldCourier);
+            Cash += point.orderInteraction.TakeOrderFromCourier(WorldCourier);
 
             WorldCourier.CurrentOrderPoint?.SetActivity(false);
             WorldCourier.CurrentOrderPoint = null;
-
-            _iconsVisualizer.VisualizeGoods(WorldCourier.CourierStorage.StoredProducts);
         }
     }
 

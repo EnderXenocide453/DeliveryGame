@@ -7,6 +7,7 @@ public class Vibration : MonoBehaviour
     private static float timeOfVibration = 0.35f;
 
     private bool _isVibration;
+
     private void Awake()
     {
         if (instance)

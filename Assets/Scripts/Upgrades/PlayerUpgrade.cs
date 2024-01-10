@@ -29,6 +29,6 @@ public class PlayerUpgrade : BaseUpgrade
         _target.speedModifier = speedModifier;
         _targetStorage.MaxCount = storageCapacity;
 
-        OrdersManager.ChangeMaxCount(storageCapacity);
+        OrdersManagement.OrdersManager.ChangeMaxCount(storageCapacity);
     }
 }

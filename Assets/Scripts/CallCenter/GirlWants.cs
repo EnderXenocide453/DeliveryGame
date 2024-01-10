@@ -1,9 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GirlWants : MonoBehaviour
 {
@@ -29,8 +25,8 @@ public class GirlWants : MonoBehaviour
         {
             yield return new WaitForSeconds(displayInterval);
 
-            int randomTypeOfFood = UnityEngine.Random.Range(0, OrdersManager.goodsTypes.Count);
-            _wantedType = OrdersManager.goodsTypes[randomTypeOfFood];
+            int randomTypeOfFood = UnityEngine.Random.Range(0, OrdersManagement.OrdersManager.goodsTypes.Count);
+            _wantedType = OrdersManagement.OrdersManager.goodsTypes[randomTypeOfFood];
 
             cloud.DrawImage(GoodsManager.GetProductInfo(_wantedType).Icon, displayInterval);
             _wannaSomething = true;

@@ -15,7 +15,7 @@ public class CourierUpgrade : BaseUpgrade
 
     public override string Name => $"Курьер {_target.ID + 1}";
 
-    public override string Description => $"Скорость: {_target.mapSpeedModifier}\nВместимость: {_target.CourierStorage.MaxCount}";
+    public override string Description => $"Скорость: {_target.mapSpeedModifier}\nВместимость: {_target.maxGoodsCount}";
 
     public override void SetTarget(Transform target)
     {
@@ -29,7 +29,7 @@ public class CourierUpgrade : BaseUpgrade
     protected override void PreUpgrade()
     {
         _target.mapSpeedModifier = speedModifier;
-        _target.CourierStorage.MaxCount = storageCapacity;
+        _target.maxGoodsCount = storageCapacity;
 
         foreach (var part in activeParts) {
             part.gameObject.SetActive(true);

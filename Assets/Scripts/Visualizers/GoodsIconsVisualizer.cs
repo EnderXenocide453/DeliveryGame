@@ -20,16 +20,35 @@ public class GoodsIconsVisualizer : MonoBehaviour
             return;
 
         foreach (var type in goods.Keys) {
-            var product = GoodsManager.GetProductInfo(type);
-
             for (int i = 0; i < goods[type]; i++) {
-                var icon = Instantiate(IconPrefab, GoodsPanel).GetComponent<Image>();
-                icon.sprite = product.Icon;
-                icon.transform.SetParent(GoodsPanel);
+                AddIcon(type);
             }
         }
 
         GoodsPanel.gameObject.SetActive(true);
+    }
+
+    public void VisualizeGoods(List<ProductType> goods)
+    {
+        Clear();
+
+        if (goods == null)
+            return;
+
+        foreach (var type in goods) {
+            AddIcon(type);
+        }
+
+        GoodsPanel.gameObject.SetActive(true);
+    }
+
+    private void AddIcon(ProductType type)
+    {
+        var product = GoodsManager.GetProductInfo(type);
+
+        var icon = Instantiate(IconPrefab, GoodsPanel).GetComponent<Image>();
+        icon.sprite = product.Icon;
+        icon.transform.SetParent(GoodsPanel);
     }
 
     public void Clear()

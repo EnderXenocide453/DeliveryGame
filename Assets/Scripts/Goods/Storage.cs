@@ -7,6 +7,7 @@ public class Storage : MonoBehaviour
     [SerializeField] private bool AllowAllTypes;
     [SerializeField] private GoodsVisualizer GoodsVisualizer;
     [SerializeField] private int maxCount = 1;
+    [SerializeField] private bool setAsDefault;
 
     public string Name;
 
@@ -58,6 +59,9 @@ public class Storage : MonoBehaviour
     private void Awake()
     {
         Init();
+
+        if (setAsDefault)
+            OrdersManagement.OrderStateController.SetTargetStorage(this);
     }
 
     #region public methods

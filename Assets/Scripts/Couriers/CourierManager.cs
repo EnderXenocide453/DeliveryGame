@@ -48,7 +48,7 @@ public class CourierManager : MonoBehaviour
         if (!instance._awaitingCourier)
             return false;
 
-        return instance._awaitingCourier.ReceiveOrderFromStorage(storage);
+        return instance._awaitingCourier.CurrentOrderPoint.orderInteraction.GetItemsFromStorage(storage);
     }
 
     public Courier AddNewCourier()
@@ -60,10 +60,8 @@ public class CourierManager : MonoBehaviour
 
         courier.onReturned += () => 
         { 
-            if (courier.CourierStorage.Empty) {
-                ShowCourier(courier);
-                MapCourierManager.RemoveCourier(courier);
-            }
+            ShowCourier(courier);
+            MapCourierManager.RemoveCourier(courier);
         };
         courier.onOrderReceived += () =>
         {
