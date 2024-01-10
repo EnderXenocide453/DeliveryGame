@@ -2,44 +2,44 @@ using UnityEngine;
 
 public abstract class InteractableArea : TutorialObject
 {
-    [SerializeField] private LayerMask InteractionMask;
+    [SerializeField] LayerMask InteractionMask;
+    [SerializeField] float activeAreaScale = 1.5f;
 
-    public delegate void InteractableAreaEventHandler();
-    public event InteractableAreaEventHandler onActivated;
-    public event InteractableAreaEventHandler onDeactivated;
+    private Vector3 _initialScale;
 
-    private PlayerInteraction _interaction;
+    private void Awake()
+    {
+        _initialScale = transform.localScale;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (((1 << other.gameObject.layer) & InteractionMask.value) > 0 && other.TryGetComponent<PlayerInteraction>(out var player)) {
-            //onActivated?.Invoke();
-            //Activate(other.transform);
-            _interaction = player;
-            player.AddArea(this);
+        if (((1 << other.gameObject.layer) & InteractionMask.value) > 0 && other.TryGetComponent<Interactor>(out var interactor)) {
+            interactor.AddArea(this);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (((1 << other.gameObject.layer) & InteractionMask.value) > 0 && other.TryGetComponent<PlayerInteraction>(out var player)) {
-            //onDeactivated?.Invoke();
+        if (((1 << other.gameObject.layer) & InteractionMask.value) > 0 && other.TryGetComponent<Interactor>(out var interactor)) {
             Deactivate(other.transform);
 
-            player.RemoveArea(this);
+            interactor.RemoveArea(this);
         }
     }
 
-    private void OnDisable()
+    public void Activate(Transform obj)
     {
-        _interaction?.RemoveArea(this);
+        transform.localScale = _initialScale * activeAreaScale;
+        OnActivate(obj);
     }
 
-    private void OnDestroy()
+    public void Deactivate(Transform obj)
     {
-        _interaction?.RemoveArea(this);
+        transform.localScale = _initialScale;
+        OnDeactivate(obj);
     }
 
-    public abstract void Activate(Transform obj);
-    public abstract void Deactivate(Transform obj);
+    public abstract void OnActivate(Transform obj);
+    public abstract void OnDeactivate(Transform obj);
 }

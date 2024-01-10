@@ -8,17 +8,7 @@ public class GoodsArea : InteractableArea
 
     public Storage ConnectedStorage;
 
-    private Coroutine _activeCoroutine;
-
-    private void Start()
-    {
-        if (!ConnectedStorage) {
-            Debug.LogWarning("Не подключено хранилище!");
-            Destroy(this);
-        }
-    }
-
-    public override void Activate(Transform obj)
+    public override void OnActivate(Transform obj)
     {
         Debug.Log(activeTutorial);
         if (obj.TryGetComponent<Storage>(out var interactStorage)) {
@@ -30,7 +20,7 @@ public class GoodsArea : InteractableArea
         }
     }
 
-    public override void Deactivate(Transform obj)
+    public override void OnDeactivate(Transform obj)
     {
         timer.onTimeEnds -= EndStep;
         timer?.StopTimer();

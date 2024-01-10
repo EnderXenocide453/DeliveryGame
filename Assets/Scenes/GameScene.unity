@@ -14978,6 +14978,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.23563829
       objectReference: {fileID: 0}
+    - target: {fileID: 8462640626636449323, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462640626636449323, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462640626636449323, guid: 0f478c634c21c594aa0df7a1ed03bc94,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8536171124939414961, guid: 0f478c634c21c594aa0df7a1ed03bc94,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -40752,6 +40767,8 @@ MonoBehaviour:
   InteractionMask:
     serializedVersion: 2
     m_Bits: 8
+  activeAreaScale: 1.5
+  inactiveAreaScale: 1
   ConsumeTypes: 0500000006000000070000000800000009000000
   timer: {fileID: 4529066176956888759}
 --- !u!135 &6188511316269402986
