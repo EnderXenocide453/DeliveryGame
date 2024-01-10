@@ -72,6 +72,7 @@ MonoBehaviour:
   InteractionMask:
     serializedVersion: 2
     m_Bits: 8
+  activeAreaScale: 1.5
   SpawnType: 5
   timer: {fileID: 1743171763054477518}
 --- !u!1 &1479627829292154799

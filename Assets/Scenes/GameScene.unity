@@ -27206,7 +27206,7 @@ Transform:
   m_GameObject: {fileID: 1467049362}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.01, z: 0}
+  m_LocalPosition: {x: 0, y: 0.010000208, z: 1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -39481,21 +39481,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8140584847043769973, guid: 37d932ca8d16419409a1f7cdc91d2022,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.000000044703484
-      objectReference: {fileID: 0}
-    - target: {fileID: 8140584847043769973, guid: 37d932ca8d16419409a1f7cdc91d2022,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.000000052154064
-      objectReference: {fileID: 0}
-    - target: {fileID: 8140584847043769973, guid: 37d932ca8d16419409a1f7cdc91d2022,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.2500003
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40768,7 +40753,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   activeAreaScale: 1.5
-  inactiveAreaScale: 1
   ConsumeTypes: 0500000006000000070000000800000009000000
   timer: {fileID: 4529066176956888759}
 --- !u!135 &6188511316269402986
