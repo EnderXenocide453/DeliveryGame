@@ -19,12 +19,12 @@ namespace OrdersManagement
 
         public void VisualizeOrder()
         {
-            _currentOrder = _courier.CurrentOrderPoint.orderInteraction.order;
-            
-            if (_currentOrder == null) {
+            if (!_courier.CurrentOrderPoint) {
                 Clear();
                 return;
             }
+
+            _currentOrder = _courier.CurrentOrderPoint.orderInteraction.order;
 
             UpdateIcons();
             _currentOrder.onStatesChanged += UpdateIcons;

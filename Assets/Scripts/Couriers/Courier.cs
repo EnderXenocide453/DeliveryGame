@@ -30,11 +30,9 @@ public class Courier : MonoBehaviour
         get => _orderPoint;
         set
         {
-            if (_orderPoint)
-                _orderPoint.orderInteraction.onOrderReady -= ApplyOrder;
-
             _orderPoint = value;
-            _orderPoint.orderInteraction.onOrderReady += ApplyOrder;
+            if (_orderPoint)
+                _orderPoint.orderInteraction.onOrderReady += ApplyOrder;
 
             onOrderChanged?.Invoke();
         }

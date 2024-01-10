@@ -12,7 +12,7 @@ namespace OrdersManagement
         public OrderInteraction(List<ProductType> info)
         {
             order = new Order(info);
-            order.onOrderReady += onOrderReady;
+            order.onOrderReady += OnReady;
         }
 
         ~OrderInteraction()
@@ -47,5 +47,7 @@ namespace OrdersManagement
 
             return income;
         }
+
+        public void OnReady() => onOrderReady?.Invoke();
     }
 }
