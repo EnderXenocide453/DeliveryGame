@@ -6,7 +6,7 @@ public class GoodsSpawner : InteractableArea
     [SerializeField] ProductType SpawnType;
     [SerializeField] Timer timer;
 
-    public override void OnActivate(Transform obj)
+    protected override void OnActivate(Transform obj)
     {
         if (obj.TryGetComponent<Storage>(out var interactStorage)) {
             GoodsManager.StartSpawnGoodsTo(interactStorage, SpawnType, timer);
@@ -15,7 +15,7 @@ public class GoodsSpawner : InteractableArea
         }
     }
 
-    public override void OnDeactivate(Transform obj)
+    protected override void OnDeactivate(Transform obj)
     {
         timer.onTimeEnds -= EndStep;
         timer?.StopTimer();

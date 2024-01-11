@@ -40,6 +40,6 @@ public abstract class InteractableArea : TutorialObject
         OnDeactivate(obj);
     }
 
-    public abstract void OnActivate(Transform obj);
-    public abstract void OnDeactivate(Transform obj);
+    protected abstract void OnActivate(Transform obj);
+    protected abstract void OnDeactivate(Transform obj);
 }
