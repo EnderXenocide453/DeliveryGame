@@ -37,7 +37,7 @@ public class GirlWants : MonoBehaviour
     {
         if (_wannaSomething && ((1 << other.gameObject.layer) & playerMask.value) > 0 && other.attachedRigidbody && other.attachedRigidbody.TryGetComponent<Storage>(out var storage))
         {
-            if (storage.CurrentCount > 1 || storage.GetProductCount(_wantedType) != 1) {
+            if (storage.GetProductCount(_wantedType) == 0) {
                 Deny();
                 return;
             }

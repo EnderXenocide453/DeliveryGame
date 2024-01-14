@@ -22,19 +22,18 @@ public class Interactor : MonoBehaviour
 
     public void AddArea(InteractableArea area)
     {
+        if (_nearAreas.ContainsKey(area.GetInstanceID()))
+            return;
+
         _nearAreas.Add(area.GetInstanceID(), area);
 
-        if (_nearAreas.Count == 1)
-            area.Activate(transform);
+        CalculateNearestArea();
     }
 
     public void RemoveArea(InteractableArea area)
     {
         _nearAreas.Remove(area.GetInstanceID());
         area.Deactivate(transform);
-
-        if (_nearAreas.Count > 0)
-            _nearAreas.ElementAt(0).Value.Activate(transform);
 
         CalculateNearestArea();
     }

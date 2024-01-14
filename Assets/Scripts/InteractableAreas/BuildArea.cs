@@ -43,12 +43,12 @@ public class BuildArea : InteractableArea
         cashCounter.text = (cost - storedCash).ToString();
     }
 
-    public override void OnActivate(Transform obj)
+    protected override void OnActivate(Transform obj)
     {
         StartCoroutine(GetCash());
     }
 
-    public override void OnDeactivate(Transform obj)
+    protected override void OnDeactivate(Transform obj)
     {
         StopAllCoroutines();
     }

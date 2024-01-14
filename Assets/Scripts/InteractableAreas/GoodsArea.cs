@@ -8,7 +8,7 @@ public class GoodsArea : InteractableArea
 
     public Storage ConnectedStorage;
 
-    public override void OnActivate(Transform obj)
+    protected override void OnActivate(Transform obj)
     {
         Debug.Log(activeTutorial);
         if (obj.TryGetComponent<Storage>(out var interactStorage)) {
@@ -20,7 +20,7 @@ public class GoodsArea : InteractableArea
         }
     }
 
-    public override void OnDeactivate(Transform obj)
+    protected override void OnDeactivate(Transform obj)
     {
         timer.onTimeEnds -= EndStep;
         timer?.StopTimer();
