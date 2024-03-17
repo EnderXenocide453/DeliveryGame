@@ -94,7 +94,15 @@ public class GoodsManager : MonoBehaviour
         AdController.onAdEnds = () => AddMoney(count);
     }
 
-    #endregion public methods
+#if UNITY_EDITOR
+    [ContextMenu("Много денях")]
+    public void AddMoney()
+    {
+        AddMoney(1000000);
+    }
+#endif
+
+#endregion public methods
 
     #region private methods
 
@@ -110,6 +118,8 @@ public class GoodsManager : MonoBehaviour
             if (_generatedProducts.TryAdd(product.Type, product))
                 UsedProductTypes.Add(product.Type);
         }
+
+        productsInfo = null;
     }
 
     private static void TransportGoods(Storage from, Storage to, List<ProductType> types, Timer timer)

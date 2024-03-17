@@ -388,8 +388,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 2.557613, y: -38.63829, z: 89.661934}
-  - {x: 26.265137, y: -38.86181, z: 89.43842}
+  - {x: 7.0511017, y: -17.517506, z: 110.782715}
+  - {x: 51.821823, y: -17.93961, z: 110.36063}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -851,8 +851,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 4.1381063, y: -93.62339, z: 34.67683}
-  - {x: -17.672813, y: -93.62339, z: 34.676834}
+  - {x: 10.035802, y: -121.35469, z: 6.9455223}
+  - {x: -31.153261, y: -121.35469, z: 6.945526}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -1343,8 +1343,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 2.557598, y: -10.02816, z: 118.27208}
-  - {x: 26.265137, y: -23.439152, z: 104.86107}
+  - {x: 7.051074, y: 36.5116, z: 164.81183}
+  - {x: 51.821823, y: 11.185467, z: 139.48569}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -1494,8 +1494,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -18.621122, y: -38.638298, z: 89.66194}
-  - {x: -18.621122, y: -45.567314, z: 82.73292}
+  - {x: -32.9441, y: -17.517517, z: 110.78273}
+  - {x: -32.9441, y: -30.602694, z: 97.69754}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -2944,8 +2944,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 26.265137, y: -38.86181, z: 89.43842}
-  - {x: 26.265137, y: -23.439152, z: 104.86107}
+  - {x: 51.821823, y: -17.93961, z: 110.36063}
+  - {x: 51.821823, y: 11.185467, z: 139.48569}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -5015,8 +5015,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -33.161736, y: -34.391487, z: 93.908745}
-  - {x: -18.621122, y: -34.391483, z: 93.90875}
+  - {x: -60.403473, y: -9.4975815, z: 118.80266}
+  - {x: -32.9441, y: -9.497578, z: 118.80266}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -5701,8 +5701,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -38.535435, y: -93.62339, z: 34.676834}
-  - {x: -38.53544, y: -76.41261, z: 51.88762}
+  - {x: -70.5515, y: -121.35469, z: 6.945526}
+  - {x: -70.5515, y: -88.85282, z: 39.44742}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -5935,8 +5935,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -5.661004, y: -60.319416, z: 67.98081}
-  - {x: 12.040618, y: -60.31941, z: 67.98082}
+  - {x: -8.469431, y: -58.461452, z: 69.83878}
+  - {x: 24.959383, y: -58.461433, z: 69.83879}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -6187,8 +6187,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 12.04062, y: -45.79082, z: 82.5094}
-  - {x: 26.265137, y: -38.86181, z: 89.43842}
+  - {x: 24.959385, y: -31.024776, z: 97.27544}
+  - {x: 51.821823, y: -17.93961, z: 110.36063}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -6840,8 +6840,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -18.621122, y: -34.391483, z: 93.90875}
-  - {x: -18.621122, y: -19.415867, z: 108.88438}
+  - {x: -32.9441, y: -9.497578, z: 118.80266}
+  - {x: -32.9441, y: 18.783276, z: 147.08353}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -7859,8 +7859,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -5.661004, y: -72.38931, z: 55.91091}
-  - {x: -5.661004, y: -60.319416, z: 67.98081}
+  - {x: -8.469431, y: -81.254974, z: 47.045246}
+  - {x: -8.469431, y: -58.461452, z: 69.83878}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -8167,8 +8167,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 25.949028, y: -93.62339, z: 34.676834}
-  - {x: 25.94903, y: -80.435905, z: 47.864315}
+  - {x: 51.224865, y: -121.35469, z: 6.945526}
+  - {x: 51.22487, y: -96.45065, z: 31.849567}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -8995,8 +8995,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 25.94903, y: -80.435905, z: 47.864315}
-  - {x: 11.408417, y: -72.61282, z: 55.687405}
+  - {x: 51.22487, y: -96.45065, z: 31.849567}
+  - {x: 23.765495, y: -81.67706, z: 46.62316}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -11960,8 +11960,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 2.5575976, y: -19.415867, z: 108.88438}
-  - {x: 2.557613, y: -38.63829, z: 89.661934}
+  - {x: 7.051073, y: 18.783283, z: 147.08353}
+  - {x: 7.0511017, y: -17.517506, z: 110.782715}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -12200,8 +12200,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -5.661004, y: -60.319416, z: 67.98081}
-  - {x: -33.161736, y: -60.31942, z: 67.98082}
+  - {x: -8.469431, y: -58.461452, z: 69.83878}
+  - {x: -60.403473, y: -58.46146, z: 69.83878}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -12643,8 +12643,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 3.5059109, y: -72.61282, z: 55.687405}
-  - {x: -5.661004, y: -72.38931, z: 55.91091}
+  - {x: 8.841926, y: -81.67706, z: 46.62316}
+  - {x: -8.469431, y: -81.254974, z: 47.045246}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -12922,8 +12922,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 2.557613, y: -38.63829, z: 89.661934}
-  - {x: -18.621122, y: -38.638298, z: 89.66194}
+  - {x: 7.0511017, y: -17.517506, z: 110.782715}
+  - {x: -32.9441, y: -17.517517, z: 110.78273}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -17931,8 +17931,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 12.040618, y: -60.31941, z: 67.98082}
-  - {x: 12.04062, y: -45.79082, z: 82.5094}
+  - {x: 24.959383, y: -58.461433, z: 69.83879}
+  - {x: 24.959385, y: -31.024776, z: 97.27544}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -19255,8 +19255,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -18.621122, y: -34.391483, z: 93.90875}
-  - {x: -18.621122, y: -38.638298, z: 89.66194}
+  - {x: -32.9441, y: -9.497578, z: 118.80266}
+  - {x: -32.9441, y: -17.517517, z: 110.78273}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -19406,8 +19406,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 11.408417, y: -72.61282, z: 55.687405}
-  - {x: 12.040618, y: -60.31941, z: 67.98082}
+  - {x: 23.765495, y: -81.67706, z: 46.62316}
+  - {x: 24.959383, y: -58.461433, z: 69.83879}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -19691,8 +19691,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -5.661004, y: -45.790836, z: 82.5094}
-  - {x: -18.621122, y: -45.567314, z: 82.73292}
+  - {x: -8.469431, y: -31.0248, z: 97.27544}
+  - {x: -32.9441, y: -30.602694, z: 97.69754}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -20012,8 +20012,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 4.1381063, y: -93.62339, z: 34.67683}
-  - {x: 25.949028, y: -93.62339, z: 34.676834}
+  - {x: 10.035802, y: -121.35469, z: 6.9455223}
+  - {x: 51.224865, y: -121.35469, z: 6.945526}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -22002,8 +22002,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -33.161736, y: -60.31942, z: 67.98082}
-  - {x: -33.161736, y: -34.391487, z: 93.908745}
+  - {x: -60.403473, y: -58.46146, z: 69.83878}
+  - {x: -60.403473, y: -9.4975815, z: 118.80266}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -22442,8 +22442,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -38.53544, y: -76.41261, z: 51.88762}
-  - {x: -33.161736, y: -72.38932, z: 55.91092}
+  - {x: -70.5515, y: -88.85282, z: 39.44742}
+  - {x: -60.403473, y: -81.25499, z: 47.045258}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -22755,8 +22755,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 12.04062, y: -45.79082, z: 82.5094}
-  - {x: 2.5576124, y: -45.790825, z: 82.5094}
+  - {x: 24.959385, y: -31.024776, z: 97.27544}
+  - {x: 7.0511007, y: -31.024776, z: 97.27544}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -24343,8 +24343,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 2.5576124, y: -45.790825, z: 82.5094}
-  - {x: -5.661004, y: -45.790836, z: 82.5094}
+  - {x: 7.0511007, y: -31.024776, z: 97.27544}
+  - {x: -8.469431, y: -31.0248, z: 97.27544}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -25401,8 +25401,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -33.161736, y: -72.38932, z: 55.91092}
-  - {x: -33.161736, y: -60.31942, z: 67.98082}
+  - {x: -60.403473, y: -81.25499, z: 47.045258}
+  - {x: -60.403473, y: -58.46146, z: 69.83878}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -26756,8 +26756,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -18.621122, y: -19.415867, z: 108.88438}
-  - {x: 2.5575976, y: -19.415867, z: 108.88438}
+  - {x: -32.9441, y: 18.783276, z: 147.08353}
+  - {x: 7.051073, y: 18.783283, z: 147.08353}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -29291,8 +29291,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 2.5575976, y: -19.415867, z: 108.88438}
-  - {x: 2.557598, y: -10.02816, z: 118.27208}
+  - {x: 7.051073, y: 18.783283, z: 147.08353}
+  - {x: 7.051074, y: 36.5116, z: 164.81183}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -29588,8 +29588,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -33.161736, y: -72.38932, z: 55.91092}
-  - {x: -5.661004, y: -72.38931, z: 55.91091}
+  - {x: -60.403473, y: -81.25499, z: 47.045258}
+  - {x: -8.469431, y: -81.254974, z: 47.045246}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -32875,8 +32875,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 3.5059109, y: -72.61282, z: 55.687405}
-  - {x: 4.1381063, y: -93.62339, z: 34.67683}
+  - {x: 8.841926, y: -81.67706, z: 46.62316}
+  - {x: 10.035802, y: -121.35469, z: 6.9455223}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -33266,96 +33266,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProductDelay: 0.5
   productsInfo:
-  - Name: "\u041F\u0438\u0446\u0446\u0430"
-    Type: 1
-    Cost: 20
-    IsContainer: 0
-    ContainedType: 0
-    Prefab: {fileID: 1458395334040400400, guid: 9cc5740ed17bfad4eaec228c84c4f8fd,
-      type: 3}
-    Icon: {fileID: 21300000, guid: 173f60e322a719b4baebd5d3b32792bd, type: 3}
-    InteractSound: {fileID: 8300000, guid: cb30b2be729664f4e865e7616891ac3c, type: 3}
-  - Name: "\u0411\u0443\u0440\u0433\u0435\u0440"
-    Type: 0
-    Cost: 10
-    IsContainer: 0
-    ContainedType: 0
-    Prefab: {fileID: 4878908570405023625, guid: a2e875d1bcf21fc488d49dba6a2ad3a7,
-      type: 3}
-    Icon: {fileID: 21300000, guid: d32dedb8b7dc30646a90d15c06f578e9, type: 3}
-    InteractSound: {fileID: 8300000, guid: e88c21a94f4da0949a0bcb96247bdc85, type: 3}
-  - Name: "\u0421\u0443\u0448\u0438"
-    Type: 2
-    Cost: 30
-    IsContainer: 0
-    ContainedType: 0
-    Prefab: {fileID: 3482935248328460012, guid: 2dd613006cb1dc640bed0907ce58cc6a,
-      type: 3}
-    Icon: {fileID: 21300000, guid: ba79d8e14d58944489a252736338d4b1, type: 3}
-    InteractSound: {fileID: 8300000, guid: 8c48cb8efd835f84ea597bcf1e4cb711, type: 3}
-  - Name: "\u041D\u0430\u043F\u0438\u0442\u043E\u043A"
-    Type: 3
-    Cost: 10
-    IsContainer: 0
-    ContainedType: 0
-    Prefab: {fileID: 5022334943652677493, guid: 84671f183e9516c4b84308f14a586e9a,
-      type: 3}
-    Icon: {fileID: 21300000, guid: 298524fd68d8e6c42946c51bd3d6231c, type: 3}
-    InteractSound: {fileID: 8300000, guid: 17eb6d8101d857b49b9e881bb54c4bca, type: 3}
-  - Name: "\u0426\u0432\u0435\u0442\u044B"
-    Type: 4
-    Cost: 50
-    IsContainer: 0
-    ContainedType: 0
-    Prefab: {fileID: 1955792546167022754, guid: 6581d7c792246254cb1375770be8ae3a,
-      type: 3}
-    Icon: {fileID: 21300000, guid: 6dbf762a5692c884ca67689d764e199f, type: 3}
-    InteractSound: {fileID: 8300000, guid: c0276f9a7e660074ea8d31aa9b9fcd3c, type: 3}
-  - Name: "\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u0431\u0443\u0440\u0433\u0435\u0440\u043E\u0432"
-    Type: 5
-    Cost: 10
-    IsContainer: 1
-    ContainedType: 0
-    Prefab: {fileID: 1552725673924258816, guid: b7fed1cd3faa40849a929f5718afc50b,
-      type: 3}
-    Icon: {fileID: 0}
-    InteractSound: {fileID: 8300000, guid: f324c91c57c3d3849a18e841eefefc4a, type: 3}
-  - Name: "\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u043F\u0438\u0446\u0446\u044B"
-    Type: 6
-    Cost: 20
-    IsContainer: 1
-    ContainedType: 1
-    Prefab: {fileID: 6541208945543712433, guid: 88181c12a7a6af14fb50b00a6d0ae4aa,
-      type: 3}
-    Icon: {fileID: 0}
-    InteractSound: {fileID: 8300000, guid: f324c91c57c3d3849a18e841eefefc4a, type: 3}
-  - Name: "\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u0441\u0443\u0448\u0438"
-    Type: 7
-    Cost: 30
-    IsContainer: 1
-    ContainedType: 2
-    Prefab: {fileID: 5568710616360117837, guid: 15c70dcfba7010249ae36497bfc70703,
-      type: 3}
-    Icon: {fileID: 0}
-    InteractSound: {fileID: 8300000, guid: f324c91c57c3d3849a18e841eefefc4a, type: 3}
-  - Name: "\u0423\u043F\u0430\u043A\u043E\u0432\u043A\u0430 \u043D\u0430\u043F\u0438\u0442\u043A\u043E\u0432"
-    Type: 8
-    Cost: 10
-    IsContainer: 1
-    ContainedType: 3
-    Prefab: {fileID: 3037011079223009635, guid: f89e9897c6071c942ba1eb5e9314fcc8,
-      type: 3}
-    Icon: {fileID: 0}
-    InteractSound: {fileID: 8300000, guid: f324c91c57c3d3849a18e841eefefc4a, type: 3}
-  - Name: "\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u0441 \u0446\u0432\u0435\u0442\u0430\u043C\u0438"
-    Type: 9
-    Cost: 50
-    IsContainer: 1
-    ContainedType: 4
-    Prefab: {fileID: 5496355263213521708, guid: c93453c3d6c59c14dbe7f5de8abcd26a,
-      type: 3}
-    Icon: {fileID: 0}
-    InteractSound: {fileID: 8300000, guid: f324c91c57c3d3849a18e841eefefc4a, type: 3}
+  - {fileID: 11400000, guid: f43f5983ef4291c4891449668a2d32b0, type: 2}
+  - {fileID: 11400000, guid: a5106eb0192760c42861eca5432b2999, type: 2}
+  - {fileID: 11400000, guid: f9a46a454e90c3846b9d0e9ebce67aa6, type: 2}
+  - {fileID: 11400000, guid: 328ead9418aadd943bb5ff8e301e8c65, type: 2}
+  - {fileID: 11400000, guid: 8346380fee614db4b957ef9dfb86f352, type: 2}
+  - {fileID: 11400000, guid: cdefe59a52be502478a3272aa8f2c341, type: 2}
+  - {fileID: 11400000, guid: 71d8ffb34f49c29488ce22e47c9062c2, type: 2}
+  - {fileID: 11400000, guid: 077fca29f2580754d8a30eb5acba1d25, type: 2}
+  - {fileID: 11400000, guid: a6b69885d2a1d9e4fab392f61e7bfead, type: 2}
+  - {fileID: 11400000, guid: 7915539dbe7cb274fae006d0dd8c847c, type: 2}
   boxCount: 1
   StartCash: 0
 --- !u!4 &1794853409
@@ -33766,8 +33686,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 11.408417, y: -72.61282, z: 55.687405}
-  - {x: 3.5059109, y: -72.61282, z: 55.687405}
+  - {x: 23.765495, y: -81.67706, z: 46.62316}
+  - {x: 8.841926, y: -81.67706, z: 46.62316}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -34232,8 +34152,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: 2.5576124, y: -45.790825, z: 82.5094}
-  - {x: 2.557613, y: -38.63829, z: 89.661934}
+  - {x: 7.0511007, y: -31.024776, z: 97.27544}
+  - {x: 7.0511017, y: -17.517506, z: 110.782715}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -36036,8 +35956,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -17.672813, y: -93.62339, z: 34.676834}
-  - {x: -5.661004, y: -72.38931, z: 55.91091}
+  - {x: -31.153261, y: -121.35469, z: 6.945526}
+  - {x: -8.469431, y: -81.254974, z: 47.045246}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -38249,8 +38169,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -17.672813, y: -93.62339, z: 34.676834}
-  - {x: -38.535435, y: -93.62339, z: 34.676834}
+  - {x: -31.153261, y: -121.35469, z: 6.945526}
+  - {x: -70.5515, y: -121.35469, z: 6.945526}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -38494,8 +38414,8 @@ LineRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_Positions:
-  - {x: -5.661004, y: -60.319416, z: 67.98081}
-  - {x: -5.661004, y: -45.790836, z: 82.5094}
+  - {x: -8.469431, y: -58.461452, z: 69.83878}
+  - {x: -8.469431, y: -31.0248, z: 97.27544}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1

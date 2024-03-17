@@ -1,15 +1,15 @@
 using UnityEngine;
 
-[System.Serializable]
-public class Product
+[CreateAssetMenu(fileName = "DefaultProduct", menuName = "Goods/Product")]
+public class Product : ScriptableObject
 {
-    public string Name;
-    public ProductType Type;
+    public string Name = "Пусто";
+    public ProductType Type = ProductType.Burger;
     public int Cost;
 
     public bool IsContainer;
     //public int ContainedCount;
-    public ProductType ContainedType;
+    public ProductType ContainedType = ProductType.Burger;
 
     public GameObject Prefab;
     public Sprite Icon;

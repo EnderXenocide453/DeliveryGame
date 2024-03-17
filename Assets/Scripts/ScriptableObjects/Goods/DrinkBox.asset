@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 939300d5136e0a54bbc0f9513c3f5ae7, type: 3}
+  m_Name: DrinkBox
+  m_EditorClassIdentifier: 
+  Name: "\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u043D\u0430\u043F\u0438\u0442\u043A\u043E\u0432"
+  Type: 8
+  Cost: 0
+  IsContainer: 1
+  ContainedType: 3
+  Prefab: {fileID: 3037011079223009635, guid: f89e9897c6071c942ba1eb5e9314fcc8, type: 3}
+  Icon: {fileID: 0}
+  InteractSound: {fileID: 8300000, guid: f324c91c57c3d3849a18e841eefefc4a, type: 3}
